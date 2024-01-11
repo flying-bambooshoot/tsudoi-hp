@@ -9,8 +9,8 @@ import Contact from "./pages/contact.jsx";
 
 const RouterConfig =() => {
   return (
-    <BrowserRouter>
-      <Routes basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/news' element={<News />} />
         <Route path='/introduction' element={<Intro />} />
