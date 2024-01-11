@@ -1,3 +1,11 @@
+【NEWSに表示するデータを追加する】
+NEWSを追加する際は"tsudoi-hp\src\data\news.json"ファイルにデータを入力します。
+新しいデータは、JSON配列の最後尾に記載してください。
+文章の中で改行したい場所には"\n"を入れてください。
+
+
+-------------------------------------------------------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
