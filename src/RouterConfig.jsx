@@ -10,12 +10,12 @@ import Contact from "./pages/contact.jsx";
 const RouterConfig =() => {
   return (
     <BrowserRouter>
-      <Routes>
+      <Routes basename={process.env.PUBLIC_URL}>
         <Route path='/' element={<Home />} />
-        <Route path='news' element={<News />} />
-        <Route path='introduction' element={<Intro />} />
-        <Route path='gallery' element={<Gallery />} />
-        <Route path='contact' element={<Contact />} />
+        <Route path='/news' element={<News />} />
+        <Route path='/introduction' element={<Intro />} />
+        <Route path='/gallery' element={<Gallery />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );
