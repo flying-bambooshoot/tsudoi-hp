@@ -1,5 +1,6 @@
 {
   "name": "tsudoi-hp",
+  "homepage": "https://akanematsubara.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
