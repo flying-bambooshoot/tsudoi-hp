@@ -55,7 +55,7 @@ export const TemporaryDrawer = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List style={{ float: 'right'}}>
-      <ListItem style={routeLink} key='HOME' component={Link} to='/' disablePadding>
+      <ListItem style={routeLink} key='HOME' component={Link} to='/tsudoi-hp/' disablePadding>
           <ListItemButton>
             <ListItemIcon>
               <Button />
@@ -63,7 +63,7 @@ export const TemporaryDrawer = () => {
             <ListItemText primary='HOME' />
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='NEWS' component={Link} to='/news' disablePadding>
+        <ListItem style={routeLink} key='NEWS' component={Link} to='/tsudoi-hp/news' disablePadding>
           <ListItemButton>
             <ListItemIcon>
               <Button />
@@ -71,7 +71,7 @@ export const TemporaryDrawer = () => {
             <ListItemText primary='NEWS' />
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='INTRODUCTION/MEMBER' component={Link} to='/introduction' disablePadding>
+        <ListItem style={routeLink} key='INTRODUCTION/MEMBER' component={Link} to='/tsudoi-hp/introduction' disablePadding>
           <ListItemButton>
             <ListItemIcon>
               <Button />
@@ -111,7 +111,7 @@ export const TemporaryDrawer = () => {
             <ListItemText primary='Instagram' />
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='CONTACT US' component={Link} to='/contact' disablePadding>
+        <ListItem style={routeLink} key='CONTACT US' component={Link} to='/tsudoi-hp/contact' disablePadding>
           <ListItemButton>
             <ListItemIcon>
               <Button />

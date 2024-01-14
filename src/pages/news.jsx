@@ -78,7 +78,7 @@ const News = () => {
                     </p>
                 </div>
                 <div>
-                <img src={news[i].img} alt="写真" style={img} />
+                <img src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={img} />
                 </div>
             </div>
         );
