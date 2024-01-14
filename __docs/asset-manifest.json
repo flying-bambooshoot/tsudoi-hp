@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/tsudoi-hp/static/css/main.d440b10b.css",
-    "main.js": "/tsudoi-hp/static/js/main.6081cbec.js",
+    "main.js": "/tsudoi-hp/static/js/main.3124f354.js",
     "static/js/787.070c8c93.chunk.js": "/tsudoi-hp/static/js/787.070c8c93.chunk.js",
     "static/media/all.jpg": "/tsudoi-hp/static/media/all.ffea8ab18b3f9dbb0d74.jpg",
     "static/media/narita_231016.jpg": "/tsudoi-hp/static/media/narita_231016.e90a808259a4059163ce.jpg",
-    "static/media/member_noguchi.jpg": "/tsudoi-hp/static/media/member_noguchi.afc32ab877dbfa4c104d.jpg",
+    "static/media/arata.jpg": "/tsudoi-hp/static/media/arata.a4bbfa9db1588daeea6f.jpg",
+    "static/media/manami.jpg": "/tsudoi-hp/static/media/manami.40f1ddb5ea32651afca5.jpg",
     "static/media/shamicore.jpg": "/tsudoi-hp/static/media/shamicore.411950b346f525e8bca7.jpg",
-    "static/media/member_nakahara.jpg": "/tsudoi-hp/static/media/member_nakahara.a3141f785803205d949f.jpg",
-    "static/media/member_kawasaki.jpg": "/tsudoi-hp/static/media/member_kawasaki.efe01c76579d49628f59.jpg",
-    "static/media/member_matsubara.jpg": "/tsudoi-hp/static/media/member_matsubara.efa7acd5cc54d93e9113.jpg",
     "static/media/uji.jpg": "/tsudoi-hp/static/media/uji.0ca29b18655eab914b19.jpg",
-    "static/media/member_suga.jpg": "/tsudoi-hp/static/media/member_suga.d0cc7545a048e0d97dae.jpg",
+    "static/media/suga.jpg": "/tsudoi-hp/static/media/suga.aa3d732914d650de783a.jpg",
+    "static/media/masako.jpg": "/tsudoi-hp/static/media/masako.3c4512a0be06143296d2.jpg",
+    "static/media/akane.jpg": "/tsudoi-hp/static/media/akane.2fa7157575e8a0ae9f57.jpg",
     "static/media/Instagram_Glyph_White.png": "/tsudoi-hp/static/media/Instagram_Glyph_White.bb8a77bfaa323012e852.png",
     "static/media/narita_stage.jpg": "/tsudoi-hp/static/media/narita_stage.2b1717cb8e6c5e120423.jpg",
     "static/media/logo-white.png": "/tsudoi-hp/static/media/logo-white.4d73a49285dbe9cac801.png",
@@ -19,11 +19,11 @@
     "static/media/logo.png": "/tsudoi-hp/static/media/logo.dadb0601818584da05df.png",
     "index.html": "/tsudoi-hp/index.html",
     "main.d440b10b.css.map": "/tsudoi-hp/static/css/main.d440b10b.css.map",
-    "main.6081cbec.js.map": "/tsudoi-hp/static/js/main.6081cbec.js.map",
+    "main.3124f354.js.map": "/tsudoi-hp/static/js/main.3124f354.js.map",
     "787.070c8c93.chunk.js.map": "/tsudoi-hp/static/js/787.070c8c93.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d440b10b.css",
-    "static/js/main.6081cbec.js"
+    "static/js/main.3124f354.js"
   ]
 }
