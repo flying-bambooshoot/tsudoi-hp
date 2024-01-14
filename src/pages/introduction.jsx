@@ -118,9 +118,9 @@ const Intro = () => {
                             また、『明治大学津軽三味線 響』の講師を務めるなど演奏指導にも力を入れている。
                             </p>
                             <p>
-                                Facebook https://www.facebook.com/origamian.masa<br />
-                                Instagram https://www.instagram.com/shamisen_masanchu<br />
-                                X https://x.com/shijimidaimajin
+                                Facebook：https://www.facebook.com/origamian.masa<br />
+                                Instagram：https://www.instagram.com<br />/shamisen_masanchu<br />
+                                X：https://x.com/shijimidaimajin
                             </p>
                         </div>
                     </Grid>
