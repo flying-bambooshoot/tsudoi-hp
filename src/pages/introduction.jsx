@@ -6,12 +6,12 @@ import Footer from "../components/Footer";
 import Grid from '@mui/material/Unstable_Grid2';
 import All from '../resources/img/all.jpg';
 import {
-    akane,
-    arata,
+    kawasaki,
+    matsubara,
+    nakahara,
+    noguchi,
     suga,
-    manami,
-    masako,
-    uji,
+    fujisaki,
   } from "../resources/img/member";
 
   const body = {
@@ -105,19 +105,27 @@ const Intro = () => {
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <img src={masako} alt="" style={img} />
+                        <img src={nakahara} alt="" style={img} />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
                             <p>中原 正人</p>
                             <p>
-                            つれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、<br/>
-                            そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）
+                            18歳のときに初代 高橋竹山の演奏に感銘を受け、津軽三味線を始める。
+                            伝統的な津軽民謡だけに留まらず、ロック、メタル、民族音楽など多様な音楽を取り入れたジャンルレスな作曲と演奏を得意とする。<br /><br />
+                            全国大会では個人、デュオ、団体の3部門でこれまでに9度の優勝を獲得。
+                            細川たかし、長山洋子、コロッケなど著名アーティストとの共演も多数。
+                            また、『明治大学津軽三味線 響』の講師を務めるなど演奏指導にも力を入れている。
+                            </p>
+                            <p>
+                                Facebook https://www.facebook.com/origamian.masa<br />
+                                Instagram https://www.instagram.com/shamisen_masanchu<br />
+                                X https://x.com/shijimidaimajin
                             </p>
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <img src={manami} alt="" style={img} />
+                        <img src={kawasaki} alt="" style={img} />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
@@ -129,7 +137,7 @@ const Intro = () => {
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <img src={uji} alt="" style={img} />
+                        <img src={fujisaki} alt="" style={img} />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
@@ -141,7 +149,7 @@ const Intro = () => {
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <img src={arata} alt="" style={img} />
+                        <img src={noguchi} alt="" style={img} />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
@@ -159,13 +167,23 @@ const Intro = () => {
                         <div>
                             <p>須賀 行亮</p>
                             <p>
-                            つれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、<br/>
-                            そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）
+                            埼玉県出身。
+                            浪人時代に津軽三味線の存在を知り、明治大学進学時に当大学公認サークルの津軽三味線響に入会。<br /><br />
+                            楽器未経験から始めて3年で津軽三味線全国大会で個人入賞。
+                            代表としては、津軽三味線全国大会、世界大会の団体部門でサークル初出場初入賞。
+                            また、当サークル初の主催イベントである第一回定期演奏会にて総監督として尽力。
+                            大学卒業後も、津軽三味線の力強い音色を多くの人に聴いてほしいとの思いから活動中。
+                            </p>
+                            <p>
+                                X：https://x.com/shamisen_suga<br />
+                                Instagram：https://www.instagram.com/white_0042<br />
+                                Facebook：https://www.facebook.com/profile.php?id=61552332433484<br />
+                                Youtube：https://www.youtube.com/@suga5008
                             </p>
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <img src={akane} alt="" style={img} />
+                        <img src={matsubara} alt="" style={img} />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>

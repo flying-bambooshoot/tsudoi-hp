@@ -1,6 +1,6 @@
-export {default as akane} from './akane.jpg';
-export {default as arata} from './arata.jpg';
-export {default as manami} from './manami.jpg';
-export {default as masako} from './masako.jpg';
-export {default as suga} from './suga.jpg';
-export {default as uji} from './uji.jpg';
+export {default as kawasaki} from './member_kawasaki.jpg';
+export {default as matsubara} from './member_matsubara.jpg';
+export {default as nakahara} from './member_nakahara.jpg';
+export {default as noguchi} from './member_noguchi.jpg';
+export {default as suga} from './member_suga.jpg';
+export {default as fujisaki} from './uji.jpg';
