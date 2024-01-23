@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tsudoi-hp/static/css/main.d440b10b.css",
-    "main.js": "/tsudoi-hp/static/js/main.6bd201f9.js",
+    "main.js": "/tsudoi-hp/static/js/main.9ef7d280.js",
     "static/js/787.070c8c93.chunk.js": "/tsudoi-hp/static/js/787.070c8c93.chunk.js",
     "static/media/all.jpg": "/tsudoi-hp/static/media/all.ffea8ab18b3f9dbb0d74.jpg",
     "static/media/narita_231016.jpg": "/tsudoi-hp/static/media/narita_231016.e90a808259a4059163ce.jpg",
@@ -12,6 +12,7 @@
     "static/media/member_matsubara.jpg": "/tsudoi-hp/static/media/member_matsubara.efa7acd5cc54d93e9113.jpg",
     "static/media/uji.jpg": "/tsudoi-hp/static/media/uji.0ca29b18655eab914b19.jpg",
     "static/media/member_suga.jpg": "/tsudoi-hp/static/media/member_suga.d0cc7545a048e0d97dae.jpg",
+    "static/media/top.jpg": "/tsudoi-hp/static/media/top.838a94fbbb5ee0fdb2b0.jpg",
     "static/media/Instagram_Glyph_White.png": "/tsudoi-hp/static/media/Instagram_Glyph_White.bb8a77bfaa323012e852.png",
     "static/media/narita_stage.jpg": "/tsudoi-hp/static/media/narita_stage.2b1717cb8e6c5e120423.jpg",
     "static/media/logo-white.png": "/tsudoi-hp/static/media/logo-white.4d73a49285dbe9cac801.png",
@@ -19,11 +20,11 @@
     "static/media/logo.png": "/tsudoi-hp/static/media/logo.dadb0601818584da05df.png",
     "index.html": "/tsudoi-hp/index.html",
     "main.d440b10b.css.map": "/tsudoi-hp/static/css/main.d440b10b.css.map",
-    "main.6bd201f9.js.map": "/tsudoi-hp/static/js/main.6bd201f9.js.map",
+    "main.9ef7d280.js.map": "/tsudoi-hp/static/js/main.9ef7d280.js.map",
     "787.070c8c93.chunk.js.map": "/tsudoi-hp/static/js/787.070c8c93.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d440b10b.css",
-    "static/js/main.6bd201f9.js"
+    "static/js/main.9ef7d280.js"
   ]
 }

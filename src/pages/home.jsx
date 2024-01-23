@@ -1,26 +1,22 @@
 import * as React from "react";
 import useMedia from '../useMedia';
 import Com from "./common.module.css";
-import { Button } from "@mui/material";
-/* ↓これ追加 */
-import styled from "@emotion/styled";
 import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import Data from "../data/news.json";
 import tudoiLogo from "../resources/img/logo.png";
+import Top from '../resources/img/top.jpg';
 import {
   narita1,
   narita2,
   orympic,
   shamicore
 } from "../resources/img/homeGallery";
-// import { generateSlides } from '../utils';
 
 const phBody = {
   height: "auto",
-  marginBottom: "24px", 
   fontSize: "14px",
   fontWeight: "bold",
   lineHeight: 1.5,
@@ -39,7 +35,7 @@ const body = {
 }
 
 const main = {
-  margin: "24px 0",
+  margin: "12px 0",
   padding: "12px",
   backgroundColor: "fff",
 }
@@ -107,6 +103,7 @@ const youtube = {
   flex: 1,
   width: "100%",
   aspectRatio: "16 / 9",
+  paddingBottom: "12px",
 }
 
 const iframe = {
@@ -152,13 +149,16 @@ const Home = () => {
   
   return (
     <>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      </head>
       <body style={isMobile ? phBody : body}>
       <Header />
       <PhoneHeader />
         <div className={Com.pc}>
           <section style={mainImg}>
             <div style={artistImg}>
-              <img style={img} src="img/LINE_ALBUM_候補写真_23122525.jpg" alt="集-tsudoi-" />
+              <img style={img} src={Top} alt="集-tsudoi-" />
             </div>
             <div style={logoBlock}>
               <img style={logo} src={tudoiLogo} alt="集-tsudoi-" />
@@ -166,7 +166,7 @@ const Home = () => {
           </section>
         </div>
         <div className={Com.sp} style={artistImg}>
-            <img style={img} src="img/LINE_ALBUM_候補写真_23122525.jpg" alt="集-tsudoi-" />
+            <img style={img} src={Top} alt="集-tsudoi-" />
         </div>
         <main style={isMobile ? phoneMain : main}>
           <section style={isMobile ? none : sec}>
