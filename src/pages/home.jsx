@@ -1,6 +1,6 @@
 import * as React from "react";
 import useMedia from '../useMedia';
-import Com from "./common.module.css";
+import Com from "../css/common.module.css";
 import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
@@ -8,42 +8,13 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import Data from "../data/news.json";
 import tudoiLogo from "../resources/img/logo.png";
 import Top from '../resources/img/top.jpg';
+import "../css/common.css"
 import {
   narita1,
   narita2,
   orympic,
   shamicore
 } from "../resources/img/homeGallery";
-
-const phBody = {
-  height: "auto",
-  fontSize: "14px",
-  fontWeight: "bold",
-  lineHeight: 1.5,
-  letterSpacing: "0.06em",
-  fontFamily: "'Helvetica', 'Helvetica Neue', 'YakuHanJP', '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic ProN', 'Osaka', 'ＭＳ Ｐゴシック', sans-serif",
-}
-
-const body = {
-  height: "auto",
-  margin: "auto 150px",
-  fontSize: "16px",
-  fontWeight: "bold",
-  lineHeight: 1.5,
-  letterSpacing: "0.06em",
-  fontFamily: "'Helvetica', 'Helvetica Neue', 'YakuHanJP', '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic ProN', 'Osaka', 'ＭＳ Ｐゴシック', sans-serif",
-}
-
-const main = {
-  margin: "12px 0",
-  padding: "12px",
-  backgroundColor: "fff",
-}
-
-const phoneMain = {
-  padding: "12px",
-  backgroundColor: "fff",
-}
 
 const mainImg = {
   height: "100%",
@@ -152,7 +123,7 @@ const Home = () => {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </head>
-      <body style={isMobile ? phBody : body}>
+      <body className={isMobile ? "phBody" : "body"}>
       <Header />
       <PhoneHeader />
         <div className={Com.pc}>
@@ -168,7 +139,7 @@ const Home = () => {
         <div className={Com.sp} style={artistImg}>
             <img style={img} src={Top} alt="集-tsudoi-" />
         </div>
-        <main style={isMobile ? phoneMain : main}>
+        <main className={isMobile ? "homePhMain" : "homeMain"}>
           <section style={isMobile ? none : sec}>
             <h1>NEWS</h1>
             <div style={{borderBottom: "solid #cccccc 1px",}}>{newsList}</div>
@@ -190,7 +161,6 @@ const Home = () => {
               speed: 1000,
               cover: true,
               heightRatio: 0.6,
-              // fixedHeight: '60%',
               rewind: 'true',
               gap: '1rem',
               objectFit: 'cover',

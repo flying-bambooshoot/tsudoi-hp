@@ -11,46 +11,6 @@ import {
     shamicore
   } from "../resources/img/homeGallery";
 
-  const body = {
-    height: "auto",
-    fontSize: "14px",
-    fontWeight: "bold",
-    lineHeight: 1.5,
-    letterSpacing: "0.06em",
-    fontFamily: "'Helvetica', 'Helvetica Neue', 'YakuHanJP', '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic ProN', 'Osaka', 'ＭＳ Ｐゴシック', sans-serif",
-  }
-  
-  const phBody = {
-    height: "auto",
-    margin: "auto 150px",
-    fontSize: "16px",
-    fontWeight: "bold",
-    lineHeight: 1.5,
-    letterSpacing: "0.06em",
-    fontFamily: "'Helvetica', 'Helvetica Neue', 'YakuHanJP', '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic ProN', 'Osaka', 'ＭＳ Ｐゴシック', sans-serif",
-  }
-
-const main = {
-    margin: "24px 0",
-    padding: "12px",
-    backgroundColor: "fff",
-}
-
-const phMain = {
-    padding: "0 12px 12px 12px",
-    backgroundColor: "fff",
-}
-
-const title = {
-    padding: "10px 10px",
-    backgroundColor: "rgb(22,22,22)",
-    color: "white",
-}
-
-const h1 = {
-    margin: 0,
-}
-
 const img = {
     objectFit: "cover",
     width: "100%",
@@ -69,12 +29,12 @@ const Intro = () => {
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
             </head>
-            <body style={isMobile ? body : phBody}>
+            <body className={isMobile ? "phBody" : "body"}>
             <Header />
             <PhoneHeader />
-            <main style={isMobile ? main : phMain }>
-                <section style={title}>
-                    <h2 style={h1}>CONTACT US</h2>
+            <main className={isMobile ? "main" : "phMain" }>
+                <section className="title">
+                    <h2 className="h2">CONTACT US</h2>
                 </section>
                 <div style={{padding: "12px 8px"}}>
                     <div style={{margin: "12px 0"}}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Com from "../pages/common.module.css";
+import Com from "../css/common.module.css";
 import tudoiLogo from "../resources/img/logo.png";
 import { TemporaryDrawer } from "./Drawer";
 
@@ -11,10 +11,6 @@ const header = {
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
-}
-
-const logo = {
-
 }
 
 const logoImg = {

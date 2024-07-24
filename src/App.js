@@ -1,5 +1,3 @@
-// import { Routes } from 'react-router-dom';
-// import RouterConfig from './RouterConfig';
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // ページ追加手順

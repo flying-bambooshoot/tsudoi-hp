@@ -1,6 +1,6 @@
 import React from 'react';
 import useMedia from '../useMedia';
-import Com from "../pages/common.module.css";
+import Com from "../css/common.module.css";
 import EmailIcon from '@mui/icons-material/Email';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import Instagram from "../resources/img/Instagram_Glyph_White.png";
@@ -26,10 +26,9 @@ const phoneFooter = {
     backgroundColor: "rgb(22,22,22)",
     display: "flex",
     flexFlow: "column",
-    padding: "10px",
+    padding: "24px",
     flexWrap: "wrap",
     fontSize: "16px",
-    padding: "24px",
     fontWeight: "bold",
     lineHeight: 1.8,
     letterSpacing: "0.06em",
@@ -70,11 +69,7 @@ const linkWord = {
 }
 
 const link = {
-    paddingBottom: "4px",
-}
-
-const phoneMaterials = {
-    flexFlow: "column"
+    paddingBottom: "12px",
 }
 
 const blank = {}
