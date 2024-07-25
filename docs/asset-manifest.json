@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tsudoi-hp/static/css/main.a934121e.css",
-    "main.js": "/tsudoi-hp/static/js/main.0be200f7.js",
+    "main.js": "/tsudoi-hp/static/js/main.91295b26.js",
     "static/js/787.070c8c93.chunk.js": "/tsudoi-hp/static/js/787.070c8c93.chunk.js",
     "static/media/all.jpg": "/tsudoi-hp/static/media/all.ffea8ab18b3f9dbb0d74.jpg",
     "static/media/narita_231016.jpg": "/tsudoi-hp/static/media/narita_231016.e90a808259a4059163ce.jpg",
@@ -20,11 +20,11 @@
     "static/media/logo.png": "/tsudoi-hp/static/media/logo.dadb0601818584da05df.png",
     "index.html": "/tsudoi-hp/index.html",
     "main.a934121e.css.map": "/tsudoi-hp/static/css/main.a934121e.css.map",
-    "main.0be200f7.js.map": "/tsudoi-hp/static/js/main.0be200f7.js.map",
+    "main.91295b26.js.map": "/tsudoi-hp/static/js/main.91295b26.js.map",
     "787.070c8c93.chunk.js.map": "/tsudoi-hp/static/js/787.070c8c93.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a934121e.css",
-    "static/js/main.0be200f7.js"
+    "static/js/main.91295b26.js"
   ]
 }

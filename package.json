@@ -22,12 +22,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env PUBLIC_URL=/tsudoi-hp react-scripts build && cp docs/index.html docs/404.html",
+    "build": "cross-env PUBLIC_URL=/tsudoi-hp react-scripts build",
     "test": "react-scripts test",
     "predeploy": "npm run build",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build",
-    "postbuild": "cp docs/index.html docs/404.html"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
