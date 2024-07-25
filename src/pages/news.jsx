@@ -13,6 +13,7 @@ const newsArea = {
     justifyContent: "space-between",
     alignItems: "center",
     flexWrap: "wrap",
+    wordBreak: "break-all",
 }
 
 const img = {
@@ -29,8 +30,8 @@ const News = () => {
         newsList.push(
             <div style={newsArea}>
                 <div>
-                    <p style={{fontSize: "20px"}}>{news[i].title}</p>
-                    <p style={{fontSize: "15px"}}>{news[i].date}</p>
+                    <p style={{fontSize: "16px"}}>{news[i].title}</p>
+                    <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
                     <p>{news[i].contents}</p>
                     <p>{news[i].linkTitle}
                     <a href={news[i].link} target='_blank'>{news[i].link}</a>

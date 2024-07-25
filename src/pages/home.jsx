@@ -86,15 +86,20 @@ const iframe = {
 
 const newsArea = {
   borderTop: "solid #cccccc 1px",
-  padding: "20px",
+  padding: "20px 0 20px 0",
   whiteSpace: "pre-wrap",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  wordBreak: "break-all",
 }
 
 const sec = {
   marginTop: "36px"
+}
+
+const h1 = {
+  fontSize: "20px",
 }
 
 const none = {}
@@ -109,8 +114,8 @@ const Home = () => {
       newsList.push(
           <div style={newsArea}>
               <div>
-                  <p style={{fontSize: "20px"}}>{news[i].title}</p>
-                  <p style={{fontSize: "15px"}}>{news[i].date}</p>
+                  <p style={{fontSize: "16px"}}>{news[i].title}</p>
+                  <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
                   <p>{news[i].contents}</p>
                   <p>{news[i].linkTitle}
                   <a href={news[i].link} target='_blank'>{news[i].link}</a>
@@ -144,14 +149,14 @@ const Home = () => {
         </div>
         <main className={isMobile ? "homePhMain" : "homeMain"}>
           <section style={isMobile ? none : sec}>
-            <h1>NEWS</h1>
+            <h1 style={h1}>NEWS</h1>
             <div style={{borderBottom: "solid #cccccc 1px",}}>{newsList}</div>
-            <div style={{textDecoration: "underline", padding: "24px 12px 0 0", margin: "0 0 0 auto", width: "120px"}}>
-              <Link to="/tsudoi-hp/news" style={{fontSize: "18px"}}>もっと見る…</Link>
+            <div style={{textDecoration: "underline", paddingTop: "12px", margin: "0 0 0 auto", width: "120px"}}>
+              <Link to="/tsudoi-hp/news" style={{fontSize: "16px"}}>もっと見る…</Link>
             </div>
           </section>
           <section style={sec}>
-            <h1>GALLARY</h1>
+            <h1 style={h1}>GALLARY</h1>
             <Splide style={slide} aria-label="My Favorite Images"
             options={{
               perPage: 1,
@@ -179,7 +184,7 @@ const Home = () => {
             </Splide>
           </section>
           <section style={sec}>
-            <h1>YouTube</h1>
+            <h1 style={h1}>YouTube</h1>
             <div style={isMobile ? phoneMovie : section}>
               <div style={youtube}>
                 <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/0svTkQUk_eM?si=Bs7BNxMQ0XHi9TEF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
