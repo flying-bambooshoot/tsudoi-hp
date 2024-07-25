@@ -28,7 +28,7 @@ const phoneFooter = {
     flexFlow: "column",
     padding: "24px",
     flexWrap: "wrap",
-    fontSize: "16px",
+    fontSize: "14px",
     fontWeight: "bold",
     lineHeight: 1.8,
     letterSpacing: "0.06em",
@@ -53,7 +53,7 @@ const icons = {
 }
 const phoneIcons = {
     width: "100%",
-    marginTop: "24px",
+    marginTop: "40px",
 }
 
 const contactInfo = {
@@ -91,7 +91,7 @@ const Footer = () => {
                         <Link style={linkWord} to="/tsudoi-hp/news">NEWS</Link>
                     </div>
                     <div style={link}>
-                        <Link style={linkWord} to="/tsudoi-hp/introduction">INTRODUCTION/MEMBER</Link>
+                        <Link style={linkWord} to="/tsudoi-hp/introduction">INTRODUCTION</Link>
                     </div>
                     <div style={link}>
                         <Link style={linkWord} to="/tsudoi-hp/contact">CONTACT US</Link>

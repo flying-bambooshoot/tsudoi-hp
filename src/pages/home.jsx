@@ -9,6 +9,7 @@ import Data from "../data/news.json";
 import tudoiLogo from "../resources/img/logo.png";
 import Top from '../resources/img/top.jpg';
 import "../css/common.css"
+import { Link } from "react-router-dom";
 import {
   narita1,
   narita2,
@@ -25,7 +26,8 @@ const mainImg = {
 const newsImg = {
   marginLeft: "auto",
   height: "150px",
-  width: "auto"
+  width: "auto",
+  paddingLeft: "24px",
 }
 
 const artistImg = {
@@ -107,11 +109,12 @@ const Home = () => {
       newsList.push(
           <div style={newsArea}>
               <div>
-                <p>{news[i].title}</p>
-                <p>{news[i].linkTitle}
+                  <p style={{fontSize: "20px"}}>{news[i].title}</p>
+                  <p style={{fontSize: "15px"}}>{news[i].date}</p>
+                  <p>{news[i].contents}</p>
+                  <p>{news[i].linkTitle}
                   <a href={news[i].link} target='_blank'>{news[i].link}</a>
-                </p>
-                <p>{news[i].date}</p>
+                  </p>
               </div>
               <img className={Com.pc} src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={newsImg} />
           </div>
@@ -143,6 +146,9 @@ const Home = () => {
           <section style={isMobile ? none : sec}>
             <h1>NEWS</h1>
             <div style={{borderBottom: "solid #cccccc 1px",}}>{newsList}</div>
+            <div style={{textDecoration: "underline", padding: "24px 12px 0 0", margin: "0 0 0 auto", width: "120px"}}>
+              <Link to="/tsudoi-hp/news" style={{fontSize: "18px"}}>もっと見る…</Link>
+            </div>
           </section>
           <section style={sec}>
             <h1>GALLARY</h1>

@@ -37,7 +37,7 @@ const Intro = () => {
             <PhoneHeader />
             <main className={isMobile ? "main" : "phMain" }>
                 <section className="title">
-                    <h2 className="h2">INTRODUCTION / MEMBER</h2>
+                    <h2 className="h2">INTRODUCTION</h2>
                 </section>
                 <div style={{padding: "20px 0"}}>
                 <Grid container spacing={2} style={{margin: "auto"}}>
@@ -66,7 +66,7 @@ const Intro = () => {
                             </p>
                         </div>
                     </Grid>
-                    <Grid item xs={12} md={6} style={item}>
+                    {/* <Grid item xs={12} md={6} style={item}>
                         <img src={nakahara} alt="" style={img} />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -156,7 +156,7 @@ const Intro = () => {
                             そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）
                             </p>
                         </div>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
                 </div>
             </main>
