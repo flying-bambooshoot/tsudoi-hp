@@ -5,6 +5,9 @@ import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import Grid from '@mui/material/Unstable_Grid2';
 import All from '../resources/img/all.jpg';
+import Instagram from "../resources/img/Instagram_Glyph_White.png";
+import X from "../resources/img/logo-white.png";
+import YouTube from "../resources/img/youtube.png";
 import {
     kawasaki,
     matsubara,
@@ -24,6 +27,21 @@ const img = {
     height: "100%",
 }
 
+const year = {
+    marginBottom: "3px",
+    color: "#8c8c8c",
+    fontSize: "12px",
+}
+
+const contents = {
+    margin: "3px",
+}
+
+const snsIcon = {
+    margin: "0 24px 0 0",
+    height: "36px",
+}
+
 const Intro = () => {
     const isMobile = useMedia('(max-width: 1000px)');
 
@@ -37,36 +55,97 @@ const Intro = () => {
             <PhoneHeader />
             <main className={isMobile ? "main" : "phMain" }>
                 <section className="title">
-                    <h2 className="h2">INTRODUCTION</h2>
+                    <h2 className="h2">INTRODUCTION/MEMBER</h2>
                 </section>
                 <div style={{padding: "20px 0"}}>
                 <Grid container spacing={2} style={{margin: "auto"}}>
-                    <Grid item xs={12} md={6} style={item}>
+                    <Grid item xs={12} md={6}>
                         <img src={All} alt="" style={img} />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
-                            <p>
-                                『集-tsudoi-』<br /><br />
-                                中原正人、川﨑愛実、藤﨑健太、野口新、枩原茜、須賀行亮の 6 名で 2021 年に結成。<br />
-                                全員がどの流派にも属さず活動する異色の団体。<br /><br />
-                                津軽三味線の本領である民謡曲のみならず、現代的なリズムやハーモニーを取り入れたオリジナル楽曲など、<br />
-                                津軽三味線の合奏の可能性を追求している。<br /><br />
-                            </p>
-                            <p>
-                                【受賞歴】<br />
-                                2021年<br />
-                                第9回津軽三味線津軽民謡全国大会 inびわ湖 団体独奏曲部門 優勝<br /><br />
-                                2022年<br />
-                                第40回津軽三味線世界大会 団体の部 優勝<br /><br />
-                                2023年<br />
-                                第26回津軽三味線コンクール全国大会 合奏 銀獅子賞(10人以下)部門 優勝<br /><br />
-                                2023年<br />
-                                第11回津軽三味線津軽民謡全国大会 inびわ湖 団体独奏曲部門 優勝
-                            </p>
+                            <div style={{paddingBottom: "36px"}}>
+                                <p>
+                                    『集-tsudoi-』<br /><br />
+                                    中原正人、川﨑愛実、藤﨑健太、野口新、枩原茜、須賀行亮の 6 名で 2021 年に結成。<br />
+                                    全員がどの流派にも属さず活動する異色の団体。<br /><br />
+                                    津軽三味線の本領である民謡曲のみならず、現代的なリズムやハーモニーを取り入れたオリジナル楽曲など、<br />
+                                    津軽三味線の合奏の可能性を追求している。
+                                </p>
+                            </div>
+                            <div>
+                                <div>
+                                    <p style={{borderBottom: "solid #cccccc 1px", fontSize: "16px"}}>受賞歴</p>
+                                </div>
+                                <div>
+                                    <p style={year}>2021年</p>
+                                    <p style={contents}>第9回津軽三味線津軽民謡全国大会 inびわ湖 団体独奏曲部門 優勝</p>
+                                    <p style={year}>2022年</p>
+                                    <p style={contents}>第40回津軽三味線世界大会 団体の部 優勝</p>
+                                    <p style={year}>2023年</p>
+                                    <p style={contents}>第26回津軽三味線コンクール全国大会 合奏 銀獅子賞(10人以下)部門 優勝</p>
+                                    <p style={contents}>第11回津軽三味線津軽民謡全国大会 inびわ湖 団体独奏曲部門 優勝</p>
+                                    <p style={year}>2024年</p>
+                                    <p style={contents}>第26回津軽三味線コンクール全国大会 合奏 銀獅子賞(10人以下)部門 優勝</p>
+                                </div>
+                            </div>
                         </div>
                     </Grid>
-                    {/* <Grid item xs={12} md={6} style={item}>
+                </Grid>
+                <div style={{padding: "42px 8px 0 8px"}}>
+                    <p style={{borderBottom: "solid #cccccc 1px", fontSize: "18px", marginBottom: "0"}}>MEMEBER</p>
+                </div>
+                <Grid container spacing={2} style={{margin: "auto"}}>
+                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
+                        <div>
+                            <p>中原 正人</p>
+                            <div style={{backgroundColor: "#cccccc"}}>
+                            <a href="https://twitter.com/tsudoi_shamisen" target='_blank'>
+                                <img src={X} alt="" style={snsIcon} />
+                            </a>
+                            <a href="https://www.instagram.com/tsudoi_shamisen" target='_blank'>
+                                <img src={Instagram} alt="" style={snsIcon} />
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCvELpZfQ5fD4i-b8NfyXm9w" target='_blank'>
+                                <img src={YouTube} alt="" style={snsIcon} />
+                            </a>
+                            </div>
+                            <img src={nakahara} alt="" style={img} />
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
+                        <div>
+                            <p>川﨑 愛実</p>
+                            <img src={kawasaki} alt="" style={img} />
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
+                        <div>
+                            <p>藤崎 健太</p>
+                            <img src={fujisaki} alt="" style={img} />
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
+                        <div>
+                            <p>野口 新</p>
+                            <img src={noguchi} alt="" style={img} />
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
+                        <div>
+                            <p>須賀 行亮</p>
+                            <img src={suga} alt="" style={img} />
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
+                        <div>
+                            <p>枩原 茜</p>
+                            <img src={matsubara} alt="" style={img} />
+                        </div>
+                    </Grid>
+                </Grid>
+                {/* <Grid container spacing={2} style={{margin: "auto"}}>
+                    <Grid item xs={12} md={6} style={item}>
                         <img src={nakahara} alt="" style={img} />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -156,8 +235,8 @@ const Intro = () => {
                             そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）
                             </p>
                         </div>
-                    </Grid> */}
-                </Grid>
+                    </Grid>
+                </Grid> */}
                 </div>
             </main>
             </body>

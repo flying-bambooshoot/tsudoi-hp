@@ -91,7 +91,7 @@ const Footer = () => {
                         <Link style={linkWord} to="/tsudoi-hp/news">NEWS</Link>
                     </div>
                     <div style={link}>
-                        <Link style={linkWord} to="/tsudoi-hp/introduction">INTRODUCTION</Link>
+                        <Link style={linkWord} to="/tsudoi-hp/introduction">INTRODUCTION/MEMBER</Link>
                     </div>
                     <div style={link}>
                         <Link style={linkWord} to="/tsudoi-hp/contact">CONTACT US</Link>
