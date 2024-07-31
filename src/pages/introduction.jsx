@@ -5,9 +5,8 @@ import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import Grid from '@mui/material/Unstable_Grid2';
 import All from '../resources/img/all.jpg';
-import Instagram from "../resources/img/Instagram_Glyph_White.png";
-import X from "../resources/img/logo-white.png";
-import YouTube from "../resources/img/youtube.png";
+import Instagram from "../resources/img/Instagram_Glyph_Black.png";
+import X from "../resources/img/logo-black.png";
 import {
     kawasaki,
     matsubara,
@@ -38,8 +37,15 @@ const contents = {
 }
 
 const snsIcon = {
-    margin: "0 24px 0 0",
-    height: "36px",
+    width: "18px",
+    height: "18px",
+    position: "absolute",
+    margin: "auto",
+}
+
+const linkIcon = {
+    width: "20px",
+    color: "#888888",
 }
 
 const Intro = () => {
@@ -69,8 +75,7 @@ const Intro = () => {
                                     『集-tsudoi-』<br /><br />
                                     中原正人、川﨑愛実、藤﨑健太、野口新、枩原茜、須賀行亮の 6 名で 2021 年に結成。<br />
                                     全員がどの流派にも属さず活動する異色の団体。<br /><br />
-                                    津軽三味線の本領である民謡曲のみならず、現代的なリズムやハーモニーを取り入れたオリジナル楽曲など、<br />
-                                    津軽三味線の合奏の可能性を追求している。
+                                    津軽三味線の本領である民謡曲のみならず、現代的なリズムやハーモニーを取り入れたオリジナル楽曲など、津軽三味線の合奏の可能性を追求している。
                                 </p>
                             </div>
                             <div>
@@ -98,48 +103,109 @@ const Intro = () => {
                 <Grid container spacing={2} style={{margin: "auto"}}>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
-                            <p>中原 正人</p>
-                            <div style={{backgroundColor: "#cccccc"}}>
-                            <a href="https://twitter.com/tsudoi_shamisen" target='_blank'>
-                                <img src={X} alt="" style={snsIcon} />
-                            </a>
-                            <a href="https://www.instagram.com/tsudoi_shamisen" target='_blank'>
-                                <img src={Instagram} alt="" style={snsIcon} />
-                            </a>
-                            <a href="https://www.youtube.com/channel/UCvELpZfQ5fD4i-b8NfyXm9w" target='_blank'>
-                                <img src={YouTube} alt="" style={snsIcon} />
-                            </a>
+                            <div style={{display: "flex"}}>
+                                <div style={{margin: "8px"}}>
+                                    <p style={{margin: 0}}>中原 正人</p>
+                                </div>
+                                <div style={{margin: "8px"}}>
+                                    <a href="https://x.com/shijimidaimajin" target='_blank'>
+                                        <img src={X} alt="" style={snsIcon} />
+                                    </a>
+                                    <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "30px"}}>
+                                        <img src={Instagram} alt="" style={snsIcon} />
+                                    </a>
+                                </div>
                             </div>
                             <img src={nakahara} alt="" style={img} />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
-                            <p>川﨑 愛実</p>
+                            <div style={{display: "flex"}}>
+                                <div style={{margin: "8px"}}>
+                                    <p style={{margin: 0}}>川﨑 愛実</p>
+                                </div>
+                                <div style={{margin: "8px"}}>
+                                    <a href="https://x.com/tsugarumanami" target='_blank'>
+                                        <img src={X} alt="" style={snsIcon} />
+                                    </a>
+                                    {/* <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "12px"}}>
+                                        <img src={Instagram} alt="" style={snsIcon} />
+                                    </a> */}
+                                </div>
+                            </div>
                             <img src={kawasaki} alt="" style={img} />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
-                            <p>藤崎 健太</p>
+                            <div style={{display: "flex"}}>
+                                <div style={{margin: "8px"}}>
+                                    <p style={{margin: 0}}>藤崎 健太</p>
+                                </div>
+                                <div style={{margin: "8px"}}>
+                                    {/* <a href="https://x.com/shijimidaimajin" target='_blank'>
+                                        <img src={X} alt="" style={snsIcon} />
+                                    </a>
+                                    <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "12px"}}>
+                                        <img src={Instagram} alt="" style={snsIcon} />
+                                    </a> */}
+                                </div>
+                            </div>
                             <img src={fujisaki} alt="" style={img} />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
-                            <p>野口 新</p>
+                            <div style={{display: "flex"}}>
+                                <div style={{margin: "8px"}}>
+                                    <p style={{margin: 0}}>野口 新</p>
+                                </div>
+                                <div style={{margin: "8px"}}>
+                                    <a href="https://x.com/ara527_shami" target='_blank'>
+                                        <img src={X} alt="" style={snsIcon} />
+                                    </a>
+                                    {/* <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "12px"}}>
+                                        <img src={Instagram} alt="" style={snsIcon} />
+                                    </a> */}
+                                </div>
+                            </div>
                             <img src={noguchi} alt="" style={img} />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
-                            <p>須賀 行亮</p>
+                            <div style={{display: "flex"}}>
+                                <div style={{margin: "8px"}}>
+                                    <p style={{margin: 0}}>須賀 行亮</p>
+                                </div>
+                                <div style={{margin: "8px"}}>
+                                    <a href="https://x.com/Shamisen_SugA" target='_blank'>
+                                        <img src={X} alt="" style={snsIcon} />
+                                    </a>
+                                    {/* <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "12px"}}>
+                                        <img src={Instagram} alt="" style={snsIcon} />
+                                    </a> */}
+                                </div>
+                            </div>
                             <img src={suga} alt="" style={img} />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
-                            <p>枩原 茜</p>
+                            <div style={{display: "flex"}}>
+                                <div style={{margin: "8px"}}>
+                                    <p style={{margin: 0}}>枩原 茜</p>
+                                </div>
+                                <div style={{margin: "8px"}}>
+                                    <a href="https://x.com/kappaakane" target='_blank'>
+                                        <img src={X} alt="" style={snsIcon} />
+                                    </a>
+                                    {/* <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "12px"}}>
+                                        <img src={Instagram} alt="" style={snsIcon} />
+                                    </a> */}
+                                </div>
+                            </div>
                             <img src={matsubara} alt="" style={img} />
                         </div>
                     </Grid>
