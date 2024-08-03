@@ -129,9 +129,9 @@ const Intro = () => {
                                     <a href="https://x.com/tsugarumanami" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
-                                    {/* <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "12px"}}>
+                                    <a href="https://www.instagram.com/tsugarumanami/" target='_blank' style={{padding: "30px"}}>
                                         <img src={Instagram} alt="" style={snsIcon} />
-                                    </a> */}
+                                    </a>
                                 </div>
                             </div>
                             <img src={kawasaki} alt="" style={img} />

@@ -46,19 +46,31 @@ const Intro = () => {
                     </Grid>
                     </div>
                     <div>
-                        <h3>ご依頼について</h3>
+                        <div>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>ご依頼について</p>
+                        </div>
                         <p>パーティ/式典/お祭りなどでの演奏を承ります。<br/>
                         楽曲や演奏時間についてはイベントに合わせて柔軟に対応可能です。</p>
-                        <div>[曲目]</div>
+                        <p>まずはお気軽にどのようなイベントでの演奏をご希望なのか、メールまたは電話にてお知らせください。</p>
+                        <div>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>曲目</p>
+                        </div>
                         <p>民謡/現代曲/カバーなど様々な楽曲の演奏が可能です。<br/>演奏する曲目についてはイベントに合わせてご相談ください。</p>
-                        <div>[編成]</div>
+                        <div>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>編成</p>
+                        </div>
                         <p>2～6人</p>
-                        <div>[金額]</div>
+                        <div>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>金額</p>
+                        </div>
                         <p>東京での演奏の場合、30分10万円～<br />
-                        和装の場合は</p>
+                        和装の場合、30分13万円～</p>
+                        <p>東京以外の場合はご相談ください。</p>
                     </div>
                     <div>
-                        <h3>連絡先</h3>
+                        <div>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>連絡先</p>
+                        </div>
                         <p>メールアドレス：tsudoi.shamisen@gmail.com<br/>
                         電話番号：080-6744-3905</p>
                     </div>
