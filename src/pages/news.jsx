@@ -9,7 +9,6 @@ const newsArea = {
     borderTop: "solid #cccccc 1px",
     padding: "20px",
     whiteSpace: "pre-wrap",
-    display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     flexWrap: "wrap",

@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useState } from 'react';
+import { Transition } from 'react-transition-group'
 import useMedia from '../useMedia';
 import Com from "../css/common.module.css";
 import Header from "../components/Header";
@@ -7,7 +9,8 @@ import Footer from "../components/Footer";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import Data from "../data/news.json";
 import tudoiLogo from "../resources/img/logo.png";
-import Top from '../resources/img/top.jpg';
+import Top1 from '../resources/img/top1.jpg';
+import Top2 from '../resources/img/top2.jpg';
 import "../css/common.css"
 import { Link } from "react-router-dom";
 import {
@@ -108,7 +111,41 @@ const Home = () => {
   const isMobile = useMedia('(max-width: 1000px)');
   const newsList = [];
   const news = Object.values(Data.news).reverse();
-  let imageNames = [narita1, narita2, orympic, shamicore]
+  let imageNames = [narita1, narita2, orympic, shamicore];
+  const [inProp, setInProp] = React.useState(false);
+
+  const transitionStylesA = {
+    entering: {
+      objectFit: "cover",
+      width: "100%",
+      height: "100%",
+      display: "none",
+      // opacity: 0,
+    },
+    exiting: {
+      objectFit: "cover",
+      width: "100%",
+      height: "100%",
+      // opacity: 1,
+      // transition: 'opacity 2s',
+    },
+  }
+
+  const transitionStylesB = {
+    entering: {
+      objectFit: "cover",
+      width: "100%",
+      height: "100%",
+    },
+    exiting: {
+      objectFit: "cover",
+      width: "100%",
+      height: "100%",
+      display: 'none',
+    },
+  }
+
+  setTimeout(() => setInProp(!inProp), 5000);
 
   for (let i = 0; i < 3; i += 1){
       newsList.push(
@@ -136,24 +173,44 @@ const Home = () => {
       <PhoneHeader />
         <div className={Com.pc}>
           <section style={mainImg}>
-            <div style={artistImg}>
-              <img style={img} src={Top} alt="集-tsudoi-" />
-            </div>
+            {/* 元のコード */}
+            {/* <div style={artistImg}>
+              <img style={img} src={Top1} alt="集-tsudoi-" />
+            </div> */}
+
+            <Transition in={inProp} timeout={5000}>
+              {(state) => (
+                <div style={artistImg}>
+                  <img style={transitionStylesA[state]} src={Top1} />
+                  <img style={transitionStylesB[state]} src={Top2} />
+                </div>
+              )}
+            </Transition>
             <div style={logoBlock}>
               <img style={logo} src={tudoiLogo} alt="集-tsudoi-" />
             </div>
           </section>
         </div>
         <div className={Com.sp} style={artistImg}>
-            <img style={img} src={Top} alt="集-tsudoi-" />
+          <Transition in={inProp} timeout={5000}>
+              {(state) => (
+                <div style={artistImg}>
+                  <img style={transitionStylesA[state]} src={Top1} />
+                  <img style={transitionStylesB[state]} src={Top2} />
+                </div>
+              )}
+            </Transition>
+            {/* <img style={img} src={Top1} alt="集-tsudoi-" /> */}
         </div>
         <main className={isMobile ? "homePhMain" : "homeMain"}>
           <section style={isMobile ? none : sec}>
+            <div style={{display: "flex"}}>
             <h1 style={h1}>NEWS</h1>
-            <div style={{borderBottom: "solid #cccccc 1px",}}>{newsList}</div>
-            <div style={{textDecoration: "underline", paddingTop: "12px", margin: "0 0 0 auto", width: "120px"}}>
-              <Link to="/tsudoi-hp/news" style={{fontSize: "16px"}}>もっと見る…</Link>
+            {/* <div style={{textDecoration: "underline", padding: "12px 8px 0 0", margin: "0 0 0 auto", width: "120px"}}>
+              <Link to="/tsudoi-hp/news" style={{fontSize: "16px"}}>もっと見る</Link>
+            </div> */}
             </div>
+            <div style={{borderBottom: "solid #cccccc 1px",}}>{newsList}</div>
           </section>
           <section style={sec}>
             <h1 style={h1}>GALLARY</h1>

@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import Grid from '@mui/material/Unstable_Grid2';
-import All from '../resources/img/all.jpg';
+import All from '../resources/img/all3.jpg';
 import Instagram from "../resources/img/Instagram_Glyph_Black.png";
 import X from "../resources/img/logo-black.png";
 import {
@@ -32,8 +32,13 @@ const year = {
     fontSize: "12px",
 }
 
+const content = {
+    margin: "3px",
+}
+
 const contents = {
     margin: "3px",
+    paddingBottom: "6px"
 }
 
 const snsIcon = {
@@ -84,14 +89,14 @@ const Intro = () => {
                                 </div>
                                 <div>
                                     <p style={year}>2021年</p>
-                                    <p style={contents}>第9回津軽三味線津軽民謡全国大会 inびわ湖 団体独奏曲部門 優勝</p>
+                                    <p style={content}>第9回津軽三味線津軽民謡全国大会 inびわ湖 団体独奏曲部門 優勝</p>
                                     <p style={year}>2022年</p>
-                                    <p style={contents}>第40回津軽三味線世界大会 団体の部 優勝</p>
+                                    <p style={content}>第40回津軽三味線世界大会 団体の部 優勝</p>
                                     <p style={year}>2023年</p>
                                     <p style={contents}>第26回津軽三味線コンクール全国大会 合奏 銀獅子賞(10人以下)部門 優勝</p>
-                                    <p style={contents}>第11回津軽三味線津軽民謡全国大会 inびわ湖 団体独奏曲部門 優勝</p>
+                                    <p style={content}>第11回津軽三味線津軽民謡全国大会 inびわ湖 団体独奏曲部門 優勝</p>
                                     <p style={year}>2024年</p>
-                                    <p style={contents}>第26回津軽三味線コンクール全国大会 合奏 銀獅子賞(10人以下)部門 優勝</p>
+                                    <p style={content}>第26回津軽三味線コンクール全国大会 合奏 銀獅子賞(10人以下)部門 優勝</p>
                                 </div>
                             </div>
                         </div>
@@ -104,15 +109,12 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px"}}>
+                                <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>中原 正人</p>
                                 </div>
-                                <div style={{margin: "8px"}}>
+                                <div style={{margin: "10px 8px 0 0"}}>
                                     <a href="https://x.com/shijimidaimajin" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
-                                    </a>
-                                    <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "30px"}}>
-                                        <img src={Instagram} alt="" style={snsIcon} />
                                     </a>
                                 </div>
                             </div>
@@ -122,15 +124,12 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px"}}>
+                                <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>川﨑 愛実</p>
                                 </div>
-                                <div style={{margin: "8px"}}>
+                                <div style={{margin: "10px 8px 0 0"}}>
                                     <a href="https://x.com/tsugarumanami" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
-                                    </a>
-                                    <a href="https://www.instagram.com/tsugarumanami/" target='_blank' style={{padding: "30px"}}>
-                                        <img src={Instagram} alt="" style={snsIcon} />
                                     </a>
                                 </div>
                             </div>
@@ -140,15 +139,12 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px"}}>
+                                <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>藤崎 健太</p>
                                 </div>
                                 <div style={{margin: "8px"}}>
                                     {/* <a href="https://x.com/shijimidaimajin" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
-                                    </a>
-                                    <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "12px"}}>
-                                        <img src={Instagram} alt="" style={snsIcon} />
                                     </a> */}
                                 </div>
                             </div>
@@ -158,16 +154,13 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px"}}>
+                                <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>野口 新</p>
                                 </div>
-                                <div style={{margin: "8px"}}>
+                                <div style={{margin: "10px 8px 0 0"}}>
                                     <a href="https://x.com/ara527_shami" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
-                                    {/* <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "12px"}}>
-                                        <img src={Instagram} alt="" style={snsIcon} />
-                                    </a> */}
                                 </div>
                             </div>
                             <img src={noguchi} alt="" style={img} />
@@ -176,16 +169,13 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px"}}>
+                                <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>須賀 行亮</p>
                                 </div>
-                                <div style={{margin: "8px"}}>
+                                <div style={{margin: "10px 8px 0 0"}}>
                                     <a href="https://x.com/Shamisen_SugA" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
-                                    {/* <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "12px"}}>
-                                        <img src={Instagram} alt="" style={snsIcon} />
-                                    </a> */}
                                 </div>
                             </div>
                             <img src={suga} alt="" style={img} />
@@ -194,16 +184,13 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px"}}>
+                                <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>枩原 茜</p>
                                 </div>
-                                <div style={{margin: "8px"}}>
+                                <div style={{margin: "10px 8px 0 0"}}>
                                     <a href="https://x.com/kappaakane" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
-                                    {/* <a href="https://www.instagram.com/shamisen_masanchu/" target='_blank' style={{padding: "12px"}}>
-                                        <img src={Instagram} alt="" style={snsIcon} />
-                                    </a> */}
                                 </div>
                             </div>
                             <img src={matsubara} alt="" style={img} />
