@@ -21,6 +21,10 @@ const imgContainer = {
     aspectRatio: "16 / 9",
 }
 
+const section = {
+    paddingTop: 16,
+}
+
 const Intro = () => {
     const isMobile = useMedia('(max-width: 1000px)');
 
@@ -46,21 +50,21 @@ const Intro = () => {
                     </Grid>
                     </div>
                     <div>
-                        <div>
+                        <div style={section}>
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>ご依頼について</p>
                         </div>
                         <p>パーティ/式典/お祭りなどでの演奏を承ります。<br/>
                         楽曲や演奏時間についてはイベントに合わせて柔軟に対応可能です。</p>
                         <p>まずはお気軽にどのようなイベントでの演奏をご希望なのか、メールまたは電話にてお知らせください。</p>
-                        <div>
+                        <div style={section}>
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>曲目</p>
                         </div>
                         <p>民謡/現代曲/カバーなど様々な楽曲の演奏が可能です。<br/>演奏する曲目についてはイベントに合わせてご相談ください。</p>
-                        <div>
+                        <div style={section}>
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>編成</p>
                         </div>
                         <p>2～6人</p>
-                        <div>
+                        <div style={section}>
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>金額</p>
                         </div>
                         <p>東京での演奏の場合、30分10万円～<br />
@@ -68,7 +72,7 @@ const Intro = () => {
                         <p>東京以外の場合はご相談ください。</p>
                     </div>
                     <div>
-                        <div>
+                        <div style={section}>
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>連絡先</p>
                         </div>
                         <p>メールアドレス：tsudoi.shamisen@gmail.com<br/>

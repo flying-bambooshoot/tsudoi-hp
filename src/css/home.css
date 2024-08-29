@@ -17,7 +17,7 @@
 
 @keyframes change-img-anim-first {
     0%{ opacity: １;}
-    30%{ opacity: 1;}
+    5%{ opacity: 1;}
     36%{ opacity: 1;}
     45%{ opacity: 1;}
     100%{ opacity: 0;}

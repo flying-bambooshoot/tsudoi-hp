@@ -7,6 +7,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import All from '../resources/img/all3.jpg';
 import Instagram from "../resources/img/Instagram_Glyph_Black.png";
 import X from "../resources/img/logo-black.png";
+import "../css/introduction.css"
 import {
     kawasaki,
     matsubara,
@@ -71,7 +72,7 @@ const Intro = () => {
                 <div style={{padding: "20px 0"}}>
                 <Grid container spacing={2} style={{margin: "auto"}}>
                     <Grid item xs={12} md={6}>
-                        <img src={All} alt="" style={img} />
+                        <img className="fadeIn" src={All} alt="" style={img} />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
@@ -107,7 +108,7 @@ const Intro = () => {
                 </div>
                 <Grid container spacing={2} style={{margin: "auto"}}>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
+                        <div className='fadeUp'>
                             <div style={{display: "flex"}}>
                                 <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>中原 正人</p>
@@ -122,7 +123,7 @@ const Intro = () => {
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
+                        <div className='fadeUp'>
                             <div style={{display: "flex"}}>
                                 <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>川﨑 愛実</p>
@@ -137,7 +138,7 @@ const Intro = () => {
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
+                        <div className='fadeUp'>
                             <div style={{display: "flex"}}>
                                 <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>藤崎 健太</p>
@@ -152,7 +153,7 @@ const Intro = () => {
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
+                        <div className='fadeUp'>
                             <div style={{display: "flex"}}>
                                 <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>野口 新</p>
@@ -167,7 +168,7 @@ const Intro = () => {
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
+                        <div className='fadeUp'>
                             <div style={{display: "flex"}}>
                                 <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>須賀 行亮</p>
@@ -182,7 +183,7 @@ const Intro = () => {
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
+                        <div className='fadeUp'>
                             <div style={{display: "flex"}}>
                                 <div style={{margin: "8px", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>枩原 茜</p>

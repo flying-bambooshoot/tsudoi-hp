@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from 'react';
 import { Transition } from 'react-transition-group'
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import useMedia from '../useMedia';
 import Com from "../css/common.module.css";
 import Header from "../components/Header";
@@ -100,7 +101,7 @@ const newsArea = {
 }
 
 const sec = {
-  marginTop: "36px"
+  marginTop: "36px",
 }
 
 const h1 = {
@@ -127,8 +128,8 @@ const Home = () => {
       newsList.push(
           <div style={newsArea}>
               <div>
-              <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
                   <p style={{fontSize: "16px"}}>{news[i].title}</p>
+                  <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
                   <p>{news[i].contents}</p>
               </div>
               <img className={Com.pc} src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={newsImg} />
@@ -166,10 +167,12 @@ const Home = () => {
         <main className={isMobile ? "homePhMain" : "homeMain"}>
           <section style={isMobile ? none : sec}>
             <div style={{display: "flex"}}>
-            <h1 style={h1}>NEWS</h1>
-            {/* <div style={{textDecoration: "underline", padding: "12px 8px 0 0", margin: "0 0 0 auto", width: "120px"}}>
-              <Link to="/tsudoi-hp/news" style={{fontSize: "16px"}}>もっと見る</Link>
-            </div> */}
+              <h1 style={h1}>NEWS</h1>
+              <div style={{justifyItems: "center", margin: "0.67em 0 0.67em auto"}}>
+                <Link to="/tsudoi-hp/news">
+                  <KeyboardDoubleArrowRightIcon style={{fontSize: 32, color: "black"}}/>
+                </Link>
+              </div>
             </div>
             <div style={{borderBottom: "solid #cccccc 1px",}}>{newsList}</div>
           </section>
