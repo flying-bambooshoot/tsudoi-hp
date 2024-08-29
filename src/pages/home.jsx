@@ -12,6 +12,7 @@ import tudoiLogo from "../resources/img/logo.png";
 import Top1 from '../resources/img/top1.jpg';
 import Top2 from '../resources/img/top2.jpg';
 import "../css/common.css"
+import "../css/home.css"
 import { Link } from "react-router-dom";
 import {
   narita1,
@@ -35,6 +36,7 @@ const newsImg = {
 
 const artistImg = {
   width: "100%",
+  position: "relative",
   flex: "3"
 }
 
@@ -105,6 +107,13 @@ const h1 = {
   fontSize: "20px",
 }
 
+const imgDammy = {
+  objectFit: "cover",
+  width: "100%",
+  height: "100%",
+  opacity: 0,
+}
+
 const none = {}
 
 const Home = () => {
@@ -114,49 +123,13 @@ const Home = () => {
   let imageNames = [narita1, narita2, orympic, shamicore];
   const [inProp, setInProp] = React.useState(false);
 
-  const transitionStylesA = {
-    entering: {
-      objectFit: "cover",
-      width: "100%",
-      height: "100%",
-      display: "none",
-      // opacity: 0,
-    },
-    exiting: {
-      objectFit: "cover",
-      width: "100%",
-      height: "100%",
-      // opacity: 1,
-      // transition: 'opacity 2s',
-    },
-  }
-
-  const transitionStylesB = {
-    entering: {
-      objectFit: "cover",
-      width: "100%",
-      height: "100%",
-    },
-    exiting: {
-      objectFit: "cover",
-      width: "100%",
-      height: "100%",
-      display: 'none',
-    },
-  }
-
-  setTimeout(() => setInProp(!inProp), 5000);
-
   for (let i = 0; i < 3; i += 1){
       newsList.push(
           <div style={newsArea}>
               <div>
+              <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
                   <p style={{fontSize: "16px"}}>{news[i].title}</p>
-                  <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
                   <p>{news[i].contents}</p>
-                  <p>{news[i].linkTitle}
-                  <a href={news[i].link} target='_blank'>{news[i].link}</a>
-                  </p>
               </div>
               <img className={Com.pc} src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={newsImg} />
           </div>
@@ -173,34 +146,22 @@ const Home = () => {
       <PhoneHeader />
         <div className={Com.pc}>
           <section style={mainImg}>
-            {/* 元のコード */}
-            {/* <div style={artistImg}>
-              <img style={img} src={Top1} alt="集-tsudoi-" />
-            </div> */}
-
-            <Transition in={inProp} timeout={5000}>
-              {(state) => (
-                <div style={artistImg}>
-                  <img style={transitionStylesA[state]} src={Top1} />
-                  <img style={transitionStylesB[state]} src={Top2} />
-                </div>
-              )}
-            </Transition>
-            <div style={logoBlock}>
-              <img style={logo} src={tudoiLogo} alt="集-tsudoi-" />
+            <div style={artistImg}>
+              <img class="image" src={Top1} />
+              <img class="image" src={Top2} />
+              <img  style={imgDammy} src={Top2} />
+            </div>
+              <div style={logoBlock}>
+                <img style={logo} src={tudoiLogo} alt="集-tsudoi-" />
             </div>
           </section>
         </div>
-        <div className={Com.sp} style={artistImg}>
-          <Transition in={inProp} timeout={5000}>
-              {(state) => (
-                <div style={artistImg}>
-                  <img style={transitionStylesA[state]} src={Top1} />
-                  <img style={transitionStylesB[state]} src={Top2} />
-                </div>
-              )}
-            </Transition>
-            {/* <img style={img} src={Top1} alt="集-tsudoi-" /> */}
+        <div className={Com.sp}>
+          <div style={artistImg}>
+            <img class="image" src={Top1} />
+            <img class="image" src={Top2} />
+            <img  style={imgDammy} src={Top2} />
+          </div>
         </div>
         <main className={isMobile ? "homePhMain" : "homeMain"}>
           <section style={isMobile ? none : sec}>
