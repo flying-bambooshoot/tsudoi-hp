@@ -59,7 +59,7 @@ const Intro = () => {
                         <div style={section}>
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>曲目</p>
                         </div>
-                        <p>民謡/現代曲/カバーなど様々な楽曲の演奏が可能です。<br/>演奏する曲目についてはイベントに合わせてご相談ください。</p>
+                        <p>民謡/現代曲/カバーなど様々な楽曲の演奏が可能です。演奏する曲目についてはイベントに合わせてご相談ください。</p>
                         <div style={section}>
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>編成</p>
                         </div>
@@ -73,8 +73,7 @@ const Intro = () => {
                             別途交通費をいただきます。
                         </p>
                         <p>
-                            ご予算や会場などシチュエーションに応じて少人数での演奏も承ります。<br />
-                            まずはご相談ください。
+                            ご予算や会場などシチュエーションに応じて少人数での演奏も承ります。まずはご相談ください。
                         </p>
                     </div>
                     <div>
