@@ -5,10 +5,10 @@ import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import Grid from '@mui/material/Unstable_Grid2';
 import {
-    narita1,
+    school,
     narita2,
     orympic,
-    shamicore
+    bellserl
   } from "../resources/img/homeGallery";
 
 const img = {
@@ -43,10 +43,10 @@ const Intro = () => {
                 <div style={{padding: "12px 8px"}}>
                     <div style={{margin: "12px 0"}}>
                     <Grid container spacing={isMobile ? 1 : 2}>
-                        <Grid item xs={6} style={imgContainer}><img src={narita1} alt="" style={img} /></Grid>
+                        <Grid item xs={6} style={imgContainer}><img src={school} alt="" style={img} /></Grid>
                         <Grid item xs={6} style={imgContainer}><img src={narita2} alt="" style={img} /></Grid>
                         <Grid item xs={6} style={imgContainer}><img src={orympic} alt="" style={img} /></Grid>
-                        <Grid item xs={6} style={imgContainer}><img src={shamicore} alt="" style={img} /></Grid>
+                        <Grid item xs={6} style={imgContainer}><img src={bellserl} alt="" style={img} /></Grid>
                     </Grid>
                     </div>
                     <div>
@@ -67,9 +67,15 @@ const Intro = () => {
                         <div style={section}>
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>金額</p>
                         </div>
-                        <p>東京での演奏の場合、30分10万円～<br />
-                        和装の場合、30分13万円～</p>
-                        <p>東京以外の場合はご相談ください。</p>
+                        <p>
+                            東京で6人での演奏の場合、30分10万円～<br />
+                            和装の場合は追加料金をいただきます。<br />
+                            別途交通費をいただきます。
+                        </p>
+                        <p>
+                            ご予算や会場などシチュエーションに応じて少人数での演奏も承ります。<br />
+                            まずはご相談ください。
+                        </p>
                     </div>
                     <div>
                         <div style={section}>

@@ -4,8 +4,7 @@ import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import Grid from '@mui/material/Unstable_Grid2';
-import All from '../resources/img/all3.jpg';
-import Instagram from "../resources/img/Instagram_Glyph_Black.png";
+import All from '../resources/img/all.jpg';
 import X from "../resources/img/logo-black.png";
 import "../css/introduction.css"
 import {
@@ -17,9 +16,6 @@ import {
     fujisaki,
   } from "../resources/img/member";
 
-const item = {
-    margin: "12px 0",
-}
 
 const img = {
     objectFit: "cover",
@@ -49,11 +45,6 @@ const snsIcon = {
     margin: "auto",
 }
 
-const linkIcon = {
-    width: "20px",
-    color: "#888888",
-}
-
 const Intro = () => {
     const isMobile = useMedia('(max-width: 1000px)');
 
@@ -61,6 +52,7 @@ const Intro = () => {
         <>
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             </head>
             <body className={isMobile ? "phBody" : "body"}>
             <Header />
@@ -198,99 +190,6 @@ const Intro = () => {
                         </div>
                     </Grid>
                 </Grid>
-                {/* <Grid container spacing={2} style={{margin: "auto"}}>
-                    <Grid item xs={12} md={6} style={item}>
-                        <img src={nakahara} alt="" style={img} />
-                    </Grid>
-                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
-                            <p>中原 正人</p>
-                            <p>
-                            18歳のときに初代 高橋竹山の演奏に感銘を受け、津軽三味線を始める。
-                            伝統的な津軽民謡だけに留まらず、ロック、メタル、民族音楽など多様な音楽を取り入れたジャンルレスな作曲と演奏を得意とする。<br /><br />
-                            全国大会では個人、デュオ、団体の3部門でこれまでに9度の優勝を獲得。
-                            細川たかし、長山洋子、コロッケなど著名アーティストとの共演も多数。
-                            また、『明治大学津軽三味線 響』の講師を務めるなど演奏指導にも力を入れている。
-                            </p>
-                            <p>
-                                Facebook：https://www.facebook.com/origamian.masa<br />
-                                Instagram：https://www.instagram.com<br />/shamisen_masanchu<br />
-                                X：https://x.com/shijimidaimajin
-                            </p>
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} md={6} style={item}>
-                        <img src={kawasaki} alt="" style={img} />
-                    </Grid>
-                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
-                            <p>川﨑 愛実</p>
-                            <p>
-                            つれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、<br/>
-                            そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）
-                            </p>
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} md={6} style={item}>
-                        <img src={fujisaki} alt="" style={img} />
-                    </Grid>
-                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
-                            <p>藤崎 健太</p>
-                            <p>
-                            つれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、<br/>
-                            そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）
-                            </p>
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} md={6} style={item}>
-                        <img src={noguchi} alt="" style={img} />
-                    </Grid>
-                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
-                            <p>野口 新</p>
-                            <p>
-                            つれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、<br/>
-                            そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）
-                            </p>
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} md={6} style={item}>
-                        <img src={suga} alt="" style={img} />
-                    </Grid>
-                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
-                            <p>須賀 行亮</p>
-                            <p>
-                            埼玉県出身。
-                            浪人時代に津軽三味線の存在を知り、明治大学進学時に当大学公認サークルの津軽三味線響に入会。<br /><br />
-                            楽器未経験から始めて3年で津軽三味線全国大会で個人入賞。
-                            代表としては、津軽三味線全国大会、世界大会の団体部門でサークル初出場初入賞。
-                            また、当サークル初の主催イベントである第一回定期演奏会にて総監督として尽力。
-                            大学卒業後も、津軽三味線の力強い音色を多くの人に聴いてほしいとの思いから活動中。
-                            </p>
-                            <p>
-                                X：https://x.com/shamisen_suga<br />
-                                Instagram：https://www.instagram.com/white_0042<br />
-                                Facebook：https://www.facebook.com/profile.php?id=61552332433484<br />
-                                Youtube：https://www.youtube.com/@suga5008
-                            </p>
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} md={6} style={item}>
-                        <img src={matsubara} alt="" style={img} />
-                    </Grid>
-                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div>
-                            <p>枩原 茜</p>
-                            <p>
-                            幼少期にピアノを始めて以降、合唱/ユーフォニアム/トロンボーン/ベースギター/尺八と常に音楽<br/>
-                            大学より明治大学の津軽三味線響に入会し津軽三味線を弾き始める。
-                            そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）
-                            </p>
-                        </div>
-                    </Grid>
-                </Grid> */}
                 </div>
             </main>
             </body>

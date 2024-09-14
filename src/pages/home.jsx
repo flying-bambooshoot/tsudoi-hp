@@ -1,6 +1,4 @@
 import * as React from "react";
-import { useState } from 'react';
-import { Transition } from 'react-transition-group'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import useMedia from '../useMedia';
 import Com from "../css/common.module.css";
@@ -16,10 +14,11 @@ import "../css/common.css"
 import "../css/home.css"
 import { Link } from "react-router-dom";
 import {
-  narita1,
+  school,
   narita2,
   orympic,
-  shamicore
+  bellserl,
+  school2,
 } from "../resources/img/homeGallery";
 
 const mainImg = {
@@ -29,9 +28,10 @@ const mainImg = {
 }
 
 const newsImg = {
-  marginLeft: "auto",
-  height: "150px",
-  width: "auto",
+  marginLeft: "32px",
+  height: "180px",
+  width: "300px",
+  objectFit: "cover",
   paddingLeft: "24px",
 }
 
@@ -39,12 +39,6 @@ const artistImg = {
   width: "100%",
   position: "relative",
   flex: "3"
-}
-
-const img = {
-  objectFit: "cover",
-  width: "100%",
-  height: "100%",
 }
 
 const logoBlock = {
@@ -121,7 +115,8 @@ const Home = () => {
   const isMobile = useMedia('(max-width: 1000px)');
   const newsList = [];
   const news = Object.values(Data.news).reverse();
-  let imageNames = [narita1, narita2, orympic, shamicore];
+  // ギャラリーに写真追加する際はこちら
+  let imageNames = [school, narita2, orympic, school2, bellserl];
   const [inProp, setInProp] = React.useState(false);
 
   for (let i = 0; i < 3; i += 1){
@@ -132,7 +127,9 @@ const Home = () => {
                   <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
                   <p>{news[i].contents}</p>
               </div>
-              <img className={Com.pc} src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={newsImg} />
+              <div>
+                <img className={Com.pc} src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={newsImg} />
+              </div>
           </div>
       );
   }
@@ -150,7 +147,7 @@ const Home = () => {
             <div style={artistImg}>
               <img class="image" src={Top1} />
               <img class="image" src={Top2} />
-              <img  style={imgDammy} src={Top2} />
+              <img style={imgDammy} src={Top2} />
             </div>
               <div style={logoBlock}>
                 <img style={logo} src={tudoiLogo} alt="集-tsudoi-" />
@@ -168,8 +165,8 @@ const Home = () => {
           <section style={isMobile ? none : sec}>
             <div style={{display: "flex"}}>
               <h1 style={h1}>NEWS</h1>
-              <div style={{justifyItems: "center", margin: "0.67em 0 0.67em auto"}}>
-                <Link to="/tsudoi-hp/news">
+              <div style={{justifyItems: "center", margin: "0.67em 0 0 auto"}}>
+                <Link to="/tsudoi-hp/news" style={{fontSize: 30, marginBottom: "-2px"}}>
                   <KeyboardDoubleArrowRightIcon style={{fontSize: 32, color: "black"}}/>
                 </Link>
               </div>

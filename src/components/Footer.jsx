@@ -26,7 +26,7 @@ const phoneFooter = {
     backgroundColor: "rgb(22,22,22)",
     display: "flex",
     flexFlow: "column",
-    padding: "24px",
+    padding: "24px 24px 36px 24px",
     flexWrap: "wrap",
     fontSize: "14px",
     fontWeight: "bold",
@@ -69,7 +69,7 @@ const linkWord = {
 }
 
 const link = {
-    paddingBottom: "12px",
+    paddingBottom: "18px",
 }
 
 const blank = {}
@@ -83,7 +83,7 @@ const Footer = () => {
 
     return (
         <footer style={isMobile ? phoneFooter : footer}>
-                <div className={Com.sp} style={{paddingBottom: "24px"}}>
+                <div className={Com.sp} style={{padding: "24px 0 24px 0"}}>
                     <div style={link}>
                         <Link style={linkWord} key='HOME' to="/tsudoi-hp/">HOME</Link>
                     </div>

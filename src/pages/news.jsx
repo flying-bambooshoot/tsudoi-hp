@@ -17,8 +17,9 @@ const newsArea = {
 
 const img = {
     marginLeft: "auto",
-    height: "150px",
-    width: "auto",
+    height: "180px",
+    width: "300px",
+    objectFit: "cover",
 }
 
 const News = () => {
@@ -37,7 +38,7 @@ const News = () => {
                     </p>
                 </div>
                 <div>
-                <img src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={img} />
+                    {news[i].img !== "" && <img src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={img} />}
                 </div>
             </div>
         );

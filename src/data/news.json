@@ -6,7 +6,7 @@
             "linkTitle":"大会結果：",
             "link":"https://npo-japan-traditional-art.com/?p=1427",
             "date":"2021.11.28",
-            "img":"\\img\\shamicore.jpg"
+            "img":""
         },
         {
             "title":"東京2020大会1周年記念文化イベント～Culture Stage～ 参加",
@@ -14,7 +14,7 @@
             "linkTitle":"公式サイト：",
             "link":"https://www.sports-tokyo-info.metro.tokyo.lg.jp/1yearanniversary/bunka.html",
             "date":"2021.11.23",
-            "img":"\\img\\shamicore.jpg"
+            "img":"\\img\\bellserl.jpg"
         },
         {
             "title":"第40回津軽三味線世界大会 優勝",
@@ -22,7 +22,7 @@
             "linkTitle":"大会結果：",
             "link":"https://www.tsugaru-shamisen.jp/results/result2022/",
             "date":"2022.5.3",
-            "img":"\\img\\shamicore.jpg"
+            "img":"\\img\\comp_hirosaki40.png"
         },
         {
             "title":"第26回津軽三味線コンクール 優勝",
@@ -30,7 +30,7 @@
             "linkTitle":"大会結果：",
             "link":"https://nichimin.or.jp/news/20230405/",
             "date":"2022.5.20",
-            "img":"\\img\\shamicore.jpg"
+            "img":""
         },
         {
             "title":"「津軽じょんがら節」動画公開",
@@ -38,19 +38,25 @@
             "linkTitle":"ご視聴はこちら",
             "link":"https://www.youtube.com/watch?v=0svTkQUk_eM",
             "date":"2023.4.1",
-            "img":"\\img\\narita_stage.jpg"
+            "img":"\\img\\comp_hirosaki40.png"
         },
         {
             "title":"X 集-tsudoi-の公式アカウント開設",
             "contents":"集-tsudoi-の公式アカウントを開設いたしました！演奏情報や大会記録など今後こちらのアカウントで発信します。フォローよろしくお願いします！",
             "date":"2023.10.28",
-            "img":"\\img\\narita_231016.jpg"
+            "img":"\\img\\artist_photo.jpg"
+        },
+        {
+            "title":"成田弦祭りで演奏いたしました",
+            "contents":"この度、千葉県成田山で行われた成田弦祭りにて演奏いたしました。大会で優勝をいただいた「津軽じょんがら節」や現代曲をお送りしました。多くの方に足を止めていただき大変うれしかったです！ありがとうございました！",
+            "date":"2023.10.14",
+            "img":"\\img\\narita_stage.jpg"
         },
         {
             "title":"志村坂下小学校で演奏いたしました",
             "contents":"この度、代表中原の地元板橋区の志村坂下小学校にて開催された「いきいき寺子屋文化祭」で演奏いたしました！民謡やオリジナルの他に、児童たちのダンスとのコラボもあり会場は大盛況でした！また、質問コーナーでは津軽三味線に関する多くの質問を頂き嬉しかったです！ありがとうございました！",
             "date":"2023.11.19",
-            "img":"\\img\\orympic.jpg"
+            "img":"\\img\\school.jpg"
         },
         {
             "title":"第11回津軽三味線全国大会inびわ湖 優勝",
@@ -58,7 +64,7 @@
             "linkTitle":"大会結果：",
             "link":"https://npo-japan-traditional-art.com/?p=1813",
             "date":"2023.11.24",
-            "img":"\\img\\shamicore.jpg"
+            "img":"\\img\\comp_biwa11_2.jpeg"
         },
         {
             "title":"「津軽よされ節」動画公開",
@@ -66,7 +72,7 @@
             "linkTitle":"ご視聴はこちら",
             "link":"https://t.co/Gw0k06X4N2",
             "date":"2024.3.13",
-            "img":"\\img\\narita_stage.jpg"
+            "img":"\\img\\comp_biwa11.png"
         },
         {
             "title":"第27回津軽三味線コンクール 優勝",
@@ -74,7 +80,7 @@
             "linkTitle":"大会結果：",
             "link":"https://nichimin.or.jp/news/20240410/",
             "date":"2024.4.7",
-            "img":"\\img\\narita_stage.jpg"
+            "img":"\\img\\comp_asakusa2.jpeg"
         }
     ]
 }
