@@ -124,8 +124,8 @@ const Home = () => {
           <div style={newsArea}>
               <div>
                   <p style={{fontSize: "16px"}}>{news[i].title}</p>
-                  {/* <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p> */}
-                  <p>{news[i].contents}</p>
+                  <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
+                  {/* <p>{news[i].contents}</p> */}
               </div>
               {/* <div>
                 <img className={Com.pc} src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={newsImg} />
