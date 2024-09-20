@@ -86,13 +86,23 @@ const iframe = {
 
 const newsArea = {
   borderTop: "solid #cccccc 1px",
-  padding: "20px 0 20px 0",
+  padding: "20px 0 30px 0",
   whiteSpace: "pre-wrap",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
   wordBreak: "break-all",
 }
+
+// const eachNews = {
+//   // width: "100em",
+//   // whiteSpace: "nowrap",
+//   overFlow: "hidden",
+//   textOverflow:"elipsis",
+//   display: "-webkit-box",
+//   -webkit-box-orient: vertical;
+//   -webkit-line-clamp: 3;
+// }
 
 const sec = {
   marginTop: "36px",
@@ -123,9 +133,12 @@ const Home = () => {
       newsList.push(
           <div style={newsArea}>
               <div>
-                  <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
                   <p style={{fontSize: "16px"}}>{news[i].title}</p>
-                  {/* <p>{news[i].contents}</p> */}
+                  <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
+                  <div className="eachNews">{news[i].contents}</div>
+                  {/* <div>
+                  <p className={Com.eachNews}>{news[i].contents}</p>
+                  </div> */}
               </div>
               {/* <div>
                 <img className={Com.pc} src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={newsImg} />
