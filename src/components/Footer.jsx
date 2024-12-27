@@ -10,11 +10,11 @@ import { Link } from "react-router-dom";
 
 const footer = {
     width: "auto",
-    height: "60px",
+    height: "120px",
     backgroundColor: "rgb(22,22,22)",
     display: "flex",
     alignItems: "center",
-    padding: "18px",
+    padding: "18px 120px",
     fontSize: "16px",
     fontWeight: "bold",
     lineHeight: 1.5,
@@ -44,7 +44,7 @@ const icon = {
 }
 const snsIcon = {
     margin: "0 24px 0 0",
-    height: "36px",
+    height: "26px",
 }
 const icons = {
     textAlign: "right",
