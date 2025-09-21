@@ -1,4 +1,3 @@
-import React from 'react';
 import useMedia from '../useMedia';
 import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
@@ -102,10 +101,10 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div className='fadeUp'>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px", paddingRight: "4px"}}>
+                                <div style={{margin: "10px 0 10px 0", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>中原 正人</p>
                                 </div>
-                                <div style={{margin: "10px 8px 0 0"}}>
+                                <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/shijimidaimajin" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
@@ -117,10 +116,10 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div className='fadeUp'>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px", paddingRight: "4px"}}>
+                                <div style={{margin: "10px 0 10px 0", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>川﨑 愛実</p>
                                 </div>
-                                <div style={{margin: "10px 8px 0 0"}}>
+                                <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/tsugarumanami" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
@@ -132,13 +131,10 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div className='fadeUp'>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px", paddingRight: "4px"}}>
+                                <div style={{margin: "10px 0 10px 0", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>藤崎 健太</p>
-                                </div>
-                                <div style={{margin: "8px"}}>
-                                    {/* <a href="https://x.com/shijimidaimajin" target='_blank'>
-                                        <img src={X} alt="" style={snsIcon} />
-                                    </a> */}
+                                {/* </div>
+                                <div style={{margin: "2px 0 0 6px"}}> */}
                                 </div>
                             </div>
                             <img src={fujisaki} alt="" style={img} />
@@ -147,10 +143,10 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div className='fadeUp'>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px", paddingRight: "4px"}}>
+                                <div style={{margin: "10px 0 10px 0", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>野口 新</p>
                                 </div>
-                                <div style={{margin: "10px 8px 0 0"}}>
+                                <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/ara527_shami" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
@@ -162,10 +158,10 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div className='fadeUp'>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px", paddingRight: "4px"}}>
+                                <div style={{margin: "10px 0 10px 0", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>須賀 行亮</p>
                                 </div>
-                                <div style={{margin: "10px 8px 0 0"}}>
+                                <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/Shamisen_SugA" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
@@ -177,14 +173,14 @@ const Intro = () => {
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div className='fadeUp'>
                             <div style={{display: "flex"}}>
-                                <div style={{margin: "8px", paddingRight: "4px"}}>
+                                <div style={{margin: "10px 0 10px 0", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>枩原 茜</p>
                                 </div>
-                                <div style={{margin: "10px 8px 0 0"}}>
+                                {/* <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/kappaakane" target='_blank'>
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
                             <img src={matsubara} alt="" style={img} />
                         </div>

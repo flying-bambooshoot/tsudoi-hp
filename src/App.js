@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // ページ追加手順
 import Home from "./pages/home.jsx";

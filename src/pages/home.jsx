@@ -94,16 +94,6 @@ const newsArea = {
   wordBreak: "break-all",
 }
 
-// const eachNews = {
-//   // width: "100em",
-//   // whiteSpace: "nowrap",
-//   overFlow: "hidden",
-//   textOverflow:"elipsis",
-//   display: "-webkit-box",
-//   -webkit-box-orient: vertical;
-//   -webkit-line-clamp: 3;
-// }
-
 const sec = {
   marginTop: "36px",
 }
@@ -127,7 +117,6 @@ const Home = () => {
   const news = Object.values(Data.news).reverse();
   // ギャラリーに写真追加する際はこちら
   let imageNames = [school, narita2, orympic, school2, bellserl];
-  const [inProp, setInProp] = React.useState(false);
 
   for (let i = 0; i < 3; i += 1){
       newsList.push(
@@ -136,13 +125,7 @@ const Home = () => {
                   <p style={{fontSize: "16px"}}>{news[i].title}</p>
                   <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
                   <div className="eachNews">{news[i].contents}</div>
-                  {/* <div>
-                  <p className={Com.eachNews}>{news[i].contents}</p>
-                  </div> */}
               </div>
-              {/* <div>
-                <img className={Com.pc} src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={newsImg} />
-              </div> */}
           </div>
       );
   }

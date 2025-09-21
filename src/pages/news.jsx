@@ -1,4 +1,3 @@
-import React from 'react';
 import useMedia from '../useMedia';
 import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";

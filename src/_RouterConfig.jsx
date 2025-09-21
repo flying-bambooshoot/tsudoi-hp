@@ -1,5 +1,4 @@
-import React from "react";
-import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 // ページ追加手順
 import Home from "./pages/home.jsx";
 import News from "./pages/news.jsx";
