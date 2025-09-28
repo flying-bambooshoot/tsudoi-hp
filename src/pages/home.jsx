@@ -186,7 +186,7 @@ const Home = () => {
               speed: 1000,
               cover: true,
               heightRatio: 0.6,
-              rewind: 'true',
+              rewind: true,
               gap: '1rem',
               objectFit: 'cover',
             }}>
@@ -209,7 +209,7 @@ const Home = () => {
             </div>
           </section>
         </main>
-        <script>new Splide( '.splide' ).mount();</script>
+        {/* <script>new Splide( '.splide' ).mount();</script> */}
       </body>
       <Footer/>
     </>
