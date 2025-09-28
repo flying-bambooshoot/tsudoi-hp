@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect } from "react";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import useMedia from '../useMedia';
 import Com from "../css/common.module.css";
@@ -115,6 +115,16 @@ const Home = () => {
   const isMobile = useMedia('(max-width: 1000px)');
   const newsList = [];
   const news = Object.values(Data.news).reverse();
+
+  useEffect(() => {
+    // 画像やコンテンツのロードが終わるまで少し待つ
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 50); // 50ms 遅らせるだけで安定
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // ギャラリーに写真追加する際はこちら
   let imageNames = [school, narita2, orympic, school2, bellserl];
 
