@@ -162,7 +162,7 @@ const Home = () => {
             <div style={{display: "flex"}}>
               <h1 style={h1}>NEWS</h1>
               <div style={{justifyItems: "center", margin: "0.67em 0 0 auto"}}>
-                <Link to="/tsudoi-hp/news" style={{fontSize: 30, marginBottom: "-2px"}}>
+                <Link to="/news" style={{fontSize: 30, marginBottom: "-2px"}}>
                   <KeyboardDoubleArrowRightIcon style={{fontSize: 32, color: "black"}}/>
                 </Link>
               </div>

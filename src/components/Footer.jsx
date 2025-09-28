@@ -85,16 +85,16 @@ const Footer = () => {
         <footer style={isMobile ? phoneFooter : footer}>
                 <div className={Com.sp} style={{padding: "24px 0 24px 0"}}>
                     <div style={link}>
-                        <Link style={linkWord} key='HOME' to="/tsudoi-hp/">HOME</Link>
+                        <Link style={linkWord} key='HOME' to="/">HOME</Link>
                     </div>
                     <div style={link}>
-                        <Link style={linkWord} to="/tsudoi-hp/news">NEWS</Link>
+                        <Link style={linkWord} to="/news">NEWS</Link>
                     </div>
                     <div style={link}>
-                        <Link style={linkWord} to="/tsudoi-hp/introduction">INTRODUCTION/MEMBER</Link>
+                        <Link style={linkWord} to="/introduction">INTRODUCTION/MEMBER</Link>
                     </div>
                     <div style={link}>
-                        <Link style={linkWord} to="/tsudoi-hp/contact">CONTACT US</Link>
+                        <Link style={linkWord} to="/contact">CONTACT US</Link>
                     </div>
                 </div>
                 <div style={isMobile ? blank : contactInfo}>

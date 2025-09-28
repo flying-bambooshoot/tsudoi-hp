@@ -63,17 +63,17 @@ export const TemporaryDrawer = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List style={{}}>
-        <ListItem style={routeLink} key='HOME' component={Link} to='/tsudoi-hp/' disablePadding>
+        <ListItem style={routeLink} key='HOME' component={Link} to='/' disablePadding>
           <ListItemButton style={{}}>
             <p style={title}>HOME</p>
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='NEWS' component={Link} to='/tsudoi-hp/news' disablePadding>
+        <ListItem style={routeLink} key='NEWS' component={Link} to='/news' disablePadding>
           <ListItemButton>
             <p style={title}>NEWS</p>
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='INTRODUCTION/MEMBER' component={Link} to='/tsudoi-hp/introduction' disablePadding>
+        <ListItem style={routeLink} key='INTRODUCTION/MEMBER' component={Link} to='/introduction' disablePadding>
           <ListItemButton>
             <p style={title}>INTRODUCTION/MEMBER</p>
           </ListItemButton>
@@ -96,7 +96,7 @@ export const TemporaryDrawer = () => {
             <OpenInNewOutlinedIcon style={linkIcon} />
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='CONTACT US' component={Link} to='/tsudoi-hp/contact' disablePadding>
+        <ListItem style={routeLink} key='CONTACT US' component={Link} to='/contact' disablePadding>
           <ListItemButton>
             <p style={title}>CONTACT US</p>
           </ListItemButton>
