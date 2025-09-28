@@ -12,11 +12,6 @@ const App = () => {
     <BrowserRouter>
     <ScrollToTop />
     <Routes>
-      {/* <Route path='tsudoi-hp/' element={<Home />} />
-      <Route path='tsudoi-hp/news' element={<News />} />
-      <Route path='tsudoi-hp/introduction' element={<Intro />} />
-      <Route path='tsudoi-hp/gallery' element={<Gallery />} />
-      <Route path='tsudoi-hp/contact' element={<Contact />} /> */}
       <Route path='/' element={<Home />} />
       <Route path='/news' element={<News />} />
       <Route path='/introduction' element={<Intro />} />
