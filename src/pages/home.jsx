@@ -214,7 +214,7 @@ const Home = () => {
                 <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/0svTkQUk_eM?si=Bs7BNxMQ0XHi9TEF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
               <div style={youtube}>
-                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/tz4BXV5OGmA?si=11xNGNmjcGAvw-G-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/mBdbPXmQxXY?si=oKyRt-LXfYBU-NoF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
             </div>
           </section>
