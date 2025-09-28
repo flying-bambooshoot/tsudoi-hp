@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <title>集-tsudoi-</title>
         <!-- jsとcssファイルのIDを書き換える必要あり -->
-        <script defer="defer" src="/tsudoi-hp/static/js/main.6bb6ff0a.js"></script>
-        <link href="/tsudoi-hp/static/css/main.f1366d3c.css" rel="stylesheet">
+        <script defer="defer" src="./static/js/main.3cb2a912.js"></script>
+        <link href="./static/css/main.f1366d3c.css" rel="stylesheet">
         <script>
             const path = sessionStorage.getItem('path');
             console.log(path);
-            if (path && path !== '/tsudoi-hp/') {
+            if (path && path !== '/tsudoi-shamisen.com/') {
               sessionStorage.removeItem('path');
               //TODO: ドメインの置き換え
-              window.history.replaceState(null, null, 'https://flying-bambooshoot.github.io/' + path);
+              window.history.replaceState(null, null, 'https://tsudoi-shamisen.com/' + path);
             }
         </script>
     </head>
