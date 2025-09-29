@@ -64,8 +64,8 @@ const Intro = () => {
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>編成</p>
                         </div>
                         <p>2～6人</p>
-                        <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>金額</p>
+                        {/* <div style={section}>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>料金について</p>
                         </div>
                         <p>
                             東京で6人での演奏の場合、30分10万円～<br />
@@ -74,6 +74,22 @@ const Intro = () => {
                         </p>
                         <p>
                             ご予算や会場などシチュエーションに応じて少人数での演奏も承ります。まずはご相談ください。
+                        </p> */}
+                        <div style={section}>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>料金について</p>
+                        </div>
+                        <p>
+                            6名編成でのご依頼の場合<br />
+                            30分：¥100,000〜（税込）
+                        </p>
+                            和装での出演をご希望の場合は、追加料金を頂戴いたします。
+                            また、交通費は別途ご負担をお願いしております。
+                        <p>
+                            会場の規模やご予算、ご希望の雰囲気に応じて、2〜5名の少人数編成での演奏も可能です。
+                        </p>
+                            ご希望内容を伺った上で、最適なプランをご提案いたしますので、まずはお気軽にご相談ください。
+                        <p>
+                            ※表示価格はあくまで目安となります。演奏内容や拘束時間、会場の場所によって料金は変動する場合がございます。
                         </p>
                     </div>
                     <div>
