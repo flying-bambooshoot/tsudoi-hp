@@ -148,6 +148,7 @@ const Home = () => {
         <title>津軽三味線 集-tsudoi- | 演奏のご依頼承ります</title>
         {/* 説明文（検索結果のスニペット部分） */}
         <meta name="description" content="集-tsudoi-は津軽三味線を演奏する団体です。演奏のご依頼はメールかお電話で承ります。"></meta>
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
       </head>
       <body className={isMobile ? "phBody" : "body"}>
       <Header />
