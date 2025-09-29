@@ -8,10 +8,6 @@ const baseUrl = 'https://tsudoi-shamisen.com/';
 // サイトに存在するページ一覧
 const pages = [
   '/',
-  '/news',
-  '/introduction',
-  '/gallery',
-  '/contact',
 ];
 
 const sitemap = new SitemapStream({ hostname: baseUrl });
