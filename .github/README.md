@@ -1,31 +1,31 @@
-【環境構築】
-１．node.jsのインストール
+## 【環境構築】
+### 1. node.jsのインストール
 https://nodejs.org/ja/download
-２，以下コマンドでnodeとnpmがセットでインストールされていることを確認
-node -v
-npm -v
-３．Gitをインストール（コマンドでのGit操作が不慣れな場合はTotoiseGitなどのGUIツールもインストール）
+### 2. 以下コマンドでnodeとnpmがセットでインストールされていることを確認
+`node -v`
+`npm -v`
+### 3. Gitをインストール（コマンドでのGit操作が不慣れな場合はTotoiseGitなどのGUIツールもインストール）
 https://gitforwindows.org/
-４．Visual Studio Codeなどのコードエディタをダウンロード
+### 4. Visual Studio Codeなどのコードエディタをダウンロード
 https://code.visualstudio.com/
-５．PCを再起動
-６．任意のディレクトリに"tsudoi-hp"プロジェクトのリポジトリをクローンする
-７，VSCodeで5でクローンしたプロジェクトを開く
-{リポジトリの保存場所}\tsudoi-hp
-８．VSCodeウィンドウのヘッダーメニューからTerminal>New Terminalをクリックしターミナルを開く
-９．以下コマンドでプロジェクトに必要なパッケージをダウンロード
-npm install
-１０．以下コマンドでプロジェクトを起動
-npm start
-１１．以下URLでプロジェクトがローカル起動したのを確認
+### 5. PCを再起動
+### 6. 任意のディレクトリに"tsudoi-hp"プロジェクトのリポジトリをクローンする
+### 7. VSCodeで5でクローンしたプロジェクトを開く
+`{リポジトリの保存場所}\tsudoi-hp`
+### 8. VSCodeウィンドウのヘッダーメニューからTerminal>New Terminalをクリックしターミナルを開く
+### 9. 以下コマンドでプロジェクトに必要なパッケージをダウンロード
+`npm install`
+### 10. 以下コマンドでプロジェクトを起動
+`npm start`
+### 11. 以下URLでプロジェクトがローカル起動したのを確認
 http://localhost:3000/
 
-【NEWSに表示するデータを追加する】
+## 【NEWSに表示するデータを追加する】
 NEWSを追加する際は"tsudoi-hp\src\data\news.json"ファイルにデータを入力します。
 新しいデータは、JSON配列の最後尾に記載してください。
 文章の中で改行したい場所には"\n"を入れてください。
 
-【修正内容を公開する】
+## 【修正内容を公開する】
 1. ソースコード修正
 2. ターミナルで"npm run build"コマンド実行
 3. "docs"フォルダを削除
