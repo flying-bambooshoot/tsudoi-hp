@@ -5,20 +5,27 @@ import Footer from "../components/Footer";
 import Data from "../data/news.json"
 
 const newsArea = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
     borderTop: "solid #cccccc 1px",
     padding: "20px",
     whiteSpace: "pre-wrap",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexWrap: "wrap",
     wordBreak: "break-all",
 }
 
-const img = {
-    marginLeft: "auto",
-    height: "180px",
+const imgBox = {
     width: "300px",
+    maxWidth: "100%",
+    marginTop: "16px",
+}
+
+const img = {
+    display: "block",
+    width: "100%",
+    height: "auto",
     objectFit: "cover",
+    objectPosition: "left bottom",
 }
 
 const News = () => {
@@ -36,7 +43,7 @@ const News = () => {
                     <a href={news[i].link} target='_blank'>{news[i].link}</a>
                     </p>
                 </div>
-                <div>
+                <div style={imgBox}>
                     {news[i].img !== "" && <img src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={img} />}
                 </div>
             </div>
