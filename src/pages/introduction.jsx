@@ -97,7 +97,7 @@ const Intro = () => {
                     </Grid>
                 </Grid>
                 <div style={{padding: "42px 8px 0 8px"}}>
-                    <p style={{borderBottom: "solid #cccccc 1px", fontSize: "18px", marginBottom: "0"}}>MEMEBER</p>
+                    <p style={{borderBottom: "solid #cccccc 1px", fontSize: "18px", marginBottom: "0"}}>MEMBER</p>
                 </div>
                 <Grid container spacing={2} style={{margin: "auto"}}>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
