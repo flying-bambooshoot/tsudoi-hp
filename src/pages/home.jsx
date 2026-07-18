@@ -117,6 +117,23 @@ const Home = () => {
   const news = Object.values(Data.news).reverse();
 
   useEffect(() => {
+    const description = "集-tsudoi-は津軽三味線を演奏する団体です。演奏のご依頼はメールかお電話で承ります。";
+    let descriptionMeta = document.querySelector('meta[name="description"]');
+    if (!descriptionMeta) {
+      descriptionMeta = document.createElement('meta');
+      descriptionMeta.name = 'description';
+      document.head.appendChild(descriptionMeta);
+    }
+    descriptionMeta.content = description;
+
+    let viewportMeta = document.querySelector('meta[name="viewport"]');
+    if (!viewportMeta) {
+      viewportMeta = document.createElement('meta');
+      viewportMeta.name = 'viewport';
+      document.head.appendChild(viewportMeta);
+    }
+    viewportMeta.content = 'width=device-width, initial-scale=1.0';
+
     // 画像やコンテンツのロードが終わるまで少し待つ
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
@@ -142,15 +159,9 @@ const Home = () => {
   
   return (
     <>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-        {/* <!-- 説明文（検索結果のスニペット部分） --> */}
-        <meta name="description" content="集-tsudoi-は津軽三味線を演奏する団体です。演奏のご依頼はメールかお電話で承ります。"></meta>
-        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-      </head>
-      <body className={isMobile ? "phBody" : "body"}>
-      <Header />
-      <PhoneHeader />
+      <div className={isMobile ? "phBody" : "body"}>
+        <Header />
+        <PhoneHeader />
         <div className={Com.pc}>
           <section style={mainImg}>
             <div style={artistImg}>
@@ -158,8 +169,8 @@ const Home = () => {
               <img class="image" src={Top2} />
               <img style={imgDammy} src={Top2} />
             </div>
-              <div style={logoBlock}>
-                <img style={logo} src={tudoiLogo} alt="集-tsudoi-" />
+            <div style={logoBlock}>
+              <img style={logo} src={tudoiLogo} alt="集-tsudoi-" />
             </div>
           </section>
         </div>
@@ -167,7 +178,7 @@ const Home = () => {
           <div style={artistImg}>
             <img class="image" src={Top1} />
             <img class="image" src={Top2} />
-            <img  style={imgDammy} src={Top2} />
+            <img style={imgDammy} src={Top2} />
           </div>
         </div>
         <main className={isMobile ? "homePhMain" : "homeMain"}>
@@ -223,8 +234,8 @@ const Home = () => {
           </section>
         </main>
         {/* <script>new Splide( '.splide' ).mount();</script> */}
-      </body>
-      <Footer/>
+        <Footer/>
+      </div>
     </>
   );
 };
