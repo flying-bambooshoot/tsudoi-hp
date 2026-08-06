@@ -113,7 +113,6 @@ const none = {}
 
 const Home = () => {
   const isMobile = useMedia('(max-width: 1000px)');
-  const newsList = [];
   const news = Object.values(Data.news).reverse();
 
   useEffect(() => {
@@ -145,17 +144,16 @@ const Home = () => {
   // ギャラリーに写真追加する際はこちら
   let imageNames = [school, narita2, orympic, school2, bellserl];
 
-  for (let i = 0; i < 3; i += 1){
-      newsList.push(
-          <div style={newsArea}>
-              <div>
-                  <p style={{fontSize: "16px"}}>{news[i].title}</p>
-                  <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
-                  <div className="eachNews">{news[i].contents}</div>
-              </div>
+  // NEWSは新しいものから3件まで表示する（3件未満でもそのまま動作する）
+  const newsList = news.slice(0, 3).map((item) => (
+      <div key={`${item.date}-${item.title}`} style={newsArea}>
+          <div>
+              <p style={{fontSize: "16px"}}>{item.title}</p>
+              <p style={{fontSize: "12px", color: "#8c8c8c"}}>{item.date}</p>
+              <div className="eachNews">{item.contents}</div>
           </div>
-      );
-  }
+      </div>
+  ));
   
   return (
     <>

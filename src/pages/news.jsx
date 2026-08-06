@@ -30,25 +30,22 @@ const img = {
 
 const News = () => {
     const isMobile = useMedia('(max-width: 1000px)');
-    const newsList = [];
     const news = Object.values(Data.news).reverse();
-    for (let i = 0; i < news.length; i += 1){
-        newsList.push(
-            <div style={newsArea}>
-                <div>
-                    <p style={{fontSize: "16px"}}>{news[i].title}</p>
-                    <p style={{fontSize: "12px", color: "#8c8c8c"}}>{news[i].date}</p>
-                    <p>{news[i].contents}</p>
-                    <p>{news[i].linkTitle}
-                    <a href={news[i].link} target='_blank'>{news[i].link}</a>
-                    </p>
-                </div>
-                <div style={imgBox}>
-                    {news[i].img !== "" && <img src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={img} />}
-                </div>
+    const newsList = news.map((item) => (
+        <div key={`${item.date}-${item.title}`} style={newsArea}>
+            <div>
+                <p style={{fontSize: "16px"}}>{item.title}</p>
+                <p style={{fontSize: "12px", color: "#8c8c8c"}}>{item.date}</p>
+                <p>{item.contents}</p>
+                <p>{item.linkTitle}
+                <a href={item.link} target='_blank'>{item.link}</a>
+                </p>
             </div>
-        );
-    }
+            <div style={imgBox}>
+                {item.img !== "" && <img src={`${process.env.PUBLIC_URL}` + item.img} alt="写真" style={img} />}
+            </div>
+        </div>
+    ));
     
     return (
         <>
