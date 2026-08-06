@@ -216,7 +216,7 @@ const Home = () => {
             }}>
               { imageNames.map(slide => (
                 <SplideSlide key={slide.src}>
-                  <img src={slide} alt={slide}/>
+                  <img src={slide} alt={slide} loading="lazy" decoding="async" />
                 </SplideSlide>
               ))}
             </Splide>

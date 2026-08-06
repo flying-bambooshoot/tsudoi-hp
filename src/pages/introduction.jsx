@@ -112,7 +112,7 @@ const Intro = () => {
                                     </a>
                                 </div>
                             </div>
-                            <img src={nakahara} alt="" style={img} />
+                            <img src={nakahara} alt="" style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -127,7 +127,7 @@ const Intro = () => {
                                     </a>
                                 </div>
                             </div>
-                            <img src={kawasaki} alt="" style={img} />
+                            <img src={kawasaki} alt="" style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -139,7 +139,7 @@ const Intro = () => {
                                 <div style={{margin: "2px 0 0 6px"}}> */}
                                 </div>
                             </div>
-                            <img src={fujisaki} alt="" style={img} />
+                            <img src={fujisaki} alt="" style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -154,7 +154,7 @@ const Intro = () => {
                                     </a>
                                 </div>
                             </div>
-                            <img src={noguchi} alt="" style={img} />
+                            <img src={noguchi} alt="" style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -169,7 +169,7 @@ const Intro = () => {
                                     </a>
                                 </div>
                             </div>
-                            <img src={suga} alt="" style={img} />
+                            <img src={suga} alt="" style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -184,7 +184,7 @@ const Intro = () => {
                                     </a>
                                 </div> */}
                             </div>
-                            <img src={matsubara} alt="" style={img} />
+                            <img src={matsubara} alt="" style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                 </Grid>
