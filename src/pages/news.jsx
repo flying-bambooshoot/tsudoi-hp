@@ -44,7 +44,7 @@ const News = () => {
                     </p>
                 </div>
                 <div style={imgBox}>
-                    {news[i].img !== "" && <img src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={img} />}
+                    {news[i].img !== "" && <img src={`${process.env.PUBLIC_URL}` + news[i].img} alt="写真" style={img} loading="lazy" decoding="async" />}
                 </div>
             </div>
         );
