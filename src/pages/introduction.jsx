@@ -56,7 +56,7 @@ const Intro = () => {
             <body className={isMobile ? "phBody" : "body"}>
             <Header />
             <PhoneHeader />
-            <main className={isMobile ? "main" : "phMain" }>
+            <main className={isMobile ? "phMain" : "main"}>
                 <section className="title">
                     <h2 className="h2">INTRODUCTION/MEMBER</h2>
                 </section>
