@@ -24,8 +24,6 @@ const Header = () => {
                     <TemporaryDrawer />
                 </div>
             </div>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"></link>
-            <meta name="viewport" content="width=device-width"></meta>
         </header>
     );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import Com from "../css/common.module.css";
 import tudoiLogo from "../resources/img/logo.png";
 import { TemporaryDrawer } from "./Drawer";
+import { useI18n } from "../i18n";
 
 const header = {
     display: "flex",
@@ -23,15 +24,14 @@ const menuButton = {
 }
 
 const PhoneHeader = () => {
+    const { t } = useI18n();
     return (
         <header className={Com.sp}>
             <div style={header}>
-                <img src={tudoiLogo} style={logoImg} />
+                <img src={tudoiLogo} style={logoImg} alt={t("common.logoAlt")} />
                 <div style={menuButton}>
                     <TemporaryDrawer />
                 </div>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"></link>
-            <meta name="viewport" content="width=device-width"></meta>
             </div>
         </header>
     );

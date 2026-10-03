@@ -12,6 +12,7 @@ import Top1 from '../resources/img/top1.jpg';
 import Top2 from '../resources/img/top2.jpg';
 import "../css/common.css"
 import "../css/home.css"
+import "@splidejs/react-splide/css";
 import { Link } from "react-router-dom";
 import {
   school,
@@ -25,14 +26,6 @@ const mainImg = {
   height: "100%",
   backgroundColor: "fff",
   display: "flex",
-}
-
-const newsImg = {
-  marginLeft: "32px",
-  height: "180px",
-  width: "300px",
-  objectFit: "cover",
-  paddingLeft: "24px",
 }
 
 const artistImg = {
@@ -98,8 +91,20 @@ const sec = {
   marginTop: "36px",
 }
 
-const h1 = {
+// 各セクションの見出し（h1 だった頃と同じ見た目にする）
+const sectionHeading = {
   fontSize: "20px",
+  margin: "0.67em 0",
+}
+
+// 画面には表示せず、検索エンジンやスクリーンリーダーにだけ伝える
+const visuallyHidden = {
+  position: "absolute",
+  width: "1px",
+  height: "1px",
+  overflow: "hidden",
+  clip: "rect(0 0 0 0)",
+  whiteSpace: "nowrap",
 }
 
 const imgDammy = {
@@ -117,14 +122,6 @@ const Home = () => {
   const news = useNews();
 
   useEffect(() => {
-    let viewportMeta = document.querySelector('meta[name="viewport"]');
-    if (!viewportMeta) {
-      viewportMeta = document.createElement('meta');
-      viewportMeta.name = 'viewport';
-      document.head.appendChild(viewportMeta);
-    }
-    viewportMeta.content = 'width=device-width, initial-scale=1.0';
-
     // 画像やコンテンツのロードが終わるまで少し待つ
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
@@ -155,9 +152,9 @@ const Home = () => {
         <div className={Com.pc}>
           <section style={mainImg}>
             <div style={artistImg}>
-              <img class="image" src={Top1} />
-              <img class="image" src={Top2} />
-              <img style={imgDammy} src={Top2} />
+              <img className="image" src={Top1} alt="" />
+              <img className="image" src={Top2} alt="" />
+              <img style={imgDammy} src={Top2} alt="" />
             </div>
             <div style={logoBlock}>
               <img style={logo} src={tudoiLogo} alt={t("common.logoAlt")} />
@@ -166,15 +163,17 @@ const Home = () => {
         </div>
         <div className={Com.sp}>
           <div style={artistImg}>
-            <img class="image" src={Top1} />
-            <img class="image" src={Top2} />
-            <img style={imgDammy} src={Top2} />
+            <img className="image" src={Top1} alt="" />
+            <img className="image" src={Top2} alt="" />
+            <img style={imgDammy} src={Top2} alt="" />
           </div>
         </div>
         <main className={isMobile ? "homePhMain" : "homeMain"}>
+          {/* ページの主題（グループ名）。画面上はロゴ画像で示しているため非表示にする */}
+          <h1 style={visuallyHidden}>{t("common.siteName")}</h1>
           <section style={isMobile ? none : sec}>
             <div style={{display: "flex"}}>
-              <h1 style={h1}>NEWS</h1>
+              <h2 style={sectionHeading}>NEWS</h2>
               <div style={{justifyItems: "center", margin: "0.67em 0 0 auto"}}>
                 <Link to={path("/news")} style={{fontSize: 30, marginBottom: "-2px"}}>
                   <KeyboardDoubleArrowRightIcon style={{fontSize: 32, color: "black"}}/>
@@ -184,7 +183,7 @@ const Home = () => {
             <div style={{borderBottom: "solid #cccccc 1px",}}>{newsList}</div>
           </section>
           <section style={sec}>
-            <h1 style={h1}>GALLARY</h1>
+            <h2 style={sectionHeading}>GALLERY</h2>
             <Splide style={slide} aria-label="My Favorite Images"
             options={{
               perPage: 1,
@@ -212,13 +211,13 @@ const Home = () => {
             </Splide>
           </section>
           <section style={sec}>
-            <h1 style={h1}>YouTube</h1>
+            <h2 style={sectionHeading}>YouTube</h2>
             <div style={isMobile ? phoneMovie : section}>
               <div style={youtube}>
-                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/0svTkQUk_eM?si=Bs7BNxMQ0XHi9TEF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/0svTkQUk_eM?si=Bs7BNxMQ0XHi9TEF" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
               </div>
               <div style={youtube}>
-                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/mBdbPXmQxXY?si=oKyRt-LXfYBU-NoF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/mBdbPXmQxXY?si=oKyRt-LXfYBU-NoF" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
               </div>
             </div>
           </section>

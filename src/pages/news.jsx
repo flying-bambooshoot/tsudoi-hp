@@ -39,7 +39,7 @@ const News = () => {
                 <p style={{fontSize: "12px", color: "#8c8c8c"}}>{item.date}</p>
                 <p>{item.contents}</p>
                 <p>{item.linkTitle}
-                <a href={item.link} target='_blank'>{item.link}</a>
+                <a href={item.link} target='_blank' rel="noopener noreferrer">{item.link}</a>
                 </p>
             </div>
             <div style={imgBox}>
@@ -50,21 +50,18 @@ const News = () => {
     
     return (
         <>
-            <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-            </head>
-            <body className={isMobile ? "phBody" : "body"}>
+            <div className={isMobile ? "phBody" : "body"}>
                 <Header />
                 <PhoneHeader />
                 <main className={isMobile ? "main" : "phMain" }>
                     <section className="title">
-                        <h2 className="h2">NEWS</h2>
+                        <h1 className="h2">NEWS</h1>
                     </section>
                     <section>
                         <div>{newsList}</div>
                     </section>
                 </main>
-            </body>
+            </div>
             <Footer />
         </>
     );

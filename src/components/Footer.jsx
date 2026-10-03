@@ -122,13 +122,13 @@ const Footer = () => {
                     </div>
                 </div>
                 <div style={isMobile ? phoneIcons : icons}>
-                    <a href="https://twitter.com/tsudoi_shamisen" target='_blank'>
+                    <a href="https://twitter.com/tsudoi_shamisen" target='_blank' rel="noopener noreferrer">
                         <img src={X} alt="" style={snsIcon} loading="lazy" decoding="async" />
                     </a>
-                    <a href="https://www.instagram.com/tsudoi_shamisen" target='_blank'>
+                    <a href="https://www.instagram.com/tsudoi_shamisen" target='_blank' rel="noopener noreferrer">
                         <img src={Instagram} alt="" style={snsIcon} loading="lazy" decoding="async" />
                     </a>
-                    <a href="https://www.youtube.com/channel/UCvELpZfQ5fD4i-b8NfyXm9w" target='_blank'>
+                    <a href="https://www.youtube.com/channel/UCvELpZfQ5fD4i-b8NfyXm9w" target='_blank' rel="noopener noreferrer">
                         <img src={YouTube} alt="" style={snsIcon} loading="lazy" decoding="async" />
                     </a>
                 </div>
