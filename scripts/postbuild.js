@@ -8,11 +8,13 @@
 //   /en/      →  build/en/index.html
 //   /en/news  →  build/en/news.html
 //
-// あわせて、ページ別の <html lang> / <title> / description / canonical / hreflang と sitemap.xml も出力する。
+// あわせて、ページ別の <html lang> / <title> / description / canonical / hreflang、
+// 構造化データ（JSON-LD）と sitemap.xml も出力する。
 
 const fs = require("fs");
 const path = require("path");
 const { SITE_URL, languages, pages } = require("./pages");
+const { musicGroup, jsonLdScript } = require("./structured-data");
 
 const buildDir = path.join(__dirname, "..", "build");
 const template = fs.readFileSync(path.join(buildDir, "index.html"), "utf8");
@@ -42,13 +44,17 @@ const hreflangLinks = (page) =>
 const renderHtml = (language, page) => {
   const title = escapeHtml(page.title[language.code]);
   const description = escapeHtml(page.description[language.code]);
+  const home = pages.find((p) => p.path === "/");
+  const structuredData = jsonLdScript(
+    musicGroup(language, pageUrl(language, home), home.description[language.code])
+  );
   const html = template
     .replace(/<html lang="[^"]*">/, `<html lang="${language.code}">`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${description}">`)
     .replace(
       "</head>",
-      `<link rel="canonical" href="${pageUrl(language, page)}">${hreflangLinks(page)}</head>`
+      `<link rel="canonical" href="${pageUrl(language, page)}">${hreflangLinks(page)}${structuredData}</head>`
     );
 
   // 置換に失敗したまま公開しないよう、結果を検証する
@@ -56,7 +62,8 @@ const renderHtml = (language, page) => {
     html.includes(`<html lang="${language.code}">`) &&
     html.includes(`<title>${title}</title>`) &&
     html.includes(`content="${description}"`) &&
-    html.includes('rel="canonical"');
+    html.includes('rel="canonical"') &&
+    html.includes('"@type":"MusicGroup"');
   if (!ok) {
     throw new Error(
       `${language.prefix}${page.path} の HTML 生成に失敗しました。public/index.html の <html> / <head> を確認してください。`
