@@ -6,17 +6,32 @@ import Intro from "./pages/introduction.jsx";
 // import Gallery from "./pages/gallery.jsx";
 import Contact from "./pages/contact.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import { LANGUAGES } from "./i18n/languages";
+import { LanguageProvider } from "./i18n";
+
+// ページの一覧。言語ごとに "/news"、"/en/news" … のように同じページが割り当てられる
+const pages = [
+  { path: "/", element: <Home /> },
+  { path: "/news", element: <News /> },
+  { path: "/introduction", element: <Intro /> },
+  // { path: "/gallery", element: <Gallery /> },
+  { path: "/contact", element: <Contact /> },
+];
 
 const App = () => {
   return (
     <BrowserRouter>
     <ScrollToTop />
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/news' element={<News />} />
-      <Route path='/introduction' element={<Intro />} />
-      {/* <Route path='/gallery' element={<Gallery />} /> */}
-      <Route path='/contact' element={<Contact />} />
+      {LANGUAGES.map((language) =>
+        pages.map((page) => (
+          <Route
+            key={language.code + page.path}
+            path={page.path === "/" ? language.prefix || "/" : language.prefix + page.path}
+            element={<LanguageProvider language={language}>{page.element}</LanguageProvider>}
+          />
+        ))
+      )}
     </Routes>
   </BrowserRouter>
   );

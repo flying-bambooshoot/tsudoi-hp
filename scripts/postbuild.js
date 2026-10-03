@@ -2,15 +2,17 @@
 //
 // GitHub Pages は SPA のルーティングに対応していないため、何もしないと
 // "/news" などは HTTP 404 で返り、Google に「存在しないページ」と判断される。
-// そこで build/index.html を元に、ページごとの HTML を生成する。
+// そこで build/index.html を元に、言語別・ページ別の HTML を生成する。
 //
-//   /news  →  build/news.html （GitHub Pages は拡張子なしの URL で .html を返す）
+//   /news     →  build/news.html     （GitHub Pages は拡張子なしの URL で .html を返す）
+//   /en/      →  build/en/index.html
+//   /en/news  →  build/en/news.html
 //
-// あわせて、ページ別の <title> / description / canonical と sitemap.xml も出力する。
+// あわせて、ページ別の <html lang> / <title> / description / canonical / hreflang と sitemap.xml も出力する。
 
 const fs = require("fs");
 const path = require("path");
-const { SITE_URL, pages } = require("./pages");
+const { SITE_URL, languages, pages } = require("./pages");
 
 const buildDir = path.join(__dirname, "..", "build");
 const template = fs.readFileSync(path.join(buildDir, "index.html"), "utf8");
@@ -22,33 +24,62 @@ const escapeHtml = (text) =>
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 
-const renderHtml = (page) => {
-  const url = SITE_URL + page.path;
+const pageUrl = (language, page) =>
+  SITE_URL + language.prefix + (page.path === "/" ? "/" : page.path);
+
+const outputFile = (language, page) => {
+  const fileName = page.path === "/" ? "index.html" : `${page.path.slice(1)}.html`;
+  return path.join(language.prefix.slice(1), fileName);
+};
+
+// 同じページの各言語版の場所を Google に伝える（x-default は日本語版）
+const hreflangLinks = (page) =>
+  languages
+    .map((language) => `<link rel="alternate" hreflang="${language.code}" href="${pageUrl(language, page)}">`)
+    .concat(`<link rel="alternate" hreflang="x-default" href="${pageUrl(languages[0], page)}">`)
+    .join("");
+
+const renderHtml = (language, page) => {
+  const title = escapeHtml(page.title[language.code]);
+  const description = escapeHtml(page.description[language.code]);
   const html = template
-    .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(page.title)}</title>`)
+    .replace(/<html lang="[^"]*">/, `<html lang="${language.code}">`)
+    .replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
+    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${description}">`)
     .replace(
-      /<meta name="description" content="[^"]*">/,
-      `<meta name="description" content="${escapeHtml(page.description)}">`
-    )
-    .replace("</head>", `<link rel="canonical" href="${url}"></head>`);
+      "</head>",
+      `<link rel="canonical" href="${pageUrl(language, page)}">${hreflangLinks(page)}</head>`
+    );
 
   // 置換に失敗したまま公開しないよう、結果を検証する
-  if (!html.includes(`<title>${escapeHtml(page.title)}</title>`) || !html.includes('rel="canonical"')) {
-    throw new Error(`${page.path} の HTML 生成に失敗しました。public/index.html の <head> を確認してください。`);
+  const ok =
+    html.includes(`<html lang="${language.code}">`) &&
+    html.includes(`<title>${title}</title>`) &&
+    html.includes(`content="${description}"`) &&
+    html.includes('rel="canonical"');
+  if (!ok) {
+    throw new Error(
+      `${language.prefix}${page.path} の HTML 生成に失敗しました。public/index.html の <html> / <head> を確認してください。`
+    );
   }
   return html;
 };
 
-for (const page of pages) {
-  const fileName = page.path === "/" ? "index.html" : `${page.path.slice(1)}.html`;
-  fs.writeFileSync(path.join(buildDir, fileName), renderHtml(page));
-  console.log(`generated: build/${fileName}`);
+for (const language of languages) {
+  for (const page of pages) {
+    const file = outputFile(language, page);
+    fs.mkdirSync(path.dirname(path.join(buildDir, file)), { recursive: true });
+    fs.writeFileSync(path.join(buildDir, file), renderHtml(language, page));
+    console.log(`generated: build/${file.replace(/\\/g, "/")}`);
+  }
 }
 
 const sitemap =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-  pages.map((page) => `  <url><loc>${SITE_URL}${page.path}</loc></url>\n`).join("") +
+  languages
+    .flatMap((language) => pages.map((page) => `  <url><loc>${pageUrl(language, page)}</loc></url>\n`))
+    .join("") +
   "</urlset>\n";
 fs.writeFileSync(path.join(buildDir, "sitemap.xml"), sitemap);
 console.log("generated: build/sitemap.xml");

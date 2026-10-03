@@ -2,7 +2,7 @@ import useMedia from '../useMedia';
 import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
-import Data from "../data/news.json"
+import { useI18n, useNews } from "../i18n";
 
 const newsArea = {
     display: "flex",
@@ -30,7 +30,8 @@ const img = {
 
 const News = () => {
     const isMobile = useMedia('(max-width: 1000px)');
-    const news = Object.values(Data.news).reverse();
+    const { t } = useI18n();
+    const news = useNews();
     const newsList = news.map((item) => (
         <div key={`${item.date}-${item.title}`} style={newsArea}>
             <div>
@@ -42,7 +43,7 @@ const News = () => {
                 </p>
             </div>
             <div style={imgBox}>
-                {item.img !== "" && <img src={`${process.env.PUBLIC_URL}` + item.img} alt="写真" style={img} loading="lazy" decoding="async" />}
+                {item.img !== "" && <img src={`${process.env.PUBLIC_URL}` + item.img} alt={t("news.photoAlt")} style={img} loading="lazy" decoding="async" />}
             </div>
         </div>
     ));

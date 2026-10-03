@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import IconButton from '@mui/material/IconButton';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useI18n } from '../i18n';
 
 const routeLink = {
   color: "black",
@@ -42,6 +44,7 @@ const linkIcon = {
 
 export const TemporaryDrawer = () => {
   const isMobile = useMedia('(max-width: 1000px)');
+  const { path } = useI18n();
   const [state, setState] = React.useState({
     left: false
   });
@@ -63,17 +66,17 @@ export const TemporaryDrawer = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List style={{}}>
-        <ListItem style={routeLink} key='HOME' component={Link} to='/' disablePadding>
+        <ListItem style={routeLink} key='HOME' component={Link} to={path('/')} disablePadding>
           <ListItemButton style={{}}>
             <p style={title}>HOME</p>
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='NEWS' component={Link} to='/news' disablePadding>
+        <ListItem style={routeLink} key='NEWS' component={Link} to={path('/news')} disablePadding>
           <ListItemButton>
             <p style={title}>NEWS</p>
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='INTRODUCTION/MEMBER' component={Link} to='/introduction' disablePadding>
+        <ListItem style={routeLink} key='INTRODUCTION/MEMBER' component={Link} to={path('/introduction')} disablePadding>
           <ListItemButton>
             <p style={title}>INTRODUCTION/MEMBER</p>
           </ListItemButton>
@@ -96,12 +99,15 @@ export const TemporaryDrawer = () => {
             <OpenInNewOutlinedIcon style={linkIcon} />
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='CONTACT US' component={Link} to='/contact' disablePadding>
+        <ListItem style={routeLink} key='CONTACT US' component={Link} to={path('/contact')} disablePadding>
           <ListItemButton>
             <p style={title}>CONTACT US</p>
           </ListItemButton>
         </ListItem>
       </List>
+      <div style={{padding: "16px 0 0 25px", borderTop: "solid #e0e0e0 1px"}}>
+        <LanguageSwitcher onSelect={() => setState({ ...state, [anchor]: false })} />
+      </div>
     </Box>
   );
 
