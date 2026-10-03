@@ -7,6 +7,7 @@ import Instagram from "../resources/img/Instagram_Glyph_White.png";
 import X from "../resources/img/logo-white.png";
 import YouTube from "../resources/img/youtube.png";
 import { Link } from "react-router-dom";
+import { trackEvent } from "../analytics";
 
 const footer = {
     width: "auto",
@@ -80,6 +81,7 @@ const Footer = () => {
     const isMobile = useMedia('(max-width: 1000px)');
     const handleCopyClick = () => {
         navigator.clipboard.writeText("tsudoi.shamisen@gmail.com");
+        trackEvent("contact_email_copy", { location: "footer" });
         window.alert("メールアドレスをコピーしました。");
     };
 
@@ -108,7 +110,7 @@ const Footer = () => {
                     </div>
                     <div className={Com.sp}>
                         <div style={footerWord}>
-                            <div><LocalPhoneIcon style={icon}/></div><a href="tel:080-6744-3905" style={{color: "white"}}>080-6744-3905</a>
+                            <div><LocalPhoneIcon style={icon}/></div><a href="tel:080-6744-3905" style={{color: "white"}} onClick={() => trackEvent("contact_phone_click", { location: "footer" })}>080-6744-3905</a>
                         </div>
                     </div>
                     <div className={Com.pc}>

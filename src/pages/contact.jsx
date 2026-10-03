@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import Grid from '@mui/material/Unstable_Grid2';
+import { trackEvent } from "../analytics";
 import {
     school,
     narita2,
@@ -96,8 +97,18 @@ const Intro = () => {
                         <div style={section}>
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>連絡先</p>
                         </div>
-                        <p>メールアドレス：tsudoi.shamisen@gmail.com<br/>
-                        電話番号：080-6744-3905</p>
+                        <p>メールアドレス：<a href="mailto:tsudoi.shamisen@gmail.com" onClick={() => trackEvent("contact_email_click", { location: "contact_page" })}>tsudoi.shamisen@gmail.com</a><br/>
+                        電話番号：<a href="tel:080-6744-3905" onClick={() => trackEvent("contact_phone_click", { location: "contact_page" })}>080-6744-3905</a></p>
+                    </div>
+                    <div>
+                        <div style={section}>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>アクセス解析について</p>
+                        </div>
+                        <p style={{fontSize: "14px"}}>
+                            当サイトでは、サイトの利用状況を把握するために Google アナリティクスを利用しています。
+                            Google アナリティクスは Cookie を使用してデータを収集しますが、個人を特定する情報は含まれません。
+                            データの取り扱いについては <a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener noreferrer">Google のポリシーと規約</a> をご覧ください。
+                        </p>
                     </div>
                 </div>
             </main>
