@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"><url><loc>https://tsudoi-shamisen.com/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://tsudoi-shamisen.com/</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/news</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/introduction</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/contact</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/en/</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/en/news</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/en/introduction</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/en/contact</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/zh-hant/</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/zh-hant/news</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/zh-hant/introduction</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/zh-hant/contact</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/zh-hans/</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/zh-hans/news</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/zh-hans/introduction</loc></url>
+  <url><loc>https://tsudoi-shamisen.com/zh-hans/contact</loc></url>
+</urlset>
