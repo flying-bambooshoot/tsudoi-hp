@@ -54,16 +54,12 @@ const Intro = () => {
 
     return (
         <>
-            <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            </head>
-            <body className={isMobile ? "phBody" : "body"}>
+            <div className={isMobile ? "phBody" : "body"}>
             <Header />
             <PhoneHeader />
             <main className={isMobile ? "phMain" : "main"}>
                 <section className="title">
-                    <h2 className="h2">INTRODUCTION/MEMBER</h2>
+                    <h1 className="h2">INTRODUCTION/MEMBER</h1>
                 </section>
                 <div style={{padding: "20px 0"}}>
                 <Grid container spacing={2} style={{margin: "auto"}}>
@@ -108,7 +104,7 @@ const Intro = () => {
                                     <p style={{margin: 0}}>{t("introduction.members.nakahara")}</p>
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
-                                    <a href="https://x.com/shijimidaimajin" target='_blank'>
+                                    <a href="https://x.com/shijimidaimajin" target='_blank' rel="noopener noreferrer">
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
                                 </div>
@@ -123,7 +119,7 @@ const Intro = () => {
                                     <p style={{margin: 0}}>{t("introduction.members.kawasaki")}</p>
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
-                                    <a href="https://x.com/tsugarumanami" target='_blank'>
+                                    <a href="https://x.com/tsugarumanami" target='_blank' rel="noopener noreferrer">
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
                                 </div>
@@ -150,7 +146,7 @@ const Intro = () => {
                                     <p style={{margin: 0}}>{t("introduction.members.noguchi")}</p>
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
-                                    <a href="https://x.com/ara527_shami" target='_blank'>
+                                    <a href="https://x.com/ara527_shami" target='_blank' rel="noopener noreferrer">
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
                                 </div>
@@ -165,7 +161,7 @@ const Intro = () => {
                                     <p style={{margin: 0}}>{t("introduction.members.suga")}</p>
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
-                                    <a href="https://x.com/Shamisen_SugA" target='_blank'>
+                                    <a href="https://x.com/Shamisen_SugA" target='_blank' rel="noopener noreferrer">
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
                                 </div>
@@ -180,7 +176,7 @@ const Intro = () => {
                                     <p style={{margin: 0}}>{t("introduction.members.matsubara")}</p>
                                 </div>
                                 {/* <div style={{margin: "12px 0 0 6px"}}>
-                                    <a href="https://x.com/kappaakane" target='_blank'>
+                                    <a href="https://x.com/kappaakane" target='_blank' rel="noopener noreferrer">
                                         <img src={X} alt="" style={snsIcon} />
                                     </a>
                                 </div> */}
@@ -191,7 +187,7 @@ const Intro = () => {
                 </Grid>
                 </div>
             </main>
-            </body>
+            </div>
             <Footer/>
         </>
     );

@@ -42,15 +42,12 @@ const Intro = () => {
 
     return (
         <>
-            <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-            </head>
-            <body className={isMobile ? "phBody" : "body"}>
+            <div className={isMobile ? "phBody" : "body"}>
             <Header />
             <PhoneHeader />
             <main className={isMobile ? "phMain" : "main"}>
                 <section className="title">
-                    <h2 className="h2">CONTACT US</h2>
+                    <h1 className="h2">CONTACT US</h1>
                 </section>
                 <div style={{padding: "12px 8px"}}>
                     <div style={{margin: "12px 0"}}>
@@ -114,7 +111,7 @@ const Intro = () => {
                     </div>
                 </div>
             </main>
-            </body>
+            </div>
             <Footer/>
         </>
     );
