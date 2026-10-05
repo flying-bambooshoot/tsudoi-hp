@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import useMedia from '../useMedia';
 import Com from "../css/common.module.css";
 import Header from "../components/Header";
@@ -14,6 +15,7 @@ import "../css/common.css"
 import "../css/home.css"
 import "@splidejs/react-splide/css";
 import { Link } from "react-router-dom";
+import { trackEvent } from "../analytics";
 import {
   school,
   narita2,
@@ -95,6 +97,42 @@ const sec = {
 const sectionHeading = {
   fontSize: "20px",
   margin: "0.67em 0",
+}
+
+// 「演奏のご依頼」セクション
+const bookingSection = {
+  marginTop: "36px",
+  marginBottom: "48px",
+}
+
+const bookingSubheading = {
+  marginLeft: "12px",
+  fontSize: "14px",
+  color: "#8c8c8c",
+}
+
+const bookingBody = {
+  borderTop: "solid #cccccc 1px",
+  paddingTop: "20px",
+}
+
+const bookingButtonArea = {
+  display: "flex",
+  justifyContent: "center",
+  marginTop: "24px",
+}
+
+const bookingButton = {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "8px",
+  padding: "14px 40px",
+  backgroundColor: "rgb(22,22,22)",
+  color: "white",
+  textDecoration: "none",
+  fontSize: "16px",
+  letterSpacing: "0.06em",
 }
 
 // 画面には表示せず、検索エンジンやスクリーンリーダーにだけ伝える
@@ -218,6 +256,29 @@ const Home = () => {
               </div>
               <div style={youtube}>
                 <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/mBdbPXmQxXY?si=oKyRt-LXfYBU-NoF" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+              </div>
+            </div>
+          </section>
+          <section style={bookingSection}>
+            <h2 style={sectionHeading}>
+              BOOKING
+              <span style={bookingSubheading}>{t("home.booking.subheading")}</span>
+            </h2>
+            <div style={bookingBody}>
+              <p>
+                {t("home.booking.lead1")}
+                <br />
+                {t("home.booking.lead2")}
+              </p>
+              <div style={bookingButtonArea}>
+                <Link
+                  to={path("/contact")}
+                  style={isMobile ? { ...bookingButton, width: "100%", boxSizing: "border-box" } : bookingButton}
+                  onClick={() => trackEvent("booking_cta_click", { location: "home" })}
+                >
+                  {t("home.booking.button")}
+                  <ArrowForwardIcon style={{ fontSize: 18 }} />
+                </Link>
               </div>
             </div>
           </section>

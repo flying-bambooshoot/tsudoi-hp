@@ -7,6 +7,14 @@
   "footer": {
     "emailCopied": "Email address copied."
   },
+  "home": {
+    "booking": {
+      "subheading": "Book a Performance",
+      "lead1": "We perform Tsugaru shamisen at parties, ceremonies, festivals, and other events.",
+      "lead2": "The ensemble size and program can be tailored to your event.",
+      "button": "Contact Us"
+    }
+  },
   "news": {
     "photoAlt": "Photo"
   },
