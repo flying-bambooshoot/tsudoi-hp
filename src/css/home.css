@@ -1,6 +1,6 @@
 .eachNews  {
-    overFlow: hidden;
-    text-overflow: elipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -25,7 +25,7 @@
 }
 
 @keyframes change-img-anim-first {
-    0%{ opacity: １;}
+    0%{ opacity: 1;}
     5%{ opacity: 1;}
     36%{ opacity: 1;}
     45%{ opacity: 1;}
