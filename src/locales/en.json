@@ -1,0 +1,58 @@
+{
+  "common": {
+    "logoAlt": "Tsugaru Shamisen \"Tsudoi\"",
+    "languageMenu": "Language"
+  },
+  "footer": {
+    "emailCopied": "Email address copied."
+  },
+  "news": {
+    "photoAlt": "Photo"
+  },
+  "introduction": {
+    "groupName": "Tsugaru Shamisen \"Tsudoi\"",
+    "description": "Formed in 2021 by six players: Nakahara Masato, Kawasaki Manami, Fujisaki Kenta, Noguchi Arata, Matsubara Akane, and Suga Kosuke.\nA unique ensemble whose members all perform independently, without belonging to any traditional school.\n\nBeyond the folk songs at the heart of Tsugaru shamisen, the group performs original pieces with modern rhythms and harmonies, exploring new possibilities for the Tsugaru shamisen ensemble.",
+    "awardsHeading": "Awards",
+    "awards": [
+      { "year": "2021", "items": ["9th National Tsugaru Shamisen & Tsugaru Folk Song Competition in Lake Biwa — Winner, Group Solo Piece Division"] },
+      { "year": "2022", "items": ["40th Tsugaru Shamisen World Competition — Winner, Group Division"] },
+      { "year": "2023", "items": ["26th National Tsugaru Shamisen Concours — Winner, Ensemble Silver Lion Award Division (10 or fewer players)", "11th National Tsugaru Shamisen & Tsugaru Folk Song Competition in Lake Biwa — Winner, Group Solo Piece Division"] },
+      { "year": "2024", "items": ["27th National Tsugaru Shamisen Concours — Winner, Ensemble Silver Lion Award Division (10 or fewer players)"] },
+      { "year": "2025", "items": ["28th National Tsugaru Shamisen Concours — Winner, Ensemble Silver Lion Award Division (10 or fewer players)"] }
+    ],
+    "members": {
+      "nakahara": "Nakahara Masato",
+      "kawasaki": "Kawasaki Manami",
+      "fujisaki": "Fujisaki Kenta",
+      "noguchi": "Noguchi Arata",
+      "suga": "Suga Kosuke",
+      "matsubara": "Matsubara Akane"
+    }
+  },
+  "contact": {
+    "requestHeading": "Booking a Performance",
+    "requestBody": "We perform at parties, ceremonies, festivals, and other events.\nThe program and performance length can be flexibly arranged to suit your event.",
+    "requestFirstStep": "Please feel free to contact us by email or phone and tell us about the event you have in mind.",
+    "songsHeading": "Repertoire",
+    "songsBody": "We perform a wide range of music, including traditional folk songs, contemporary pieces, and covers. The program can be tailored to your event.",
+    "formationHeading": "Ensemble Size",
+    "formationBody": "2 to 6 players",
+    "priceHeading": "Fees",
+    "priceBase": "Full ensemble of 6 players\n30 minutes: from ¥200,000 (tax included)",
+    "priceExtra": "An additional fee applies if you would like us to perform in traditional Japanese attire. Travel expenses are charged separately.",
+    "priceSmallGroup": "Depending on the size of the venue, your budget, and the atmosphere you are looking for, we can also perform as a smaller group of 2 to 5 players.",
+    "priceProposal": "After hearing your requests, we will propose the best plan for your event. Please feel free to contact us.",
+    "priceDisclaimer": "* Prices shown are a guide only. Fees may vary depending on the program, time commitment, and venue location.",
+    "contactHeading": "Contact",
+    "languageNote": "We can respond in English or Japanese.",
+    "emailLabel": "Email: ",
+    "phoneLabel": "Phone: ",
+    "phoneDisplay": "+81 80-6744-3905",
+    "phoneHref": "tel:+818067443905",
+    "analyticsHeading": "About Analytics",
+    "analyticsBody": "This website uses Google Analytics to understand how visitors use the site. Google Analytics collects data using cookies, but this data does not identify individuals. For details on how the data is handled, please see ",
+    "analyticsLinkText": "Google's Privacy & Terms",
+    "analyticsLinkUrl": "https://policies.google.com/technologies/partner-sites?hl=en",
+    "analyticsAfterLink": "."
+  }
+}

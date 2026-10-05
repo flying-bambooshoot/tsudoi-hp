@@ -1,0 +1,58 @@
+{
+  "common": {
+    "logoAlt": "津輕三味線 集-tsudoi-",
+    "languageMenu": "語言"
+  },
+  "footer": {
+    "emailCopied": "已複製電子郵件地址。"
+  },
+  "news": {
+    "photoAlt": "照片"
+  },
+  "introduction": {
+    "groupName": "『集-tsudoi-』",
+    "description": "由中原正人、川﨑愛實、藤﨑健太、野口新、枩原茜、須賀行亮 6 人於 2021 年組成。\n成員皆不隸屬於任何流派，是一個獨具特色的團體。\n\n除了津輕三味線本色的民謠曲目之外，也演奏融入現代節奏與和聲的原創樂曲，持續探索津輕三味線合奏的無限可能。",
+    "awardsHeading": "獲獎紀錄",
+    "awards": [
+      { "year": "2021年", "items": ["第9屆津輕三味線津輕民謠全國大會 in琵琶湖 團體獨奏曲組 冠軍"] },
+      { "year": "2022年", "items": ["第40屆津輕三味線世界大會 團體組 冠軍"] },
+      { "year": "2023年", "items": ["第26屆津輕三味線大賽全國大會 合奏 銀獅子獎（10人以下）組 冠軍", "第11屆津輕三味線津輕民謠全國大會 in琵琶湖 團體獨奏曲組 冠軍"] },
+      { "year": "2024年", "items": ["第27屆津輕三味線大賽全國大會 合奏 銀獅子獎（10人以下）組 冠軍"] },
+      { "year": "2025年", "items": ["第28屆津輕三味線大賽全國大會 合奏 銀獅子獎（10人以下）組 冠軍"] }
+    ],
+    "members": {
+      "nakahara": "中原 正人",
+      "kawasaki": "川﨑 愛實",
+      "fujisaki": "藤崎 健太",
+      "noguchi": "野口 新",
+      "suga": "須賀 行亮",
+      "matsubara": "枩原 茜"
+    }
+  },
+  "contact": {
+    "requestHeading": "演出邀約",
+    "requestBody": "我們承接派對、典禮、祭典等各類活動的演出。\n演奏曲目與演出時間皆可配合活動彈性調整。",
+    "requestFirstStep": "歡迎透過電子郵件或電話與我們聯繫，告訴我們您希望在什麼樣的活動中安排演出。",
+    "songsHeading": "曲目",
+    "songsBody": "可演奏民謠、現代曲、翻奏曲等多種曲目。演出曲目可依活動內容與我們討論。",
+    "formationHeading": "編制",
+    "formationBody": "2～6人",
+    "priceHeading": "費用",
+    "priceBase": "6人編制演出\n30分鐘：¥200,000起（含稅）",
+    "priceExtra": "如希望我們身著和服演出，需另收追加費用。交通費亦需另行負擔。",
+    "priceSmallGroup": "可依場地規模、預算及希望營造的氛圍，安排2～5人的小編制演出。",
+    "priceProposal": "我們將在了解您的需求後，為您提出最合適的方案，歡迎隨時洽詢。",
+    "priceDisclaimer": "※以上價格僅供參考。實際費用可能因演出內容、時間長度及場地位置而有所不同。",
+    "contactHeading": "聯絡方式",
+    "languageNote": "請以英文或日文與我們聯繫。",
+    "emailLabel": "電子郵件：",
+    "phoneLabel": "電話：",
+    "phoneDisplay": "+81 80-6744-3905",
+    "phoneHref": "tel:+818067443905",
+    "analyticsHeading": "關於網站分析",
+    "analyticsBody": "本網站使用 Google Analytics 以了解網站的使用情況。Google Analytics 會使用 Cookie 收集資料，但不包含可識別個人身分的資訊。關於資料的處理方式，請參閱",
+    "analyticsLinkText": "Google 隱私權與條款",
+    "analyticsLinkUrl": "https://policies.google.com/technologies/partner-sites?hl=zh-TW",
+    "analyticsAfterLink": "。"
+  }
+}

@@ -7,6 +7,8 @@ import Instagram from "../resources/img/Instagram_Glyph_White.png";
 import X from "../resources/img/logo-white.png";
 import YouTube from "../resources/img/youtube.png";
 import { Link } from "react-router-dom";
+import { trackEvent } from "../analytics";
+import { useI18n } from "../i18n";
 
 const footer = {
     width: "auto",
@@ -78,25 +80,27 @@ const blank = {}
 
 const Footer = () => {
     const isMobile = useMedia('(max-width: 1000px)');
+    const { t, path } = useI18n();
     const handleCopyClick = () => {
         navigator.clipboard.writeText("tsudoi.shamisen@gmail.com");
-        window.alert("メールアドレスをコピーしました。");
+        trackEvent("contact_email_copy", { location: "footer" });
+        window.alert(t("footer.emailCopied"));
     };
 
     return (
         <footer style={isMobile ? phoneFooter : footer}>
                 <div className={Com.sp} style={{padding: "24px 0 24px 0"}}>
                     <div style={link}>
-                        <Link style={linkWord} key='HOME' to="/">HOME</Link>
+                        <Link style={linkWord} key='HOME' to={path("/")}>HOME</Link>
                     </div>
                     <div style={link}>
-                        <Link style={linkWord} to="/news">NEWS</Link>
+                        <Link style={linkWord} to={path("/news")}>NEWS</Link>
                     </div>
                     <div style={link}>
-                        <Link style={linkWord} to="/introduction">INTRODUCTION/MEMBER</Link>
+                        <Link style={linkWord} to={path("/introduction")}>INTRODUCTION/MEMBER</Link>
                     </div>
                     <div style={link}>
-                        <Link style={linkWord} to="/contact">CONTACT US</Link>
+                        <Link style={linkWord} to={path("/contact")}>CONTACT US</Link>
                     </div>
                 </div>
                 <div style={isMobile ? blank : contactInfo}>
@@ -108,12 +112,12 @@ const Footer = () => {
                     </div>
                     <div className={Com.sp}>
                         <div style={footerWord}>
-                            <div><LocalPhoneIcon style={icon}/></div><a href="tel:080-6744-3905" style={{color: "white"}}>080-6744-3905</a>
+                            <div><LocalPhoneIcon style={icon}/></div><a href={t("contact.phoneHref")} style={{color: "white"}} onClick={() => trackEvent("contact_phone_click", { location: "footer" })}>{t("contact.phoneDisplay")}</a>
                         </div>
                     </div>
                     <div className={Com.pc}>
                         <div style={footerWord}>
-                            <div><LocalPhoneIcon style={icon}/></div><div>080-6744-3905</div>
+                            <div><LocalPhoneIcon style={icon}/></div><div>{t("contact.phoneDisplay")}</div>
                         </div>
                     </div>
                 </div>

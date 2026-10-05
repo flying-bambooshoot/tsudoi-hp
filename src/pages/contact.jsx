@@ -4,6 +4,9 @@ import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import Grid from '@mui/material/Unstable_Grid2';
+import { trackEvent } from "../analytics";
+import { useI18n } from "../i18n";
+import Lines from "../components/Lines";
 import {
     school,
     narita2,
@@ -25,8 +28,17 @@ const section = {
     paddingTop: 16,
 }
 
+const note = {
+    marginTop: "48px",
+    paddingTop: "12px",
+    borderTop: "solid #eeeeee 1px",
+    color: "#8c8c8c",
+}
+
 const Intro = () => {
     const isMobile = useMedia('(max-width: 1000px)');
+    const { t, tOptional } = useI18n();
+    const languageNote = tOptional("contact.languageNote");
 
     return (
         <>
@@ -51,19 +63,18 @@ const Intro = () => {
                     </div>
                     <div>
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>ご依頼について</p>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.requestHeading")}</p>
                         </div>
-                        <p>パーティ/式典/お祭りなどでの演奏を承ります。<br/>
-                        楽曲や演奏時間についてはイベントに合わせて柔軟に対応可能です。</p>
-                        <p>まずはお気軽にどのようなイベントでの演奏をご希望なのか、メールまたは電話にてお知らせください。</p>
+                        <p><Lines text={t("contact.requestBody")} /></p>
+                        <p>{t("contact.requestFirstStep")}</p>
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>曲目</p>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.songsHeading")}</p>
                         </div>
-                        <p>民謡/現代曲/カバーなど様々な楽曲の演奏が可能です。演奏する曲目についてはイベントに合わせてご相談ください。</p>
+                        <p>{t("contact.songsBody")}</p>
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>編成</p>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.formationHeading")}</p>
                         </div>
-                        <p>2～6人</p>
+                        <p>{t("contact.formationBody")}</p>
                         {/* <div style={section}>
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>料金について</p>
                         </div>
@@ -76,28 +87,30 @@ const Intro = () => {
                             ご予算や会場などシチュエーションに応じて少人数での演奏も承ります。まずはご相談ください。
                         </p> */}
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>料金について</p>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.priceHeading")}</p>
                         </div>
-                        <p>
-                            6名編成でのご依頼の場合<br />
-                            30分：¥200,000〜（税込）
-                        </p>
-                            和装での出演をご希望の場合は、追加料金を頂戴いたします。
-                            また、交通費は別途ご負担をお願いしております。
-                        <p>
-                            会場の規模やご予算、ご希望の雰囲気に応じて、2〜5名の少人数編成での演奏も可能です。
-                        </p>
-                            ご希望内容を伺った上で、最適なプランをご提案いたしますので、まずはお気軽にご相談ください。
-                        <p>
-                            ※表示価格はあくまで目安となります。演奏内容や拘束時間、会場の場所によって料金は変動する場合がございます。
-                        </p>
+                        <p><Lines text={t("contact.priceBase")} /></p>
+                        {t("contact.priceExtra")}
+                        <p>{t("contact.priceSmallGroup")}</p>
+                        {t("contact.priceProposal")}
+                        <p>{t("contact.priceDisclaimer")}</p>
                     </div>
                     <div>
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>連絡先</p>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.contactHeading")}</p>
                         </div>
-                        <p>メールアドレス：tsudoi.shamisen@gmail.com<br/>
-                        電話番号：080-6744-3905</p>
+                        {languageNote && <p>{languageNote}</p>}
+                        <p>{t("contact.emailLabel")}<a href="mailto:tsudoi.shamisen@gmail.com" onClick={() => trackEvent("contact_email_click", { location: "contact_page" })}>tsudoi.shamisen@gmail.com</a><br/>
+                        {t("contact.phoneLabel")}<a href={t("contact.phoneHref")} onClick={() => trackEvent("contact_phone_click", { location: "contact_page" })}>{t("contact.phoneDisplay")}</a></p>
+                    </div>
+                    {/* アクセス解析の表記は注記として小さく表示する */}
+                    <div style={note}>
+                        <p style={{fontSize: "13px", fontWeight: "bold", margin: "0 0 4px"}}>{t("contact.analyticsHeading")}</p>
+                        <p style={{fontSize: "12px", margin: 0}}>
+                            {t("contact.analyticsBody")}
+                            <a href={t("contact.analyticsLinkUrl")} target="_blank" rel="noopener noreferrer">{t("contact.analyticsLinkText")}</a>
+                            {t("contact.analyticsAfterLink")}
+                        </p>
                     </div>
                 </div>
             </main>

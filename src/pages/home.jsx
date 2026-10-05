@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import Data from "../data/news.json";
+import { useI18n, useNews } from "../i18n";
 import tudoiLogo from "../resources/img/logo.png";
 import Top1 from '../resources/img/top1.jpg';
 import Top2 from '../resources/img/top2.jpg';
@@ -113,18 +113,10 @@ const none = {}
 
 const Home = () => {
   const isMobile = useMedia('(max-width: 1000px)');
-  const news = Object.values(Data.news).reverse();
+  const { t, path } = useI18n();
+  const news = useNews();
 
   useEffect(() => {
-    const description = "集-tsudoi-は津軽三味線を演奏する団体です。演奏のご依頼はメールかお電話で承ります。";
-    let descriptionMeta = document.querySelector('meta[name="description"]');
-    if (!descriptionMeta) {
-      descriptionMeta = document.createElement('meta');
-      descriptionMeta.name = 'description';
-      document.head.appendChild(descriptionMeta);
-    }
-    descriptionMeta.content = description;
-
     let viewportMeta = document.querySelector('meta[name="viewport"]');
     if (!viewportMeta) {
       viewportMeta = document.createElement('meta');
@@ -168,7 +160,7 @@ const Home = () => {
               <img style={imgDammy} src={Top2} />
             </div>
             <div style={logoBlock}>
-              <img style={logo} src={tudoiLogo} alt="集-tsudoi-" />
+              <img style={logo} src={tudoiLogo} alt={t("common.logoAlt")} />
             </div>
           </section>
         </div>
@@ -184,7 +176,7 @@ const Home = () => {
             <div style={{display: "flex"}}>
               <h1 style={h1}>NEWS</h1>
               <div style={{justifyItems: "center", margin: "0.67em 0 0 auto"}}>
-                <Link to="/news" style={{fontSize: 30, marginBottom: "-2px"}}>
+                <Link to={path("/news")} style={{fontSize: 30, marginBottom: "-2px"}}>
                   <KeyboardDoubleArrowRightIcon style={{fontSize: 32, color: "black"}}/>
                 </Link>
               </div>

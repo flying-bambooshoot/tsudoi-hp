@@ -25,6 +25,17 @@ NEWSを追加する際は"tsudoi-hp\src\data\news.json"ファイルにデータ�
 新しいデータは、JSON配列の最後尾に記載してください。
 文章の中で改行したい場所には"\n"を入れてください。
 
+### 翻訳について（英語・中国語ページ）
+NEWSを追加するときは、これまで通り"news.json"に日本語で追加するだけで大丈夫です。
+翻訳がまだない記事は、英語・中国語のページでも日本語のまま表示されます。
+
+翻訳を追加する場合は、以下のファイルに記事の"date"（日付）をキーにして書き足してください。
+- 英語："tsudoi-hp\src\data\news.en.json"
+- 中国語（繁体字）："tsudoi-hp\src\data\news.zh-Hant.json"
+- 中国語（簡体字）："tsudoi-hp\src\data\news.zh-Hans.json"
+
+NEWS以外の文章（紹介文・料金など）は"tsudoi-hp\src\locales"フォルダの各言語のファイルにあります。
+
 ## 【修正内容を公開する】
 1. ソースコード修正
 2. ターミナルで"npm run build"コマンド実行
