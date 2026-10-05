@@ -14,7 +14,7 @@
 const fs = require("fs");
 const path = require("path");
 const { SITE_URL, languages, pages } = require("./pages");
-const { musicGroup, jsonLdScript } = require("./structured-data");
+const { musicGroup, breadcrumbList, jsonLdScript } = require("./structured-data");
 
 const buildDir = path.join(__dirname, "..", "build");
 const template = fs.readFileSync(path.join(buildDir, "index.html"), "utf8");
@@ -45,9 +45,10 @@ const renderHtml = (language, page) => {
   const title = escapeHtml(page.title[language.code]);
   const description = escapeHtml(page.description[language.code]);
   const home = pages.find((p) => p.path === "/");
-  const structuredData = jsonLdScript(
-    musicGroup(language, pageUrl(language, home), home.description[language.code])
-  );
+  const structuredData =
+    jsonLdScript(musicGroup(language, pageUrl(language, home), home.description[language.code])) +
+    // パンくずリストは下層ページのみ（TOP には表示していないため）
+    (page.path === "/" ? "" : jsonLdScript(breadcrumbList(home, page, (p) => pageUrl(language, p))));
   const html = template
     .replace(/<html lang="[^"]*">/, `<html lang="${language.code}">`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)

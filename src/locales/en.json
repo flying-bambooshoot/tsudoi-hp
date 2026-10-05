@@ -2,7 +2,8 @@
   "common": {
     "siteName": "Tsugaru Shamisen \"Tsudoi\"",
     "logoAlt": "Tsugaru Shamisen \"Tsudoi\"",
-    "languageMenu": "Language"
+    "languageMenu": "Language",
+    "breadcrumb": "Breadcrumb"
   },
   "footer": {
     "emailCopied": "Email address copied."

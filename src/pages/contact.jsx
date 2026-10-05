@@ -3,6 +3,7 @@ import useMedia from '../useMedia';
 import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
+import Breadcrumb from "../components/Breadcrumb";
 import Grid from '@mui/material/Unstable_Grid2';
 import { trackEvent } from "../analytics";
 import { useI18n } from "../i18n";
@@ -46,6 +47,7 @@ const Intro = () => {
             <Header />
             <PhoneHeader />
             <main className={isMobile ? "phMain" : "main"}>
+                <Breadcrumb />
                 <section className="title">
                     <h1 className="h2">CONTACT US</h1>
                 </section>

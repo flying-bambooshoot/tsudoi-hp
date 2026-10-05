@@ -1,4 +1,5 @@
 // サイトのページ一覧と、検索結果に表示されるタイトル・説明文の定義（言語別）。
+// label はパンくずリストのページ名（src/components/Breadcrumb.jsx と同じ表記にする）。
 // ページを追加したら、src/App.js の pages と合わせてここにも追記する。
 // （scripts/postbuild.js が、この一覧から言語別・ページ別の HTML と sitemap.xml を生成する）
 
@@ -22,6 +23,7 @@ const SITE_NAME = {
 const pages = [
   {
     path: "/",
+    label: "HOME",
     title: SITE_NAME,
     description: {
       ja: "中原正人、川﨑愛実、藤﨑健太、野口新、枩原茜、須賀行亮の 6 名で 2021 年に結成。全員がどの流派にも属さず活動する異色の団体。津軽三味線の本領である民謡曲のみならず、現代的なリズムやハーモニーを取り入れたオリジナル楽曲など、津軽三味線の合奏の可能性を追求している。",
@@ -32,6 +34,7 @@ const pages = [
   },
   {
     path: "/news",
+    label: "NEWS",
     title: {
       ja: `NEWS | ${SITE_NAME.ja}`,
       en: `News | ${SITE_NAME.en}`,
@@ -47,6 +50,7 @@ const pages = [
   },
   {
     path: "/introduction",
+    label: "INTRODUCTION/MEMBER",
     title: {
       ja: `グループ紹介・メンバー | ${SITE_NAME.ja}`,
       en: `About & Members | ${SITE_NAME.en}`,
@@ -62,6 +66,7 @@ const pages = [
   },
   {
     path: "/contact",
+    label: "CONTACT US",
     title: {
       ja: `演奏のご依頼・お問い合わせ | ${SITE_NAME.ja}`,
       en: `Book a Performance | ${SITE_NAME.en}`,

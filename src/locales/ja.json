@@ -2,7 +2,8 @@
   "common": {
     "siteName": "津軽三味線 集-tsudoi-",
     "logoAlt": "集-tsudoi-",
-    "languageMenu": "言語"
+    "languageMenu": "言語",
+    "breadcrumb": "パンくずリスト"
   },
   "footer": {
     "emailCopied": "メールアドレスをコピーしました。"

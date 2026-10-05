@@ -49,9 +49,22 @@ const musicGroup = (language, homeUrl, description) => {
   };
 };
 
+// パンくずリスト（BreadcrumbList）。画面の PC 用パンくずリスト（HOME › NEWS など）と同じ内容にする。
+// home / page: scripts/pages.js の pages の要素、urlOf: ページの URL を返す関数
+const breadcrumbList = (home, page, urlOf) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [home, page].map((p, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: p.label,
+    item: urlOf(p),
+  })),
+});
+
 // <script type="application/ld+json"> として埋め込む文字列を作る。
 // JSON の中に "</script>" などが含まれても HTML が壊れないよう、"<" をエスケープする
 const jsonLdScript = (data) =>
   `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`;
 
-module.exports = { musicGroup, jsonLdScript };
+module.exports = { musicGroup, breadcrumbList, jsonLdScript };

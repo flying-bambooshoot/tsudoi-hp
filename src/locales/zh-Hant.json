@@ -2,7 +2,8 @@
   "common": {
     "siteName": "津輕三味線 集-tsudoi-",
     "logoAlt": "津輕三味線 集-tsudoi-",
-    "languageMenu": "語言"
+    "languageMenu": "語言",
+    "breadcrumb": "導覽路徑"
   },
   "footer": {
     "emailCopied": "已複製電子郵件地址。"
