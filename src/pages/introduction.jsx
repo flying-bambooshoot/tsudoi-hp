@@ -58,6 +58,7 @@ const Intro = () => {
             <div className={isMobile ? "phBody" : "body"}>
             <Header />
             <PhoneHeader />
+            <div className="pageContent">
             <main className={isMobile ? "phMain" : "main"}>
                 <Breadcrumb />
                 <section className="title">
@@ -189,6 +190,7 @@ const Intro = () => {
                 </Grid>
                 </div>
             </main>
+            </div>
             </div>
             <Footer/>
         </>

@@ -38,7 +38,7 @@ NEWS以外の文章（紹介文・料金など）は"tsudoi-hp\src\locales"フ�
 
 ## 【修正内容を公開する】
 1. ソースコード修正
-2. ターミナルで"npm run build"コマンド実行
+2. ターミナルで"npm.cmd exec --yes --package=node@22.21.0 -- npm.cmd run build"コマンド実行
 3. "docs"フォルダを削除
 4. 2で作成された"build"フォルダの名前を"docs"に変更
 5. コミット＆プッシュ

@@ -20,6 +20,8 @@ import {
   orympic,
   bellserl,
   school2,
+  ajisai,
+  toshima,
 } from "../resources/img/homeGallery";
 
 const mainImg = {
@@ -131,7 +133,7 @@ const Home = () => {
   }, []);
 
   // ギャラリーに写真追加する際はこちら
-  let imageNames = [school, narita2, orympic, school2, bellserl];
+  let imageNames = [ajisai, toshima, school2, school, narita2, orympic, bellserl];
 
   // NEWSは新しいものから3件まで表示する（3件未満でもそのまま動作する）
   const newsList = news.slice(0, 3).map((item) => (
@@ -149,6 +151,7 @@ const Home = () => {
       <div className={isMobile ? "phBody" : "body"}>
         <Header />
         <PhoneHeader />
+        <div className="pageContent">
         <div className={Com.pc}>
           <section style={mainImg}>
             <div style={artistImg}>
@@ -223,6 +226,7 @@ const Home = () => {
           </section>
         </main>
         {/* <script>new Splide( '.splide' ).mount();</script> */}
+        </div>
       </div>
       <Footer/>
     </>

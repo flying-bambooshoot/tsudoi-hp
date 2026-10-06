@@ -46,6 +46,7 @@ const Intro = () => {
             <div className={isMobile ? "phBody" : "body"}>
             <Header />
             <PhoneHeader />
+            <div className="pageContent">
             <main className={isMobile ? "phMain" : "main"}>
                 <Breadcrumb />
                 <section className="title">
@@ -99,8 +100,7 @@ const Intro = () => {
                             <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.contactHeading")}</p>
                         </div>
                         {languageNote && <p>{languageNote}</p>}
-                        <p>{t("contact.emailLabel")}<a href="mailto:tsudoi.shamisen@gmail.com" onClick={() => trackEvent("contact_email_click", { location: "contact_page" })}>tsudoi.shamisen@gmail.com</a><br/>
-                        {t("contact.phoneLabel")}<a href={t("contact.phoneHref")} onClick={() => trackEvent("contact_phone_click", { location: "contact_page" })}>{t("contact.phoneDisplay")}</a></p>
+                        <p>{t("contact.emailLabel")}<a href="mailto:tsudoi.shamisen@gmail.com" onClick={() => trackEvent("contact_email_click", { location: "contact_page" })}>tsudoi.shamisen@gmail.com</a></p>
                     </div>
                     {/* アクセス解析の表記は注記として小さく表示する */}
                     <div style={note}>
@@ -113,6 +113,7 @@ const Intro = () => {
                     </div>
                 </div>
             </main>
+            </div>
             </div>
             <Footer/>
         </>
