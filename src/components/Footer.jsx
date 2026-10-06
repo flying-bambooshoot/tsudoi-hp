@@ -110,7 +110,7 @@ const Footer = () => {
                         </div>
                         <div style={{ textDecoration:"underline"}} onClick={handleCopyClick}>tsudoi.shamisen@gmail.com</div>
                     </div>
-                    <div className={Com.sp}>
+                    {/* <div className={Com.sp}>
                         <div style={footerWord}>
                             <div><LocalPhoneIcon style={icon}/></div><a href={t("contact.phoneHref")} style={{color: "white"}} onClick={() => trackEvent("contact_phone_click", { location: "footer" })}>{t("contact.phoneDisplay")}</a>
                         </div>
@@ -119,7 +119,7 @@ const Footer = () => {
                         <div style={footerWord}>
                             <div><LocalPhoneIcon style={icon}/></div><div>{t("contact.phoneDisplay")}</div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div style={isMobile ? phoneIcons : icons}>
                     <a href="https://twitter.com/tsudoi_shamisen" target='_blank' rel="noopener noreferrer">
