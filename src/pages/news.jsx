@@ -56,14 +56,16 @@ const News = () => {
             <div className={isMobile ? "phBody" : "body"}>
                 <Header />
                 <PhoneHeader />
-                <main className={isMobile ? "phMain" : "main"}>
-                    <section className="title">
-                        <h1 className="h2">NEWS</h1>
-                    </section>
-                    <section>
-                        <div>{newsList}</div>
-                    </section>
-                </main>
+                <div className="pageContent">
+                    <main className={isMobile ? "phMain" : "main"}>
+                        <section className="title">
+                            <h1 className="h2">NEWS</h1>
+                        </section>
+                        <section>
+                            <div>{newsList}</div>
+                        </section>
+                    </main>
+                </div>
             </div>
             <Footer />
         </>

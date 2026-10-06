@@ -45,6 +45,7 @@ const Intro = () => {
             <div className={isMobile ? "phBody" : "body"}>
             <Header />
             <PhoneHeader />
+            <div className="pageContent">
             <main className={isMobile ? "phMain" : "main"}>
                 <section className="title">
                     <h1 className="h2">CONTACT US</h1>
@@ -110,6 +111,7 @@ const Intro = () => {
                     </div>
                 </div>
             </main>
+            </div>
             </div>
             <Footer/>
         </>

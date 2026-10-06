@@ -151,6 +151,7 @@ const Home = () => {
       <div className={isMobile ? "phBody" : "body"}>
         <Header />
         <PhoneHeader />
+        <div className="pageContent">
         <div className={Com.pc}>
           <section style={mainImg}>
             <div style={artistImg}>
@@ -225,6 +226,7 @@ const Home = () => {
           </section>
         </main>
         {/* <script>new Splide( '.splide' ).mount();</script> */}
+        </div>
       </div>
       <Footer/>
     </>

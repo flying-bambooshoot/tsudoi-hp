@@ -21,6 +21,12 @@
     font-family: 'Helvetica', 'Helvetica Neue', 'YakuHanJP', '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic ProN', 'Osaka', 'ＭＳ Ｐゴシック', sans-serif;
 }
 
+.pageContent {
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
 .phMain {
     padding: 12px;
     background-color: #fff;
