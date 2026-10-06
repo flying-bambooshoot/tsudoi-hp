@@ -2,7 +2,8 @@ import React from 'react';
 import useMedia from '../useMedia';
 import Com from "../css/common.module.css";
 import EmailIcon from '@mui/icons-material/Email';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+// 電話番号の表示を非表示にしているため、アイコンの読み込みも止めている（表示を戻すときは一緒に戻す）
+// import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import Instagram from "../resources/img/Instagram_Glyph_White.png";
 import X from "../resources/img/logo-white.png";
 import YouTube from "../resources/img/youtube.png";
