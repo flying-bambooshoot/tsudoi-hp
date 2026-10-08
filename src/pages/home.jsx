@@ -22,6 +22,8 @@ import {
   orympic,
   bellserl,
   school2,
+  ajisai,
+  toshima,
 } from "../resources/img/homeGallery";
 
 const mainImg = {
@@ -169,7 +171,7 @@ const Home = () => {
   }, []);
 
   // ギャラリーに写真追加する際はこちら
-  let imageNames = [school, narita2, orympic, school2, bellserl];
+  let imageNames = [ajisai, toshima, school2, school, narita2, orympic, bellserl];
 
   // NEWSは新しいものから3件まで表示する（3件未満でもそのまま動作する）
   const newsList = news.slice(0, 3).map((item) => (
@@ -187,6 +189,7 @@ const Home = () => {
       <div className={isMobile ? "phBody" : "body"}>
         <Header />
         <PhoneHeader />
+        <div className="pageContent">
         <div className={Com.pc}>
           <section style={mainImg}>
             <div style={artistImg}>
@@ -252,10 +255,10 @@ const Home = () => {
             <h2 style={sectionHeading}>YouTube</h2>
             <div style={isMobile ? phoneMovie : section}>
               <div style={youtube}>
-                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/0svTkQUk_eM?si=Bs7BNxMQ0XHi9TEF" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/0svTkQUk_eM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
               </div>
               <div style={youtube}>
-                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/mBdbPXmQxXY?si=oKyRt-LXfYBU-NoF" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/mBdbPXmQxXY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
               </div>
             </div>
           </section>
@@ -284,6 +287,7 @@ const Home = () => {
           </section>
         </main>
         {/* <script>new Splide( '.splide' ).mount();</script> */}
+        </div>
       </div>
       <Footer/>
     </>

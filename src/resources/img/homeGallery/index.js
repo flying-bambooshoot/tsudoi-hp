@@ -3,3 +3,5 @@ export {default as school2} from './school2.jpeg';
 export {default as narita2} from './narita_stage.jpg';
 export {default as orympic} from './orympic.jpg';
 export {default as bellserl} from './bellserl.jpg';
+export {default as ajisai} from './ajisai.jpg';
+export {default as toshima} from './music_circle.jpg';

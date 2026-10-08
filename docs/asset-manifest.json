@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.594fd4ac.css",
-    "main.js": "/static/js/main.8d24c909.js",
+    "main.css": "/static/css/main.6b5facfb.css",
+    "main.js": "/static/js/main.3a3acf1e.js",
     "static/js/787.070c8c93.chunk.js": "/static/js/787.070c8c93.chunk.js",
+    "static/media/music_circle.jpg": "/static/media/music_circle.55bd9554f4f2fe7edea5.jpg",
     "static/media/all.jpg": "/static/media/all.1e1de68fd8e99caefe75.jpg",
     "static/media/school.jpg": "/static/media/school.53e4194a69fbfabada0b.jpg",
     "static/media/member_kawasaki.jpg": "/static/media/member_kawasaki.067bb763d14f284b15ab.jpg",
@@ -14,17 +15,18 @@
     "static/media/top1.jpg": "/static/media/top1.be3e4b90a80786438795.jpg",
     "static/media/member_uji.jpg": "/static/media/member_uji.30cac1d9bfb847680afa.jpg",
     "static/media/school2.jpeg": "/static/media/school2.3263e9dad8c92f36d6db.jpeg",
+    "static/media/ajisai.jpg": "/static/media/ajisai.81194d755dfca9e43d2d.jpg",
     "static/media/narita_stage.jpg": "/static/media/narita_stage.d53cc40d16c4db13d65f.jpg",
     "static/media/bellserl.jpg": "/static/media/bellserl.b3bf14d2e4ed0b12a06a.jpg",
     "static/media/orympic.jpg": "/static/media/orympic.1196b3b4e49496314393.jpg",
     "static/media/logo.png": "/static/media/logo.dadb0601818584da05df.png",
     "index.html": "/index.html",
-    "main.594fd4ac.css.map": "/static/css/main.594fd4ac.css.map",
-    "main.8d24c909.js.map": "/static/js/main.8d24c909.js.map",
+    "main.6b5facfb.css.map": "/static/css/main.6b5facfb.css.map",
+    "main.3a3acf1e.js.map": "/static/js/main.3a3acf1e.js.map",
     "787.070c8c93.chunk.js.map": "/static/js/787.070c8c93.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.594fd4ac.css",
-    "static/js/main.8d24c909.js"
+    "static/css/main.6b5facfb.css",
+    "static/js/main.3a3acf1e.js"
   ]
 }

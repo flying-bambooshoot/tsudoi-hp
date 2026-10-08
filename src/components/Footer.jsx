@@ -2,7 +2,8 @@ import React from 'react';
 import useMedia from '../useMedia';
 import Com from "../css/common.module.css";
 import EmailIcon from '@mui/icons-material/Email';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+// 電話番号の表示を非表示にしているため、アイコンの読み込みも止めている（表示を戻すときは一緒に戻す）
+// import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import Instagram from "../resources/img/Instagram_Glyph_White.png";
 import X from "../resources/img/logo-white.png";
 import YouTube from "../resources/img/youtube.png";
@@ -110,7 +111,7 @@ const Footer = () => {
                         </div>
                         <div style={{ textDecoration:"underline"}} onClick={handleCopyClick}>tsudoi.shamisen@gmail.com</div>
                     </div>
-                    <div className={Com.sp}>
+                    {/* <div className={Com.sp}>
                         <div style={footerWord}>
                             <div><LocalPhoneIcon style={icon}/></div><a href={t("contact.phoneHref")} style={{color: "white"}} onClick={() => trackEvent("contact_phone_click", { location: "footer" })}>{t("contact.phoneDisplay")}</a>
                         </div>
@@ -119,7 +120,7 @@ const Footer = () => {
                         <div style={footerWord}>
                             <div><LocalPhoneIcon style={icon}/></div><div>{t("contact.phoneDisplay")}</div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div style={isMobile ? phoneIcons : icons}>
                     <a href="https://twitter.com/tsudoi_shamisen" target='_blank' rel="noopener noreferrer">
