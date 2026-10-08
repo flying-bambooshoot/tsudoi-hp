@@ -107,12 +107,6 @@ const bookingSection = {
   marginBottom: "48px",
 }
 
-const bookingSubheading = {
-  marginLeft: "12px",
-  fontSize: "14px",
-  color: "#8c8c8c",
-}
-
 const bookingBody = {
   borderTop: "solid #cccccc 1px",
   paddingTop: "20px",
@@ -263,10 +257,8 @@ const Home = () => {
             </div>
           </section>
           <section style={bookingSection}>
-            <h2 style={sectionHeading}>
-              BOOKING
-              <span style={bookingSubheading}>{t("home.booking.subheading")}</span>
-            </h2>
+            {/* 英語は「BOOKING」、日本語・中国語はそれぞれの言語の見出しにする */}
+            <h2 style={sectionHeading}>{t("home.booking.heading")}</h2>
             <div style={bookingBody}>
               <p>
                 {t("home.booking.lead1")}
