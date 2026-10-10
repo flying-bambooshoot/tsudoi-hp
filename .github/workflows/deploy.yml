@@ -1,0 +1,54 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  # Actions タブから手動で実行する場合に使う
+  workflow_dispatch:
+
+# デプロイが重ならないように直列化する
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # ビルドにはリポジトリの読み取り権限だけを与える
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          # README の公開手順でビルドに使っているバージョンに合わせる
+          node-version: 22.21.0
+          # 公開に使うビルドのため、npm のキャッシュは使わない
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      # GitHub Actions では CI=true となり、警告があるとビルドが失敗する
+      - name: Build
+        run: npm run build
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    # Pages への公開に必要な権限は、公開するジョブだけに与える
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
