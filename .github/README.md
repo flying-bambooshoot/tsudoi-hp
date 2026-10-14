@@ -41,7 +41,7 @@ NEWS以外の文章（紹介文・料金など）は"tsudoi-hp\src\locales"フ�
 2. コミット＆プッシュ（masterブランチ）
 
 ※pushすると GitHub Actions が自動でビルドとデプロイを行います。
-　手動でのビルドや "docs"フォルダの入れ替えは不要です。
+　手動でのビルドは不要です。
 　ビルドに使う Node のバージョンは ".github/workflows/deploy.yml" で指定しています（22.21.0）。
 
 ### デプロイ状況の確認
