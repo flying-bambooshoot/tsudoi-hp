@@ -16,6 +16,7 @@ import "../css/home.css"
 import "@splidejs/react-splide/css";
 import { Link } from "react-router-dom";
 import { trackEvent } from "../analytics";
+import videoData from "../data/videos.json";
 import {
   school,
   narita2,
@@ -251,12 +252,12 @@ const Home = () => {
           <section style={sec}>
             <h2 style={sectionHeading}>YouTube</h2>
             <div style={isMobile ? phoneMovie : section}>
-              <div style={youtube}>
-                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/0svTkQUk_eM" title="【第40回津軽三味線世界大会 団体の部 優勝】津軽じょんがら節/集-tsudoi-" loading="lazy" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-              </div>
-              <div style={youtube}>
-                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/mBdbPXmQxXY" title="【令和5年度 成田弦まつり】Nova/集-tsudoi-" loading="lazy" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-              </div>
+              {/* 動画を入れ替える際は src/data/videos.json を編集する（検索エンジン向けの動画情報も同じファイルから作られる） */}
+              {videoData.videos.map((video) => (
+                <div key={video.id} style={youtube}>
+                  <iframe style={iframe} width="560" height="315" src={`https://www.youtube.com/embed/${video.id}`} title={video.title} loading="lazy" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                </div>
+              ))}
             </div>
           </section>
           <section style={bookingSection}>
