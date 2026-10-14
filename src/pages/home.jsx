@@ -210,7 +210,8 @@ const Home = () => {
             <div style={{display: "flex"}}>
               <h2 style={sectionHeading}>NEWS</h2>
               <div style={{justifyItems: "center", margin: "0.67em 0 0 auto"}}>
-                <Link to={path("/news")} style={{fontSize: 30, marginBottom: "-2px"}}>
+                {/* アイコンだけのリンクなので、読み上げソフト向けにリンク先の名前を付ける */}
+                <Link to={path("/news")} style={{fontSize: 30, marginBottom: "-2px"}} aria-label={t("home.newsMore")}>
                   <KeyboardDoubleArrowRightIcon style={{fontSize: 32, color: "black"}}/>
                 </Link>
               </div>
@@ -219,7 +220,7 @@ const Home = () => {
           </section>
           <section style={sec}>
             <h2 style={sectionHeading}>GALLERY</h2>
-            <Splide style={slide} aria-label="My Favorite Images"
+            <Splide style={slide} aria-label="GALLERY"
             options={{
               perPage: 1,
               mediaQuery: 'min',
@@ -239,8 +240,10 @@ const Home = () => {
               objectFit: 'cover',
             }}>
               { imageNames.map(slide => (
-                <SplideSlide key={slide.src}>
-                  <img src={slide} alt={slide} loading="lazy" decoding="async" />
+                // slide は画像のパス（文字列）なので、そのまま key に使う。
+                // 写真の説明文がまだないため、alt は空にして読み上げの対象から外す
+                <SplideSlide key={slide}>
+                  <img src={slide} alt="" loading="lazy" decoding="async" />
                 </SplideSlide>
               ))}
             </Splide>
@@ -249,10 +252,10 @@ const Home = () => {
             <h2 style={sectionHeading}>YouTube</h2>
             <div style={isMobile ? phoneMovie : section}>
               <div style={youtube}>
-                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/0svTkQUk_eM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/0svTkQUk_eM" title="【第40回津軽三味線世界大会 団体の部 優勝】津軽じょんがら節/集-tsudoi-" loading="lazy" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
               </div>
               <div style={youtube}>
-                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/mBdbPXmQxXY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                <iframe style={iframe} width="560" height="315" src="https://www.youtube.com/embed/mBdbPXmQxXY" title="【令和5年度 成田弦まつり】Nova/集-tsudoi-" loading="lazy" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
               </div>
             </div>
           </section>
