@@ -47,6 +47,17 @@ const footerWord = {
 const icon = {
     margin: "6px 8px 0 0",
 }
+// キーボードでも押せるよう button にしている。ブラウザ標準のボタンの見た目を消し、周りの文字と同じ見た目にする
+const emailButton = {
+    padding: 0,
+    border: "none",
+    background: "none",
+    color: "inherit",
+    font: "inherit",
+    letterSpacing: "inherit",
+    textDecoration: "underline",
+    cursor: "pointer",
+}
 const snsIcon = {
     margin: "0 24px 0 0",
     height: "26px",
@@ -109,7 +120,7 @@ const Footer = () => {
                         <div>
                             <EmailIcon style={icon}/>
                         </div>
-                        <div style={{ textDecoration:"underline"}} onClick={handleCopyClick}>tsudoi.shamisen@gmail.com</div>
+                        <button type="button" style={emailButton} onClick={handleCopyClick}>tsudoi.shamisen@gmail.com</button>
                     </div>
                     {/* <div className={Com.sp}>
                         <div style={footerWord}>
@@ -124,13 +135,13 @@ const Footer = () => {
                 </div>
                 <div style={isMobile ? phoneIcons : icons}>
                     <a href="https://twitter.com/tsudoi_shamisen" target='_blank' rel="noopener noreferrer">
-                        <img src={X} alt="" style={snsIcon} loading="lazy" decoding="async" />
+                        <img src={X} alt="X" style={snsIcon} loading="lazy" decoding="async" />
                     </a>
                     <a href="https://www.instagram.com/tsudoi_shamisen" target='_blank' rel="noopener noreferrer">
-                        <img src={Instagram} alt="" style={snsIcon} loading="lazy" decoding="async" />
+                        <img src={Instagram} alt="Instagram" style={snsIcon} loading="lazy" decoding="async" />
                     </a>
                     <a href="https://www.youtube.com/channel/UCvELpZfQ5fD4i-b8NfyXm9w" target='_blank' rel="noopener noreferrer">
-                        <img src={YouTube} alt="" style={snsIcon} loading="lazy" decoding="async" />
+                        <img src={YouTube} alt="YouTube" style={snsIcon} loading="lazy" decoding="async" />
                     </a>
                 </div>
         </footer>

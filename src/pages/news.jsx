@@ -38,12 +38,17 @@ const News = () => {
                 <p style={{fontSize: "16px"}}>{item.title}</p>
                 <p style={{fontSize: "12px", color: "#8c8c8c"}}>{item.date}</p>
                 <p>{item.contents}</p>
-                <p>{item.linkTitle}
-                <a href={item.link} target='_blank' rel="noopener noreferrer">{item.link}</a>
-                </p>
-                <p>{item.map_title}
-                <a href={item.map_link} target='_blank' rel="noopener noreferrer">{item.map_link}</a>
-                </p>
+                {/* リンク先がない記事では、空のリンクを出さない */}
+                {item.link && (
+                    <p>{item.linkTitle}
+                    <a href={item.link} target='_blank' rel="noopener noreferrer">{item.link}</a>
+                    </p>
+                )}
+                {item.map_link && (
+                    <p>{item.map_title}
+                    <a href={item.map_link} target='_blank' rel="noopener noreferrer">{item.map_link}</a>
+                    </p>
+                )}
             </div>
             <div style={imgBox}>
                 {item.img !== "" && <img src={`${process.env.PUBLIC_URL}` + item.img} alt={t("news.photoAlt")} style={img} loading="lazy" decoding="async" />}

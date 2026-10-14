@@ -82,19 +82,19 @@ export const TemporaryDrawer = () => {
           </ListItemButton>
         </ListItem>
         <ListItem key='YouTube' disablePadding>
-          <ListItemButton href='https://www.youtube.com/channel/UCvELpZfQ5fD4i-b8NfyXm9w' target='_blank'>
+          <ListItemButton href='https://www.youtube.com/channel/UCvELpZfQ5fD4i-b8NfyXm9w' target='_blank' rel='noopener noreferrer'>
             <p style={title}>YouTube</p>
             <OpenInNewOutlinedIcon style={linkIcon}/>
           </ListItemButton>
         </ListItem>
         <ListItem key='X' disablePadding>
-          <ListItemButton href='https://twitter.com/tsudoi_shamisen' target='_blank'>
+          <ListItemButton href='https://twitter.com/tsudoi_shamisen' target='_blank' rel='noopener noreferrer'>
             <p style={title}>X</p>
             <OpenInNewOutlinedIcon style={linkIcon} />
           </ListItemButton>
         </ListItem>
         <ListItem key='Instagram' disablePadding>
-          <ListItemButton href='https://www.instagram.com/tsudoi_shamisen' target='_blank'>
+          <ListItemButton href='https://www.instagram.com/tsudoi_shamisen' target='_blank' rel='noopener noreferrer'>
             <p style={title}>Instagram</p>
             <OpenInNewOutlinedIcon style={linkIcon} />
           </ListItemButton>
