@@ -53,10 +53,10 @@ const Intro = () => {
                 <div style={{padding: "12px 8px"}}>
                     <div style={{margin: "12px 0"}}>
                     <Grid container spacing={isMobile ? 1 : 2}>
-                        <Grid item xs={6} style={imgContainer}><img src={school} alt="" style={img} /></Grid>
-                        <Grid item xs={6} style={imgContainer}><img src={narita2} alt="" style={img} /></Grid>
-                        <Grid item xs={6} style={imgContainer}><img src={orympic} alt="" style={img} /></Grid>
-                        <Grid item xs={6} style={imgContainer}><img src={bellserl} alt="" style={img} /></Grid>
+                        <Grid item xs={6} style={imgContainer}><img src={school} alt={t("photos.school")} style={img} /></Grid>
+                        <Grid item xs={6} style={imgContainer}><img src={narita2} alt={t("photos.naritaStage")} style={img} /></Grid>
+                        <Grid item xs={6} style={imgContainer}><img src={orympic} alt={t("photos.tokyo2020")} style={img} /></Grid>
+                        <Grid item xs={6} style={imgContainer}><img src={bellserl} alt={t("photos.cultureStage")} style={img} /></Grid>
                     </Grid>
                     </div>
                     <div>

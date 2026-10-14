@@ -19,7 +19,17 @@
   "news": {
     "photoAlt": "Photo"
   },
+  "photos": {
+    "school": "Performance at Shimura-Sakashita Elementary School",
+    "school2": "Members performing in an elementary school gymnasium",
+    "naritaStage": "Performance at the Narita Gen Festival",
+    "tokyo2020": "Performance on an outdoor stage lined with TOKYO 2020 banners",
+    "cultureStage": "Performance at the Tokyo 2020 1st Anniversary Cultural Event \"Culture Stage\"",
+    "ajisai": "Performance at the \"Drop-in Concert\" at Sagamihara Ajisai Kaikan",
+    "toshima": "Performance at Toshima Music Circle 2025"
+  },
   "introduction": {
+    "xAccountAlt": "{{name}} on X",
     "groupName": "Tsugaru Shamisen \"Tsudoi\"",
     "description": "Formed in 2021 by six players: Nakahara Masato, Kawasaki Manami, Fujisaki Kenta, Noguchi Arata, Matsubara Akane, and Suga Kosuke.\nA unique ensemble whose members all perform independently, without belonging to any traditional school.\n\nBeyond the folk songs at the heart of Tsugaru shamisen, the group performs original pieces with modern rhythms and harmonies, exploring new possibilities for the Tsugaru shamisen ensemble.",
     "awardsHeading": "Awards",
