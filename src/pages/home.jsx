@@ -49,6 +49,8 @@ const logoBlock = {
 
 const logo = {
   width: "40%",
+  // img の width・height 属性は縦横比の確保に使う。高さは幅に合わせて自動で決める
+  height: "auto",
 }
 
 const section = {
@@ -187,20 +189,20 @@ const Home = () => {
         <div className={Com.pc}>
           <section style={mainImg}>
             <div style={artistImg}>
-              <img className="image" src={Top1} alt="" />
-              <img className="image" src={Top2} alt="" />
-              <img style={imgDammy} src={Top2} alt="" />
+              <img className="image" src={Top1} alt="" width="1046" height="769" />
+              <img className="image" src={Top2} alt="" width="1046" height="769" />
+              <img style={imgDammy} src={Top2} alt="" width="1046" height="769" />
             </div>
             <div style={logoBlock}>
-              <img style={logo} src={tudoiLogo} alt={t("common.logoAlt")} />
+              <img style={logo} src={tudoiLogo} alt={t("common.logoAlt")} width="890" height="531" />
             </div>
           </section>
         </div>
         <div className={Com.sp}>
           <div style={artistImg}>
-            <img className="image" src={Top1} alt="" />
-            <img className="image" src={Top2} alt="" />
-            <img style={imgDammy} src={Top2} alt="" />
+            <img className="image" src={Top1} alt="" width="1046" height="769" />
+            <img className="image" src={Top2} alt="" width="1046" height="769" />
+            <img style={imgDammy} src={Top2} alt="" width="1046" height="769" />
           </div>
         </div>
         <main className={isMobile ? "homePhMain" : "homeMain"}>

@@ -16,6 +16,8 @@ const header = {
 
 const logoImg = {
     height: "45px",
+    // img の width・height 属性は縦横比の確保に使う。幅は高さに合わせて自動で決める
+    width: "auto",
 }
 
 const menuButton = {
@@ -28,7 +30,7 @@ const PhoneHeader = () => {
     return (
         <header className={Com.sp}>
             <div style={header}>
-                <img src={tudoiLogo} style={logoImg} alt={t("common.logoAlt")} />
+                <img src={tudoiLogo} style={logoImg} alt={t("common.logoAlt")} width="890" height="531" />
                 <div style={menuButton}>
                     <TemporaryDrawer />
                 </div>

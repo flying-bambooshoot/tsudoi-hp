@@ -65,7 +65,7 @@ const Intro = () => {
                 <div style={{padding: "20px 0"}}>
                 <Grid container spacing={2} style={{margin: "auto"}}>
                     <Grid item xs={12} md={6}>
-                        <img className="fadeIn" src={All} alt="" style={img} />
+                        <img className="fadeIn" src={All} alt="" style={img} width="1046" height="1566" />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
