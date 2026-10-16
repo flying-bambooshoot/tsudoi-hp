@@ -44,7 +44,7 @@ const linkIcon = {
 
 export const TemporaryDrawer = () => {
   const isMobile = useMedia('(max-width: 1000px)');
-  const { path } = useI18n();
+  const { t, path } = useI18n();
   const [state, setState] = React.useState({
     left: false
   });
@@ -115,7 +115,8 @@ export const TemporaryDrawer = () => {
     <div style={place}>
         {['MENU'].map((anchor) => (
           <React.Fragment key={anchor}>
-            <IconButton onClick={toggleDrawer(anchor, true)}>
+            {/* アイコンだけのボタンなので、読み上げソフト向けに名前を付ける */}
+            <IconButton onClick={toggleDrawer(anchor, true)} aria-label={t("common.menu")}>
               <MenuOutlinedIcon style={isMobile ? phoneMenuIcon : menuIcon}/>
             </IconButton>
             <Drawer

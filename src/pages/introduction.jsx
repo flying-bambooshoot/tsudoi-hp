@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import Grid from '@mui/material/Unstable_Grid2';
-import All from '../resources/img/all.jpg';
+import All from '../resources/img/all.webp';
 import X from "../resources/img/logo-black.png";
 import "../css/introduction.css"
 import { useI18n } from "../i18n";
@@ -65,7 +65,7 @@ const Intro = () => {
                 <div style={{padding: "20px 0"}}>
                 <Grid container spacing={2} style={{margin: "auto"}}>
                     <Grid item xs={12} md={6}>
-                        <img className="fadeIn" src={All} alt="" style={img} width="1046" height="1566" />
+                        <img className="fadeIn" src={All} alt={t("introduction.groupPhotoAlt")} style={img} width="1046" height="1566" />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>

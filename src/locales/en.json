@@ -2,7 +2,8 @@
   "common": {
     "siteName": "Tsugaru Shamisen \"Tsudoi\"",
     "logoAlt": "Tsugaru Shamisen \"Tsudoi\"",
-    "languageMenu": "Language"
+    "languageMenu": "Language",
+    "menu": "Menu"
   },
   "footer": {
     "emailCopied": "Email address copied."
@@ -29,6 +30,7 @@
     "toshima": "Performance at Toshima Music Circle 2025"
   },
   "introduction": {
+    "groupPhotoAlt": "Group photo of the six members sitting on steps with their shamisen",
     "xAccountAlt": "{{name}} on X",
     "groupName": "Tsugaru Shamisen \"Tsudoi\"",
     "description": "Formed in 2021 by six players: Nakahara Masato, Kawasaki Manami, Fujisaki Kenta, Noguchi Arata, Matsubara Akane, and Suga Kosuke.\nA unique ensemble whose members all perform independently, without belonging to any traditional school.\n\nBeyond the folk songs at the heart of Tsugaru shamisen, the group performs original pieces with modern rhythms and harmonies, exploring new possibilities for the Tsugaru shamisen ensemble.",
