@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import Grid from '@mui/material/Unstable_Grid2';
-import All from '../resources/img/all.jpg';
+import All from '../resources/img/all.webp';
 import X from "../resources/img/logo-black.png";
 import "../css/introduction.css"
 import { useI18n } from "../i18n";

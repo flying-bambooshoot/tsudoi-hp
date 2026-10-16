@@ -9,8 +9,8 @@ import Footer from "../components/Footer";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { useI18n, useNews } from "../i18n";
 import tudoiLogo from "../resources/img/logo.png";
-import Top1 from '../resources/img/top1.jpg';
-import Top2 from '../resources/img/top2.jpg';
+import Top1 from '../resources/img/top1.webp';
+import Top2 from '../resources/img/top2.webp';
 import "../css/common.css"
 import "../css/home.css"
 import "@splidejs/react-splide/css";

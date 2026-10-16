@@ -34,6 +34,25 @@ const outputFile = (language, page) => {
   return path.join(language.prefix.slice(1), fileName);
 };
 
+// ページを開いて最初に表示される大きな写真（LCP の画像）を先読みする。
+// このサイトは JS が動いてから画面を組み立てるため、何もしないと JS の読み込み・実行が
+// 終わるまで写真の読み込みが始まらない。HTML に preload を書いておくと、すぐに読み込みが始まる。
+// ビルド後のファイル名には識別用の文字列が付くため、asset-manifest.json から実際の URL を引く。
+const assetManifest = JSON.parse(fs.readFileSync(path.join(buildDir, "asset-manifest.json"), "utf8")).files;
+const LCP_IMAGES = {
+  "/": "static/media/top1.webp",
+  "/introduction": "static/media/all.webp",
+};
+const preloadLink = (page) => {
+  const key = LCP_IMAGES[page.path];
+  if (!key) return "";
+  // 画像の名前や形式を変えたときに、先読みが黙って外れないようにする
+  if (!assetManifest[key]) {
+    throw new Error(`${key} が asset-manifest.json にありません。scripts/postbuild.js の LCP_IMAGES を確認してください。`);
+  }
+  return `<link rel="preload" as="image" href="${assetManifest[key]}" fetchpriority="high">`;
+};
+
 // 同じページの各言語版の場所を Google に伝える（x-default は日本語版）
 const hreflangLinks = (page) =>
   languages
@@ -55,7 +74,7 @@ const renderHtml = (language, page) => {
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${description}">`)
     .replace(
       "</head>",
-      `<link rel="canonical" href="${pageUrl(language, page)}">${hreflangLinks(page)}${structuredData}</head>`
+      `${preloadLink(page)}<link rel="canonical" href="${pageUrl(language, page)}">${hreflangLinks(page)}${structuredData}</head>`
     );
 
   // 置換に失敗したまま公開しないよう、結果を検証する
