@@ -36,7 +36,7 @@ const News = () => {
         <div key={`${item.date}-${item.title}`} style={newsArea}>
             <div>
                 <p style={{fontSize: "16px"}}>{item.title}</p>
-                <p style={{fontSize: "12px", color: "#8c8c8c"}}>{item.date}</p>
+                <p style={{fontSize: "12px", color: "#757575"}}>{item.date}</p>
                 <p>{item.contents}</p>
                 {/* リンク先がない記事では、空のリンクを出さない */}
                 {item.link && (

@@ -32,7 +32,7 @@ const note = {
     marginTop: "48px",
     paddingTop: "12px",
     borderTop: "solid #eeeeee 1px",
-    color: "#8c8c8c",
+    color: "#757575",
 }
 
 const Intro = () => {

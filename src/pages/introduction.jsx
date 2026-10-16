@@ -27,7 +27,7 @@ const img = {
 
 const year = {
     marginBottom: "3px",
-    color: "#8c8c8c",
+    color: "#757575",
     fontSize: "12px",
 }
 
