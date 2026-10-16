@@ -183,7 +183,7 @@ const Home = () => {
       <div key={`${item.date}-${item.title}`} style={newsArea}>
           <div>
               <p style={{fontSize: "16px"}}>{item.title}</p>
-              <p style={{fontSize: "12px", color: "#8c8c8c"}}>{item.date}</p>
+              <p style={{fontSize: "12px", color: "#757575"}}>{item.date}</p>
               <div className="eachNews">{item.contents}</div>
           </div>
       </div>
