@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home.jsx";
 import News from "./pages/news.jsx";
 import Intro from "./pages/introduction.jsx";
-// import Gallery from "./pages/gallery.jsx";
 import Contact from "./pages/contact.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import { LANGUAGES } from "./i18n/languages";
@@ -14,7 +13,6 @@ const pages = [
   { path: "/", element: <Home /> },
   { path: "/news", element: <News /> },
   { path: "/introduction", element: <Intro /> },
-  // { path: "/gallery", element: <Gallery /> },
   { path: "/contact", element: <Contact /> },
 ];
 
