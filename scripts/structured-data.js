@@ -49,9 +49,30 @@ const musicGroup = (language, homeUrl, description) => {
   };
 };
 
+// TOP ページに埋め込んでいる YouTube 動画の情報（VideoObject）。
+// Google に「このページで見られる動画」と伝え、検索結果で動画として表示されやすくする。
+// 動画の一覧は画面と同じ src/data/videos.json から読み込むので、画面と食い違わない。
+// Google の決まりで、動画を見られるページ（TOP）にだけ付ける。
+const { videos } = require(path.join(__dirname, "..", "src", "data", "videos.json"));
+
+const videoObjects = () =>
+  videos.map((video) => ({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`,
+    uploadDate: video.uploadDate,
+    duration: video.duration,
+    embedUrl: `https://www.youtube.com/embed/${video.id}`,
+    contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
+    // 動画の作者として、このサイトの MusicGroup を指す
+    creator: { "@id": GROUP_ID },
+  }));
+
 // <script type="application/ld+json"> として埋め込む文字列を作る。
 // JSON の中に "</script>" などが含まれても HTML が壊れないよう、"<" をエスケープする
 const jsonLdScript = (data) =>
   `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`;
 
-module.exports = { musicGroup, jsonLdScript };
+module.exports = { musicGroup, videoObjects, jsonLdScript };
