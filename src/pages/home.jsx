@@ -73,7 +73,8 @@ const slide = {
 }
 
 const youtube = {
-  flex: 1,
+  // PC では 2 列に並べ、3 本目以降は次の段に折り返す（スマートフォンは縦に並ぶ）
+  flex: "0 0 calc(50% - 0.5rem)",
   width: "100%",
   aspectRatio: "16 / 9",
   paddingBottom: "12px",
