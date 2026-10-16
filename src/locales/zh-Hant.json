@@ -2,7 +2,8 @@
   "common": {
     "siteName": "津輕三味線 集-tsudoi-",
     "logoAlt": "津輕三味線 集-tsudoi-",
-    "languageMenu": "語言"
+    "languageMenu": "語言",
+    "menu": "選單"
   },
   "footer": {
     "emailCopied": "已複製電子郵件地址。"
@@ -29,6 +30,7 @@
     "toshima": "於Toshima Music Circle 2025的演出"
   },
   "introduction": {
+    "groupPhotoAlt": "6名成員手持三味線坐在階梯上的合照",
     "xAccountAlt": "{{name}}的X",
     "groupName": "『集-tsudoi-』",
     "description": "由中原正人、川﨑愛實、藤﨑健太、野口新、枩原茜、須賀行亮 6 人於 2021 年組成。\n成員皆不隸屬於任何流派，是一個獨具特色的團體。\n\n除了津輕三味線本色的民謠曲目之外，也演奏融入現代節奏與和聲的原創樂曲，持續探索津輕三味線合奏的無限可能。",
