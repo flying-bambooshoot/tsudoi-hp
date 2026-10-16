@@ -167,8 +167,16 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // ギャラリーに写真追加する際はこちら
-  let imageNames = [ajisai, toshima, school2, school, narita2, orympic, bellserl];
+  // ギャラリーに写真追加する際はこちら。alt は写真の説明文で、各言語の訳は locales の photos に書く
+  const galleryPhotos = [
+    { src: ajisai, alt: "photos.ajisai" },
+    { src: toshima, alt: "photos.toshima" },
+    { src: school2, alt: "photos.school2" },
+    { src: school, alt: "photos.school" },
+    { src: narita2, alt: "photos.naritaStage" },
+    { src: orympic, alt: "photos.tokyo2020" },
+    { src: bellserl, alt: "photos.cultureStage" },
+  ];
 
   // NEWSは新しいものから3件まで表示する（3件未満でもそのまま動作する）
   const newsList = news.slice(0, 3).map((item) => (
@@ -242,11 +250,9 @@ const Home = () => {
               gap: '1rem',
               objectFit: 'cover',
             }}>
-              { imageNames.map(slide => (
-                // slide は画像のパス（文字列）なので、そのまま key に使う。
-                // 写真の説明文がまだないため、alt は空にして読み上げの対象から外す
-                <SplideSlide key={slide}>
-                  <img src={slide} alt="" loading="lazy" decoding="async" />
+              { galleryPhotos.map(photo => (
+                <SplideSlide key={photo.src}>
+                  <img src={photo.src} alt={t(photo.alt)} loading="lazy" decoding="async" />
                 </SplideSlide>
               ))}
             </Splide>

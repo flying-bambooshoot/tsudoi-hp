@@ -106,11 +106,11 @@ const Intro = () => {
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/shijimidaimajin" target='_blank' rel="noopener noreferrer">
-                                        <img src={X} alt="" style={snsIcon} />
+                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.nakahara") })} style={snsIcon} />
                                     </a>
                                 </div>
                             </div>
-                            <img src={nakahara} alt="" style={img} loading="lazy" decoding="async" />
+                            <img src={nakahara} alt={t("introduction.members.nakahara")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -121,11 +121,11 @@ const Intro = () => {
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/tsugarumanami" target='_blank' rel="noopener noreferrer">
-                                        <img src={X} alt="" style={snsIcon} />
+                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.kawasaki") })} style={snsIcon} />
                                     </a>
                                 </div>
                             </div>
-                            <img src={kawasaki} alt="" style={img} loading="lazy" decoding="async" />
+                            <img src={kawasaki} alt={t("introduction.members.kawasaki")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -137,7 +137,7 @@ const Intro = () => {
                                 <div style={{margin: "2px 0 0 6px"}}> */}
                                 </div>
                             </div>
-                            <img src={fujisaki} alt="" style={img} loading="lazy" decoding="async" />
+                            <img src={fujisaki} alt={t("introduction.members.fujisaki")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -148,11 +148,11 @@ const Intro = () => {
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/ara527_shami" target='_blank' rel="noopener noreferrer">
-                                        <img src={X} alt="" style={snsIcon} />
+                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.noguchi") })} style={snsIcon} />
                                     </a>
                                 </div>
                             </div>
-                            <img src={noguchi} alt="" style={img} loading="lazy" decoding="async" />
+                            <img src={noguchi} alt={t("introduction.members.noguchi")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -163,11 +163,11 @@ const Intro = () => {
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/Shamisen_SugA" target='_blank' rel="noopener noreferrer">
-                                        <img src={X} alt="" style={snsIcon} />
+                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.suga") })} style={snsIcon} />
                                     </a>
                                 </div>
                             </div>
-                            <img src={suga} alt="" style={img} loading="lazy" decoding="async" />
+                            <img src={suga} alt={t("introduction.members.suga")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -178,11 +178,11 @@ const Intro = () => {
                                 </div>
                                 {/* <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/kappaakane" target='_blank' rel="noopener noreferrer">
-                                        <img src={X} alt="" style={snsIcon} />
+                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.matsubara") })} style={snsIcon} />
                                     </a>
                                 </div> */}
                             </div>
-                            <img src={matsubara} alt="" style={img} loading="lazy" decoding="async" />
+                            <img src={matsubara} alt={t("introduction.members.matsubara")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                 </Grid>

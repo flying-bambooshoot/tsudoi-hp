@@ -19,7 +19,17 @@
   "news": {
     "photoAlt": "照片"
   },
+  "photos": {
+    "school": "于志村坂下小学的演出",
+    "school2": "成员于志村坂下小学体育馆演出",
+    "naritaStage": "于成田弦祭的演出",
+    "tokyo2020": "于TOKYO 2020奥运活动舞台的演出",
+    "cultureStage": "于东京2020大会1周年纪念文化活动「Culture Stage」的演出",
+    "ajisai": "于相模原市立紫阳花会馆「轻松顺路音乐会」的演出",
+    "toshima": "于Toshima Music Circle 2025的演出"
+  },
   "introduction": {
+    "xAccountAlt": "{{name}}的X",
     "groupName": "『集-tsudoi-』",
     "description": "由中原正人、川﨑爱实、藤﨑健太、野口新、枩原茜、须贺行亮 6 人于 2021 年组成。\n成员均不隶属于任何流派，是一个独具特色的团体。\n\n除了津轻三味线本色的民谣曲目之外，还演奏融入现代节奏与和声的原创乐曲，不断探索津轻三味线合奏的无限可能。",
     "awardsHeading": "获奖记录",
