@@ -6,7 +6,7 @@ import Com from "../css/common.module.css";
 import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { Splide } from '@splidejs/react-splide';
 import { useI18n, useNews } from "../i18n";
 import tudoiLogo from "../resources/img/logo.png";
 import Top1 from '../resources/img/top1.webp';
@@ -231,7 +231,10 @@ const Home = () => {
           </section>
           <section style={sec}>
             <h2 style={sectionHeading}>GALLERY</h2>
-            <Splide style={slide} aria-label="GALLERY"
+            {/* react-splide の SplideSlide は li を出力するが、Splide はスライドに role="tabpanel" を付けるため、
+                li では不正な組み合わせになる（アクセシビリティの検査で減点される）。
+                そこで hasTrack={false} にして、スライドを div で組み立てている。見た目は同じ */}
+            <Splide style={slide} aria-label="GALLERY" hasTrack={false}
             options={{
               perPage: 1,
               mediaQuery: 'min',
@@ -250,11 +253,15 @@ const Home = () => {
               gap: '1rem',
               objectFit: 'cover',
             }}>
-              { galleryPhotos.map(photo => (
-                <SplideSlide key={photo.src}>
-                  <img src={photo.src} alt={t(photo.alt)} loading="lazy" decoding="async" />
-                </SplideSlide>
-              ))}
+              <div className="splide__track">
+                <div className="splide__list">
+                  { galleryPhotos.map(photo => (
+                    <div className="splide__slide" key={photo.src}>
+                      <img src={photo.src} alt={t(photo.alt)} loading="lazy" decoding="async" />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </Splide>
           </section>
           <section style={sec}>
