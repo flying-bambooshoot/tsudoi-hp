@@ -89,7 +89,9 @@ const renderHtml = (language, page) => {
       `${language.prefix}${page.path} の HTML 生成に失敗しました。public/index.html の <html> / <head> を確認してください。`
     );
   }
-  return html;
+  // 中国語のページでは、中国語に無い日本の異体字を通常の字に置き換える（例: 藤﨑 → 藤崎）。
+  // 画面側の置き換え（src/i18n/index.js）と同じ規則。上の検証の後に行う
+  return language.code.startsWith("zh") ? html.replace(/﨑/g, "崎") : html;
 };
 
 for (const language of languages) {

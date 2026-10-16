@@ -38,6 +38,22 @@ const newsTranslations = {
   "zh-Hans": newsZhHans,
 };
 
+// 中国語には無い日本の異体字を、中国語のページでは通常の字に置き換えて表示する（オーナーの指定）。
+// 例: 藤﨑 → 藤崎。元のデータ（訳文・NEWS）は正しい表記で書き、表示するときだけ置き換える。
+// scripts/postbuild.js でも、中国語ページの HTML に同じ置き換えをしている
+const CHINESE_GLYPHS = [[/﨑/g, "崎"]];
+const isChinese = (language) => language.code.startsWith("zh");
+const toChineseGlyphs = (value) => {
+  if (typeof value === "string") {
+    return CHINESE_GLYPHS.reduce((text, [from, to]) => text.replace(from, to), value);
+  }
+  if (Array.isArray(value)) return value.map(toChineseGlyphs);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([key, v]) => [key, toChineseGlyphs(v)]));
+  }
+  return value;
+};
+
 const LanguageContext = createContext(DEFAULT_LANGUAGE);
 
 export const LanguageProvider = ({ language, children }) => {
@@ -50,18 +66,19 @@ export const LanguageProvider = ({ language, children }) => {
 
 export const useI18n = () => {
   const language = useContext(LanguageContext);
-  return useMemo(
-    () => ({
+  return useMemo(() => {
+    const t = i18next.getFixedT(language.code);
+    const glyphs = isChinese(language) ? toChineseGlyphs : (value) => value;
+    return {
       language,
       // 訳文を取得する。配列やオブジェクトの訳文は t(key, { returnObjects: true })
-      t: i18next.getFixedT(language.code),
+      t: (...args) => glyphs(t(...args)),
       // その言語にだけある訳文を取得する（無ければ空文字。日本語へのフォールバックはしない）
-      tOptional: (key) => i18next.getResource(language.code, "translation", key) || "",
+      tOptional: (key) => glyphs(i18next.getResource(language.code, "translation", key) || ""),
       // サイト内リンクの URL（例: path("/news") → 英語ページなら "/en/news"）
       path: (pagePath) => localizePath(language, pagePath),
-    }),
-    [language]
-  );
+    };
+  }, [language]);
 };
 
 // NEWS の一覧を新しい順で返す。翻訳が無い記事・項目は日本語のまま表示する
@@ -69,8 +86,7 @@ export const useNews = () => {
   const { language } = useI18n();
   return useMemo(() => {
     const translations = newsTranslations[language.code] || {};
-    return newsJa.news
-      .map((item) => ({ ...item, ...translations[item.date] }))
-      .reverse();
+    const news = newsJa.news.map((item) => ({ ...item, ...translations[item.date] })).reverse();
+    return isChinese(language) ? toChineseGlyphs(news) : news;
   }, [language]);
 };
