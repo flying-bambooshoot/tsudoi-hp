@@ -84,7 +84,8 @@
       "privacy": "The information you provide will be used only to respond to your inquiry.",
       "submit": "Send",
       "sending": "Sending…",
-      "success": "Thank you. Your message has been sent. We will reply by email after reviewing it.",
+      "success": "Thank you. Your message has been sent. We will reply to {{email}} after reviewing it.",
+      "noReply": "If you do not hear from us within a few days, please contact us at the email address below.",
       "error": "Your message could not be sent. Please try again later or contact us at the email address below.",
       "subject": "[Tsudoi website] Inquiry"
     },

@@ -79,6 +79,8 @@ const ContactForm = () => {
     const { t, language } = useI18n();
     // idle: 入力中 / sending: 送信中 / success: 送信完了 / error: 送信失敗
     const [status, setStatus] = useState("idle");
+    // 完了メッセージに表示する、入力されたメールアドレス（打ち間違いに気づいてもらうため）
+    const [sentEmail, setSentEmail] = useState("");
     const successRef = useRef(null);
 
     // 送信が終わるとフォームが短い完了メッセージに置き換わり、画面の外に出ることがあるため、
@@ -127,6 +129,7 @@ const ContactForm = () => {
             trackEvent("contact_form_error", { location: "contact_page", reason: failure });
             return;
         }
+        setSentEmail(form.elements.email.value);
         setStatus("success");
         // Formspree は迷惑送信と判定した場合も成功を返すため、このイベントは判定に関係なく記録される。
         // GA4 のカスタム インサイトでこの件数を知らせ、通知メールが届かなかった問い合わせに気づけるようにしている
@@ -137,7 +140,14 @@ const ContactForm = () => {
     const clearBlankError = (event) => event.target.setCustomValidity("");
 
     if (status === "success") {
-        return <p style={message} role="status" tabIndex={-1} ref={successRef}>{t("contact.form.success")}</p>;
+        // 迷惑送信と判定されて届かなかった場合や、メールアドレスを打ち間違えた場合に備え、
+        // 返信がなければ連絡し直してもらうよう案内する
+        return (
+            <div style={message} role="status" tabIndex={-1} ref={successRef}>
+                <p style={{ margin: "0 0 8px" }}>{t("contact.form.success", { email: sentEmail })}</p>
+                <p style={{ margin: 0 }}>{t("contact.form.noReply")}</p>
+            </div>
+        );
     }
 
     const required = <span style={requiredMark}>{t("contact.form.required")}</span>;
