@@ -84,9 +84,13 @@ const ContactForm = () => {
             });
             if (!response.ok) throw new Error(`Formspree: ${response.status}`);
             setStatus("success");
+            // Formspree は迷惑送信と判定した場合も成功を返すため、このイベントは判定に関係なく記録される。
+            // GA4 のカスタム インサイトでこの件数を知らせ、通知メールが届かなかった問い合わせに気づけるようにしている
             trackEvent("contact_form_submit", { location: "contact_page" });
         } catch (error) {
             setStatus("error");
+            // 送信の失敗（Formspree の障害・通信エラーなど）を GA4 に記録し、気づけるようにする
+            trackEvent("contact_form_error", { location: "contact_page" });
         }
     };
 
