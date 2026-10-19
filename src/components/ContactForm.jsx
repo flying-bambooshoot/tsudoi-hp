@@ -6,6 +6,8 @@ import contactFormConfig from "../data/contactForm.json";
 
 // お問い合わせフォーム。送信内容は Formspree（https://formspree.io）が受け取り、登録したメールアドレスに届く。
 // このサイトにはサーバーが無いため、送信の受け取りを外部サービスに任せている。
+// 迷惑送信の判定は Formspree に任せる。見えない入力欄（ハニーポット）は、ブラウザの自動入力で
+// 埋まって正しい問い合わせが迷惑送信と判定されたため、使わない。
 // 送信先のフォーム ID は src/data/contactForm.json で設定する。
 
 const FORMSPREE_URL = `https://formspree.io/f/${contactFormConfig.formspreeId}`;
@@ -41,12 +43,6 @@ const textarea = {
     ...input,
     minHeight: "230px",
     resize: "vertical",
-}
-
-// 迷惑な自動送信を防ぐための入力欄。人には見えず、ロボットだけが入力する（入力があると Formspree が破棄する）
-const honeypot = {
-    position: "absolute",
-    left: "-10000px",
 }
 
 const button = {
@@ -105,9 +101,6 @@ const ContactForm = () => {
             {/* 届くメールの件名と、どの言語のページから送られたか */}
             <input type="hidden" name="_subject" value={t("contact.form.subject")} />
             <input type="hidden" name="language" value={language.code} />
-            <div style={honeypot} aria-hidden="true">
-                <input type="text" name="_gotcha" tabIndex="-1" autoComplete="off" />
-            </div>
 
             <div style={field}>
                 <label style={label} htmlFor="contact-name">{t("contact.form.name")}<Required /></label>
