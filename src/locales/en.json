@@ -78,7 +78,7 @@
       "venue": "Venue / area",
       "venuePlaceholder": "e.g. a hotel in Tokyo",
       "message": "Your request or inquiry",
-      "messagePlaceholder": "e.g.\n- Event: company anniversary party (about 100 guests)\n- Preferred performance length: about 20 minutes\n- Preferred number of performers: about 4\n- Budget: about ¥XXX,000\n- Preferred music: mainly bright, festive pieces\n- Other: the venue has a microphone and speakers.",
+      "messagePlaceholder": "e.g.\n- Event: company anniversary party (about 100 guests)\n- Preferred performance length: about 20 minutes\n- Preferred number of performers: about 4\n- Budget: about ¥XXX,000\n- Other: we would like the performers in kimono. The venue has a microphone and speakers.",
       "required": "Required",
       "privacy": "The information you provide will be used only to respond to your inquiry.",
       "submit": "Send",
