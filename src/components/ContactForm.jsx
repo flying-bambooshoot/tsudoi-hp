@@ -39,7 +39,7 @@ const input = {
 
 const textarea = {
     ...input,
-    minHeight: "200px",
+    minHeight: "230px",
     resize: "vertical",
 }
 
@@ -120,6 +120,10 @@ const ContactForm = () => {
             <div style={field}>
                 <label style={label} htmlFor="contact-email">{t("contact.form.email")}<Required /></label>
                 <input style={input} id="contact-email" name="email" type="email" autoComplete="email" required />
+            </div>
+            <div style={field}>
+                <label style={label} htmlFor="contact-phone">{t("contact.form.phone")}</label>
+                <input style={input} id="contact-phone" name="phone" type="tel" autoComplete="tel" placeholder={t("contact.form.phonePlaceholder")} />
             </div>
             <div style={isMobile ? {} : { display: "flex", gap: "16px" }}>
                 <div style={{ ...field, flex: 1 }}>
