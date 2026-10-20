@@ -18,7 +18,9 @@
     }
   },
   "news": {
-    "photoAlt": "Photo"
+    "photoAlt": "Photo",
+    "backToList": "Back to News",
+    "notFound": "The article could not be found."
   },
   "photos": {
     "school": "Performance at Shimura-Sakashita Elementary School",
