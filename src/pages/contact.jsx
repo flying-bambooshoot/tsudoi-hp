@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import Grid from '@mui/material/Unstable_Grid2';
 import { trackEvent } from "../analytics";
 import ContactForm from "../components/ContactForm";
+import Faq from "../components/Faq";
 import { useI18n } from "../i18n";
 import Lines from "../components/Lines";
 import {
@@ -93,6 +94,12 @@ const Intro = () => {
                         <p>{t("contact.priceSmallGroup")}</p>
                         {t("contact.priceProposal")}
                         <p>{t("contact.priceDisclaimer")}</p>
+                    </div>
+                    <div>
+                        <div style={section}>
+                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.faq.heading")}</p>
+                        </div>
+                        <Faq />
                     </div>
                     <div>
                         <div style={section}>
