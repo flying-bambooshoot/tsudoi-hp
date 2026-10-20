@@ -1,0 +1,110 @@
+# Sveltia CMS（NEWS の管理画面）の設定。管理画面は /admin/ で開く。
+# ドキュメント: https://sveltiacms.app/en/docs
+
+backend:
+  name: github
+  # 保存すると本家の master にコミットされ、GitHub Actions で本番に自動公開される（2〜3 分）。
+  # 編集できるのは本家に Write 以上の権限がある人だけ（メンバーの招待はオーナーが Settings で行う）
+  repo: flying-bambooshoot/tsudoi-hp
+  branch: master
+  # 「GitHub でログイン」の中継（Sveltia CMS Authenticator）。uji の Cloudflare アカウントの Worker
+  # 「tsudoi-cms-auth」。GitHub の OAuth App も uji のアカウントで登録している
+  base_url: https://tsudoi-cms-auth.k-f-3213.workers.dev
+  # 求める権限を公開リポジトリだけに絞る（メンバーの非公開リポジトリには触れない）
+  auth_scope: public_repo
+  commit_messages:
+    create: "NEWS を追加: {{slug}}"
+    update: "NEWS を更新: {{slug}}"
+    delete: "NEWS を削除: {{slug}}"
+    uploadMedia: "NEWS の写真を追加: {{path}}"
+    deleteMedia: "NEWS の写真を削除: {{path}}"
+
+site_url: https://tsudoi-shamisen.com
+display_url: https://tsudoi-shamisen.com
+
+# 写真は今と同じ public/img に置き、記事には /img/ファイル名 で書く
+media_folder: public/img
+public_folder: /img
+
+# スマホの写真をそのまま入れても重くならないよう、WebP に変換して縮小する
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1200
+          height: 1200
+
+# 1 つのファイルに 4 言語をまとめる（src/content/news/2026-10-06.json の中に ja・en・zh-Hant・zh-Hans）
+i18n:
+  structure: single_file
+  locales: [ja, en, zh-Hant, zh-Hans]
+  default_locale: ja
+
+collections:
+  - name: news
+    label: NEWS
+    label_singular: 記事
+    folder: src/content/news
+    format: json
+    create: true
+    delete: true
+    # ファイル名は記事の日付（例: 2026-10-06.json）
+    slug: "{{fields.date}}"
+    identifier_field: title
+    summary: "{{date}}　{{title}}"
+    sortable_fields:
+      fields: [date, title]
+      default:
+        field: date
+        direction: descending
+    i18n: true
+    fields:
+      # 日本語だけ必須。英語・中国語は空でも保存でき、空の言語は日本語で表示される
+      - name: title
+        label: タイトル
+        widget: string
+        required: [ja]
+        i18n: true
+      # 日付・リンク・写真は日本語にだけ保存し、全言語で使う（src/i18n/index.js の useNews）
+      - name: date
+        label: 日付
+        widget: datetime
+        time_format: false
+        format: YYYY-MM-DD
+        default: "{{now}}"
+        i18n: false
+      - name: contents
+        label: 本文
+        widget: text
+        required: [ja]
+        i18n: true
+      - name: linkTitle
+        label: リンクの見出し
+        hint: 例「◆公式サイト◆」。リンクがない記事は空欄
+        widget: string
+        required: false
+        i18n: true
+      - name: link
+        label: リンクの URL
+        widget: string
+        required: false
+        i18n: false
+      - name: map_title
+        label: 地図の見出し
+        hint: 例「◆会場地図◆」。地図がない記事は空欄
+        widget: string
+        required: false
+        i18n: true
+      - name: map_link
+        label: 地図の URL
+        widget: string
+        required: false
+        i18n: false
+      - name: img
+        label: 写真
+        widget: image
+        required: false
+        i18n: false
