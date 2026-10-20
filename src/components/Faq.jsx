@@ -4,6 +4,7 @@ import { trackEvent } from "../analytics";
 // よくある質問。質問を押すと回答が開く（HTML 標準の details / summary を使うため、
 // JavaScript がなくても開閉でき、キーボードや読み上げソフトでも操作できる）。
 // 質問と回答は src/locales/*.json の contact.faq.items に書く。
+// 回答には、表（table: { head, rows }）と注記（note）を任意で付けられる。
 
 const list = {
     margin: 0,
@@ -25,6 +26,29 @@ const answer = {
     whiteSpace: "pre-wrap",
 }
 
+const table = {
+    width: "calc(100% - 8px)",
+    margin: "0 4px 12px",
+    borderCollapse: "collapse",
+    fontSize: "0.95em",
+}
+
+const cell = {
+    padding: "8px",
+    border: "solid #dddddd 1px",
+    textAlign: "left",
+}
+
+const headCell = {
+    ...cell,
+    backgroundColor: "#f5f5f5",
+}
+
+const note = {
+    ...answer,
+    fontSize: "0.9em",
+}
+
 const Faq = () => {
     const { t } = useI18n();
     const items = t("contact.faq.items", { returnObjects: true });
@@ -43,6 +67,23 @@ const Faq = () => {
                 <details key={faq.q} style={item} onToggle={handleToggle(index)}>
                     <summary style={question}>{faq.q}</summary>
                     <p style={answer}>{faq.a}</p>
+                    {faq.table && (
+                        <table style={table}>
+                            <thead>
+                                <tr>
+                                    {faq.table.head.map((text) => <th key={text} style={headCell} scope="col">{text}</th>)}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {faq.table.rows.map((row) => (
+                                    <tr key={row[0]}>
+                                        {row.map((text, i) => <td key={i} style={cell}>{text}</td>)}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    )}
+                    {faq.note && <p style={note}>{faq.note}</p>}
                 </details>
             ))}
         </div>
