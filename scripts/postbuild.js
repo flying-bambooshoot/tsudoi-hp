@@ -8,12 +8,12 @@
 //   /en/      →  build/en/index.html
 //   /en/news  →  build/en/news.html
 //
-// あわせて、ページ別の <html lang> / <title> / description / canonical / hreflang、
+// あわせて、ページ別の <html lang> / <title> / description / canonical / hreflang / OGP、
 // 構造化データ（JSON-LD）と sitemap.xml も出力する。
 
 const fs = require("fs");
 const path = require("path");
-const { SITE_URL, languages, pages } = require("./pages");
+const { SITE_URL, SITE_NAME, languages, pages } = require("./pages");
 const { musicGroup, videoObjects, jsonLdScript } = require("./structured-data");
 
 const buildDir = path.join(__dirname, "..", "build");
@@ -60,6 +60,31 @@ const hreflangLinks = (page) =>
     .concat(`<link rel="alternate" hreflang="x-default" href="${pageUrl(languages[0], page)}">`)
     .join("");
 
+// SNS（X・Facebook・LINE など）で URL を共有したときのカード表示（OGP）。
+// 画像は全ページ共通で、トップのロゴを同じ暗い背景に載せた public/ogp.png（1200×630）。
+// ロゴは中央の 600×360 に収めてあり、正方形に切り抜かれる表示でも欠けない。
+const OGP_IMAGE = { url: `${SITE_URL}/ogp.png`, width: 1200, height: 630 };
+const OGP_LOCALES = { ja: "ja_JP", en: "en_US", "zh-Hant": "zh_TW", "zh-Hans": "zh_CN" };
+const ogpTags = (language, page, title, description) =>
+  [
+    ["og:type", "website"],
+    ["og:site_name", escapeHtml(SITE_NAME[language.code])],
+    ["og:title", title],
+    ["og:description", description],
+    ["og:url", pageUrl(language, page)],
+    ["og:locale", OGP_LOCALES[language.code]],
+    ...languages
+      .filter((other) => other !== language)
+      .map((other) => ["og:locale:alternate", OGP_LOCALES[other.code]]),
+    ["og:image", OGP_IMAGE.url],
+    ["og:image:width", OGP_IMAGE.width],
+    ["og:image:height", OGP_IMAGE.height],
+    ["og:image:alt", escapeHtml(SITE_NAME[language.code])],
+  ]
+    .map(([property, content]) => `<meta property="${property}" content="${content}">`)
+    .concat('<meta name="twitter:card" content="summary_large_image">')
+    .join("");
+
 const renderHtml = (language, page) => {
   const title = escapeHtml(page.title[language.code]);
   const description = escapeHtml(page.description[language.code]);
@@ -74,7 +99,7 @@ const renderHtml = (language, page) => {
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${description}">`)
     .replace(
       "</head>",
-      `${preloadLink(page)}<link rel="canonical" href="${pageUrl(language, page)}">${hreflangLinks(page)}${structuredData}</head>`
+      `${preloadLink(page)}<link rel="canonical" href="${pageUrl(language, page)}">${hreflangLinks(page)}${ogpTags(language, page, title, description)}${structuredData}</head>`
     );
 
   // 置換に失敗したまま公開しないよう、結果を検証する
@@ -83,6 +108,7 @@ const renderHtml = (language, page) => {
     html.includes(`<title>${title}</title>`) &&
     html.includes(`content="${description}"`) &&
     html.includes('rel="canonical"') &&
+    html.includes(`<meta property="og:image" content="${OGP_IMAGE.url}">`) &&
     html.includes('"@type":"MusicGroup"');
   if (!ok) {
     throw new Error(
