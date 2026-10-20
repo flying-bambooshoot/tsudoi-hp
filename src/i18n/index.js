@@ -13,10 +13,6 @@ import ja from "../locales/ja.json";
 import en from "../locales/en.json";
 import zhHant from "../locales/zh-Hant.json";
 import zhHans from "../locales/zh-Hans.json";
-import newsJa from "../data/news.json";
-import newsEn from "../data/news.en.json";
-import newsZhHant from "../data/news.zh-Hant.json";
-import newsZhHans from "../data/news.zh-Hans.json";
 
 i18next.init({
   resources: {
@@ -31,12 +27,21 @@ i18next.init({
   interpolation: { escapeValue: false },
 });
 
-// NEWS の翻訳。news.json の各記事と date（日付）で対応付ける
-const newsTranslations = {
-  en: newsEn,
-  "zh-Hant": newsZhHant,
-  "zh-Hans": newsZhHans,
-};
+// NEWS の記事。src/content/news/ に 1 記事 1 ファイル（例: 2026-10-06.json）で置き、
+// ファイルの中に言語ごとの内容（ja・en・zh-Hant・zh-Hans）を書く。
+// 日付（date）・リンク・写真（img）は日本語（ja）にだけ書けばよい。
+// ファイルを追加するだけで一覧に載る（webpack の require.context でフォルダ内を全部読み込む）
+const newsContext = require.context("../content/news", false, /\.json$/);
+const newsEntries = newsContext
+  .keys()
+  .filter((key) => key.startsWith("./"))
+  .map((key) => ({ key, entry: newsContext(key) }))
+  // 新しい順。同じ日付の記事はファイル名の逆順（後から追加したものが上）
+  .sort((a, b) => b.entry.ja.date.localeCompare(a.entry.ja.date) || b.key.localeCompare(a.key))
+  .map(({ entry }) => entry);
+
+// 日付はファイルには 2026-10-06 の形で書き、画面には 2026.10.6 の形で表示する
+const displayDate = (isoDate) => isoDate.split("-").map(Number).join(".");
 
 // 中国語には無い日本の異体字を、中国語のページでは通常の字に置き換えて表示する（オーナーの指定）。
 // 例: 藤﨑 → 藤崎。元のデータ（訳文・NEWS）は正しい表記で書き、表示するときだけ置き換える。
@@ -85,8 +90,12 @@ export const useI18n = () => {
 export const useNews = () => {
   const { language } = useI18n();
   return useMemo(() => {
-    const translations = newsTranslations[language.code] || {};
-    const news = newsJa.news.map((item) => ({ ...item, ...translations[item.date] })).reverse();
+    const news = newsEntries.map((entry) => ({
+      ...entry.ja,
+      ...entry[language.code],
+      date: displayDate(entry.ja.date),
+      img: entry.ja.img || "",
+    }));
     return isChinese(language) ? toChineseGlyphs(news) : news;
   }, [language]);
 };

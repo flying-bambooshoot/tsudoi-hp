@@ -21,20 +21,36 @@ https://code.visualstudio.com/
 http://localhost:3000/
 
 ## 【NEWSに表示するデータを追加する】
-NEWSを追加する際は"tsudoi-hp\src\data\news.json"ファイルにデータを入力します。
-新しいデータは、JSON配列の最後尾に記載してください。
-文章の中で改行したい場所には"\n"を入れてください。
-写真は"tsudoi-hp\public\img"フォルダに置き、"img"に`"\\img\\ファイル名"`の形で指定します（例：`"img":"\\img\\2027_narita.webp"`）。
-写真は JPEG のままでも表示できますが、WebP 形式（横幅 900px 程度）にすると、ページの表示が速くなります。
+NEWSは1記事につき1ファイルで、"tsudoi-hp\src\content\news"フォルダに置きます。
+ファイル名は記事の日付にします（例：`2026-10-06.json`）。同じ日付の記事が2つある場合は`2026-10-06-2.json`のようにします。
+フォルダにファイルを追加するだけで、NEWSの一覧（新しい順）とTOPページに表示されます。
+
+ファイルの中身の例：
+```json
+{
+  "ja": {
+    "title": "記事のタイトル",
+    "date": "2026-10-06",
+    "contents": "本文",
+    "linkTitle": "◆公式サイト◆\n",
+    "link": "https://example.com/",
+    "map_title": "◆会場地図◆\n",
+    "map_link": "https://www.google.com/maps/...",
+    "img": "/img/2027_narita.webp"
+  },
+  "en": { "title": "Title", "contents": "Text", "linkTitle": "◆Official site◆\n", "map_title": "◆Venue Map◆\n" },
+  "zh-Hant": { "title": "標題", "contents": "內文" },
+  "zh-Hans": { "title": "标题", "contents": "正文" }
+}
+```
+- "date"は`年-月-日`の形で書きます（画面には`2026.10.6`の形で表示されます）
+- "date"・"link"・"map_link"・"img"は、日本語（"ja"）にだけ書けば、すべての言語で使われます
+- リンク・地図・写真がない記事は、その項目を書かなくて大丈夫です
+- 文章の中で改行したい場所には"\n"を入れてください
+- 写真は"tsudoi-hp\public\img"フォルダに置き、"img"に`"/img/ファイル名"`の形で指定します。JPEG のままでも表示できますが、WebP 形式（横幅 900px 程度）にすると、ページの表示が速くなります
 
 ### 翻訳について（英語・中国語ページ）
-NEWSを追加するときは、これまで通り"news.json"に日本語で追加するだけで大丈夫です。
-翻訳がまだない記事は、英語・中国語のページでも日本語のまま表示されます。
-
-翻訳を追加する場合は、以下のファイルに記事の"date"（日付）をキーにして書き足してください。
-- 英語："tsudoi-hp\src\data\news.en.json"
-- 中国語（繁体字）："tsudoi-hp\src\data\news.zh-Hant.json"
-- 中国語（簡体字）："tsudoi-hp\src\data\news.zh-Hans.json"
+"en"・"zh-Hant"・"zh-Hans"は省略できます。翻訳がない記事・項目は、英語・中国語のページでも日本語のまま表示されます。
 
 NEWS以外の文章（紹介文・料金など）は"tsudoi-hp\src\locales"フォルダの各言語のファイルにあります。
 

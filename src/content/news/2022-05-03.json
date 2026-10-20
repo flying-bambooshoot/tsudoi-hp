@@ -1,0 +1,25 @@
+{
+  "ja": {
+    "title": "第40回津軽三味線世界大会 優勝",
+    "date": "2022-05-03",
+    "contents": "この度、第40回津軽三味線世界大会 団体Bに出場し、優勝をいただきました！演奏曲目は、「津軽じょんがら節」でした。皆様、応援ありがとうございました！",
+    "linkTitle": "大会結果：",
+    "link": "https://www.tsugaru-shamisen.jp/results/result2022/",
+    "img": "/img/comp_hirosaki40.webp"
+  },
+  "en": {
+    "title": "Winner at the 40th Tsugaru Shamisen World Competition",
+    "contents": "We competed in Group B of the 40th Tsugaru Shamisen World Competition and won first place! We performed \"Tsugaru Jongara Bushi.\" Thank you all for your support!",
+    "linkTitle": "Results: "
+  },
+  "zh-Hant": {
+    "title": "第40屆津輕三味線世界大會 冠軍",
+    "contents": "我們參加了第40屆津輕三味線世界大會的團體B組，並榮獲冠軍！演奏曲目為「津輕じょんがら節」。感謝大家的支持！",
+    "linkTitle": "比賽結果："
+  },
+  "zh-Hans": {
+    "title": "第40届津轻三味线世界大会 冠军",
+    "contents": "我们参加了第40届津轻三味线世界大会的团体B组，并荣获冠军！演奏曲目为「津轻じょんがら节」。感谢大家的支持！",
+    "linkTitle": "比赛结果："
+  }
+}
