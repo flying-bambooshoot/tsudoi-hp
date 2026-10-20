@@ -77,4 +77,4 @@ const pages = [
   },
 ];
 
-module.exports = { SITE_URL, languages, pages };
+module.exports = { SITE_URL, SITE_NAME, languages, pages };
