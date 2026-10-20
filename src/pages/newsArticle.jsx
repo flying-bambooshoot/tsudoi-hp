@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import NewsItem from "../components/NewsItem";
+import NotFound from "./notFound";
 import { useI18n, useNews } from "../i18n";
 
 // NEWS の記事 1 件のページ（/news/<slug>、例: /news/2026-10-06）。
@@ -32,6 +33,9 @@ const NewsArticle = () => {
         };
     }, [item, t]);
 
+    // 存在しない記事（例: /news/1999-01-01）は、ほかの存在しない URL と同じページを出す
+    if (!item) return <NotFound />;
+
     return (
         <>
             <div className={isMobile ? "phBody" : "body"}>
@@ -44,7 +48,7 @@ const NewsArticle = () => {
                             <p className="h2">NEWS</p>
                         </div>
                         <article>
-                            {item ? <NewsItem item={item} isPage /> : <p style={{ padding: "20px" }}>{t("news.notFound")}</p>}
+                            <NewsItem item={item} isPage />
                         </article>
                         <Link to={path("/news")} style={backLink}>{t("news.backToList")}</Link>
                     </main>

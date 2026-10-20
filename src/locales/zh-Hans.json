@@ -19,8 +19,14 @@
   },
   "news": {
     "photoAlt": "照片",
-    "backToList": "返回最新消息列表",
-    "notFound": "找不到这篇文章。"
+    "backToList": "返回最新消息列表"
+  },
+  "notFound": {
+    "heading": "找不到页面",
+    "message": "找不到您要找的页面。\n可能是网址有误，或页面已移动或删除。",
+    "toTop": "前往首页",
+    "toNews": "前往最新消息",
+    "toContact": "前往演出邀请・联系我们"
   },
   "photos": {
     "school": "于志村坂下小学的演出",

@@ -19,8 +19,14 @@
   },
   "news": {
     "photoAlt": "写真",
-    "backToList": "NEWS 一覧へ戻る",
-    "notFound": "記事が見つかりませんでした。"
+    "backToList": "NEWS 一覧へ戻る"
+  },
+  "notFound": {
+    "heading": "ページが見つかりません",
+    "message": "お探しのページは見つかりませんでした。\nURL が間違っているか、ページが移動・削除された可能性があります。",
+    "toTop": "TOP へ",
+    "toNews": "NEWS（最新情報）へ",
+    "toContact": "演奏のご依頼・お問い合わせへ"
   },
   "photos": {
     "school": "志村坂下小学校での演奏",
