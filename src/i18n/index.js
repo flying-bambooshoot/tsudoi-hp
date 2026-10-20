@@ -36,9 +36,18 @@ const newsEntries = newsContext
   .keys()
   .filter((key) => key.startsWith("./"))
   .map((key) => ({ key, entry: newsContext(key) }))
-  // 新しい順。同じ日付の記事はファイル名の逆順（後から追加したものが上）
-  .sort((a, b) => b.entry.ja.date.localeCompare(a.entry.ja.date) || b.key.localeCompare(a.key))
+  // 新しい順。同じ日付の記事は後から追加したもの（2026-10-20-1.json は 2026-10-20.json の後）を上にする。
+  // ファイル名の比較は拡張子を除いて行う（"-" と "." の文字の順で逆にならないように）
+  .sort((a, b) => {
+    const name = (key) => key.replace(/\.json$/, "");
+    if (a.entry.ja.date !== b.entry.ja.date) return a.entry.ja.date < b.entry.ja.date ? 1 : -1;
+    return name(a.key) < name(b.key) ? 1 : -1;
+  })
   .map(({ entry }) => entry);
+
+// 訳の空欄は無視して日本語を表示する（管理画面で訳を空のまま保存すると、"title": "" のように空の値が入るため）
+const withoutEmpty = (item = {}) =>
+  Object.fromEntries(Object.entries(item).filter(([, value]) => typeof value !== "string" || value.trim() !== ""));
 
 // 日付はファイルには 2026-10-06 の形で書き、画面には 2026.10.6 の形で表示する
 const displayDate = (isoDate) => isoDate.split("-").map(Number).join(".");
@@ -92,7 +101,7 @@ export const useNews = () => {
   return useMemo(() => {
     const news = newsEntries.map((entry) => ({
       ...entry.ja,
-      ...entry[language.code],
+      ...withoutEmpty(entry[language.code]),
       date: displayDate(entry.ja.date),
       img: entry.ja.img || "",
     }));
