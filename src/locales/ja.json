@@ -18,7 +18,9 @@
     }
   },
   "news": {
-    "photoAlt": "写真"
+    "photoAlt": "写真",
+    "backToList": "NEWS 一覧へ戻る",
+    "notFound": "記事が見つかりませんでした。"
   },
   "photos": {
     "school": "志村坂下小学校での演奏",

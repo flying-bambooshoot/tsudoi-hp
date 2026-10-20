@@ -43,7 +43,8 @@ const newsEntries = newsContext
     if (a.entry.ja.date !== b.entry.ja.date) return a.entry.ja.date < b.entry.ja.date ? 1 : -1;
     return name(a.key) < name(b.key) ? 1 : -1;
   })
-  .map(({ entry }) => entry);
+  // slug は記事のページの URL に使う名前（ファイル名から拡張子を除いたもの。例: /news/2026-10-06）
+  .map(({ key, entry }) => ({ slug: key.replace(/^\.\//, "").replace(/\.json$/, ""), entry }));
 
 // 訳の空欄は無視して日本語を表示する（管理画面で訳を空のまま保存すると、"title": "" のように空の値が入るため）
 const withoutEmpty = (item = {}) =>
@@ -95,13 +96,15 @@ export const useI18n = () => {
   }, [language]);
 };
 
-// NEWS の一覧を新しい順で返す。翻訳が無い記事・項目は日本語のまま表示する
+// NEWS の一覧を新しい順で返す。翻訳が無い記事・項目は日本語のまま表示する。
+// 各記事の slug で記事のページ（/news/<slug>）へのリンクを作る
 export const useNews = () => {
   const { language } = useI18n();
   return useMemo(() => {
-    const news = newsEntries.map((entry) => ({
+    const news = newsEntries.map(({ slug, entry }) => ({
       ...entry.ja,
       ...withoutEmpty(entry[language.code]),
+      slug,
       date: displayDate(entry.ja.date),
       img: entry.ja.img || "",
     }));

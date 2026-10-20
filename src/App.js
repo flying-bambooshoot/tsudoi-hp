@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // ページ追加手順
 import Home from "./pages/home.jsx";
 import News from "./pages/news.jsx";
+import NewsArticle from "./pages/newsArticle.jsx";
 import Intro from "./pages/introduction.jsx";
 import Contact from "./pages/contact.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
@@ -12,6 +13,8 @@ import { LanguageProvider } from "./i18n";
 const pages = [
   { path: "/", element: <Home /> },
   { path: "/news", element: <News /> },
+  // NEWS の記事 1 件のページ（例: /news/2026-10-06）。slug は src/content/news/ のファイル名
+  { path: "/news/:slug", element: <NewsArticle /> },
   { path: "/introduction", element: <Intro /> },
   { path: "/contact", element: <Contact /> },
 ];

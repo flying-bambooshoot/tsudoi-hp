@@ -15,6 +15,10 @@ const fs = require("fs");
 const path = require("path");
 const { SITE_URL, SITE_NAME, languages, pages } = require("./pages");
 const { musicGroup, videoObjects, jsonLdScript } = require("./structured-data");
+const { newsPages } = require("./news");
+
+// NEWS の記事のページ（/news/2026-10-06 など）。src/content/news/ の記事から作る
+const articlePages = newsPages();
 
 const buildDir = path.join(__dirname, "..", "build");
 const template = fs.readFileSync(path.join(buildDir, "index.html"), "utf8");
@@ -44,6 +48,8 @@ const LCP_IMAGES = {
   "/introduction": "static/media/all.webp",
 };
 const preloadLink = (page) => {
+  // NEWS の記事のページでは、記事の写真（public/img のファイル）を先読みする
+  if (page.image) return `<link rel="preload" as="image" href="${page.image}" fetchpriority="high">`;
   const key = LCP_IMAGES[page.path];
   if (!key) return "";
   // 画像の名前や形式を変えたときに、先読みが黙って外れないようにする
@@ -65,9 +71,18 @@ const hreflangLinks = (page) =>
 // ロゴは中央の 600×360 に収めてあり、正方形に切り抜かれる表示でも欠けない。
 const OGP_IMAGE = { url: `${SITE_URL}/ogp.png`, width: 1200, height: 630 };
 const OGP_LOCALES = { ja: "ja_JP", en: "en_US", "zh-Hant": "zh_TW", "zh-Hans": "zh_CN" };
+// NEWS の記事のページは、記事の写真があればそれをカードの画像にする（大きさは記事ごとに違うので書かない）
+const ogpImageTags = (page) =>
+  page.image
+    ? [["og:image", `${SITE_URL}${page.image}`]]
+    : [
+        ["og:image", OGP_IMAGE.url],
+        ["og:image:width", OGP_IMAGE.width],
+        ["og:image:height", OGP_IMAGE.height],
+      ];
 const ogpTags = (language, page, title, description) =>
   [
-    ["og:type", "website"],
+    ["og:type", page.image !== undefined ? "article" : "website"],
     ["og:site_name", escapeHtml(SITE_NAME[language.code])],
     ["og:title", title],
     ["og:description", description],
@@ -76,10 +91,9 @@ const ogpTags = (language, page, title, description) =>
     ...languages
       .filter((other) => other !== language)
       .map((other) => ["og:locale:alternate", OGP_LOCALES[other.code]]),
-    ["og:image", OGP_IMAGE.url],
-    ["og:image:width", OGP_IMAGE.width],
-    ["og:image:height", OGP_IMAGE.height],
-    ["og:image:alt", escapeHtml(SITE_NAME[language.code])],
+    ...ogpImageTags(page),
+    // 画像の説明。記事の写真は記事のタイトル、共通の画像はサイト名
+    ["og:image:alt", page.image ? title : escapeHtml(SITE_NAME[language.code])],
   ]
     .map(([property, content]) => `<meta property="${property}" content="${content}">`)
     .concat('<meta name="twitter:card" content="summary_large_image">')
@@ -108,7 +122,7 @@ const renderHtml = (language, page) => {
     html.includes(`<title>${title}</title>`) &&
     html.includes(`content="${description}"`) &&
     html.includes('rel="canonical"') &&
-    html.includes(`<meta property="og:image" content="${OGP_IMAGE.url}">`) &&
+    html.includes('<meta property="og:image" content="https://') &&
     html.includes('"@type":"MusicGroup"');
   if (!ok) {
     throw new Error(
@@ -120,20 +134,26 @@ const renderHtml = (language, page) => {
   return language.code.startsWith("zh") ? html.replace(/﨑/g, "崎") : html;
 };
 
+// 固定のページ（TOP・NEWS 一覧など）と NEWS の記事のページ。
+// 記事は news/2026-10-06.html のように news/ フォルダに出力する。GitHub Pages では、
+// /news は news.html、/news/2026-10-06 は news/2026-10-06.html が返る（2026-10-21 にフォークで確認）
+const allPages = [...pages, ...articlePages];
+
 for (const language of languages) {
-  for (const page of pages) {
+  for (const page of allPages) {
     const file = outputFile(language, page);
     fs.mkdirSync(path.dirname(path.join(buildDir, file)), { recursive: true });
     fs.writeFileSync(path.join(buildDir, file), renderHtml(language, page));
-    console.log(`generated: build/${file.replace(/\\/g, "/")}`);
+    if (!articlePages.includes(page)) console.log(`generated: build/${file.replace(/\\/g, "/")}`);
   }
 }
+console.log(`generated: NEWS の記事のページ ${articlePages.length} 件 × ${languages.length} 言語`);
 
 const sitemap =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
   languages
-    .flatMap((language) => pages.map((page) => `  <url><loc>${pageUrl(language, page)}</loc></url>\n`))
+    .flatMap((language) => allPages.map((page) => `  <url><loc>${pageUrl(language, page)}</loc></url>\n`))
     .join("") +
   "</urlset>\n";
 fs.writeFileSync(path.join(buildDir, "sitemap.xml"), sitemap);

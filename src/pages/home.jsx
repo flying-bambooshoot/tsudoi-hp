@@ -181,9 +181,10 @@ const Home = () => {
 
   // NEWSは新しいものから3件まで表示する（3件未満でもそのまま動作する）
   const newsList = news.slice(0, 3).map((item) => (
-      <div key={`${item.date}-${item.title}`} style={newsArea}>
+      <div key={item.slug} style={newsArea}>
           <div>
-              <p style={{fontSize: "16px"}}>{item.title}</p>
+              {/* タイトルは記事のページ（/news/<slug>）へのリンク */}
+              <p style={{fontSize: "16px"}}><Link to={path(`/news/${item.slug}`)} style={{color: "inherit"}}>{item.title}</Link></p>
               <p style={{fontSize: "12px", color: "#757575"}}>{item.date}</p>
               <div className="eachNews">{item.contents}</div>
           </div>

@@ -18,7 +18,9 @@
     }
   },
   "news": {
-    "photoAlt": "照片"
+    "photoAlt": "照片",
+    "backToList": "返回最新消息列表",
+    "notFound": "找不到这篇文章。"
   },
   "photos": {
     "school": "于志村坂下小学的演出",
