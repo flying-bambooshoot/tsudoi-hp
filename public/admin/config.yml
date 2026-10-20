@@ -78,6 +78,7 @@ collections:
         i18n: false
       - name: contents
         label: 本文
+        hint: 訳は自動では作られません。日本語を直したときは、英語・中国語の欄も直してください（空欄の言語は日本語で表示されます）
         widget: text
         required: [ja]
         i18n: true
