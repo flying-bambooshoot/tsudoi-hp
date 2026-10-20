@@ -39,6 +39,12 @@ const cell = {
     textAlign: "left",
 }
 
+// 「演奏料の100%」などが途中で改行されないよう、日本語・中国語でも語の途中で折り返さない
+const valueCell = {
+    ...cell,
+    wordBreak: "keep-all",
+}
+
 const headCell = {
     ...cell,
     backgroundColor: "#f5f5f5",
@@ -77,7 +83,7 @@ const Faq = () => {
                             <tbody>
                                 {faq.table.rows.map((row) => (
                                     <tr key={row[0]}>
-                                        {row.map((text, i) => <td key={i} style={cell}>{text}</td>)}
+                                        {row.map((text, i) => <td key={i} style={i === 0 ? cell : valueCell}>{text}</td>)}
                                     </tr>
                                 ))}
                             </tbody>
