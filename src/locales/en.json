@@ -65,6 +65,67 @@
     "priceSmallGroup": "Depending on the size of the venue, your budget, and the atmosphere you are looking for, we can also perform as a smaller group of 2 to 5 players.",
     "priceProposal": "After hearing your requests, we will propose the best plan for your event. Please feel free to contact us.",
     "priceDisclaimer": "* Prices shown are a guide only. Fees may vary depending on the program, time commitment, and venue location.",
+    "faq": {
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "What kinds of events can we book you for?",
+          "a": "We perform at a wide range of events, including parties, ceremonies, festivals, school performances, and concerts."
+        },
+        {
+          "q": "How far in advance should we book?",
+          "a": "Because scheduling and other arrangements are required, we recommend contacting us about three months in advance. We may also be able to accommodate last-minute requests, so please feel free to ask."
+        },
+        {
+          "q": "Can you perform outside Tokyo?",
+          "a": "We mainly perform in and around the Kanto region, but we are happy to discuss events anywhere in Japan. Travel expenses are charged separately."
+        },
+        {
+          "q": "How long is a performance?",
+          "a": "Performances typically last about 30 minutes to 1 hour. Short performances of around 15 minutes or two-part programs are also available upon request."
+        },
+        {
+          "q": "Can we choose or request songs?",
+          "a": "We can perform a wide variety of pieces, including traditional folk songs, contemporary pieces, and covers. Please consult us about the program for your event.\nRequested songs may also be possible if we are given time to prepare."
+        },
+        {
+          "q": "How many performers can you send?",
+          "a": "We perform with 2 to 6 members. Please consult us based on the size of the venue, your budget, and the atmosphere you would like."
+        },
+        {
+          "q": "Can you perform in kimono?",
+          "a": "Yes, we can perform in kimono. An additional fee may apply."
+        },
+        {
+          "q": "How much does it cost?",
+          "a": "For a 6-member, 30-minute performance, the guideline price is ¥200,000 or more (tax included). The fee may vary depending on the program, the length of the engagement, the venue location, and other factors."
+        },
+        {
+          "q": "How and when should we pay?",
+          "a": "We do not have fixed rules for the payment method or timing. These are decided through individual consultation based on your request."
+        },
+        {
+          "q": "Is there a cancellation fee?",
+          "a": "If you cancel for your own reasons after the booking has been confirmed, a cancellation fee may be charged depending on the timing of the cancellation. For details, please refer to the cancellation policy provided at the time of booking."
+        },
+        {
+          "q": "Do we need sound equipment (microphones and speakers)?",
+          "a": "Depending on the size and environment of the venue, sound equipment such as microphones and speakers may be required. If the venue does not have such equipment, we will consider options with you, so please feel free to contact us."
+        },
+        {
+          "q": "Can you perform outdoors?",
+          "a": "Yes, we also perform outdoors. However, performing may be difficult depending on the weather and the venue environment. Please consult us in advance about arrangements in case of rain."
+        },
+        {
+          "q": "Do we need to prepare anything at the venue (chairs, a dressing room, etc.)?",
+          "a": "We would appreciate it if you could provide a chair for each performer and a dressing room for changing and preparation. If anything is difficult to arrange, please let us know in advance."
+        },
+        {
+          "q": "May we photograph or stream the performance?",
+          "a": "Taking photos and videos is generally fine. However, please consult us in advance about live streaming or publishing videos online so that we can confirm the conditions."
+        }
+      ]
+    },
     "formHeading": "Contact Form",
     "form": {
       "name": "Name",
