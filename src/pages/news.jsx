@@ -38,14 +38,15 @@ const News = () => {
                 <p style={{fontSize: "16px"}}>{item.title}</p>
                 <p style={{fontSize: "12px", color: "#757575"}}>{item.date}</p>
                 <p>{item.contents}</p>
-                {/* リンク先がない記事では、空のリンクを出さない */}
+                {/* リンク先がない記事では、空のリンクを出さない。
+                    見出し（例: ◆公式サイト◆）があれば、URL は次の行に出す（CMS の入力欄では改行を入れられないため） */}
                 {item.link && (
-                    <p>{item.linkTitle}
+                    <p>{item.linkTitle?.trim() && <>{item.linkTitle.trim()}<br /></>}
                     <a href={item.link} target='_blank' rel="noopener noreferrer">{item.link}</a>
                     </p>
                 )}
                 {item.map_link && (
-                    <p>{item.map_title}
+                    <p>{item.map_title?.trim() && <>{item.map_title.trim()}<br /></>}
                     <a href={item.map_link} target='_blank' rel="noopener noreferrer">{item.map_link}</a>
                     </p>
                 )}
