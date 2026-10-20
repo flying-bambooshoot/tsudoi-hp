@@ -1,12 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 // ページ追加手順
 import Home from "./pages/home.jsx";
 import News from "./pages/news.jsx";
 import NewsArticle from "./pages/newsArticle.jsx";
 import Intro from "./pages/introduction.jsx";
 import Contact from "./pages/contact.jsx";
+import NotFound from "./pages/notFound.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
-import { LANGUAGES } from "./i18n/languages";
+import { LANGUAGES, splitPath } from "./i18n/languages";
 import { LanguageProvider } from "./i18n";
 
 // ページの一覧。言語ごとに "/news"、"/en/news" … のように同じページが割り当てられる
@@ -18,6 +19,16 @@ const pages = [
   { path: "/introduction", element: <Intro /> },
   { path: "/contact", element: <Contact /> },
 ];
+
+// どのページにも当てはまらない URL（例: /abc、/en/abc）。URL の先頭（/en など）から言語を決めて表示する
+const NotFoundRoute = () => {
+  const { language } = splitPath(useLocation().pathname);
+  return (
+    <LanguageProvider language={language}>
+      <NotFound />
+    </LanguageProvider>
+  );
+};
 
 const App = () => {
   return (
@@ -33,6 +44,7 @@ const App = () => {
           />
         ))
       )}
+      <Route path="*" element={<NotFoundRoute />} />
     </Routes>
   </BrowserRouter>
   );
