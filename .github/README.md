@@ -47,6 +47,7 @@ NEWSは、ブラウザの管理画面から追加・修正・削除できます�
 ### 仕組み（開発者向け）
 - 管理画面は Sveltia CMS（`public/admin/`）。保存すると本家の master にコミットされ、GitHub Actions が本番に公開します
 - 「GitHubでログイン」は、ujiのCloudflareアカウントのWorker「tsudoi-cms-auth」（Sveltia CMS Authenticator）と、ujiのGitHubアカウントのOAuth App「集-tsudoi- NEWS 管理画面」で動いています
+- NEWS一覧の小さな写真（240×180）は、ビルドのときに `scripts/postbuild.js` が `sharp` で自動で作ります（`/img/x.webp` → `/img/thumb/x.webp`）。写真を追加するときに用意する必要はありません。`npm start` ではサムネイルが作られないため、元の写真が表示されます
 
 ## 【NEWSに表示するデータを追加する（ファイルを直接編集する場合）】
 NEWSは1記事につき1ファイルで、"tsudoi-hp\src\content\news"フォルダに置きます。
