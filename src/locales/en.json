@@ -19,7 +19,8 @@
   },
   "news": {
     "photoAlt": "Photo",
-    "backToList": "Back to News"
+    "backToList": "Back to News",
+    "upcoming": "Upcoming: {{date}}"
   },
   "notFound": {
     "heading": "Page Not Found",

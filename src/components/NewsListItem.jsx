@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n";
+import UpcomingBadge from "./UpcomingBadge";
 
 // NEWS の一覧の 1 件分（src/pages/news.jsx で使う）。小さな写真・タイトル・日付・本文の冒頭だけを出し、
 // 1 件全体を記事のページ（/news/<slug>）へのリンクにする。全文は記事のページで読む。
@@ -93,6 +94,7 @@ const NewsListItem = ({ news, isMobile }) => {
                 <span style={isMobile ? thumbMobile : thumb} aria-hidden="true" />
             )}
             <span style={text}>
+                <UpcomingBadge item={news} />
                 <span style={{ ...title, display: "block" }}>{news.title}</span>
                 <span style={{ ...date, display: "block" }}>{news.date}</span>
                 <span style={excerpt}>{summarize(news.contents)}</span>

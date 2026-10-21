@@ -19,7 +19,8 @@
   },
   "news": {
     "photoAlt": "写真",
-    "backToList": "NEWS 一覧へ戻る"
+    "backToList": "NEWS 一覧へ戻る",
+    "upcoming": "出演予定 {{date}}"
   },
   "notFound": {
     "heading": "ページが見つかりません",

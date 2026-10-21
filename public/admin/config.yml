@@ -76,7 +76,15 @@ collections:
         format: YYYY-MM-DD
         default: "{{now}}"
         i18n: false
-      # 種類・場面は INTRODUCTION の「出演実績」に使う（src/i18n/index.js の useWorks）。日本語にだけ保存する
+      # 出演日・種類・場面は INTRODUCTION の「出演実績」と「出演予定」の印に使う（src/i18n/index.js）。日本語にだけ保存する
+      - name: performanceDate
+        label: 出演日
+        hint: 出演の記事のときに入れる（予告の記事では、記事の日付と違う日になる）。出演日が来るまでは NEWS と TOP に「出演予定」の印が付き、過ぎると INTRODUCTION の「出演実績」に載ります。空欄なら記事の日付で数えます
+        widget: datetime
+        time_format: false
+        format: YYYY-MM-DD
+        required: false
+        i18n: false
       - name: category
         label: 記事の種類
         hint: 「出演」にすると、INTRODUCTION の「出演実績」に載ります（出演の予告の記事も「出演」）

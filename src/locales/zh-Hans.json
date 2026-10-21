@@ -19,7 +19,8 @@
   },
   "news": {
     "photoAlt": "照片",
-    "backToList": "返回最新消息列表"
+    "backToList": "返回最新消息列表",
+    "upcoming": "即将演出 {{date}}"
   },
   "notFound": {
     "heading": "找不到页面",

@@ -53,6 +53,16 @@ const withoutEmpty = (item = {}) =>
 // 日付はファイルには 2026-10-06 の形で書き、画面には 2026.10.6 の形で表示する
 const displayDate = (isoDate) => isoDate.split("-").map(Number).join(".");
 
+// 今日の日付（見ている人のパソコン・スマホの日付。2026-10-21 の形）。出演日と比べて、
+// 「出演予定」の印と、出演実績に載せるかどうかを決める。見た日で判断するので、出演日を過ぎれば作り直さなくても切り替わる
+const today = () => {
+  const now = new Date();
+  return [now.getFullYear(), String(now.getMonth() + 1).padStart(2, "0"), String(now.getDate()).padStart(2, "0")].join("-");
+};
+
+// 出演の記事の出演日（performanceDate）。予告の記事では記事の日付と違う。空欄なら記事の日付を使う
+const performedOn = (entry) => entry.ja.performanceDate || entry.ja.date;
+
 // 中国語には無い日本の異体字を、中国語のページでは通常の字に置き換えて表示する（オーナーの指定）。
 // 例: 藤﨑 → 藤崎。元のデータ（訳文・NEWS）は正しい表記で書き、表示するときだけ置き換える。
 // scripts/postbuild.js でも、中国語ページの HTML に同じ置き換えをしている
@@ -107,6 +117,9 @@ export const useNews = () => {
       slug,
       date: displayDate(entry.ja.date),
       img: entry.ja.img || "",
+      // 出演日がまだ来ていない出演の記事には「出演予定」の印を付ける（今日の出演も含む）
+      upcoming: entry.ja.category === "performance" && !!entry.ja.performanceDate && entry.ja.performanceDate >= today(),
+      performanceDate: entry.ja.performanceDate ? displayDate(entry.ja.performanceDate) : "",
     }));
     return isChinese(language) ? toChineseGlyphs(news) : news;
   }, [language]);
@@ -142,16 +155,19 @@ export const useWorks = () => {
   const { language } = useI18n();
   return useMemo(() => {
     const local = (entry) => ({ ...entry.ja, ...withoutEmpty(entry[language.code]) });
+    // まだ演奏していない出演（出演日が今日より後）は、出演実績に載せない。
+    // 予告と事後報告の両方の記事がある出演は、同じ出演日（同じ年）なので 1 回として数える
+    const now = today();
     const items = [
       ...newsEntries
         .filter(({ entry }) => entry.ja.category === "performance" && entry.ja.workTitle)
         .map(({ slug, entry }) => ({ entry, slug })),
       ...performanceEntries.filter((entry) => entry.ja && entry.ja.workTitle && entry.ja.date).map((entry) => ({ entry, slug: null })),
-    ].map(({ entry, slug }) => ({
+    ].filter(({ entry }) => performedOn(entry) <= now).map(({ entry, slug }) => ({
       scene: WORK_SCENES.includes(entry.ja.scene) ? entry.ja.scene : "other",
       key: entry.ja.workTitle,
       title: local(entry).workTitle,
-      year: entry.ja.date.slice(0, 4),
+      year: performedOn(entry).slice(0, 4),
       slug,
     }));
 

@@ -19,7 +19,8 @@
   },
   "news": {
     "photoAlt": "照片",
-    "backToList": "返回最新消息一覽"
+    "backToList": "返回最新消息一覽",
+    "upcoming": "即將演出 {{date}}"
   },
   "notFound": {
     "heading": "找不到頁面",
