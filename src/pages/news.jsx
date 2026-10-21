@@ -2,14 +2,28 @@ import useMedia from '../useMedia';
 import Header from "../components/Header";
 import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
-import NewsItem from "../components/NewsItem";
+import NewsListItem from "../components/NewsListItem";
 import { useNews } from "../i18n";
+
+const yearHeading = {
+    margin: "32px 0 0",
+    padding: "0 20px 8px",
+    fontSize: "18px",
+}
+
+// 記事を年ごとに分ける（記事は新しい順に並んでいるので、年も新しい順になる）。日付は "2026.10.6" の形
+const groupByYear = (news) =>
+    news.reduce((groups, item) => {
+        const year = item.date.split(".")[0];
+        const last = groups[groups.length - 1];
+        if (last && last.year === year) last.items.push(item);
+        else groups.push({ year, items: [item] });
+        return groups;
+    }, []);
 
 const News = () => {
     const isMobile = useMedia('(max-width: 1000px)');
     const news = useNews();
-    // 記事ごとに全文を表示し、タイトルは記事のページ（/news/<slug>）へのリンクにする
-    const newsList = news.map((item) => <NewsItem key={item.slug} item={item} />);
 
     return (
         <>
@@ -21,9 +35,15 @@ const News = () => {
                         <section className="title">
                             <h1 className="h2">NEWS</h1>
                         </section>
-                        <section>
-                            <div>{newsList}</div>
-                        </section>
+                        {/* 一覧はタイトル・日付・本文の冒頭だけ。全文は記事のページ（/news/<slug>）で読む */}
+                        {groupByYear(news).map(({ year, items }) => (
+                            <section key={year}>
+                                <h2 style={yearHeading}>{year}</h2>
+                                <div style={{ borderBottom: "solid #cccccc 1px" }}>
+                                    {items.map((item) => <NewsListItem key={item.slug} news={item} isMobile={isMobile} />)}
+                                </div>
+                            </section>
+                        ))}
                     </main>
                 </div>
             </div>
