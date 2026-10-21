@@ -59,6 +59,13 @@ const excerpt = {
     wordBreak: "break-all",
 }
 
+// 一覧用の小さな写真（240×180）。ビルドのとき scripts/postbuild.js が /img/x.webp から /img/thumb/x.webp を作る。
+// 開発用のサーバー（npm start）ではサムネイルが作られないので、読み込めなければ元の写真を使う
+const thumbnailPath = (img) => img.replace(/^\/img\//, "/img/thumb/").replace(/\.[^.]+$/, ".webp");
+const fallbackToOriginal = (img) => (event) => {
+    if (!event.currentTarget.src.endsWith(img)) event.currentTarget.src = `${process.env.PUBLIC_URL}` + img;
+};
+
 // 本文の改行をつなげて、冒頭だけを取り出す（画面では CSS でさらに 2 行に収める）
 const EXCERPT_LENGTH = 120;
 const summarize = (contents = "") => {
@@ -73,7 +80,8 @@ const NewsListItem = ({ news, isMobile }) => {
             {/* 写真はタイトルと同じ内容を表すので、読み上げでは読まない（alt を空にする）。写真のない記事は灰色の枠 */}
             {news.img !== "" ? (
                 <img
-                    src={`${process.env.PUBLIC_URL}` + news.img}
+                    src={`${process.env.PUBLIC_URL}` + thumbnailPath(news.img)}
+                    onError={fallbackToOriginal(news.img)}
                     alt=""
                     width="120"
                     height="90"
