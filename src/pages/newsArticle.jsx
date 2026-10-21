@@ -48,7 +48,7 @@ const NewsArticle = () => {
                             <p className="h2">NEWS</p>
                         </div>
                         <article>
-                            <NewsItem item={item} isPage />
+                            <NewsItem item={item} />
                         </article>
                         <Link to={path("/news")} style={backLink}>{t("news.backToList")}</Link>
                     </main>

@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 import { useI18n } from "../i18n";
 
-// NEWS の記事 1 件分の表示。NEWS の一覧（src/pages/news.jsx）と記事のページ（src/pages/newsArticle.jsx）で使う。
-// isPage: 記事のページでは、タイトルをページの見出し（h1）にして、写真をすぐ読み込む。
-//         一覧では、タイトルを記事のページ（/news/<slug>）へのリンクにする
+// NEWS の記事 1 件分の全文の表示（記事のページ src/pages/newsArticle.jsx で使う）。
+// タイトルをページの見出し（h1）にして、写真はすぐ読み込む。
+// NEWS の一覧では、タイトル・日付・本文の冒頭だけの src/components/NewsListItem.jsx を使う
 
 const newsArea = {
     display: "flex",
@@ -21,10 +20,6 @@ const title = {
     margin: "1em 0",
 }
 
-const titleLink = {
-    color: "inherit",
-}
-
 const imgBox = {
     width: "300px",
     maxWidth: "100%",
@@ -39,18 +34,12 @@ const img = {
     objectPosition: "left bottom",
 }
 
-const NewsItem = ({ item, isPage = false }) => {
-    const { t, path } = useI18n();
+const NewsItem = ({ item }) => {
+    const { t } = useI18n();
     return (
         <div style={newsArea}>
             <div>
-                {isPage ? (
-                    <h1 style={title}>{item.title}</h1>
-                ) : (
-                    <p style={title}>
-                        <Link to={path(`/news/${item.slug}`)} style={titleLink}>{item.title}</Link>
-                    </p>
-                )}
+                <h1 style={title}>{item.title}</h1>
                 <p style={{fontSize: "12px", color: "#757575"}}>{item.date}</p>
                 <p>{item.contents}</p>
                 {/* リンク先がない記事では、空のリンクを出さない。
@@ -72,7 +61,6 @@ const NewsItem = ({ item, isPage = false }) => {
                         src={`${process.env.PUBLIC_URL}` + item.img}
                         alt={t("news.photoAlt")}
                         style={img}
-                        loading={isPage ? "eager" : "lazy"}
                         decoding="async"
                     />
                 )}

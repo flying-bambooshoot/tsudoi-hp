@@ -158,3 +158,26 @@ const sitemap =
   "</urlset>\n";
 fs.writeFileSync(path.join(buildDir, "sitemap.xml"), sitemap);
 console.log("generated: build/sitemap.xml");
+
+// NEWS の一覧に出す小さな写真（サムネイル）を作る。一覧の枠は 120×90 なので、高精細の画面向けに 2 倍の 240×180。
+// 元の写真（横 900px 前後）のままだと、一覧を開くだけで 12 枚・約 790KB を読み込んでいた（2026-10-21）。
+// 管理画面で追加した写真にも、ビルドのたびに自動で作られる。
+// 置き場所の規則（/img/x.webp → /img/thumb/x.webp）は src/components/NewsListItem.jsx と同じ
+const sharp = require("sharp");
+const THUMB = { width: 240, height: 180, quality: 75 };
+const thumbnailPath = (img) => img.replace(/^\/img\//, "/img/thumb/").replace(/\.[^.]+$/, ".webp");
+
+(async () => {
+  const images = [...new Set(articlePages.map((page) => page.image).filter(Boolean))];
+  for (const img of images) {
+    const source = path.join(buildDir, img);
+    const target = path.join(buildDir, thumbnailPath(img));
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    await sharp(source).resize(THUMB.width, THUMB.height, { fit: "cover" }).webp({ quality: THUMB.quality }).toFile(target);
+  }
+  console.log(`generated: NEWS の一覧のサムネイル ${images.length} 枚（build/img/thumb/）`);
+})().catch((error) => {
+  // サムネイルが作れないまま公開しないよう、ビルドを失敗させる
+  console.error("NEWS のサムネイルの作成に失敗しました:", error.message);
+  process.exit(1);
+});
