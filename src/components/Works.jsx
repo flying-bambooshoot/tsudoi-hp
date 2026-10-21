@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useI18n, useWorks } from "../i18n";
 
 // INTRODUCTION の「出演実績」。場面ごとに、出演先と出演した年を並べる（データの作り方は src/i18n/index.js の useWorks）。
-// 年は、その年の NEWS の記事があれば記事のページへのリンク。3 年以上続けて出演していれば「○年連続」を付ける
+// 年は、その年の NEWS の記事があれば記事のページへのリンク
 
 const heading = {
     borderBottom: "solid #cccccc 1px",
@@ -45,19 +45,6 @@ const years = {
     color: "#555555",
 }
 
-const badge = {
-    display: "inline-block",
-    marginLeft: "8px",
-    padding: "0 6px",
-    fontSize: "12px",
-    border: "solid #161616 1px",
-    borderRadius: "3px",
-    whiteSpace: "nowrap",
-}
-
-// 3 年以上続けて出演していれば「○年連続」を出す
-const CONSECUTIVE_MIN = 3;
-
 const Works = () => {
     const { t, path } = useI18n();
     const groups = useWorks();
@@ -75,9 +62,6 @@ const Works = () => {
                             {works.map((item) => (
                                 <li key={item.title} style={work}>
                                     {item.title}
-                                    {item.consecutive >= CONSECUTIVE_MIN && (
-                                        <span style={badge}>{t("works.consecutive", { count: item.consecutive })}</span>
-                                    )}
                                     <br />
                                     <span style={years}>
                                         {item.years.map(({ year, slug }, i) => (

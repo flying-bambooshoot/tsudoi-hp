@@ -111,7 +111,7 @@ collections:
         i18n: false
       - name: workTitle
         label: 出演実績に載せる名前
-        hint: 種類が「出演」のときに書く。例「成田弦まつり」。毎年の出演は同じ名前にすると、出演実績で 1 行にまとまり「○年連続」が付きます
+        hint: 種類が「出演」のときに書く。例「成田弦まつり」。毎年の出演は同じ名前にすると、出演実績で 1 行にまとまり、年が並びます
         widget: string
         required: false
         i18n: true

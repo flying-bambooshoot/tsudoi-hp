@@ -32,7 +32,6 @@
   "works": {
     "heading": "演出實績",
     "note": "以下是我們至今的主要演出。點選年份即可開啟該年的最新消息文章。",
-    "consecutive": "連續{{count}}年",
     "scenes": {
       "festival": "祭典・地區活動",
       "school": "學校公演",

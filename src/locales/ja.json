@@ -32,7 +32,6 @@
   "works": {
     "heading": "出演実績",
     "note": "これまでの主な出演先です。年を押すと、その年の NEWS の記事を開きます。",
-    "consecutive": "{{count}}年連続",
     "scenes": {
       "festival": "祭り・地域イベント",
       "school": "学校公演",

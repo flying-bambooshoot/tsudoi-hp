@@ -136,21 +136,10 @@ const performanceEntries = performanceContext
 // 出演実績の場面の並び（INTRODUCTION の「出演実績」はこの順に出す）。訳は locales の works.scenes
 export const WORK_SCENES = ["festival", "school", "concert", "ceremony", "party", "wedding", "other"];
 
-// 年の並び（新しい順）の中で、連続している年数の最大（例: 2026・2025・2024・2023 → 4）
-const longestRun = (years) => {
-  let best = 1;
-  let run = 1;
-  for (let i = 1; i < years.length; i++) {
-    run = Number(years[i - 1]) - Number(years[i]) === 1 ? run + 1 : 1;
-    best = Math.max(best, run);
-  }
-  return best;
-};
-
 // INTRODUCTION の「出演実績」。NEWS の記事のうち種類が「出演」のものと、その他の出演実績を合わせ、
 // 場面ごと・名前（workTitle）ごとにまとめる。同じ名前は 1 行にし、出演した年を新しい順に並べる。
 // 年は、その年の NEWS の記事があれば記事のページへのリンクにする（同じ年に複数あれば新しい方）。
-// 返す形: [{ scene, works: [{ title, years: [{ year, slug }], consecutive }] }]
+// 返す形: [{ scene, works: [{ title, years: [{ year, slug }] }] }]
 export const useWorks = () => {
   const { language } = useI18n();
   return useMemo(() => {
@@ -182,7 +171,7 @@ export const useWorks = () => {
       const works = [...byName.values()]
         .map((work) => {
           const years = [...work.years.entries()].sort((a, b) => b[0].localeCompare(a[0])).map(([year, slug]) => ({ year, slug }));
-          return { title: work.title, years, consecutive: longestRun(years.map((y) => y.year)) };
+          return { title: work.title, years };
         })
         // 最近出演したものを上に
         .sort((a, b) => b.years[0].year.localeCompare(a.years[0].year) || a.title.localeCompare(b.title));
