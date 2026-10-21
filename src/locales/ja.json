@@ -28,6 +28,20 @@
     "toNews": "NEWS（最新情報）へ",
     "toContact": "演奏のご依頼・お問い合わせへ"
   },
+  "works": {
+    "heading": "出演実績",
+    "note": "これまでの主な出演先です。年を押すと、その年の NEWS の記事を開きます。",
+    "consecutive": "{{count}}年連続",
+    "scenes": {
+      "festival": "祭り・地域イベント",
+      "school": "学校公演",
+      "concert": "コンサート・ホール・サロン",
+      "ceremony": "式典・公的イベント",
+      "party": "パーティー・企業イベント",
+      "wedding": "結婚式",
+      "other": "その他"
+    }
+  },
   "photos": {
     "school": "志村坂下小学校での演奏",
     "school2": "志村坂下小学校の体育館で演奏するメンバー",

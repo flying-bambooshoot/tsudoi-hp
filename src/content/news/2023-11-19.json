@@ -2,19 +2,25 @@
   "ja": {
     "title": "志村坂下小学校で演奏いたしました",
     "date": "2023-11-19",
+    "category": "performance",
+    "scene": "school",
+    "workTitle": "志村坂下小学校",
     "contents": "この度、代表中原の地元板橋区の志村坂下小学校にて開催された「いきいき寺子屋文化祭」で演奏いたしました！民謡やオリジナルの他に、児童たちのダンスとのコラボもあり会場は大盛況でした！また、質問コーナーでは津軽三味線に関する多くの質問を頂き嬉しかったです！ありがとうございました！",
     "img": "/img/school.webp"
   },
   "en": {
     "title": "Performed at Shimura-Sakashita Elementary School",
+    "workTitle": "Shimura-Sakashita Elementary School",
     "contents": "We performed at the \"Iki-iki Terakoya Cultural Festival\" held at Shimura-Sakashita Elementary School in Itabashi, Tokyo, the hometown of our leader Nakahara! Along with folk songs and original pieces, we collaborated with the students' dance performance, and the venue was packed! We were also happy to receive many questions about the Tsugaru shamisen during the Q&A session. Thank you!"
   },
   "zh-Hant": {
     "title": "於志村坂下小學演出",
+    "workTitle": "志村坂下小學",
     "contents": "我們在代表中原的家鄉——東京都板橋區志村坂下小學舉辦的「活力寺子屋文化祭」中進行了演出！除了民謠和原創曲之外，還與學童們的舞蹈進行合作，現場氣氛非常熱烈！在問答環節中也收到了許多關於津輕三味線的問題，讓我們非常開心！謝謝大家！"
   },
   "zh-Hans": {
     "title": "于志村坂下小学演出",
+    "workTitle": "志村坂下小学",
     "contents": "我们在代表中原的家乡——东京都板桥区志村坂下小学举办的「活力寺子屋文化祭」中进行了演出！除了民谣和原创曲之外，还与学生们的舞蹈进行了合作，现场气氛非常热烈！在问答环节中也收到了许多关于津轻三味线的问题，让我们非常开心！谢谢大家！"
   }
 }

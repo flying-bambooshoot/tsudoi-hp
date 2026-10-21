@@ -2,19 +2,25 @@
   "ja": {
     "title": "志村坂下小学校で演奏いたしました",
     "date": "2024-12-27",
+    "category": "performance",
+    "scene": "school",
+    "workTitle": "志村坂下小学校",
     "contents": "昨年に続き、中原の地元、板橋区の志村坂下小学校にて開催された「いきいき寺子屋文化祭」に出演させて頂きました。演奏に合わせて身体を動かしながらノリノリで聴いてくれる子も多く、質問コーナーでは沢山の質問も頂いて終始楽しい雰囲気での演奏となりました！皆様誠にありがとうございました！",
     "img": ""
   },
   "en": {
     "title": "Performed at Shimura-Sakashita Elementary School",
+    "workTitle": "Shimura-Sakashita Elementary School",
     "contents": "Following last year, we performed at the \"Iki-iki Terakoya Cultural Festival\" held at Shimura-Sakashita Elementary School in Itabashi, Tokyo, Nakahara's hometown. Many children grooved along to the music, and we received lots of questions during the Q&A session, making for a fun atmosphere from start to finish! Thank you all very much!"
   },
   "zh-Hant": {
     "title": "於志村坂下小學演出",
+    "workTitle": "志村坂下小學",
     "contents": "繼去年之後，我們再次參加了在中原的家鄉——東京都板橋區志村坂下小學舉辦的「活力寺子屋文化祭」。許多孩子跟著音樂開心地擺動身體，問答環節中也收到了許多問題，整場演出氣氛都非常愉快！衷心感謝大家！"
   },
   "zh-Hans": {
     "title": "于志村坂下小学演出",
+    "workTitle": "志村坂下小学",
     "contents": "继去年之后，我们再次参加了在中原的家乡——东京都板桥区志村坂下小学举办的「活力寺子屋文化祭」。许多孩子跟着音乐开心地摆动身体，问答环节中也收到了许多问题，整场演出气氛都非常愉快！衷心感谢大家！"
   }
 }

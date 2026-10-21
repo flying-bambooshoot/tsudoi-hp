@@ -28,6 +28,20 @@
     "toNews": "Go to News",
     "toContact": "Book a performance / Contact us"
   },
+  "works": {
+    "heading": "Performance History",
+    "note": "Our main performances so far. Click a year to open the news article for that year.",
+    "consecutive": "{{count}} years in a row",
+    "scenes": {
+      "festival": "Festivals & Community Events",
+      "school": "School Performances",
+      "concert": "Concerts, Halls & Salons",
+      "ceremony": "Ceremonies & Public Events",
+      "party": "Parties & Corporate Events",
+      "wedding": "Weddings",
+      "other": "Other"
+    }
+  },
   "photos": {
     "school": "Performance at Shimura-Sakashita Elementary School",
     "school2": "Members performing in the gymnasium of Shimura-Sakashita Elementary School",

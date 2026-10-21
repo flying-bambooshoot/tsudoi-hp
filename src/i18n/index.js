@@ -111,3 +111,68 @@ export const useNews = () => {
     return isChinese(language) ? toChineseGlyphs(news) : news;
   }, [language]);
 };
+
+// NEWS に載せていない出演（結婚式・企業のパーティーなど）。src/content/performances/ に 1 件 1 ファイル。
+// 管理画面の「その他の出演実績」から追加する（書き方は src/content/performances/README.md）
+const performanceContext = require.context("../content/performances", false, /\.json$/);
+const performanceEntries = performanceContext
+  .keys()
+  .filter((key) => key.startsWith("./"))
+  .map((key) => performanceContext(key));
+
+// 出演実績の場面の並び（INTRODUCTION の「出演実績」はこの順に出す）。訳は locales の works.scenes
+export const WORK_SCENES = ["festival", "school", "concert", "ceremony", "party", "wedding", "other"];
+
+// 年の並び（新しい順）の中で、連続している年数の最大（例: 2026・2025・2024・2023 → 4）
+const longestRun = (years) => {
+  let best = 1;
+  let run = 1;
+  for (let i = 1; i < years.length; i++) {
+    run = Number(years[i - 1]) - Number(years[i]) === 1 ? run + 1 : 1;
+    best = Math.max(best, run);
+  }
+  return best;
+};
+
+// INTRODUCTION の「出演実績」。NEWS の記事のうち種類が「出演」のものと、その他の出演実績を合わせ、
+// 場面ごと・名前（workTitle）ごとにまとめる。同じ名前は 1 行にし、出演した年を新しい順に並べる。
+// 年は、その年の NEWS の記事があれば記事のページへのリンクにする（同じ年に複数あれば新しい方）。
+// 返す形: [{ scene, works: [{ title, years: [{ year, slug }], consecutive }] }]
+export const useWorks = () => {
+  const { language } = useI18n();
+  return useMemo(() => {
+    const local = (entry) => ({ ...entry.ja, ...withoutEmpty(entry[language.code]) });
+    const items = [
+      ...newsEntries
+        .filter(({ entry }) => entry.ja.category === "performance" && entry.ja.workTitle)
+        .map(({ slug, entry }) => ({ entry, slug })),
+      ...performanceEntries.filter((entry) => entry.ja && entry.ja.workTitle && entry.ja.date).map((entry) => ({ entry, slug: null })),
+    ].map(({ entry, slug }) => ({
+      scene: WORK_SCENES.includes(entry.ja.scene) ? entry.ja.scene : "other",
+      key: entry.ja.workTitle,
+      title: local(entry).workTitle,
+      year: entry.ja.date.slice(0, 4),
+      slug,
+    }));
+
+    const groups = WORK_SCENES.map((scene) => {
+      const byName = new Map();
+      for (const item of items.filter((x) => x.scene === scene)) {
+        const work = byName.get(item.key) || { title: item.title, years: new Map() };
+        // 同じ年に複数あれば、記事のあるもの・新しい記事を優先する（newsEntries は新しい順）
+        if (!work.years.has(item.year) || (!work.years.get(item.year) && item.slug)) work.years.set(item.year, item.slug);
+        byName.set(item.key, work);
+      }
+      const works = [...byName.values()]
+        .map((work) => {
+          const years = [...work.years.entries()].sort((a, b) => b[0].localeCompare(a[0])).map(([year, slug]) => ({ year, slug }));
+          return { title: work.title, years, consecutive: longestRun(years.map((y) => y.year)) };
+        })
+        // 最近出演したものを上に
+        .sort((a, b) => b.years[0].year.localeCompare(a.years[0].year) || a.title.localeCompare(b.title));
+      return { scene, works };
+    }).filter((group) => group.works.length > 0);
+
+    return isChinese(language) ? toChineseGlyphs(groups) : groups;
+  }, [language]);
+};

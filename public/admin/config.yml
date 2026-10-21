@@ -76,6 +76,37 @@ collections:
         format: YYYY-MM-DD
         default: "{{now}}"
         i18n: false
+      # 種類・場面は INTRODUCTION の「出演実績」に使う（src/i18n/index.js の useWorks）。日本語にだけ保存する
+      - name: category
+        label: 記事の種類
+        hint: 「出演」にすると、INTRODUCTION の「出演実績」に載ります（出演の予告の記事も「出演」）
+        widget: select
+        options:
+          - { label: 出演, value: performance }
+          - { label: 受賞, value: award }
+          - { label: お知らせ, value: info }
+        default: performance
+        i18n: false
+      - name: scene
+        label: 出演の場面
+        hint: 種類が「出演」のときに選ぶ
+        widget: select
+        options: &scenes
+          - { label: 祭り・地域イベント, value: festival }
+          - { label: 学校公演, value: school }
+          - { label: コンサート・ホール・サロン, value: concert }
+          - { label: 式典・公的イベント, value: ceremony }
+          - { label: パーティー・企業イベント, value: party }
+          - { label: 結婚式, value: wedding }
+          - { label: その他, value: other }
+        required: false
+        i18n: false
+      - name: workTitle
+        label: 出演実績に載せる名前
+        hint: 種類が「出演」のときに書く。例「成田弦まつり」。毎年の出演は同じ名前にすると、出演実績で 1 行にまとまり「○年連続」が付きます
+        widget: string
+        required: false
+        i18n: true
       - name: contents
         label: 本文
         hint: 訳は自動では作られません。日本語を直したときは、英語・中国語の欄も直してください（空欄の言語は日本語で表示されます）
@@ -108,4 +139,43 @@ collections:
         label: 写真
         widget: image
         required: false
+        i18n: false
+
+  # NEWS に載せていない出演（結婚式・企業のパーティーなど）。INTRODUCTION の「出演実績」にだけ載る
+  # （src/content/performances/README.md）
+  - name: performances
+    label: その他の出演実績
+    label_singular: 出演実績
+    description: NEWS に載せていない出演（結婚式・企業のパーティーなど）を、INTRODUCTION の「出演実績」に載せます。依頼主が分からない書き方（例「都内企業の創立記念パーティー」）にしてください
+    folder: src/content/performances
+    format: json
+    create: true
+    delete: true
+    slug: "{{fields.date}}"
+    identifier_field: workTitle
+    summary: "{{date}}　{{workTitle}}"
+    sortable_fields:
+      fields: [date, workTitle]
+      default:
+        field: date
+        direction: descending
+    i18n: true
+    fields:
+      - name: workTitle
+        label: 出演実績に載せる名前
+        hint: 例「都内企業の創立記念パーティー」。毎年の出演は同じ名前にすると 1 行にまとまります
+        widget: string
+        required: [ja]
+        i18n: true
+      - name: date
+        label: 出演した日
+        hint: 出演実績には年だけが表示されます
+        widget: datetime
+        time_format: false
+        format: YYYY-MM-DD
+        i18n: false
+      - name: scene
+        label: 出演の場面
+        widget: select
+        options: *scenes
         i18n: false
