@@ -16,6 +16,7 @@ import "../css/home.css"
 import "@splidejs/react-splide/css";
 import { Link } from "react-router-dom";
 import { trackEvent } from "../analytics";
+import UpcomingBadge from "../components/UpcomingBadge";
 import videoData from "../data/videos.json";
 import {
   school,
@@ -183,7 +184,8 @@ const Home = () => {
   const newsList = news.slice(0, 3).map((item) => (
       <div key={item.slug} style={newsArea}>
           <div>
-              {/* タイトルは記事のページ（/news/<slug>）へのリンク */}
+              {/* タイトルは記事のページ（/news/<slug>）へのリンク。出演日がまだ来ていない出演には「出演予定」の印 */}
+              <UpcomingBadge item={item} />
               <p style={{fontSize: "16px"}}><Link to={path(`/news/${item.slug}`)} style={{color: "inherit"}}>{item.title}</Link></p>
               <p style={{fontSize: "12px", color: "#757575"}}>{item.date}</p>
               <div className="eachNews">{item.contents}</div>

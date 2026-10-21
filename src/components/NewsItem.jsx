@@ -1,4 +1,5 @@
 import { useI18n } from "../i18n";
+import UpcomingBadge from "./UpcomingBadge";
 
 // NEWS の記事 1 件分の全文の表示（記事のページ src/pages/newsArticle.jsx で使う）。
 // タイトルをページの見出し（h1）にして、写真はすぐ読み込む。
@@ -39,6 +40,7 @@ const NewsItem = ({ item }) => {
     return (
         <div style={newsArea}>
             <div>
+                <UpcomingBadge item={item} />
                 <h1 style={title}>{item.title}</h1>
                 <p style={{fontSize: "12px", color: "#757575"}}>{item.date}</p>
                 <p>{item.contents}</p>

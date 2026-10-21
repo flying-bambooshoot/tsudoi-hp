@@ -2,6 +2,10 @@
   "ja": {
     "title": "第30回成田弦まつり出演決定",
     "date": "2024-09-16",
+    "performanceDate": "2024-10-19",
+    "category": "performance",
+    "scene": "festival",
+    "workTitle": "成田弦まつり",
     "contents": "10/19(土)に開催される第30回成田弦まつりにて演奏いたします！王道の民謡にオリジナル曲と盛り沢山の30分を今年は2ステージ！是非お越しください！\n【出演時間】\n13:15-13:45 @成田観光館ステージ\n15:00-15:30 @花崎町ステージ",
     "linkTitle": "",
     "link": "https://naritacci.or.jp/?page_id=148562",
@@ -9,14 +13,17 @@
   },
   "en": {
     "title": "Performing at the 30th Narita Gen Festival",
+    "workTitle": "Narita Gen Festival",
     "contents": "We will perform at the 30th Narita Gen Festival on Saturday, October 19! This year we will play two stages, each a packed 30 minutes of classic folk songs and original pieces. We hope to see you there!\n[Performance times]\n13:15-13:45 @ Narita Tourist Pavilion Stage\n15:00-15:30 @ Hanazakicho Stage"
   },
   "zh-Hant": {
     "title": "確定參加第30屆成田弦祭演出",
+    "workTitle": "成田弦祭",
     "contents": "我們將於10月19日（六）舉辦的第30屆成田弦祭中演出！今年將以經典民謠與原創曲目，帶來豐富精彩的30分鐘演出，共2場！歡迎大家蒞臨！\n【演出時間】\n13:15-13:45 @成田觀光館舞台\n15:00-15:30 @花崎町舞台"
   },
   "zh-Hans": {
     "title": "确定参加第30届成田弦祭演出",
+    "workTitle": "成田弦祭",
     "contents": "我们将于10月19日（周六）举办的第30届成田弦祭中演出！今年将以经典民谣与原创曲目，带来丰富精彩的30分钟演出，共2场！欢迎大家光临！\n【演出时间】\n13:15-13:45 @成田观光馆舞台\n15:00-15:30 @花崎町舞台"
   }
 }

@@ -53,6 +53,16 @@ const withoutEmpty = (item = {}) =>
 // 日付はファイルには 2026-10-06 の形で書き、画面には 2026.10.6 の形で表示する
 const displayDate = (isoDate) => isoDate.split("-").map(Number).join(".");
 
+// 今日の日付（見ている人のパソコン・スマホの日付。2026-10-21 の形）。出演日と比べて、
+// 「出演予定」の印と、出演実績に載せるかどうかを決める。見た日で判断するので、出演日を過ぎれば作り直さなくても切り替わる
+const today = () => {
+  const now = new Date();
+  return [now.getFullYear(), String(now.getMonth() + 1).padStart(2, "0"), String(now.getDate()).padStart(2, "0")].join("-");
+};
+
+// 出演の記事の出演日（performanceDate）。予告の記事では記事の日付と違う。空欄なら記事の日付を使う
+const performedOn = (entry) => entry.ja.performanceDate || entry.ja.date;
+
 // 中国語には無い日本の異体字を、中国語のページでは通常の字に置き換えて表示する（オーナーの指定）。
 // 例: 藤﨑 → 藤崎。元のデータ（訳文・NEWS）は正しい表記で書き、表示するときだけ置き換える。
 // scripts/postbuild.js でも、中国語ページの HTML に同じ置き換えをしている
@@ -107,7 +117,67 @@ export const useNews = () => {
       slug,
       date: displayDate(entry.ja.date),
       img: entry.ja.img || "",
+      // 出演日がまだ来ていない出演の記事には「出演予定」の印を付ける（今日の出演も含む）
+      upcoming: entry.ja.category === "performance" && !!entry.ja.performanceDate && entry.ja.performanceDate >= today(),
+      performanceDate: entry.ja.performanceDate ? displayDate(entry.ja.performanceDate) : "",
     }));
     return isChinese(language) ? toChineseGlyphs(news) : news;
+  }, [language]);
+};
+
+// NEWS に載せていない出演（結婚式・企業のパーティーなど）。src/content/performances/ に 1 件 1 ファイル。
+// 管理画面の「その他の出演実績」から追加する（書き方は src/content/performances/README.md）
+const performanceContext = require.context("../content/performances", false, /\.json$/);
+const performanceEntries = performanceContext
+  .keys()
+  .filter((key) => key.startsWith("./"))
+  .map((key) => performanceContext(key));
+
+// 出演実績の場面の並び（INTRODUCTION の「出演実績」はこの順に出す）。訳は locales の works.scenes
+export const WORK_SCENES = ["festival", "school", "concert", "ceremony", "party", "wedding", "other"];
+
+// INTRODUCTION の「出演実績」。NEWS の記事のうち種類が「出演」のものと、その他の出演実績を合わせ、
+// 場面ごと・名前（workTitle）ごとにまとめる。同じ名前は 1 行にし、出演した年を新しい順に並べる。
+// 年は、その年の NEWS の記事があれば記事のページへのリンクにする（同じ年に複数あれば新しい方）。
+// 返す形: [{ scene, works: [{ title, years: [{ year, slug }] }] }]
+export const useWorks = () => {
+  const { language } = useI18n();
+  return useMemo(() => {
+    const local = (entry) => ({ ...entry.ja, ...withoutEmpty(entry[language.code]) });
+    // まだ演奏していない出演（出演日が今日より後）は、出演実績に載せない。
+    // 予告と事後報告の両方の記事がある出演は、同じ出演日（同じ年）なので 1 回として数える
+    const now = today();
+    const items = [
+      ...newsEntries
+        .filter(({ entry }) => entry.ja.category === "performance" && entry.ja.workTitle)
+        .map(({ slug, entry }) => ({ entry, slug })),
+      ...performanceEntries.filter((entry) => entry.ja && entry.ja.workTitle && entry.ja.date).map((entry) => ({ entry, slug: null })),
+    ].filter(({ entry }) => performedOn(entry) <= now).map(({ entry, slug }) => ({
+      scene: WORK_SCENES.includes(entry.ja.scene) ? entry.ja.scene : "other",
+      key: entry.ja.workTitle,
+      title: local(entry).workTitle,
+      year: performedOn(entry).slice(0, 4),
+      slug,
+    }));
+
+    const groups = WORK_SCENES.map((scene) => {
+      const byName = new Map();
+      for (const item of items.filter((x) => x.scene === scene)) {
+        const work = byName.get(item.key) || { title: item.title, years: new Map() };
+        // 同じ年に複数あれば、記事のあるもの・新しい記事を優先する（newsEntries は新しい順）
+        if (!work.years.has(item.year) || (!work.years.get(item.year) && item.slug)) work.years.set(item.year, item.slug);
+        byName.set(item.key, work);
+      }
+      const works = [...byName.values()]
+        .map((work) => {
+          const years = [...work.years.entries()].sort((a, b) => b[0].localeCompare(a[0])).map(([year, slug]) => ({ year, slug }));
+          return { title: work.title, years };
+        })
+        // 最近出演したものを上に
+        .sort((a, b) => b.years[0].year.localeCompare(a.years[0].year) || a.title.localeCompare(b.title));
+      return { scene, works };
+    }).filter((group) => group.works.length > 0);
+
+    return isChinese(language) ? toChineseGlyphs(groups) : groups;
   }, [language]);
 };

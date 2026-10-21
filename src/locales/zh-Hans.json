@@ -19,7 +19,8 @@
   },
   "news": {
     "photoAlt": "照片",
-    "backToList": "返回最新消息列表"
+    "backToList": "返回最新消息列表",
+    "upcoming": "即将演出 {{date}}"
   },
   "notFound": {
     "heading": "找不到页面",
@@ -27,6 +28,19 @@
     "toTop": "前往首页",
     "toNews": "前往最新消息",
     "toContact": "前往演出邀请・联系我们"
+  },
+  "works": {
+    "heading": "演出实绩",
+    "note": "以下是我们至今的主要演出。点击年份即可打开该年的最新消息文章。",
+    "scenes": {
+      "festival": "祭典・地区活动",
+      "school": "学校公演",
+      "concert": "音乐会・音乐厅・沙龙",
+      "ceremony": "典礼・公共活动",
+      "party": "派对・企业活动",
+      "wedding": "婚礼",
+      "other": "其他"
+    }
   },
   "photos": {
     "school": "于志村坂下小学的演出",

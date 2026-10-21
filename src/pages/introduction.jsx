@@ -9,6 +9,7 @@ import X from "../resources/img/logo-black.png";
 import "../css/introduction.css"
 import { useI18n } from "../i18n";
 import Lines from "../components/Lines";
+import Works from "../components/Works";
 import {
     kawasaki,
     matsubara,
@@ -94,6 +95,7 @@ const Intro = () => {
                         </div>
                     </Grid>
                 </Grid>
+                <Works />
                 <div style={{padding: "42px 8px 0 8px"}}>
                     <p style={{borderBottom: "solid #cccccc 1px", fontSize: "18px", marginBottom: "0"}}>MEMBER</p>
                 </div>
