@@ -44,17 +44,34 @@ const outputFile = (language, page) => {
 // ビルド後のファイル名には識別用の文字列が付くため、asset-manifest.json から実際の URL を引く。
 const assetManifest = JSON.parse(fs.readFileSync(path.join(buildDir, "asset-manifest.json"), "utf8")).files;
 const LCP_IMAGES = {
-  "/": "static/media/top1.webp",
-  "/introduction": "static/media/all.webp",
+  "/": { key: "static/media/top1.webp" },
+  // 画面では縮小版から選ぶので（src/pages/introduction.jsx の PHOTO_SIZES）、先読みにも同じ候補と sizes を渡す。
+  // 渡さないと、元の大きな写真を先読みしてしまう
+  "/introduction": {
+    key: "static/media/all.webp",
+    responsive: "all.webp",
+    sizes: "(min-width: 1100px) 520px, (min-width: 900px) 50vw, 100vw",
+  },
+};
+// 写真の縮小版（scripts/resize-images.js が public/img/sized/ に作る。src/responsiveImage.js と同じ規則）
+const responsiveConfig = require("../src/resources/img/responsive.json");
+const variantName = (file, width) => `${file.replace(/\.[^.]+$/, "").replace(/\//g, "_")}-${width}.webp`;
+const imageSrcSet = (file, originalUrl) => {
+  const { width, variants } = responsiveConfig[file];
+  return [...variants.map((w) => `/img/sized/${variantName(file, w)} ${w}w`), `${originalUrl} ${width}w`].join(", ");
 };
 const preloadLink = (page) => {
   // NEWS の記事のページでは、記事の写真（public/img のファイル）を先読みする
   if (page.image) return `<link rel="preload" as="image" href="${page.image}" fetchpriority="high">`;
-  const key = LCP_IMAGES[page.path];
-  if (!key) return "";
+  const image = LCP_IMAGES[page.path];
+  if (!image) return "";
+  const { key } = image;
   // 画像の名前や形式を変えたときに、先読みが黙って外れないようにする
   if (!assetManifest[key]) {
     throw new Error(`${key} が asset-manifest.json にありません。scripts/postbuild.js の LCP_IMAGES を確認してください。`);
+  }
+  if (image.responsive) {
+    return `<link rel="preload" as="image" href="${assetManifest[key]}" imagesrcset="${imageSrcSet(image.responsive, assetManifest[key])}" imagesizes="${image.sizes}" fetchpriority="high">`;
   }
   return `<link rel="preload" as="image" href="${assetManifest[key]}" fetchpriority="high">`;
 };

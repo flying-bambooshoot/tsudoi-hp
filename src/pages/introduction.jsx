@@ -27,7 +27,7 @@ const img = {
     height: "100%",
 }
 
-// 写真の表示の幅（PC は 2 列で約 505px、スマホは画面の幅）
+// 写真の表示の幅（PC は 2 列で約 505px、スマホは画面の幅）。集合写真の先読み（scripts/postbuild.js の LCP_IMAGES）にも同じ値を書いている
 const PHOTO_SIZES = "(min-width: 1100px) 520px, (min-width: 900px) 50vw, 100vw";
 
 const year = {
