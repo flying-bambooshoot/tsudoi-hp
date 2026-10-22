@@ -149,6 +149,34 @@ for (const language of languages) {
 }
 console.log(`generated: NEWS の記事のページ ${articlePages.length} 件 × ${languages.length} 言語`);
 
+// 日付を直して URL が変わった記事の、古い URL から新しい URL への転送ページ。
+// GitHub Pages ではサーバー側の転送（301）ができないため、すぐに移動する HTML を置く。
+// 検索エンジンには canonical と noindex で新しい URL を伝える（サイトマップには載せない）
+const MOVED_ARTICLES = {
+  "2021-11-23": "2022-11-23", // Culture Stage（2026-10-22、日付の誤りを修正）
+  "2022-05-20": "2023-04-02", // 第26回津軽三味線コンクール（同上）
+};
+for (const [from, to] of Object.entries(MOVED_ARTICLES)) {
+  // 同じ日付の記事が後から追加された場合は、記事を転送ページで上書きしないよう止める
+  if (articlePages.some((page) => page.path === `/news/${from}`)) {
+    throw new Error(`記事 ${from} があるため、転送ページを作れません。scripts/postbuild.js の MOVED_ARTICLES から外してください。`);
+  }
+}
+for (const language of languages) {
+  for (const [from, to] of Object.entries(MOVED_ARTICLES)) {
+    // 移動先はドメインを付けない（確認用サイトでも、そのサイトの中で移動するように）
+    const target = `${language.prefix}/news/${to}`;
+    const html =
+      `<!doctype html><html lang="${language.code}"><head><meta charset="utf-8">` +
+      `<meta name="robots" content="noindex"><link rel="canonical" href="${SITE_URL}${target}">` +
+      `<meta http-equiv="refresh" content="0; url=${target}"><title>${SITE_NAME[language.code]}</title></head>` +
+      `<body><a href="${target}">${SITE_NAME[language.code]}</a></body></html>\n`;
+    const file = outputFile(language, { path: `/news/${from}` });
+    fs.writeFileSync(path.join(buildDir, file), html);
+  }
+}
+console.log(`generated: URL が変わった記事の転送ページ ${Object.keys(MOVED_ARTICLES).length} 件 × ${languages.length} 言語`);
+
 const sitemap =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
