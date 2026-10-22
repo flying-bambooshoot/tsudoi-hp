@@ -34,7 +34,6 @@ const section = {
 const sectionHeading = {
     borderBottom: "solid #cccccc 1px",
     fontSize: "20px",
-    fontWeight: "normal",
     margin: "1em 0",
 }
 
