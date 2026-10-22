@@ -92,9 +92,12 @@ const Footer = () => {
     const isMobile = useMedia('(max-width: 1000px)');
     const { t, path } = useI18n();
     const handleCopyClick = () => {
-        navigator.clipboard.writeText("tsudoi.shamisen@gmail.com");
         trackEvent("contact_email_copy", { location: "footer" });
-        window.alert(t("footer.emailCopied"));
+        // コピーできなかったとき（古いブラウザ・権限がない場合など）は、メールアドレスを表示して伝える。
+        // 以前は失敗しても「コピーしました」と表示していた
+        const failed = () => window.alert(t("footer.emailCopyFailed", { email: "tsudoi.shamisen@gmail.com" }));
+        if (!navigator.clipboard) return failed();
+        navigator.clipboard.writeText("tsudoi.shamisen@gmail.com").then(() => window.alert(t("footer.emailCopied")), failed);
     };
 
     return (

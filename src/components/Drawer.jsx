@@ -29,7 +29,6 @@ const phoneMenuIcon = {
 
 const place = {
   textAlign: "right",
-  position: "flex",
 }
 
 const title = {
