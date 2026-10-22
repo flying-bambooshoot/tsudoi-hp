@@ -20,6 +20,7 @@ import UpcomingBadge from "../components/UpcomingBadge";
 import BookingScenes from "../components/BookingScenes";
 import YouTubeLite from "../components/YouTubeLite";
 import videoData from "../data/videos.json";
+import { responsive } from "../responsiveImage";
 import {
   school,
   narita2,
@@ -168,13 +169,13 @@ const Home = () => {
 
   // ギャラリーに写真追加する際はこちら。alt は写真の説明文で、各言語の訳は locales の photos に書く
   const galleryPhotos = [
-    { src: ajisai, alt: "photos.ajisai" },
-    { src: toshima, alt: "photos.toshima" },
-    { src: school2, alt: "photos.school2" },
-    { src: school, alt: "photos.school" },
-    { src: narita2, alt: "photos.naritaStage" },
-    { src: orympic, alt: "photos.tokyo2020" },
-    { src: bellserl, alt: "photos.cultureStage" },
+    { src: ajisai, file: "homeGallery/ajisai.webp", alt: "photos.ajisai" },
+    { src: toshima, file: "homeGallery/music_circle.webp", alt: "photos.toshima" },
+    { src: school2, file: "homeGallery/school2.webp", alt: "photos.school2" },
+    { src: school, file: "homeGallery/school.webp", alt: "photos.school" },
+    { src: narita2, file: "homeGallery/narita_stage.webp", alt: "photos.naritaStage" },
+    { src: orympic, file: "homeGallery/orympic.webp", alt: "photos.tokyo2020" },
+    { src: bellserl, file: "homeGallery/bellserl.webp", alt: "photos.cultureStage" },
   ];
 
   // NEWSは新しいものから3件まで表示する（3件未満でもそのまま動作する）
@@ -271,7 +272,8 @@ const Home = () => {
                 <div className="splide__list">
                   { galleryPhotos.map(photo => (
                     <div className="splide__slide" key={photo.src}>
-                      <img src={photo.src} alt={t(photo.alt)} loading="lazy" decoding="async" />
+                      {/* スマホは 1 枚ずつ（画面の幅）、PC は 3 枚ずつ並ぶ */}
+                      <img src={photo.src} {...responsive(photo.file, photo.src, "(min-width: 640px) 34vw, 100vw")} alt={t(photo.alt)} loading="lazy" decoding="async" />
                     </div>
                   ))}
                 </div>

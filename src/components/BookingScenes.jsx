@@ -1,5 +1,6 @@
 import { useI18n } from "../i18n";
 import { school, narita2, orympic, ajisai } from "../resources/img/homeGallery";
+import { responsive } from "../responsiveImage";
 
 // TOP の「演奏のご依頼」に置く、利用シーン別の紹介。
 // 場面ごとに写真・場面名・一言・写真の説明を出す。写真は TOP のギャラリーと同じもの（読み込みはほぼ増えない）。
@@ -8,10 +9,10 @@ import { school, narita2, orympic, ajisai } from "../resources/img/homeGallery";
 // 写真が届いたら、src/resources/img/homeGallery に置いて img と caption（locales の photos のキー）を入れる
 
 const SCENES = [
-  { key: "festival", img: narita2, caption: "naritaStage" },
-  { key: "school", img: school, caption: "school" },
-  { key: "concert", img: ajisai, caption: "ajisai" },
-  { key: "ceremony", img: orympic, caption: "tokyo2020" },
+  { key: "festival", img: narita2, file: "homeGallery/narita_stage.webp", caption: "naritaStage" },
+  { key: "school", img: school, file: "homeGallery/school.webp", caption: "school" },
+  { key: "concert", img: ajisai, file: "homeGallery/ajisai.webp", caption: "ajisai" },
+  { key: "ceremony", img: orympic, file: "homeGallery/orympic.webp", caption: "tokyo2020" },
   { key: "party", img: null, caption: null },
 ];
 
@@ -75,10 +76,11 @@ const BookingScenes = () => {
     const { t } = useI18n();
     return (
         <ul style={grid}>
-            {SCENES.map(({ key, img, caption: photoKey }) => (
+            {SCENES.map(({ key, img, file, caption: photoKey }) => (
                 <li key={key} style={card}>
+                    {/* カードの幅は 160〜180px。縮小版（640px）を読み込む */}
                     {img ? (
-                        <img src={img} alt="" style={photo} width="400" height="300" loading="lazy" decoding="async" />
+                        <img src={img} {...responsive(file, img, "180px")} alt="" style={photo} loading="lazy" decoding="async" />
                     ) : (
                         <div style={noPhoto} aria-hidden="true">{t("home.booking.scenes.noPhoto")}</div>
                     )}

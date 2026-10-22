@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# 写真の縮小版（ビルドの前に scripts/resize-images.js が作る）
+/public/img/sized

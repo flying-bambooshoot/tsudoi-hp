@@ -23,8 +23,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prestart": "node scripts/resize-images.js",
     "start": "react-scripts start",
-    "prebuild": "node scripts/validate-content.js",
+    "prebuild": "node scripts/validate-content.js && node scripts/resize-images.js",
     "build": "react-scripts build",
     "postbuild": "node scripts/postbuild.js",
     "test": "react-scripts test",

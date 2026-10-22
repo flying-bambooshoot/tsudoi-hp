@@ -9,6 +9,7 @@ import ContactForm from "../components/ContactForm";
 import Faq from "../components/Faq";
 import { useI18n } from "../i18n";
 import Lines from "../components/Lines";
+import { responsive } from "../responsiveImage";
 import {
     school,
     narita2,
@@ -21,6 +22,9 @@ const img = {
     width: "100%",
     height: "100%",
 }
+
+// 上の写真 4 枚の表示の幅（2 列。PC は本文の幅が決まっているので約 505px）
+const PHOTO_SIZES = "(min-width: 1100px) 520px, 50vw";
 
 const imgContainer = {
     aspectRatio: "16 / 9",
@@ -62,10 +66,10 @@ const Intro = () => {
                 <div style={{padding: "12px 8px"}}>
                     <div style={{margin: "12px 0"}}>
                     <Grid container spacing={isMobile ? 1 : 2}>
-                        <Grid item xs={6} style={imgContainer}><img src={school} alt={t("photos.school")} style={img} /></Grid>
-                        <Grid item xs={6} style={imgContainer}><img src={narita2} alt={t("photos.naritaStage")} style={img} /></Grid>
-                        <Grid item xs={6} style={imgContainer}><img src={orympic} alt={t("photos.tokyo2020")} style={img} /></Grid>
-                        <Grid item xs={6} style={imgContainer}><img src={bellserl} alt={t("photos.cultureStage")} style={img} /></Grid>
+                        <Grid item xs={6} style={imgContainer}><img src={school} {...responsive("homeGallery/school.webp", school, PHOTO_SIZES)} alt={t("photos.school")} style={img} /></Grid>
+                        <Grid item xs={6} style={imgContainer}><img src={narita2} {...responsive("homeGallery/narita_stage.webp", narita2, PHOTO_SIZES)} alt={t("photos.naritaStage")} style={img} /></Grid>
+                        <Grid item xs={6} style={imgContainer}><img src={orympic} {...responsive("homeGallery/orympic.webp", orympic, PHOTO_SIZES)} alt={t("photos.tokyo2020")} style={img} /></Grid>
+                        <Grid item xs={6} style={imgContainer}><img src={bellserl} {...responsive("homeGallery/bellserl.webp", bellserl, PHOTO_SIZES)} alt={t("photos.cultureStage")} style={img} /></Grid>
                     </Grid>
                     </div>
                     <div>

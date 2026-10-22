@@ -57,6 +57,7 @@ NEWS に載せていない出演（結婚式・企業のパーティーなど）
 - 管理画面は Sveltia CMS（`public/admin/`）。保存すると本家の master にコミットされ、GitHub Actions が本番に公開します
 - 「GitHubでログイン」は、ujiのCloudflareアカウントのWorker「tsudoi-cms-auth」（Sveltia CMS Authenticator）と、ujiのGitHubアカウントのOAuth App「集-tsudoi- NEWS 管理画面」で動いています
 - NEWS一覧の小さな写真（240×180）は、ビルドのときに `scripts/postbuild.js` が `sharp` で自動で作ります（`/img/x.webp` → `/img/thumb/x.webp`）。写真を追加するときに用意する必要はありません。`npm start` ではサムネイルが作られないため、元の写真が表示されます
+- TOP・INTRODUCTION・CONTACT の写真（`src/resources/img/`）は、ビルドと `npm start` の前に `scripts/resize-images.js` が縮小版（幅 640px・1024px）を `public/img/sized/` に作り、画面の幅に合う大きさを読み込みます（縮小版は Git に入れません）。対象の写真と元の大きさは `src/resources/img/responsive.json` に書きます。写真を差し替えて大きさが変わったときは、この JSON の `width`・`height` も直してください（違っているとビルドが止まり、理由がログに出ます）
 
 ## 【NEWSに表示するデータを追加する（ファイルを直接編集する場合）】
 NEWSは1記事につき1ファイルで、"tsudoi-hp\src\content\news"フォルダに置きます。
