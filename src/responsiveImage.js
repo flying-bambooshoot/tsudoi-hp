@@ -12,6 +12,10 @@ import config from "./resources/img/responsive.json";
 // scripts/resize-images.js と同じ規則
 const variantName = (file, width) => `${file.replace(/\.[^.]+$/, "").replace(/\//g, "_")}-${width}.webp`;
 
+// TOP のギャラリーの写真の表示の幅（スマホは 1 枚ずつ画面の幅、PC は 3 枚ずつ）。
+// TOP の「演奏のご依頼」のカードも同じ写真を使うので、この値を使って同じ大きさの写真を選ばせる
+export const GALLERY_SIZES = "(min-width: 640px) 34vw, 100vw";
+
 export const responsive = (file, originalUrl, sizes) => {
   const item = config[file];
   if (!item) throw new Error(`${file} が src/resources/img/responsive.json にありません`);

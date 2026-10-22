@@ -20,7 +20,7 @@ import UpcomingBadge from "../components/UpcomingBadge";
 import BookingScenes from "../components/BookingScenes";
 import YouTubeLite from "../components/YouTubeLite";
 import videoData from "../data/videos.json";
-import { responsive } from "../responsiveImage";
+import { responsive, GALLERY_SIZES } from "../responsiveImage";
 import {
   school,
   narita2,
@@ -68,6 +68,15 @@ const section = {
 const phoneMovie = {
   height: "auto",
   gap: "0 1rem",
+}
+
+// ギャラリーの写真は枠いっぱいに切り抜いて表示する。以前は Splide の cover（img の src を背景画像にする）を
+// 使っていたが、それだと srcset が効かず、常に元の大きな写真を読み込んでいた
+const slidePhoto = {
+  display: "block",
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
 }
 
 const slide = {
@@ -262,18 +271,15 @@ const Home = () => {
                 slideLabel: t("home.gallery.slideLabel"),
               },
               speed: 1000,
-              cover: true,
               heightRatio: 0.6,
               rewind: true,
               gap: '1rem',
-              objectFit: 'cover',
             }}>
               <div className="splide__track">
                 <div className="splide__list">
                   { galleryPhotos.map(photo => (
                     <div className="splide__slide" key={photo.src}>
-                      {/* スマホは 1 枚ずつ（画面の幅）、PC は 3 枚ずつ並ぶ */}
-                      <img src={photo.src} {...responsive(photo.file, photo.src, "(min-width: 640px) 34vw, 100vw")} alt={t(photo.alt)} loading="lazy" decoding="async" />
+                      <img src={photo.src} {...responsive(photo.file, photo.src, GALLERY_SIZES)} alt={t(photo.alt)} style={slidePhoto} loading="lazy" decoding="async" />
                     </div>
                   ))}
                 </div>
