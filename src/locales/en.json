@@ -10,6 +10,7 @@
   },
   "home": {
     "newsMore": "View all news",
+    "videoPlay": "Play video: {{title}}",
     "booking": {
       "heading": "BOOKING",
       "lead1": "We perform Tsugaru shamisen at parties, ceremonies, festivals, and other events.",

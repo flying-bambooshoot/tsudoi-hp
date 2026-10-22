@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import { trackEvent } from "../analytics";
 import UpcomingBadge from "../components/UpcomingBadge";
 import BookingScenes from "../components/BookingScenes";
+import YouTubeLite from "../components/YouTubeLite";
 import videoData from "../data/videos.json";
 import {
   school,
@@ -80,11 +81,6 @@ const youtube = {
   width: "100%",
   aspectRatio: "16 / 9",
   paddingBottom: "12px",
-}
-
-const iframe = {
-  width: "100%",
-  height: "100%",
 }
 
 const newsArea = {
@@ -275,7 +271,7 @@ const Home = () => {
               {/* 動画を入れ替える際は src/data/videos.json を編集する（検索エンジン向けの動画情報も同じファイルから作られる） */}
               {videoData.videos.map((video) => (
                 <div key={video.id} style={youtube}>
-                  <iframe style={iframe} width="560" height="315" src={`https://www.youtube.com/embed/${video.id}`} title={video.title} loading="lazy" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                  <YouTubeLite id={video.id} title={video.title} />
                 </div>
               ))}
             </div>
