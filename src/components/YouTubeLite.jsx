@@ -48,7 +48,8 @@ const YouTubeLite = ({ id, title }) => {
   if (playing) {
     return (
       <iframe
-        style={{ width: "100%", height: "100%", border: 0 }}
+        // display: block にしないと、文字の行の高さの分だけ枠が縦に伸び、下の段がずれる
+        style={{ display: "block", width: "100%", height: "100%", border: 0 }}
         width="560"
         height="315"
         src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1`}
