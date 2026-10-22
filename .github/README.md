@@ -69,6 +69,7 @@ NEWSは1記事につき1ファイルで、"tsudoi-hp\src\content\news"フォル�
   "ja": {
     "title": "記事のタイトル",
     "date": "2026-10-06",
+    "category": "info",
     "contents": "本文",
     "linkTitle": "◆公式サイト◆\n",
     "link": "https://example.com/",
@@ -82,10 +83,13 @@ NEWSは1記事につき1ファイルで、"tsudoi-hp\src\content\news"フォル�
 }
 ```
 - "date"は`年-月-日`の形で書きます（画面には`2026.10.6`の形で表示されます）
-- "date"・"link"・"map_link"・"img"は、日本語（"ja"）にだけ書けば、すべての言語で使われます
+- "category"は記事の種類です。`performance`（出演）／`award`（受賞）／`info`（お知らせ）のどれかにします。出演の記事の書き方は上の「出演の記事を書くとき」を見てください
+- "date"・"performanceDate"・"category"・"scene"・"link"・"map_link"・"img"は、日本語（"ja"）にだけ書きます。すべての言語で日本語の値が使われます（ほかの言語に書いても使われません）
+- "link"・"map_link"は `https://` で始まる URL にします
 - リンク・地図・写真がない記事は、その項目を書かなくて大丈夫です
 - 文章の中で改行したい場所には"\n"を入れてください
 - 写真は"tsudoi-hp\public\img"フォルダに置き、"img"に`"/img/ファイル名"`の形で指定します。JPEG のままでも表示できますが、WebP 形式（横幅 900px 程度）にすると、ページの表示が速くなります
+- ビルドの前に `scripts/validate-content.js` が記事のデータを検査します。日付の形・記事の種類・写真のファイル・URL などに誤りがあると、ビルドが止まって公開されません（理由はビルドのログ、GitHub Actions の場合は「Actions」タブに出ます）。管理画面で保存した記事も同じです。`node scripts/validate-content.js` で検査だけを行うこともできます
 
 ### 翻訳について（英語・中国語ページ）
 "en"・"zh-Hant"・"zh-Hans"は省略できます。翻訳がない記事・項目は、英語・中国語のページでも日本語のまま表示されます。

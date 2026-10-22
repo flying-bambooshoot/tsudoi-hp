@@ -24,6 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "node scripts/validate-content.js",
     "build": "react-scripts build",
     "postbuild": "node scripts/postbuild.js",
     "test": "react-scripts test",

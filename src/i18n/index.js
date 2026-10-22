@@ -50,6 +50,18 @@ const newsEntries = newsContext
 const withoutEmpty = (item = {}) =>
   Object.fromEntries(Object.entries(item).filter(([, value]) => typeof value !== "string" || value.trim() !== ""));
 
+// 日本語（ja）にだけ保存する項目（public/admin/config.yml で i18n: false のもの）。
+// ほかの言語に古い値が残っていても、常に日本語の値を使う（管理画面で日本語の値を直せば全言語に反映される）
+const JA_ONLY_FIELDS = ["date", "performanceDate", "category", "scene", "link", "map_link", "img"];
+const localEntry = (entry, code) => {
+  const local = { ...entry.ja, ...withoutEmpty(entry[code]) };
+  for (const key of JA_ONLY_FIELDS) {
+    if (key in entry.ja) local[key] = entry.ja[key];
+    else delete local[key];
+  }
+  return local;
+};
+
 // 日付はファイルには 2026-10-06 の形で書き、画面には 2026.10.6 の形で表示する
 const displayDate = (isoDate) => isoDate.split("-").map(Number).join(".");
 
@@ -112,8 +124,7 @@ export const useNews = () => {
   const { language } = useI18n();
   return useMemo(() => {
     const news = newsEntries.map(({ slug, entry }) => ({
-      ...entry.ja,
-      ...withoutEmpty(entry[language.code]),
+      ...localEntry(entry, language.code),
       slug,
       date: displayDate(entry.ja.date),
       img: entry.ja.img || "",
@@ -143,7 +154,7 @@ export const WORK_SCENES = ["festival", "school", "concert", "ceremony", "party"
 export const useWorks = () => {
   const { language } = useI18n();
   return useMemo(() => {
-    const local = (entry) => ({ ...entry.ja, ...withoutEmpty(entry[language.code]) });
+    const local = (entry) => localEntry(entry, language.code);
     // まだ演奏していない出演（出演日が今日より後）は、出演実績に載せない。
     // 予告と事後報告の両方の記事がある出演は、同じ出演日（同じ年）なので 1 回として数える
     const now = today();
