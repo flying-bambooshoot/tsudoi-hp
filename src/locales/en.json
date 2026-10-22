@@ -14,7 +14,16 @@
       "heading": "BOOKING",
       "lead1": "We perform Tsugaru shamisen at parties, ceremonies, festivals, and other events.",
       "lead2": "The ensemble size and program can be tailored to your event.",
-      "button": "Contact Us"
+      "button": "Contact Us",
+      "scenes": {
+        "festival": "Even on outdoor stages, our powerful ensemble brings the venue to life.",
+        "school": "We bring the live sound and power of the Tsugaru shamisen to children.",
+        "concert": "From folk songs to original pieces, we offer programs to be savored.",
+        "ceremony": "We add the brilliance unique to a traditional instrument to ceremonies and commemorative events.",
+        "party": "We liven up parties and corporate celebrations with Japanese-style performances.",
+        "noPhoto": "Photo coming soon",
+        "photoCaption": "Photo: {{caption}}"
+      }
     }
   },
   "news": {
