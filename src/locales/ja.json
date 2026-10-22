@@ -93,7 +93,7 @@
     "formationBody": "2～6人",
     "priceHeading": "料金について",
     "priceBase": "6名編成でのご依頼の場合\n30分：¥200,000〜（税込）",
-    "priceExtra": "和装での出演をご希望の場合は、追加料金を頂戴いたします。 また、交通費は別途ご負担をお願いしております。",
+    "priceExtra": "和装での出演をご希望の場合は、追加料金を頂戴いたします。また、交通費は別途ご負担をお願いしております。",
     "priceSmallGroup": "会場の規模やご予算、ご希望の雰囲気に応じて、2〜5名の少人数編成での演奏も可能です。",
     "priceProposal": "ご希望内容を伺った上で、最適なプランをご提案いたしますので、まずはお気軽にご相談ください。",
     "priceDisclaimer": "※表示価格はあくまで目安となります。演奏内容や拘束時間、会場の場所によって料金は変動する場合がございます。",
@@ -214,7 +214,7 @@
     "contactHeading": "連絡先",
     "emailLabel": "メールアドレス：",
     "analyticsHeading": "アクセス解析について",
-    "analyticsBody": "当サイトでは、サイトの利用状況を把握するために Google アナリティクスを利用しています。 Google アナリティクスは Cookie を使用してデータを収集しますが、個人を特定する情報は含まれません。 データの取り扱いについては ",
+    "analyticsBody": "当サイトでは、サイトの利用状況を把握するために Google アナリティクスを利用しています。Google アナリティクスは Cookie を使用してデータを収集しますが、個人を特定する情報は含まれません。データの取り扱いについては ",
     "analyticsLinkText": "Google のポリシーと規約",
     "analyticsLinkUrl": "https://policies.google.com/technologies/partner-sites?hl=ja",
     "analyticsAfterLink": " をご覧ください。"
