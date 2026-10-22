@@ -130,6 +130,8 @@ collections:
       - name: link
         label: リンクの URL
         widget: string
+        # https:// で始まる URL だけを受け付ける（空欄は可。付け忘れや javascript: などの誤りを防ぐ。scripts/validate-content.js でも検査する）
+        pattern: ['^(https://\S+)?$', "https:// で始まる URL を入れてください（リンクがない記事は空欄）"]
         required: false
         i18n: false
       - name: map_title
@@ -141,6 +143,7 @@ collections:
       - name: map_link
         label: 地図の URL
         widget: string
+        pattern: ['^(https://\S+)?$', "https:// で始まる URL を入れてください（地図がない記事は空欄）"]
         required: false
         i18n: false
       - name: img
