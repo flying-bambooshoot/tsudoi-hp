@@ -45,9 +45,35 @@ const musicGroup = (language, homeUrl, description) => {
     member: Object.values(members).map((name) => ({ "@type": "Person", name })),
     award: awards.flatMap((award) => award.items.map((item) => `${award.year} ${item}`)),
     email: "tsudoi.shamisen@gmail.com",
+    // 演奏のご依頼の窓口（返信は日本語か英語。src/locales の contact.languageNote）
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "booking",
+      email: "tsudoi.shamisen@gmail.com",
+      url: `${homeUrl.replace(/\/$/, "")}/contact`,
+      availableLanguage: ["ja", "en"],
+    },
+    // public/index.html のアイコンと同じ（黒地に白の「集」）
+    logo: `${SITE_URL}/icon-192.png`,
     sameAs: SNS,
   };
 };
+
+// NEWS の記事のページの構造化データ（NewsArticle）。Google に記事のタイトル・日付・写真・発信者を伝える。
+// page: scripts/news.js の newsPages() の要素 / url: その言語の記事の URL
+const newsArticle = (language, page, url) => ({
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  headline: page.article.headline[language.code],
+  // 記事の日付（日本時間の 0 時）
+  datePublished: `${page.article.date}T00:00:00+09:00`,
+  // 写真のない記事は、グループの写真
+  image: [page.image ? `${SITE_URL}${page.image}` : `${SITE_URL}/img/artist_photo.jpg`],
+  inLanguage: language.code,
+  mainEntityOfPage: url,
+  author: { "@type": "MusicGroup", "@id": GROUP_ID, name: loadLocale(language.code).common.siteName, url: SITE_URL },
+  publisher: { "@id": GROUP_ID },
+});
 
 // TOP ページに埋め込んでいる YouTube 動画の情報（VideoObject）。
 // Google に「このページで見られる動画」と伝え、検索結果で動画として表示されやすくする。
@@ -61,7 +87,8 @@ const videoObjects = () =>
     "@type": "VideoObject",
     name: video.title,
     description: video.description,
-    thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`,
+    // maxresdefault.jpg は動画によっては無いので、どの動画にもある hqdefault.jpg（480×360）を使う
+    thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
     uploadDate: video.uploadDate,
     duration: video.duration,
     embedUrl: `https://www.youtube.com/embed/${video.id}`,
@@ -75,4 +102,4 @@ const videoObjects = () =>
 const jsonLdScript = (data) =>
   `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`;
 
-module.exports = { musicGroup, videoObjects, jsonLdScript };
+module.exports = { musicGroup, newsArticle, videoObjects, jsonLdScript };
