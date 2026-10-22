@@ -11,6 +11,14 @@
   "home": {
     "newsMore": "View all news",
     "videoPlay": "Play video: {{title}}",
+    "gallery": {
+      "play": "Start slideshow",
+      "pause": "Pause slideshow",
+      "prev": "Previous photos",
+      "next": "Next photos",
+      "pageX": "Go to page %s",
+      "slideLabel": "%s of %s"
+    },
     "booking": {
       "heading": "BOOKING",
       "lead1": "We perform Tsugaru shamisen at parties, ceremonies, festivals, and other events.",

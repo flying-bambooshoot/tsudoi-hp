@@ -11,6 +11,14 @@
   "home": {
     "newsMore": "查看所有最新消息",
     "videoPlay": "播放视频：{{title}}",
+    "gallery": {
+      "play": "开始自动播放",
+      "pause": "暂停自动播放",
+      "prev": "上一张照片",
+      "next": "下一张照片",
+      "pageX": "显示第 %s 页的照片",
+      "slideLabel": "%s / %s"
+    },
     "booking": {
       "heading": "演出邀请",
       "lead1": "我们承接派对、典礼、祭典等各类活动的津轻三味线演出。",

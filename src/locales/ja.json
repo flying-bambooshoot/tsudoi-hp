@@ -11,6 +11,14 @@
   "home": {
     "newsMore": "NEWS一覧へ",
     "videoPlay": "動画を再生：{{title}}",
+    "gallery": {
+      "play": "スライドの自動再生を開始",
+      "pause": "スライドの自動再生を一時停止",
+      "prev": "前の写真",
+      "next": "次の写真",
+      "pageX": "%s ページ目の写真を表示",
+      "slideLabel": "%s / %s"
+    },
     "booking": {
       "heading": "演奏のご依頼",
       "lead1": "パーティ・式典・お祭りなど、さまざまなイベントでの津軽三味線の演奏を承ります。",

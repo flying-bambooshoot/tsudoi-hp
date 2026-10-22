@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
+import PauseRoundedIcon from '@mui/icons-material/PauseRounded';
 import useMedia from '../useMedia';
 import Com from "../css/common.module.css";
 import Header from "../components/Header";
@@ -67,6 +69,26 @@ const section = {
 const phoneMovie = {
   height: "auto",
   gap: "0 1rem",
+}
+
+// ギャラリーの自動再生を止める・再開するボタン（Splide が splide__toggle のボタンを自動で操作する）。
+// 自動で動き続ける表示には、止める手段が必要（WCAG 2.2.2）。写真の左下に置く
+const slideToggle = {
+  position: "absolute",
+  left: "8px",
+  bottom: "8px",
+  zIndex: 1,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "36px",
+  height: "36px",
+  padding: 0,
+  border: "none",
+  borderRadius: "50%",
+  backgroundColor: "rgba(0, 0, 0, 0.55)",
+  color: "white",
+  lineHeight: 0,
 }
 
 const slide = {
@@ -246,7 +268,18 @@ const Home = () => {
                 },
               },
               type: 'loop',
+              // 自動で切り替える。左下のボタンで止められる。端末の「視差効果を減らす」「アニメーションを減らす」設定が
+              // オンのときは、Splide の初期設定（reducedMotion）で最初から止まった状態になる
               autoplay: true,
+              // 読み上げソフト向けのボタンの名前（Splide の初期値は英語）
+              i18n: {
+                play: t("home.gallery.play"),
+                pause: t("home.gallery.pause"),
+                prev: t("home.gallery.prev"),
+                next: t("home.gallery.next"),
+                pageX: t("home.gallery.pageX"),
+                slideLabel: t("home.gallery.slideLabel"),
+              },
               speed: 1000,
               cover: true,
               heightRatio: 0.6,
@@ -263,6 +296,10 @@ const Home = () => {
                   ))}
                 </div>
               </div>
+              <button className="splide__toggle" type="button" style={slideToggle} aria-label={t("home.gallery.pause")}>
+                <span className="splide__toggle__play"><PlayArrowRoundedIcon aria-hidden="true" /></span>
+                <span className="splide__toggle__pause"><PauseRoundedIcon aria-hidden="true" /></span>
+              </button>
             </Splide>
           </section>
           <section style={sec}>
