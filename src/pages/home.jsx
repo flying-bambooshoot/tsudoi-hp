@@ -17,6 +17,7 @@ import "@splidejs/react-splide/css";
 import { Link } from "react-router-dom";
 import { trackEvent } from "../analytics";
 import UpcomingBadge from "../components/UpcomingBadge";
+import BookingScenes from "../components/BookingScenes";
 import videoData from "../data/videos.json";
 import {
   school,
@@ -288,6 +289,8 @@ const Home = () => {
                 <br />
                 {t("home.booking.lead2")}
               </p>
+              {/* 利用シーン別の紹介（場面ごとの写真・一言・写真の説明） */}
+              <BookingScenes />
               <div style={bookingButtonArea}>
                 <Link
                   to={path("/contact")}
