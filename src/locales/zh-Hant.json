@@ -37,7 +37,7 @@
     }
   },
   "news": {
-    "photoAlt": "照片",
+    "photoAlt": "「{{title}}」的照片",
     "backToList": "返回最新消息一覽",
     "upcoming": "即將演出 {{date}}"
   },

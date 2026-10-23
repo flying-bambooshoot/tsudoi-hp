@@ -61,7 +61,8 @@ const NewsItem = ({ item }) => {
                 {item.img !== "" && (
                     <img
                         src={`${process.env.PUBLIC_URL}` + item.img}
-                        alt={t("news.photoAlt")}
+                        // 写真の説明（管理画面の「写真の説明」）。空なら「（記事のタイトル）の写真」とする
+                        alt={item.imgAlt?.trim() || t("news.photoAlt", { title: item.title })}
                         style={img}
                         decoding="async"
                     />

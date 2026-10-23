@@ -37,7 +37,7 @@
     }
   },
   "news": {
-    "photoAlt": "Photo",
+    "photoAlt": "Photo: {{title}}",
     "backToList": "Back to News",
     "upcoming": "Upcoming: {{date}}"
   },
