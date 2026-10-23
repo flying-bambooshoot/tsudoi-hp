@@ -65,19 +65,21 @@ export const TemporaryDrawer = () => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
+      {/* 各項目は ListItemButton 自体をリンク（a）にする。li > a > div[role=button] のようにリンクの中にボタンを入れると、
+          Tab キーで 2 回止まり、読み上げも混乱するため */}
       <List style={{}}>
-        <ListItem style={routeLink} key='HOME' component={Link} to={path('/')} disablePadding>
-          <ListItemButton style={{}}>
+        <ListItem key='HOME' disablePadding>
+          <ListItemButton component={Link} to={path('/')} style={routeLink}>
             <p style={title}>HOME</p>
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='NEWS' component={Link} to={path('/news')} disablePadding>
-          <ListItemButton>
+        <ListItem key='NEWS' disablePadding>
+          <ListItemButton component={Link} to={path('/news')} style={routeLink}>
             <p style={title}>NEWS</p>
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='INTRODUCTION/MEMBER' component={Link} to={path('/introduction')} disablePadding>
-          <ListItemButton>
+        <ListItem key='INTRODUCTION/MEMBER' disablePadding>
+          <ListItemButton component={Link} to={path('/introduction')} style={routeLink}>
             <p style={title}>INTRODUCTION/MEMBER</p>
           </ListItemButton>
         </ListItem>
@@ -99,8 +101,8 @@ export const TemporaryDrawer = () => {
             <OpenInNewOutlinedIcon style={linkIcon} />
           </ListItemButton>
         </ListItem>
-        <ListItem style={routeLink} key='CONTACT US' component={Link} to={path('/contact')} disablePadding>
-          <ListItemButton>
+        <ListItem key='CONTACT US' disablePadding>
+          <ListItemButton component={Link} to={path('/contact')} style={routeLink}>
             <p style={title}>CONTACT US</p>
           </ListItemButton>
         </ListItem>

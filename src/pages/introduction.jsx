@@ -78,7 +78,8 @@ const Intro = () => {
                             </div>
                             <div>
                                 <div>
-                                    <p style={{borderBottom: "solid #cccccc 1px", fontSize: "16px"}}>{t("introduction.awardsHeading")}</p>
+                                    {/* 見出しとして伝わるよう h2 にする（見た目は以前の p と同じ） */}
+                                    <h2 style={{borderBottom: "solid #cccccc 1px", fontSize: "16px", margin: "1em 0"}}>{t("introduction.awardsHeading")}</h2>
                                 </div>
                                 <div>
                                     {awards.map((award) => (
@@ -97,7 +98,7 @@ const Intro = () => {
                 </Grid>
                 <Works />
                 <div style={{padding: "42px 8px 0 8px"}}>
-                    <p style={{borderBottom: "solid #cccccc 1px", fontSize: "18px", marginBottom: "0"}}>MEMBER</p>
+                    <h2 style={{borderBottom: "solid #cccccc 1px", fontSize: "18px", margin: "1em 0 0"}}>MEMBER</h2>
                 </div>
                 <Grid container spacing={2} style={{margin: "auto"}}>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>

@@ -30,6 +30,13 @@ const section = {
     paddingTop: 16,
 }
 
+// 区切りの見出し。読み上げソフトや検索エンジンに見出しと伝わるよう h2 にし、見た目は以前の p と同じにする
+const sectionHeading = {
+    borderBottom: "solid #cccccc 1px",
+    fontSize: "20px",
+    margin: "1em 0",
+}
+
 const note = {
     marginTop: "48px",
     paddingTop: "12px",
@@ -63,16 +70,16 @@ const Intro = () => {
                     </div>
                     <div>
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.requestHeading")}</p>
+                            <h2 style={sectionHeading}>{t("contact.requestHeading")}</h2>
                         </div>
                         <p><Lines text={t("contact.requestBody")} /></p>
                         <p>{t("contact.requestFirstStep")}</p>
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.songsHeading")}</p>
+                            <h2 style={sectionHeading}>{t("contact.songsHeading")}</h2>
                         </div>
                         <p>{t("contact.songsBody")}</p>
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.formationHeading")}</p>
+                            <h2 style={sectionHeading}>{t("contact.formationHeading")}</h2>
                         </div>
                         <p>{t("contact.formationBody")}</p>
                         {/* <div style={section}>
@@ -87,7 +94,7 @@ const Intro = () => {
                             ご予算や会場などシチュエーションに応じて少人数での演奏も承ります。まずはご相談ください。
                         </p> */}
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.priceHeading")}</p>
+                            <h2 style={sectionHeading}>{t("contact.priceHeading")}</h2>
                         </div>
                         <p><Lines text={t("contact.priceBase")} /></p>
                         {t("contact.priceExtra")}
@@ -97,19 +104,19 @@ const Intro = () => {
                     </div>
                     <div>
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.faq.heading")}</p>
+                            <h2 style={sectionHeading}>{t("contact.faq.heading")}</h2>
                         </div>
                         <Faq />
                     </div>
                     <div>
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.formHeading")}</p>
+                            <h2 style={sectionHeading}>{t("contact.formHeading")}</h2>
                         </div>
                         <ContactForm />
                     </div>
                     <div>
                         <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>{t("contact.contactHeading")}</p>
+                            <h2 style={sectionHeading}>{t("contact.contactHeading")}</h2>
                         </div>
                         {languageNote && <p>{languageNote}</p>}
                         <p>{t("contact.emailLabel")}<a href="mailto:tsudoi.shamisen@gmail.com" onClick={() => trackEvent("contact_email_click", { location: "contact_page" })}>tsudoi.shamisen@gmail.com</a></p>

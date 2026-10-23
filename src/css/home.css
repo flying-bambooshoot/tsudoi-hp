@@ -38,3 +38,13 @@
     45%{ opacity: 1;}
     100%{ opacity: 0;}
 }
+/* 端末で「アニメーションを減らす」設定がオンのときは、TOP の写真を切り替えず、1 枚目だけを表示する */
+@media (prefers-reduced-motion: reduce) {
+    .image {
+        animation: none;
+    }
+    .image:nth-of-type(1) {
+        animation: none;
+        opacity: 1;
+    }
+}

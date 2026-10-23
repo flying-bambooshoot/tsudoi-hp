@@ -246,7 +246,20 @@ const Home = () => {
                 },
               },
               type: 'loop',
+              // 自動で切り替える。マウスを重ねたとき・キーボードで操作しているときは止まる（Splide の初期設定）。
+              // 端末の「視差効果を減らす」「アニメーションを減らす」設定がオンのときは、
+              // Splide の初期設定（reducedMotion）で最初から止まった状態になる
+              // （一時停止ボタンは 2026-10-23 にデザインの判断で外した）
               autoplay: true,
+              // 読み上げソフト向けのボタンの名前（Splide の初期値は英語）
+              i18n: {
+                prev: t("home.gallery.prev"),
+                next: t("home.gallery.next"),
+                first: t("home.gallery.first"),
+                last: t("home.gallery.last"),
+                pageX: t("home.gallery.pageX"),
+                slideLabel: t("home.gallery.slideLabel"),
+              },
               speed: 1000,
               cover: true,
               heightRatio: 0.6,
