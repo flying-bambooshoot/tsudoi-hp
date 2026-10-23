@@ -255,6 +255,8 @@ const Home = () => {
               i18n: {
                 prev: t("home.gallery.prev"),
                 next: t("home.gallery.next"),
+                first: t("home.gallery.first"),
+                last: t("home.gallery.last"),
                 pageX: t("home.gallery.pageX"),
                 slideLabel: t("home.gallery.slideLabel"),
               },

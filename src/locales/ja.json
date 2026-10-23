@@ -14,6 +14,8 @@
     "gallery": {
       "prev": "前の写真",
       "next": "次の写真",
+      "first": "最初の写真へ",
+      "last": "最後の写真へ",
       "pageX": "%s ページ目の写真を表示",
       "slideLabel": "%s / %s"
     },
