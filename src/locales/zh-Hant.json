@@ -1,6 +1,7 @@
 {
   "common": {
     "siteName": "津輕三味線 集-tsudoi-",
+    "titleSuffix": "津輕三味線 集-tsudoi-",
     "logoAlt": "津輕三味線 集-tsudoi-",
     "languageMenu": "語言",
     "menu": "選單",
@@ -48,17 +49,17 @@
     "message": "找不到您要找的頁面。\n可能是網址有誤，或頁面已移動或刪除。",
     "toTop": "前往首頁",
     "toNews": "前往最新消息",
-    "toContact": "前往演出邀約・聯絡我們"
+    "toContact": "前往演出邀約／聯絡我們"
   },
   "works": {
     "heading": "演出實績",
     "note": "以下是我們至今的主要演出。點選年份即可開啟該年的最新消息文章。",
     "scenes": {
-      "festival": "祭典・地區活動",
+      "festival": "祭典、地區活動",
       "school": "學校公演",
-      "concert": "音樂會・音樂廳・沙龍",
-      "ceremony": "典禮・公共活動",
-      "party": "派對・企業活動",
+      "concert": "音樂會、音樂廳、沙龍",
+      "ceremony": "典禮、公共活動",
+      "party": "派對、企業活動",
       "wedding": "婚禮",
       "other": "其他"
     }
@@ -99,7 +100,7 @@
     "requestBody": "我們承接派對、典禮、祭典等各類活動的演出。\n演奏曲目與演出時間皆可配合活動彈性調整。",
     "requestFirstStep": "歡迎透過下方的表單或電子郵件與我們聯繫，告訴我們您希望在什麼樣的活動中安排演出。",
     "songsHeading": "曲目",
-    "songsBody": "可演奏民謠、現代曲、翻奏曲等多種曲目。演出曲目可依活動內容與我們討論。",
+    "songsBody": "可演奏民謠、現代曲、流行歌曲改編等多種曲目。演出曲目可依活動內容與我們討論。",
     "formationHeading": "編制",
     "formationBody": "2～6人",
     "priceHeading": "費用",
@@ -129,7 +130,7 @@
         },
         {
           "q": "可以指定或點播曲目嗎？",
-          "a": "我們可演奏民謠、現代曲、翻奏曲等各類曲目。曲目可依活動內容與我們討論。\n若能給予準備時間，也有可能演奏點播的曲目。部分曲目因需編曲等，可能另收費用。"
+          "a": "我們可演奏民謠、現代曲、流行歌曲改編等各類曲目。曲目可依活動內容與我們討論。\n若能給予準備時間，也有可能演奏點播的曲目。部分曲目因需編曲等，可能另收費用。"
         },
         {
           "q": "演出人數是幾位？",
@@ -201,17 +202,17 @@
     "formHeading": "洽詢表單",
     "form": {
       "name": "姓名",
-      "organization": "公司・團體名稱",
+      "organization": "公司／團體名稱",
       "organizationPlaceholder": "例：〇〇股份有限公司、〇〇社區協會（個人可不填）",
       "email": "電子郵件",
       "phone": "電話號碼",
       "phonePlaceholder": "例：+81 90-1234-5678",
       "eventDate": "活動日期（預定）",
       "eventDatePlaceholder": "例：2027年3月中旬",
-      "venue": "場地・地區",
+      "venue": "場地／地區",
       "venuePlaceholder": "例：東京都內的飯店",
-      "message": "委託・洽詢內容",
-      "messagePlaceholder": "例：\n・活動：公司創立紀念派對（約100位來賓）\n・希望的演出時間：約20分鐘\n・希望的人數：約4位\n・預算：約〇〇萬日圓\n・其他：希望以和服演出。會場備有麥克風與喇叭。",
+      "message": "委託／洽詢內容",
+      "messagePlaceholder": "例：\n- 活動：公司創立紀念派對（約100位來賓）\n- 希望的演出時間：約20分鐘\n- 希望的人數：約4位\n- 預算：約〇〇萬日圓\n- 其他：希望以和服演出。會場備有麥克風與喇叭。",
       "required": "必填",
       "blank": "請輸入空白以外的文字。",
       "privacy": "您填寫的內容僅用於回覆洽詢。",
@@ -223,7 +224,7 @@
       "subject": "【集-tsudoi- 網站】洽詢"
     },
     "contactHeading": "聯絡方式",
-    "languageNote": "請以英文或日文與我們聯繫。",
+    "languageNote": "歡迎以中文洽詢，我們將以英文或日文回覆。",
     "emailLabel": "電子郵件：",
     "analyticsHeading": "關於網站分析",
     "analyticsBody": "本網站使用 Google Analytics 以了解網站的使用情況。Google Analytics 會使用 Cookie 收集資料，但不包含可識別個人身分的資訊。關於資料的處理方式，請參閱",

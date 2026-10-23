@@ -1,6 +1,7 @@
 {
   "common": {
     "siteName": "Tsugaru Shamisen \"Tsudoi\"",
+    "titleSuffix": "Tsudoi",
     "logoAlt": "Tsugaru Shamisen \"Tsudoi\"",
     "languageMenu": "Language",
     "menu": "Menu",
@@ -66,7 +67,7 @@
   "photos": {
     "school": "Performance at Shimura-Sakashita Elementary School",
     "school2": "Members performing in the gymnasium of Shimura-Sakashita Elementary School",
-    "naritaStage": "Performance at the Narita Gen Festival",
+    "naritaStage": "Performance at the Narita Gen Matsuri",
     "tokyo2020": "Performance on a TOKYO 2020 Olympic event stage",
     "cultureStage": "Performance at the Tokyo 2020 1st Anniversary Cultural Event \"Culture Stage\"",
     "ajisai": "Performance at the \"Drop-in Concert\" at Sagamihara Ajisai Kaikan",

@@ -1,6 +1,7 @@
 {
   "common": {
     "siteName": "津轻三味线 集-tsudoi-",
+    "titleSuffix": "津轻三味线 集-tsudoi-",
     "logoAlt": "津轻三味线 集-tsudoi-",
     "languageMenu": "语言",
     "menu": "菜单",
@@ -48,17 +49,17 @@
     "message": "找不到您要找的页面。\n可能是网址有误，或页面已移动或删除。",
     "toTop": "前往首页",
     "toNews": "前往最新消息",
-    "toContact": "前往演出邀请・联系我们"
+    "toContact": "前往演出邀请／联系我们"
   },
   "works": {
     "heading": "演出实绩",
     "note": "以下是我们至今的主要演出。点击年份即可打开该年的最新消息文章。",
     "scenes": {
-      "festival": "祭典・地区活动",
+      "festival": "祭典、地区活动",
       "school": "学校公演",
-      "concert": "音乐会・音乐厅・沙龙",
-      "ceremony": "典礼・公共活动",
-      "party": "派对・企业活动",
+      "concert": "音乐会、音乐厅、沙龙",
+      "ceremony": "典礼、公共活动",
+      "party": "派对、企业活动",
       "wedding": "婚礼",
       "other": "其他"
     }
@@ -99,7 +100,7 @@
     "requestBody": "我们承接派对、典礼、祭典等各类活动的演出。\n演奏曲目与演出时长均可根据活动灵活调整。",
     "requestFirstStep": "欢迎通过下方的表单或电子邮件与我们联系，告诉我们您希望在什么样的活动中安排演出。",
     "songsHeading": "曲目",
-    "songsBody": "可演奏民谣、现代曲、翻奏曲等多种曲目。演出曲目可根据活动内容与我们商量。",
+    "songsBody": "可演奏民谣、现代曲、流行歌曲改编等多种曲目。演出曲目可根据活动内容与我们商量。",
     "formationHeading": "编制",
     "formationBody": "2～6人",
     "priceHeading": "费用",
@@ -129,7 +130,7 @@
         },
         {
           "q": "可以指定或点播曲目吗？",
-          "a": "我们可演奏民谣、现代曲、翻奏曲等各类曲目。曲目可根据活动内容与我们商量。\n如能给予准备时间，也有可能演奏点播的曲目。部分曲目因需编曲等，可能另收费用。"
+          "a": "我们可演奏民谣、现代曲、流行歌曲改编等各类曲目。曲目可根据活动内容与我们商量。\n如能给予准备时间，也有可能演奏点播的曲目。部分曲目因需编曲等，可能另收费用。"
         },
         {
           "q": "演出人数是几位？",
@@ -201,17 +202,17 @@
     "formHeading": "咨询表单",
     "form": {
       "name": "姓名",
-      "organization": "公司・团体名称",
+      "organization": "公司／团体名称",
       "organizationPlaceholder": "例：〇〇股份有限公司、〇〇社区协会（个人可不填）",
       "email": "电子邮件",
       "phone": "电话号码",
       "phonePlaceholder": "例：+81 90-1234-5678",
       "eventDate": "活动日期（预定）",
       "eventDatePlaceholder": "例：2027年3月中旬",
-      "venue": "场地・地区",
+      "venue": "场地／地区",
       "venuePlaceholder": "例：东京都内的酒店",
-      "message": "委托・咨询内容",
-      "messagePlaceholder": "例：\n・活动：公司创立纪念派对（约100位来宾）\n・希望的演出时间：约20分钟\n・希望的人数：约4位\n・预算：约〇〇万日元\n・其他：希望以和服演出。会场备有麦克风和音箱。",
+      "message": "委托／咨询内容",
+      "messagePlaceholder": "例：\n- 活动：公司创立纪念派对（约100位来宾）\n- 希望的演出时间：约20分钟\n- 希望的人数：约4位\n- 预算：约〇〇万日元\n- 其他：希望以和服演出。会场备有麦克风和音箱。",
       "required": "必填",
       "blank": "请输入空白以外的文字。",
       "privacy": "您填写的内容仅用于回复咨询。",
@@ -223,7 +224,7 @@
       "subject": "【集-tsudoi- 网站】咨询"
     },
     "contactHeading": "联系方式",
-    "languageNote": "请使用英文或日文与我们联系。",
+    "languageNote": "欢迎使用中文咨询，我们将以英文或日文回复。",
     "emailLabel": "电子邮件：",
     "analyticsHeading": "关于网站分析",
     "analyticsBody": "本网站使用 Google Analytics 来了解网站的使用情况。Google Analytics 会使用 Cookie 收集数据，但不包含可识别个人身份的信息。关于数据的处理方式，请参阅",
