@@ -6,10 +6,11 @@ on:
   # Actions タブから手動で実行する場合に使う
   workflow_dispatch:
 
-# デプロイが重ならないように直列化する
+# デプロイが重ならないように直列化する。公開中のデプロイは途中で止めない（GitHub の Pages のひな形と同じ設定）。
+# 待っている間に次の push が来た場合は、最新のものだけが続けて実行される
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -22,8 +23,8 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          # README の公開手順でビルドに使っているバージョンに合わせる
-          node-version: 22.21.0
+          # Node のバージョンはリポジトリ直下の .nvmrc で指定する（手元の開発と同じにする）
+          node-version-file: .nvmrc
           # 公開に使うビルドのため、npm のキャッシュは使わない
           package-manager-cache: false
 

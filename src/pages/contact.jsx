@@ -48,7 +48,7 @@ const note = {
     color: "#757575",
 }
 
-const Intro = () => {
+const Contact = () => {
     const isMobile = useMedia('(max-width: 1000px)');
     const { t, tOptional } = useI18n();
     const languageNote = tOptional("contact.languageNote");
@@ -143,4 +143,4 @@ const Intro = () => {
     );
 };
 
-export default Intro;
+export default Contact;

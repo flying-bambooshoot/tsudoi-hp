@@ -6,7 +6,8 @@
     "menu": "メニュー"
   },
   "footer": {
-    "emailCopied": "メールアドレスをコピーしました。"
+    "emailCopied": "メールアドレスをコピーしました。",
+    "emailCopyFailed": "コピーできませんでした。メールアドレスは {{email}} です。"
   },
   "home": {
     "newsMore": "NEWS一覧へ",

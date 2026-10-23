@@ -6,7 +6,8 @@
     "menu": "選單"
   },
   "footer": {
-    "emailCopied": "已複製電子郵件地址。"
+    "emailCopied": "已複製電子郵件地址。",
+    "emailCopyFailed": "無法複製。電子郵件地址為 {{email}}。"
   },
   "home": {
     "newsMore": "查看所有最新消息",

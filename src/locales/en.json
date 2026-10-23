@@ -6,7 +6,8 @@
     "menu": "Menu"
   },
   "footer": {
-    "emailCopied": "Email address copied."
+    "emailCopied": "Email address copied.",
+    "emailCopyFailed": "Could not copy. Our email address is {{email}}."
   },
   "home": {
     "newsMore": "View all news",
