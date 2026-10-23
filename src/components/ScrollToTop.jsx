@@ -9,9 +9,11 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 
 const positions = new Map();
 
-// 前の位置に戻す。戻した直後はページの下のほう（写真やギャラリー）がまだ描かれておらず、ページが短いため
-// 途中までしか戻れないことがある。届くまで、最大 1 秒、画面の描き直しごとに合わせ直す。
-// その間に利用者が自分でスクロールしようとしたら、合わせ直しはやめる。
+// 前の位置に戻す。戻した直後は、ページの部品（ギャラリーなど）の高さがまだ落ち着いておらず、
+// ページが短くて途中までしか戻れなかったり、高さが変わったときにブラウザの自動調整（scroll anchoring）で
+// 位置がずれたりする（TOP で 70〜140px ずれた。2026-10-23）。
+// そこで、ページの高さが 10 フレーム続けて変わらず、目標の位置にいる状態になるまで（最大 1 秒）、
+// 画面の描き直しごとに合わせ直す。その間に利用者が自分でスクロールしようとしたら、合わせ直しはやめる。
 const restore = (target) => {
   const deadline = Date.now() + 1000;
   let frame;
@@ -20,9 +22,14 @@ const restore = (target) => {
     ["wheel", "touchstart", "keydown"].forEach((type) => window.removeEventListener(type, stop));
   };
   ["wheel", "touchstart", "keydown"].forEach((type) => window.addEventListener(type, stop, { passive: true }));
+  let lastHeight = -1;
+  let stableFrames = 0;
   const step = () => {
-    window.scrollTo(0, target);
-    if (Math.abs(window.scrollY - target) < 2 || Date.now() > deadline) return stop();
+    if (Math.abs(window.scrollY - target) >= 2) window.scrollTo(0, target);
+    const height = document.documentElement.scrollHeight;
+    stableFrames = height === lastHeight && Math.abs(window.scrollY - target) < 2 ? stableFrames + 1 : 0;
+    lastHeight = height;
+    if (stableFrames >= 10 || Date.now() > deadline) return stop();
     frame = requestAnimationFrame(step);
   };
   step();
