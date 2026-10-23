@@ -14,7 +14,7 @@
 const fs = require("fs");
 const path = require("path");
 const { SITE_URL, SITE_NAME, languages, pages } = require("./pages");
-const { musicGroup, videoObjects, jsonLdScript } = require("./structured-data");
+const { musicGroup, newsArticle, videoObjects, jsonLdScript } = require("./structured-data");
 const { newsPages } = require("./news");
 
 // NEWS の記事のページ（/news/2026-10-06 など）。src/content/news/ の記事から作る
@@ -106,7 +106,8 @@ const renderHtml = (language, page) => {
   const structuredData =
     jsonLdScript(musicGroup(language, pageUrl(language, home), home.description[language.code])) +
     // 動画は TOP ページにだけ埋め込んでいるので、TOP ページにだけ付ける
-    (page.path === "/" ? videoObjects().map(jsonLdScript).join("") : "");
+    (page.path === "/" ? videoObjects().map(jsonLdScript).join("") : "") +
+    (page.article ? jsonLdScript(newsArticle(language, page, pageUrl(language, page))) : "");
   const html = template
     .replace(/<html lang="[^"]*">/, `<html lang="${language.code}">`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
@@ -177,11 +178,25 @@ for (const language of languages) {
 }
 console.log(`generated: URL が変わった記事の転送ページ ${Object.keys(MOVED_ARTICLES).length} 件 × ${languages.length} 言語`);
 
+// sitemap の更新日（lastmod）。記事は記事の日付、TOP と NEWS 一覧は最新の記事の日付（新しい記事が載るため）。
+// INTRODUCTION・CONTACT は正確な更新日が分からないので付けない（ビルドの日付を付けると毎回更新扱いになり、
+// Google に lastmod 全体を信用されなくなる）
+const latestArticleDate = articlePages.map((page) => page.article.date).sort().pop();
+const lastmod = (page) => {
+  if (page.article) return page.article.date;
+  if (page.path === "/" || page.path === "/news") return latestArticleDate;
+  return "";
+};
 const sitemap =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
   languages
-    .flatMap((language) => allPages.map((page) => `  <url><loc>${pageUrl(language, page)}</loc></url>\n`))
+    .flatMap((language) =>
+      allPages.map((page) => {
+        const date = lastmod(page);
+        return `  <url><loc>${pageUrl(language, page)}</loc>${date ? `<lastmod>${date}</lastmod>` : ""}</url>\n`;
+      })
+    )
     .join("") +
   "</urlset>\n";
 fs.writeFileSync(path.join(buildDir, "sitemap.xml"), sitemap);

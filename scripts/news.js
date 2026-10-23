@@ -36,6 +36,11 @@ const newsPages = () =>
         description: Object.fromEntries(languages.map(({ code }) => [code, summarize(local(code).contents, code)])),
         // 記事の写真（例: /img/2027_narita.webp）。無い記事は空文字
         image: entry.ja.img || "",
+        // 記事の構造化データ（NewsArticle）と sitemap の更新日に使う
+        article: {
+          date: entry.ja.date,
+          headline: Object.fromEntries(languages.map(({ code }) => [code, local(code).title])),
+        },
       };
     });
 
