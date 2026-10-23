@@ -37,7 +37,7 @@
     }
   },
   "news": {
-    "photoAlt": "写真",
+    "photoAlt": "「{{title}}」の写真",
     "backToList": "NEWS 一覧へ戻る",
     "upcoming": "出演予定 {{date}}"
   },

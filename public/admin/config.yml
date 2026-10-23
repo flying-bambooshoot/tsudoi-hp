@@ -151,6 +151,13 @@ collections:
         widget: image
         required: false
         i18n: false
+      # 目の不自由な方の読み上げや、写真が表示できないときに使う説明（src/components/NewsItem.jsx）
+      - name: imgAlt
+        label: 写真の説明
+        hint: 例「成田弦まつりの観光館ステージで演奏する 6 人」。空欄なら「（記事のタイトル）の写真」になります
+        widget: string
+        required: false
+        i18n: true
 
   # NEWS に載せていない出演（結婚式・企業のパーティーなど）。INTRODUCTION の「出演実績」にだけ載る
   # （src/content/performances/README.md）
