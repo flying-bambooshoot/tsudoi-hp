@@ -8,7 +8,9 @@ const style = {
     marginTop: "2px",
     fontSize: "13px",
     fontWeight: "normal",
-    color: "#757575",
+    // 見出しの色を引き継いで少し薄くする（スマホのページ見出しは黒い帯の上なので、灰色の固定色だと読めない）
+    color: "inherit",
+    opacity: 0.75,
     letterSpacing: "0.04em",
 };
 
