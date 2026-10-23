@@ -12,8 +12,6 @@
     "newsMore": "View all news",
     "videoPlay": "Play video: {{title}}",
     "gallery": {
-      "play": "Start slideshow",
-      "pause": "Pause slideshow",
       "prev": "Previous photos",
       "next": "Next photos",
       "pageX": "Go to page %s",

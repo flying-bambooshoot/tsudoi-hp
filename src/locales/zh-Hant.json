@@ -12,8 +12,6 @@
     "newsMore": "查看所有最新消息",
     "videoPlay": "播放影片：{{title}}",
     "gallery": {
-      "play": "開始自動播放",
-      "pause": "暫停自動播放",
       "prev": "上一張照片",
       "next": "下一張照片",
       "pageX": "顯示第 %s 頁的照片",
