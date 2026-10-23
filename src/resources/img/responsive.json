@@ -1,0 +1,112 @@
+{
+  "all.webp": {
+    "width": 1046,
+    "height": 1566,
+    "variants": [
+      640,
+      1024
+    ]
+  },
+  "homeGallery/ajisai.webp": {
+    "width": 1280,
+    "height": 960,
+    "variants": [
+      640,
+      1024
+    ]
+  },
+  "homeGallery/bellserl.webp": {
+    "width": 1599,
+    "height": 900,
+    "variants": [
+      640,
+      1024
+    ]
+  },
+  "homeGallery/music_circle.webp": {
+    "width": 1280,
+    "height": 960,
+    "variants": [
+      640,
+      1024
+    ]
+  },
+  "homeGallery/narita_stage.webp": {
+    "width": 750,
+    "height": 426,
+    "variants": [
+      640
+    ]
+  },
+  "homeGallery/orympic.webp": {
+    "width": 707,
+    "height": 419,
+    "variants": [
+      640
+    ]
+  },
+  "homeGallery/school.webp": {
+    "width": 1170,
+    "height": 878,
+    "variants": [
+      640,
+      1024
+    ]
+  },
+  "homeGallery/school2.webp": {
+    "width": 1170,
+    "height": 878,
+    "variants": [
+      640,
+      1024
+    ]
+  },
+  "member/member_kawasaki.webp": {
+    "width": 1567,
+    "height": 1045,
+    "variants": [
+      640,
+      1024
+    ]
+  },
+  "member/member_matsubara.webp": {
+    "width": 1567,
+    "height": 1045,
+    "variants": [
+      640,
+      1024
+    ]
+  },
+  "member/member_nakahara.webp": {
+    "width": 1567,
+    "height": 1045,
+    "variants": [
+      640,
+      1024
+    ]
+  },
+  "member/member_noguchi.webp": {
+    "width": 1567,
+    "height": 1045,
+    "variants": [
+      640,
+      1024
+    ]
+  },
+  "member/member_suga.webp": {
+    "width": 1567,
+    "height": 1045,
+    "variants": [
+      640,
+      1024
+    ]
+  },
+  "member/member_uji.webp": {
+    "width": 1567,
+    "height": 1045,
+    "variants": [
+      640,
+      1024
+    ]
+  }
+}

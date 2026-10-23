@@ -20,6 +20,7 @@ import UpcomingBadge from "../components/UpcomingBadge";
 import BookingScenes from "../components/BookingScenes";
 import YouTubeLite from "../components/YouTubeLite";
 import videoData from "../data/videos.json";
+import { responsive, GALLERY_SIZES } from "../responsiveImage";
 import {
   school,
   narita2,
@@ -67,6 +68,15 @@ const section = {
 const phoneMovie = {
   height: "auto",
   gap: "0 1rem",
+}
+
+// ギャラリーの写真は枠いっぱいに切り抜いて表示する。以前は Splide の cover（img の src を背景画像にする）を
+// 使っていたが、それだと srcset が効かず、常に元の大きな写真を読み込んでいた
+const slidePhoto = {
+  display: "block",
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
 }
 
 const slide = {
@@ -168,13 +178,13 @@ const Home = () => {
 
   // ギャラリーに写真追加する際はこちら。alt は写真の説明文で、各言語の訳は locales の photos に書く
   const galleryPhotos = [
-    { src: ajisai, alt: "photos.ajisai" },
-    { src: toshima, alt: "photos.toshima" },
-    { src: school2, alt: "photos.school2" },
-    { src: school, alt: "photos.school" },
-    { src: narita2, alt: "photos.naritaStage" },
-    { src: orympic, alt: "photos.tokyo2020" },
-    { src: bellserl, alt: "photos.cultureStage" },
+    { src: ajisai, file: "homeGallery/ajisai.webp", alt: "photos.ajisai" },
+    { src: toshima, file: "homeGallery/music_circle.webp", alt: "photos.toshima" },
+    { src: school2, file: "homeGallery/school2.webp", alt: "photos.school2" },
+    { src: school, file: "homeGallery/school.webp", alt: "photos.school" },
+    { src: narita2, file: "homeGallery/narita_stage.webp", alt: "photos.naritaStage" },
+    { src: orympic, file: "homeGallery/orympic.webp", alt: "photos.tokyo2020" },
+    { src: bellserl, file: "homeGallery/bellserl.webp", alt: "photos.cultureStage" },
   ];
 
   // NEWSは新しいものから3件まで表示する（3件未満でもそのまま動作する）
@@ -261,17 +271,15 @@ const Home = () => {
                 slideLabel: t("home.gallery.slideLabel"),
               },
               speed: 1000,
-              cover: true,
               heightRatio: 0.6,
               rewind: true,
               gap: '1rem',
-              objectFit: 'cover',
             }}>
               <div className="splide__track">
                 <div className="splide__list">
                   { galleryPhotos.map(photo => (
                     <div className="splide__slide" key={photo.src}>
-                      <img src={photo.src} alt={t(photo.alt)} loading="lazy" decoding="async" />
+                      <img src={photo.src} {...responsive(photo.file, photo.src, GALLERY_SIZES)} alt={t(photo.alt)} style={slidePhoto} loading="lazy" decoding="async" />
                     </div>
                   ))}
                 </div>

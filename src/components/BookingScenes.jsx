@@ -1,17 +1,19 @@
 import { useI18n } from "../i18n";
 import { school, narita2, orympic, ajisai } from "../resources/img/homeGallery";
+import { responsive, GALLERY_SIZES } from "../responsiveImage";
 
 // TOP の「演奏のご依頼」に置く、利用シーン別の紹介。
 // 場面ごとに写真・場面名・一言・写真の説明を出す。写真は TOP のギャラリーと同じもの（読み込みはほぼ増えない）。
 // 写真の説明は、ギャラリーと同じ訳（locales の photos）を使う
 // パーティー・企業イベントは写真がまだないため「写真（準備中）」の枠を出している（オーナーに依頼中）。
-// 写真が届いたら、src/resources/img/homeGallery に置いて img と caption（locales の photos のキー）を入れる
+// 写真が届いたら、src/resources/img/homeGallery に置いて img・file・caption（locales の photos のキー）を入れ、
+// src/resources/img/responsive.json にも足す（縮小版が作られる）
 
 const SCENES = [
-  { key: "festival", img: narita2, caption: "naritaStage" },
-  { key: "school", img: school, caption: "school" },
-  { key: "concert", img: ajisai, caption: "ajisai" },
-  { key: "ceremony", img: orympic, caption: "tokyo2020" },
+  { key: "festival", img: narita2, file: "homeGallery/narita_stage.webp", caption: "naritaStage" },
+  { key: "school", img: school, file: "homeGallery/school.webp", caption: "school" },
+  { key: "concert", img: ajisai, file: "homeGallery/ajisai.webp", caption: "ajisai" },
+  { key: "ceremony", img: orympic, file: "homeGallery/orympic.webp", caption: "tokyo2020" },
   { key: "party", img: null, caption: null },
 ];
 
@@ -75,10 +77,12 @@ const BookingScenes = () => {
     const { t } = useI18n();
     return (
         <ul style={grid}>
-            {SCENES.map(({ key, img, caption: photoKey }) => (
+            {SCENES.map(({ key, img, file, caption: photoKey }) => (
                 <li key={key} style={card}>
+                    {/* カードの写真は TOP のギャラリーと同じ写真なので、ギャラリーと同じ sizes にして同じ大きさの写真を選ばせる
+                        （別の大きさを選ぶと、同じ写真を 2 回読み込むことになる） */}
                     {img ? (
-                        <img src={img} alt="" style={photo} width="400" height="300" loading="lazy" decoding="async" />
+                        <img src={img} {...responsive(file, img, GALLERY_SIZES)} alt="" style={photo} loading="lazy" decoding="async" />
                     ) : (
                         <div style={noPhoto} aria-hidden="true">{t("home.booking.scenes.noPhoto")}</div>
                     )}

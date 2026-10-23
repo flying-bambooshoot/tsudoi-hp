@@ -10,6 +10,7 @@ import "../css/introduction.css"
 import { useI18n } from "../i18n";
 import Lines from "../components/Lines";
 import Works from "../components/Works";
+import { responsive } from "../responsiveImage";
 import {
     kawasaki,
     matsubara,
@@ -25,6 +26,9 @@ const img = {
     width: "100%",
     height: "100%",
 }
+
+// 写真の表示の幅（PC は 2 列で約 505px、スマホは画面の幅）。集合写真の先読み（scripts/postbuild.js の LCP_IMAGES）にも同じ値を書いている
+const PHOTO_SIZES = "(min-width: 1100px) 520px, (min-width: 900px) 50vw, 100vw";
 
 const year = {
     marginBottom: "3px",
@@ -66,7 +70,7 @@ const Intro = () => {
                 <div style={{padding: "20px 0"}}>
                 <Grid container spacing={2} style={{margin: "auto"}}>
                     <Grid item xs={12} md={6}>
-                        <img className="fadeIn" src={All} alt={t("introduction.groupPhotoAlt")} style={img} width="1046" height="1566" />
+                        <img className="fadeIn" src={All} {...responsive("all.webp", All, PHOTO_SIZES)} alt={t("introduction.groupPhotoAlt")} style={img} />
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
                         <div>
@@ -113,7 +117,7 @@ const Intro = () => {
                                     </a>
                                 </div>
                             </div>
-                            <img src={nakahara} alt={t("introduction.members.nakahara")} style={img} loading="lazy" decoding="async" />
+                            <img src={nakahara} {...responsive("member/member_nakahara.webp", nakahara, PHOTO_SIZES)} alt={t("introduction.members.nakahara")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -128,7 +132,7 @@ const Intro = () => {
                                     </a>
                                 </div>
                             </div>
-                            <img src={kawasaki} alt={t("introduction.members.kawasaki")} style={img} loading="lazy" decoding="async" />
+                            <img src={kawasaki} {...responsive("member/member_kawasaki.webp", kawasaki, PHOTO_SIZES)} alt={t("introduction.members.kawasaki")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -140,7 +144,7 @@ const Intro = () => {
                                 <div style={{margin: "2px 0 0 6px"}}> */}
                                 </div>
                             </div>
-                            <img src={fujisaki} alt={t("introduction.members.fujisaki")} style={img} loading="lazy" decoding="async" />
+                            <img src={fujisaki} {...responsive("member/member_uji.webp", fujisaki, PHOTO_SIZES)} alt={t("introduction.members.fujisaki")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -155,7 +159,7 @@ const Intro = () => {
                                     </a>
                                 </div>
                             </div>
-                            <img src={noguchi} alt={t("introduction.members.noguchi")} style={img} loading="lazy" decoding="async" />
+                            <img src={noguchi} {...responsive("member/member_noguchi.webp", noguchi, PHOTO_SIZES)} alt={t("introduction.members.noguchi")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -170,7 +174,7 @@ const Intro = () => {
                                     </a>
                                 </div>
                             </div>
-                            <img src={suga} alt={t("introduction.members.suga")} style={img} loading="lazy" decoding="async" />
+                            <img src={suga} {...responsive("member/member_suga.webp", suga, PHOTO_SIZES)} alt={t("introduction.members.suga")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
@@ -185,7 +189,7 @@ const Intro = () => {
                                     </a>
                                 </div> */}
                             </div>
-                            <img src={matsubara} alt={t("introduction.members.matsubara")} style={img} loading="lazy" decoding="async" />
+                            <img src={matsubara} {...responsive("member/member_matsubara.webp", matsubara, PHOTO_SIZES)} alt={t("introduction.members.matsubara")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                 </Grid>
