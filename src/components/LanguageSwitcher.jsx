@@ -41,7 +41,8 @@ const visuallyHidden = {
 // 言語切り替えのプルダウン。選ぶと、今見ているページの別の言語版へ移動する。
 // 言語は src/i18n/languages.js の一覧から自動で並ぶので、言語を追加してもここは変更不要。
 // onSelect: 言語を選んだ後に実行する処理（ドロワーを閉じるなど）
-const LanguageSwitcher = ({ style, onSelect }) => {
+// dark: 黒い背景（スマホのヘッダー）に置くとき。地球のアイコンを白くする
+const LanguageSwitcher = ({ style, onSelect, dark }) => {
     const isMobile = useMedia("(max-width: 1000px)");
     const { language, t } = useI18n();
     const navigate = useNavigate();
@@ -60,7 +61,7 @@ const LanguageSwitcher = ({ style, onSelect }) => {
             onClick={(event) => event.stopPropagation()}
             onKeyDown={(event) => event.stopPropagation()}
         >
-            <LanguageIcon style={icon} aria-hidden="true" />
+            <LanguageIcon style={dark ? { ...icon, color: "#e0f2f1" } : icon} aria-hidden="true" />
             <span style={visuallyHidden}>{t("common.languageMenu")}</span>
             {/* iPhone は 16px 未満の入力欄をタップすると画面を拡大するため、スマホでは 16px にする */}
             <select value={language.code} onChange={handleChange} style={isMobile ? { ...select, fontSize: "16px" } : select}>
