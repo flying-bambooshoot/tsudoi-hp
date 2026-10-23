@@ -1,12 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import App from "./App";
 
-const AppWrapper = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  return <App />;
-};
+// 最初に開いたときのスクロール位置は src/components/ScrollToTop.jsx で決める
+const AppWrapper = () => <App />;
 
 export default AppWrapper;
