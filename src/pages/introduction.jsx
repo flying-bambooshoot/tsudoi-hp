@@ -11,6 +11,7 @@ import { useI18n } from "../i18n";
 import Lines from "../components/Lines";
 import Works from "../components/Works";
 import { responsive } from "../responsiveImage";
+import { NewTabNote } from "../components/VisuallyHidden";
 import {
     kawasaki,
     matsubara,
@@ -113,7 +114,7 @@ const Intro = () => {
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/shijimidaimajin" target='_blank' rel="noopener noreferrer">
-                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.nakahara") })} style={snsIcon} />
+                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.nakahara") })} style={snsIcon} /><NewTabNote />
                                     </a>
                                 </div>
                             </div>
@@ -128,7 +129,7 @@ const Intro = () => {
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/tsugarumanami" target='_blank' rel="noopener noreferrer">
-                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.kawasaki") })} style={snsIcon} />
+                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.kawasaki") })} style={snsIcon} /><NewTabNote />
                                     </a>
                                 </div>
                             </div>
@@ -155,7 +156,7 @@ const Intro = () => {
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/ara527_shami" target='_blank' rel="noopener noreferrer">
-                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.noguchi") })} style={snsIcon} />
+                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.noguchi") })} style={snsIcon} /><NewTabNote />
                                     </a>
                                 </div>
                             </div>
@@ -170,7 +171,7 @@ const Intro = () => {
                                 </div>
                                 <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/Shamisen_SugA" target='_blank' rel="noopener noreferrer">
-                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.suga") })} style={snsIcon} />
+                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.suga") })} style={snsIcon} /><NewTabNote />
                                     </a>
                                 </div>
                             </div>
@@ -185,7 +186,7 @@ const Intro = () => {
                                 </div>
                                 {/* <div style={{margin: "12px 0 0 6px"}}>
                                     <a href="https://x.com/kappaakane" target='_blank' rel="noopener noreferrer">
-                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.matsubara") })} style={snsIcon} />
+                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.matsubara") })} style={snsIcon} /><NewTabNote />
                                     </a>
                                 </div> */}
                             </div>

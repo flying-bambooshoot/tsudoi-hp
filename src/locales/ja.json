@@ -3,11 +3,13 @@
     "siteName": "津軽三味線 集-tsudoi-",
     "logoAlt": "集-tsudoi-",
     "languageMenu": "言語",
-    "menu": "メニュー"
+    "menu": "メニュー",
+    "newTab": "（新しいタブで開きます）"
   },
   "footer": {
     "emailCopied": "メールアドレスをコピーしました。",
-    "emailCopyFailed": "コピーできませんでした。メールアドレスは {{email}} です。"
+    "emailCopyFailed": "コピーできませんでした。メールアドレスは {{email}} です。",
+    "pages": "サイト内のページ"
   },
   "home": {
     "newsMore": "NEWS一覧へ",

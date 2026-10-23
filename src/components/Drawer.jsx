@@ -11,6 +11,8 @@ import IconButton from '@mui/material/IconButton';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useI18n } from '../i18n';
+import { NewTabNote } from './VisuallyHidden';
+import site from '../data/site.json';
 
 const routeLink = {
   color: "black",
@@ -66,6 +68,7 @@ export const TemporaryDrawer = () => {
     >
       {/* 各項目は ListItemButton 自体をリンク（a）にする。li > a > div[role=button] のようにリンクの中にボタンを入れると、
           Tab キーで 2 回止まり、読み上げも混乱するため */}
+      <nav aria-label={t("common.menu")}>
       <List style={{}}>
         <ListItem key='HOME' disablePadding>
           <ListItemButton component={Link} to={path('/')} style={routeLink}>
@@ -83,21 +86,24 @@ export const TemporaryDrawer = () => {
           </ListItemButton>
         </ListItem>
         <ListItem key='YouTube' disablePadding>
-          <ListItemButton href='https://www.youtube.com/channel/UCvELpZfQ5fD4i-b8NfyXm9w' target='_blank' rel='noopener noreferrer'>
+          <ListItemButton href={site.sns.youtube} target='_blank' rel='noopener noreferrer'>
             <p style={title}>YouTube</p>
             <OpenInNewOutlinedIcon style={linkIcon}/>
+            <NewTabNote />
           </ListItemButton>
         </ListItem>
         <ListItem key='X' disablePadding>
-          <ListItemButton href='https://twitter.com/tsudoi_shamisen' target='_blank' rel='noopener noreferrer'>
+          <ListItemButton href={site.sns.x} target='_blank' rel='noopener noreferrer'>
             <p style={title}>X</p>
             <OpenInNewOutlinedIcon style={linkIcon} />
+            <NewTabNote />
           </ListItemButton>
         </ListItem>
         <ListItem key='Instagram' disablePadding>
-          <ListItemButton href='https://www.instagram.com/tsudoi_shamisen' target='_blank' rel='noopener noreferrer'>
+          <ListItemButton href={site.sns.instagram} target='_blank' rel='noopener noreferrer'>
             <p style={title}>Instagram</p>
             <OpenInNewOutlinedIcon style={linkIcon} />
+            <NewTabNote />
           </ListItemButton>
         </ListItem>
         <ListItem key='CONTACT US' disablePadding>
@@ -106,6 +112,7 @@ export const TemporaryDrawer = () => {
           </ListItemButton>
         </ListItem>
       </List>
+      </nav>
       <div style={{padding: "16px 0 0 25px", borderTop: "solid #e0e0e0 1px"}}>
         <LanguageSwitcher onSelect={() => setState({ ...state, [anchor]: false })} />
       </div>
