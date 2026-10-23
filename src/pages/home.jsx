@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import useMedia from '../useMedia';
@@ -165,15 +164,6 @@ const Home = () => {
   const isMobile = useMedia('(max-width: 1000px)');
   const { t, path } = useI18n();
   const news = useNews();
-
-  useEffect(() => {
-    // 画像やコンテンツのロードが終わるまで少し待つ
-    const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 50); // 50ms 遅らせるだけで安定
-
-    return () => clearTimeout(timer);
-  }, []);
 
   // ギャラリーに写真追加する際はこちら。alt は写真の説明文で、各言語の訳は locales の photos に書く
   const galleryPhotos = [
