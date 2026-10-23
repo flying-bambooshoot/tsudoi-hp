@@ -9,6 +9,26 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 
 const positions = new Map();
 
+// 前の位置に戻す。戻した直後はページの下のほう（写真やギャラリー）がまだ描かれておらず、ページが短いため
+// 途中までしか戻れないことがある。届くまで、最大 1 秒、画面の描き直しごとに合わせ直す。
+// その間に利用者が自分でスクロールしようとしたら、合わせ直しはやめる。
+const restore = (target) => {
+  const deadline = Date.now() + 1000;
+  let frame;
+  const stop = () => {
+    cancelAnimationFrame(frame);
+    ["wheel", "touchstart", "keydown"].forEach((type) => window.removeEventListener(type, stop));
+  };
+  ["wheel", "touchstart", "keydown"].forEach((type) => window.addEventListener(type, stop, { passive: true }));
+  const step = () => {
+    window.scrollTo(0, target);
+    if (Math.abs(window.scrollY - target) < 2 || Date.now() > deadline) return stop();
+    frame = requestAnimationFrame(step);
+  };
+  step();
+  return stop;
+};
+
 const ScrollToTop = () => {
   const location = useLocation();
   const navigationType = useNavigationType();
@@ -32,7 +52,12 @@ const ScrollToTop = () => {
   useLayoutEffect(() => {
     currentKey.current = location.key;
     const saved = navigationType === "POP" ? positions.get(location.key) : undefined;
-    window.scrollTo(0, saved || 0);
+    if (!saved) {
+      window.scrollTo(0, 0);
+      return undefined;
+    }
+    // 次のページへ移ったら、合わせ直しをやめる
+    return restore(saved);
   }, [location.key, navigationType]);
 
   return null;
