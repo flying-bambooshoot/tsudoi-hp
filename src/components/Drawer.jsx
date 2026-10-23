@@ -12,6 +12,7 @@ import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useI18n } from '../i18n';
 import { NewTabNote } from './VisuallyHidden';
+import Subheading from './Subheading';
 import site from '../data/site.json';
 
 const routeLink = {
@@ -72,17 +73,17 @@ export const TemporaryDrawer = () => {
       <List style={{}}>
         <ListItem key='HOME' disablePadding>
           <ListItemButton component={Link} to={path('/')} style={routeLink}>
-            <p style={title}>HOME</p>
+            <p style={title}>HOME<Subheading name="home" /></p>
           </ListItemButton>
         </ListItem>
         <ListItem key='NEWS' disablePadding>
           <ListItemButton component={Link} to={path('/news')} style={routeLink}>
-            <p style={title}>NEWS</p>
+            <p style={title}>NEWS<Subheading name="news" /></p>
           </ListItemButton>
         </ListItem>
         <ListItem key='INTRODUCTION/MEMBER' disablePadding>
           <ListItemButton component={Link} to={path('/introduction')} style={routeLink}>
-            <p style={title}>INTRODUCTION/MEMBER</p>
+            <p style={title}>INTRODUCTION/MEMBER<Subheading name="introduction" /></p>
           </ListItemButton>
         </ListItem>
         <ListItem key='YouTube' disablePadding>
@@ -108,7 +109,7 @@ export const TemporaryDrawer = () => {
         </ListItem>
         <ListItem key='CONTACT US' disablePadding>
           <ListItemButton component={Link} to={path('/contact')} style={routeLink}>
-            <p style={title}>CONTACT US</p>
+            <p style={title}>CONTACT US<Subheading name="contact" /></p>
           </ListItemButton>
         </ListItem>
       </List>

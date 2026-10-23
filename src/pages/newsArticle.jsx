@@ -11,9 +11,11 @@ import { useI18n, useNews } from "../i18n";
 // NEWS の記事 1 件のページ（/news/<slug>、例: /news/2026-10-06）。
 // SNS で共有したときのカードや検索結果のタイトルは、scripts/postbuild.js が記事ごとに HTML に書き込む
 
+// 押せる範囲を上下に 12px 広げ、その分だけ外側を詰めて、位置は以前と同じにする（R-48）
 const backLink = {
     display: "inline-block",
-    margin: "20px",
+    padding: "12px 0",
+    margin: "8px 20px",
     color: "inherit",
 }
 

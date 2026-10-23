@@ -31,7 +31,8 @@ const label = {
 
 const requiredMark = {
     marginLeft: "6px",
-    fontSize: "11px",
+    // 11px だと読みにくいので 12px（SITE_REVIEW_2026-10 の R-51）
+    fontSize: "12px",
     color: "#b00020",
 }
 

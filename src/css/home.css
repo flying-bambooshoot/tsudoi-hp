@@ -48,3 +48,12 @@
         opacity: 1;
     }
 }
+
+/* ギャラリーの点（ページ送り）。点の大きさ（8px）と間隔はそのままに、押せる範囲を周りに 6px 広げる
+   （SITE_REVIEW_2026-10 の R-48。以前は 8px 角しか押せなかった） */
+.splide__pagination__page {
+    box-sizing: content-box;
+    padding: 6px;
+    margin: -3px;
+    background-clip: content-box;
+}

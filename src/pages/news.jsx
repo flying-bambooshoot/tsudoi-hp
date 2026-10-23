@@ -4,6 +4,7 @@ import PhoneHeader from "../components/PhoneHeader";
 import Footer from "../components/Footer";
 import NewsListItem from "../components/NewsListItem";
 import { useNews } from "../i18n";
+import Subheading from "../components/Subheading";
 
 const yearHeading = {
     margin: "32px 0 0",
@@ -33,7 +34,7 @@ const News = () => {
                 <div className="pageContent">
                     <main className={isMobile ? "phMain" : "main"}>
                         <section className="title">
-                            <h1 className="h2">NEWS</h1>
+                            <h1 className="h2">NEWS<Subheading name="news" /></h1>
                         </section>
                         {/* 一覧はタイトル・日付・本文の冒頭だけ。全文は記事のページ（/news/<slug>）で読む */}
                         {groupByYear(news).map(({ year, items }) => (

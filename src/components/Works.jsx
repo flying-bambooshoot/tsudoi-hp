@@ -40,6 +40,13 @@ const work = {
     lineHeight: 1.7,
 }
 
+// 年のリンクは小さいので、押せる範囲を周りに広げる。その分だけ外側を詰めて、見た目は変えない（R-48）
+const yearLink = {
+    display: "inline-block",
+    padding: "8px 4px",
+    margin: "-8px -4px",
+}
+
 const years = {
     fontSize: "13px",
     color: "#555555",
@@ -67,7 +74,7 @@ const Works = () => {
                                         {item.years.map(({ year, slug }, i) => (
                                             <React.Fragment key={year}>
                                                 {i > 0 && "・"}
-                                                {slug ? <Link to={path(`/news/${slug}`)}>{year}</Link> : year}
+                                                {slug ? <Link to={path(`/news/${slug}`)} style={yearLink}>{year}</Link> : year}
                                             </React.Fragment>
                                         ))}
                                     </span>

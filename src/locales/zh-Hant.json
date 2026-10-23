@@ -1,4 +1,12 @@
 {
+  "headings": {
+    "home": "首頁",
+    "news": "最新消息",
+    "gallery": "相簿",
+    "introduction": "團體介紹與成員",
+    "member": "成員",
+    "contact": "演出邀約／聯絡我們"
+  },
   "common": {
     "siteName": "津輕三味線 集-tsudoi-",
     "logoAlt": "津輕三味線 集-tsudoi-",

@@ -18,6 +18,7 @@ import { trackEvent } from "../analytics";
 import UpcomingBadge from "../components/UpcomingBadge";
 import BookingScenes from "../components/BookingScenes";
 import YouTubeLite from "../components/YouTubeLite";
+import Subheading from "../components/Subheading";
 import videoData from "../data/videos.json";
 import { responsive, GALLERY_SIZES } from "../responsiveImage";
 import {
@@ -219,7 +220,7 @@ const Home = () => {
           <h1 style={visuallyHidden}>{t("common.siteName")}</h1>
           <section style={isMobile ? none : sec}>
             <div style={{display: "flex"}}>
-              <h2 style={sectionHeading}>NEWS</h2>
+              <h2 style={sectionHeading}>NEWS<Subheading name="news" /></h2>
               <div style={{justifyItems: "center", margin: "0.67em 0 0 auto"}}>
                 {/* アイコンだけのリンクなので、読み上げソフト向けにリンク先の名前を付ける */}
                 <Link to={path("/news")} style={{fontSize: 30, marginBottom: "-2px"}} aria-label={t("home.newsMore")}>
@@ -230,7 +231,7 @@ const Home = () => {
             <div style={{borderBottom: "solid #cccccc 1px",}}>{newsList}</div>
           </section>
           <section style={sec}>
-            <h2 style={sectionHeading}>GALLERY</h2>
+            <h2 style={sectionHeading}>GALLERY<Subheading name="gallery" /></h2>
             {/* react-splide の SplideSlide は li を出力するが、Splide はスライドに role="tabpanel" を付けるため、
                 li では不正な組み合わせになる（アクセシビリティの検査で減点される）。
                 そこで hasTrack={false} にして、スライドを div で組み立てている。見た目は同じ */}
