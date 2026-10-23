@@ -3,11 +3,13 @@
     "siteName": "Tsugaru Shamisen \"Tsudoi\"",
     "logoAlt": "Tsugaru Shamisen \"Tsudoi\"",
     "languageMenu": "Language",
-    "menu": "Menu"
+    "menu": "Menu",
+    "newTab": " (opens in a new tab)"
   },
   "footer": {
     "emailCopied": "Email address copied.",
-    "emailCopyFailed": "Could not copy. Our email address is {{email}}."
+    "emailCopyFailed": "Could not copy. Our email address is {{email}}.",
+    "pages": "Site pages"
   },
   "home": {
     "newsMore": "View all news",

@@ -3,11 +3,13 @@
     "siteName": "津轻三味线 集-tsudoi-",
     "logoAlt": "津轻三味线 集-tsudoi-",
     "languageMenu": "语言",
-    "menu": "菜单"
+    "menu": "菜单",
+    "newTab": "（在新标签页打开）"
   },
   "footer": {
     "emailCopied": "已复制电子邮件地址。",
-    "emailCopyFailed": "无法复制。电子邮件地址为 {{email}}。"
+    "emailCopyFailed": "无法复制。电子邮件地址为 {{email}}。",
+    "pages": "网站页面"
   },
   "home": {
     "newsMore": "查看所有最新消息",

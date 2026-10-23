@@ -10,6 +10,8 @@ import Faq from "../components/Faq";
 import { useI18n } from "../i18n";
 import Lines from "../components/Lines";
 import { responsive } from "../responsiveImage";
+import { NewTabNote } from "../components/VisuallyHidden";
+import site from "../data/site.json";
 import {
     school,
     narita2,
@@ -86,17 +88,6 @@ const Contact = () => {
                             <h2 style={sectionHeading}>{t("contact.formationHeading")}</h2>
                         </div>
                         <p>{t("contact.formationBody")}</p>
-                        {/* <div style={section}>
-                            <p style={{borderBottom: "solid #cccccc 1px", fontSize: "20px"}}>料金について</p>
-                        </div>
-                        <p>
-                            東京で6人での演奏の場合、30分10万円～<br />
-                            和装の場合は追加料金をいただきます。<br />
-                            別途交通費をいただきます。
-                        </p>
-                        <p>
-                            ご予算や会場などシチュエーションに応じて少人数での演奏も承ります。まずはご相談ください。
-                        </p> */}
                         <div style={section}>
                             <h2 style={sectionHeading}>{t("contact.priceHeading")}</h2>
                         </div>
@@ -123,14 +114,14 @@ const Contact = () => {
                             <h2 style={sectionHeading}>{t("contact.contactHeading")}</h2>
                         </div>
                         {languageNote && <p>{languageNote}</p>}
-                        <p>{t("contact.emailLabel")}<a href="mailto:tsudoi.shamisen@gmail.com" onClick={() => trackEvent("contact_email_click", { location: "contact_page" })}>tsudoi.shamisen@gmail.com</a></p>
+                        <p>{t("contact.emailLabel")}<a href={`mailto:${site.email}`} onClick={() => trackEvent("contact_email_click", { location: "contact_page" })}>{site.email}</a></p>
                     </div>
                     {/* アクセス解析の表記は注記として小さく表示する */}
                     <div style={note}>
                         <p style={{fontSize: "13px", fontWeight: "bold", margin: "0 0 4px"}}>{t("contact.analyticsHeading")}</p>
                         <p style={{fontSize: "12px", margin: 0}}>
                             {t("contact.analyticsBody")}
-                            <a href={t("contact.analyticsLinkUrl")} target="_blank" rel="noopener noreferrer">{t("contact.analyticsLinkText")}</a>
+                            <a href={t("contact.analyticsLinkUrl")} target="_blank" rel="noopener noreferrer">{t("contact.analyticsLinkText")}<NewTabNote /></a>
                             {t("contact.analyticsAfterLink")}
                         </p>
                     </div>

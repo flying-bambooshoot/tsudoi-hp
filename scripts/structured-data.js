@@ -13,11 +13,9 @@ const loadLocale = (code) => require(path.join(__dirname, "..", "src", "locales"
 // 全言語・全ページで同じグループとして扱われるよう、共通の ID を付ける
 const GROUP_ID = `${SITE_URL}/#musicgroup`;
 
-const SNS = [
-  "https://x.com/tsudoi_shamisen",
-  "https://www.instagram.com/tsudoi_shamisen",
-  "https://www.youtube.com/channel/UCvELpZfQ5fD4i-b8NfyXm9w",
-];
+// メールアドレスと SNS の URL は画面と同じ src/data/site.json から読む
+const site = require(path.join(__dirname, "..", "src", "data", "site.json"));
+const SNS = [site.sns.x, site.sns.instagram, site.sns.youtube];
 
 const GENRE = {
   ja: ["津軽三味線", "民謡"],
@@ -44,12 +42,12 @@ const musicGroup = (language, homeUrl, description) => {
     genre: GENRE[language.code],
     member: Object.values(members).map((name) => ({ "@type": "Person", name })),
     award: awards.flatMap((award) => award.items.map((item) => `${award.year} ${item}`)),
-    email: "tsudoi.shamisen@gmail.com",
+    email: site.email,
     // 演奏のご依頼の窓口（返信は日本語か英語。src/locales の contact.languageNote）
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "booking",
-      email: "tsudoi.shamisen@gmail.com",
+      email: site.email,
       url: `${homeUrl.replace(/\/$/, "")}/contact`,
       availableLanguage: ["ja", "en"],
     },

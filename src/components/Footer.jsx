@@ -8,6 +8,8 @@ import YouTube from "../resources/img/youtube.png";
 import { Link } from "react-router-dom";
 import { trackEvent } from "../analytics";
 import { useI18n } from "../i18n";
+import { NewTabNote } from "./VisuallyHidden";
+import site from "../data/site.json";
 
 const footer = {
     width: "auto",
@@ -95,14 +97,15 @@ const Footer = () => {
         trackEvent("contact_email_copy", { location: "footer" });
         // コピーできなかったとき（古いブラウザ・権限がない場合など）は、メールアドレスを表示して伝える。
         // 以前は失敗しても「コピーしました」と表示していた
-        const failed = () => window.alert(t("footer.emailCopyFailed", { email: "tsudoi.shamisen@gmail.com" }));
+        const failed = () => window.alert(t("footer.emailCopyFailed", { email: site.email }));
         if (!navigator.clipboard) return failed();
-        navigator.clipboard.writeText("tsudoi.shamisen@gmail.com").then(() => window.alert(t("footer.emailCopied")), failed);
+        navigator.clipboard.writeText(site.email).then(() => window.alert(t("footer.emailCopied")), failed);
     };
 
     return (
         <footer style={isMobile ? phoneFooter : footer}>
-                <div className={Com.sp} style={{padding: "24px 0 24px 0"}}>
+                {/* スマホだけに出すページへのリンク。読み上げソフトにメニューと伝わるよう nav にする */}
+                <nav className={Com.sp} style={{padding: "24px 0 24px 0"}} aria-label={t("footer.pages")}>
                     <div style={link}>
                         <Link style={linkWord} key='HOME' to={path("/")}>HOME</Link>
                     </div>
@@ -115,24 +118,24 @@ const Footer = () => {
                     <div style={link}>
                         <Link style={linkWord} to={path("/contact")}>CONTACT US</Link>
                     </div>
-                </div>
+                </nav>
                 <div style={isMobile ? blank : contactInfo}>
                     <div style={footerWord}>
                         <div>
                             <EmailIcon style={icon}/>
                         </div>
-                        <button type="button" style={emailButton} onClick={handleCopyClick}>tsudoi.shamisen@gmail.com</button>
+                        <button type="button" style={emailButton} onClick={handleCopyClick}>{site.email}</button>
                     </div>
                 </div>
                 <div style={isMobile ? phoneIcons : icons}>
-                    <a href="https://twitter.com/tsudoi_shamisen" target='_blank' rel="noopener noreferrer">
-                        <img src={X} alt="X" style={snsIcon} loading="lazy" decoding="async" />
+                    <a href={site.sns.x} target='_blank' rel="noopener noreferrer">
+                        <img src={X} alt="X" style={snsIcon} loading="lazy" decoding="async" /><NewTabNote />
                     </a>
-                    <a href="https://www.instagram.com/tsudoi_shamisen" target='_blank' rel="noopener noreferrer">
-                        <img src={Instagram} alt="Instagram" style={snsIcon} loading="lazy" decoding="async" />
+                    <a href={site.sns.instagram} target='_blank' rel="noopener noreferrer">
+                        <img src={Instagram} alt="Instagram" style={snsIcon} loading="lazy" decoding="async" /><NewTabNote />
                     </a>
-                    <a href="https://www.youtube.com/channel/UCvELpZfQ5fD4i-b8NfyXm9w" target='_blank' rel="noopener noreferrer">
-                        <img src={YouTube} alt="YouTube" style={snsIcon} loading="lazy" decoding="async" />
+                    <a href={site.sns.youtube} target='_blank' rel="noopener noreferrer">
+                        <img src={YouTube} alt="YouTube" style={snsIcon} loading="lazy" decoding="async" /><NewTabNote />
                     </a>
                 </div>
         </footer>

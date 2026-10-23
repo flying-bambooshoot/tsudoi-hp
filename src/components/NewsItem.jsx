@@ -1,5 +1,6 @@
 import { useI18n } from "../i18n";
 import UpcomingBadge from "./UpcomingBadge";
+import { NewTabNote } from "./VisuallyHidden";
 
 // NEWS の記事 1 件分の全文の表示（記事のページ src/pages/newsArticle.jsx で使う）。
 // タイトルをページの見出し（h1）にして、写真はすぐ読み込む。
@@ -48,12 +49,12 @@ const NewsItem = ({ item }) => {
                     見出し（例: ◆公式サイト◆）があれば、URL は次の行に出す（CMS の入力欄では改行を入れられないため） */}
                 {item.link && (
                     <p>{item.linkTitle?.trim() && <>{item.linkTitle.trim()}<br /></>}
-                    <a href={item.link} target='_blank' rel="noopener noreferrer">{item.link}</a>
+                    <a href={item.link} target='_blank' rel="noopener noreferrer">{item.link}<NewTabNote /></a>
                     </p>
                 )}
                 {item.map_link && (
                     <p>{item.map_title?.trim() && <>{item.map_title.trim()}<br /></>}
-                    <a href={item.map_link} target='_blank' rel="noopener noreferrer">{item.map_link}</a>
+                    <a href={item.map_link} target='_blank' rel="noopener noreferrer">{item.map_link}<NewTabNote /></a>
                     </p>
                 )}
             </div>
