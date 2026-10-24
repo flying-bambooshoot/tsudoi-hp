@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import useMedia from "../useMedia";
 import { useI18n } from "../i18n";
 import { trackEvent } from "../analytics";
+import { Link } from "react-router-dom";
+import { NewTabNote } from "./VisuallyHidden";
 import contactFormConfig from "../data/contactForm.json";
 
 // お問い合わせフォーム。送信内容は Formspree（https://formspree.io）が受け取り、登録したメールアドレスに届く。
@@ -70,6 +72,22 @@ const note = {
     color: "#757575",
 }
 
+const consentField = {
+    display: "flex",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: "6px",
+    margin: "8px 0 16px",
+    fontSize: "14px",
+}
+
+// チェックボックスを押しやすい大きさにする
+const consentBox = {
+    width: "20px",
+    height: "20px",
+    margin: 0,
+}
+
 const message = {
     padding: "12px 16px",
     border: "solid #cccccc 1px",
@@ -77,7 +95,7 @@ const message = {
 
 const ContactForm = () => {
     const isMobile = useMedia('(max-width: 1000px)');
-    const { t, language } = useI18n();
+    const { t, language, path } = useI18n();
     // idle: 入力中 / sending: 送信中 / success: 送信完了 / error: 送信失敗
     const [status, setStatus] = useState("idle");
     // 完了メッセージに表示する、入力されたメールアドレス（打ち間違いに気づいてもらうため）
@@ -191,6 +209,17 @@ const ContactForm = () => {
             </div>
 
             <p style={note}>{t("contact.form.privacy")}</p>
+            {/* プライバシーポリシーへの同意（必須）。入力内容は米国の Formspree を経由して届くため、
+                個人情報保護法 28 条（外国にある第三者への提供）の同意をここでいただく（R-67、PRIVACY_POLICY_REVIEW.md） */}
+            <div style={consentField}>
+                <input type="checkbox" id="contact-consent" name="privacy_consent" value="agreed" required style={consentBox} />
+                <label htmlFor="contact-consent">
+                    {t("privacy.consentBefore")}
+                    <Link to={path("/privacy")} target="_blank" rel="noopener">{t("privacy.link")}<NewTabNote /></Link>
+                    {t("privacy.consentAfter")}
+                </label>
+                {required}
+            </div>
             {status === "error" && <p style={message} role="alert">{t("contact.form.error")}</p>}
             <button type="submit" style={isMobile ? { ...button, width: "100%" } : button} disabled={status === "sending"}>
                 {status === "sending" ? t("contact.form.sending") : t("contact.form.submit")}

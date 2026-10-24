@@ -80,6 +80,21 @@ const pages = [
       "zh-Hans": "承接派对、典礼、祭典等活动的津轻三味线演出。从民谣到现代曲、流行歌曲改编，可根据活动安排2至6人编制。费用与联系方式请见此页。",
     },
   },
+  {
+    path: "/privacy",
+    title: {
+      ja: `プライバシーポリシー | ${TITLE_SUFFIX.ja}`,
+      en: `Privacy Policy | ${TITLE_SUFFIX.en}`,
+      "zh-Hant": `隱私權政策 | ${TITLE_SUFFIX["zh-Hant"]}`,
+      "zh-Hans": `隐私政策 | ${TITLE_SUFFIX["zh-Hans"]}`,
+    },
+    description: {
+      ja: "津軽三味線 集-tsudoi- のプライバシーポリシー。お問い合わせフォームで預かる情報の取り扱い、利用している外部サービス（Formspree・Google アナリティクス・YouTube）について。",
+      en: "Privacy policy of Tsugaru Shamisen Tsudoi: how we handle information from the contact form and the external services we use (Formspree, Google Analytics, YouTube).",
+      "zh-Hant": "津輕三味線 集-tsudoi- 的隱私權政策：說明洽詢表單資料的處理方式，以及本站使用的外部服務（Formspree、Google Analytics、YouTube）。",
+      "zh-Hans": "津轻三味线 集-tsudoi- 的隐私政策：说明咨询表单信息的处理方式，以及本站使用的外部服务（Formspree、Google Analytics、YouTube）。",
+    },
+  },
 ];
 
 module.exports = { SITE_URL, SITE_NAME, TITLE_SUFFIX, languages, pages };
