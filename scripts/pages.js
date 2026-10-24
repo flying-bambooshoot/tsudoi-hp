@@ -74,10 +74,10 @@ const pages = [
       "zh-Hans": `演出邀请／联系我们 | ${TITLE_SUFFIX["zh-Hans"]}`,
     },
     description: {
-      ja: "パーティ・式典・お祭りなどでの津軽三味線の演奏を承ります。民謡から現代曲・カバーまで、2〜6人の編成でイベントに合わせてご相談可能です。料金・連絡先はこちら。",
+      ja: "パーティー・式典・お祭りなどでの津軽三味線の演奏を承ります。民謡から現代曲・カバーまで、2〜6名の編成でイベントに合わせてご相談可能です。料金・連絡先はこちら。",
       en: "Book a live Tsugaru shamisen performance in Japan for parties, ceremonies, festivals, and corporate events. Folk songs, contemporary pieces, and covers with 2 to 6 players. Fees and contact details.",
-      "zh-Hant": "承接派對、典禮、祭典等活動的津輕三味線演出。從民謠到現代曲、翻奏曲，可依活動安排2～6人編制。費用與聯絡方式請見此頁。",
-      "zh-Hans": "承接派对、典礼、祭典等活动的津轻三味线演出。从民谣到现代曲、翻奏曲，可根据活动安排2～6人编制。费用与联系方式请见此页。",
+      "zh-Hant": "承接派對、典禮、祭典等活動的津輕三味線演出。從民謠到現代曲、流行歌曲改編，可依活動安排2至6人編制。費用與聯絡方式請見此頁。",
+      "zh-Hans": "承接派对、典礼、祭典等活动的津轻三味线演出。从民谣到现代曲、流行歌曲改编，可根据活动安排2至6人编制。费用与联系方式请见此页。",
     },
   },
 ];
