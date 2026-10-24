@@ -29,7 +29,7 @@ const NotFound = () => {
 
     useEffect(() => {
         const previousTitle = document.title;
-        document.title = `${t("notFound.heading")} | ${t("common.siteName")}`;
+        document.title = `${t("notFound.heading")} | ${t("common.titleSuffix")}`;
         const robots = document.createElement("meta");
         robots.name = "robots";
         robots.content = "noindex";

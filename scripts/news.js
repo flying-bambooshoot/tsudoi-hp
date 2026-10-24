@@ -4,7 +4,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { SITE_NAME, languages } = require("./pages");
+const { TITLE_SUFFIX, languages } = require("./pages");
 
 const newsDir = path.join(__dirname, "..", "src", "content", "news");
 
@@ -32,7 +32,7 @@ const newsPages = () =>
       const local = (code) => ({ ...entry.ja, ...withoutEmpty(entry[code]) });
       return {
         path: `/news/${slug}`,
-        title: Object.fromEntries(languages.map(({ code }) => [code, `${local(code).title} | ${SITE_NAME[code]}`])),
+        title: Object.fromEntries(languages.map(({ code }) => [code, `${local(code).title} | ${TITLE_SUFFIX[code]}`])),
         description: Object.fromEntries(languages.map(({ code }) => [code, summarize(local(code).contents, code)])),
         // 記事の写真（例: /img/2027_narita.webp）。無い記事は空文字
         image: entry.ja.img || "",

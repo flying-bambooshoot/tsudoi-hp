@@ -27,7 +27,7 @@ const NewsArticle = () => {
     useEffect(() => {
         if (!item) return undefined;
         const previous = document.title;
-        document.title = `${item.title} | ${t("common.siteName")}`;
+        document.title = `${item.title} | ${t("common.titleSuffix")}`;
         return () => {
             document.title = previous;
         };

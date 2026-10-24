@@ -19,13 +19,18 @@ const SITE_NAME = {
   "zh-Hans": "津轻三味线 集-tsudoi-",
 };
 
+// TOP 以外のページのタイトルの末尾（「NEWS | 〜」の 〜 の部分）。英語はタイトルが長くなりやすく、
+// 検索結果で途中で切れるので短くする（SITE_REVIEW_2026-10 の R-34）。TOP のタイトルは SITE_NAME のまま。
+// 画面側（記事・404 のページ）で付けるタイトルは src/locales の common.titleSuffix で、同じ値にする
+const TITLE_SUFFIX = { ...SITE_NAME, en: "Tsudoi" };
+
 const pages = [
   {
     path: "/",
     title: SITE_NAME,
     description: {
       ja: "パーティー・式典・お祭りなど、さまざまなイベントでの津軽三味線の演奏を承ります。編成や曲目は、イベントに合わせてご相談ください。中原正人、川﨑愛実、藤﨑健太、野口新、枩原茜、須賀行亮の 6 名で 2021 年に結成。",
-      en: "We perform Tsugaru shamisen at parties, ceremonies, festivals, and other events. Ensemble size and repertoire can be tailored to your event. Formed in 2021 by six members: Masato Nakahara, Manami Kawasaki, Kenta Fujisaki, Arata Noguchi, Akane Matsubara, and Kosuke Suga.",
+      en: "Tsudoi, a six-member Tsugaru shamisen ensemble, performs at parties, ceremonies, festivals, and other events in Japan. Ensemble size and repertoire can be tailored to your event.",
       "zh-Hant": "承接派對、典禮、祭典等各類活動的津輕三味線演出。演出編制與曲目可配合活動需求調整。由中原正人、川﨑愛實、藤﨑健太、野口新、枩原茜、須賀行亮 6 人於 2021 年組成。",
       "zh-Hans": "承接派对、典礼、祭典等各类活动的津轻三味线演出。演出编制与曲目可根据活动需求调整。由中原正人、川﨑爱实、藤﨑健太、野口新、枩原茜、须贺行亮 6 人于 2021 年组成。",
     },
@@ -33,10 +38,10 @@ const pages = [
   {
     path: "/news",
     title: {
-      ja: `NEWS | ${SITE_NAME.ja}`,
-      en: `News | ${SITE_NAME.en}`,
-      "zh-Hant": `最新消息 | ${SITE_NAME["zh-Hant"]}`,
-      "zh-Hans": `最新消息 | ${SITE_NAME["zh-Hans"]}`,
+      ja: `NEWS | ${TITLE_SUFFIX.ja}`,
+      en: `News | ${TITLE_SUFFIX.en}`,
+      "zh-Hant": `最新消息 | ${TITLE_SUFFIX["zh-Hant"]}`,
+      "zh-Hans": `最新消息 | ${TITLE_SUFFIX["zh-Hans"]}`,
     },
     description: {
       ja: "津軽三味線 集-tsudoi- の最新情報。大会での受賞結果や、イベント・ステージへの出演情報をお知らせします。",
@@ -48,10 +53,10 @@ const pages = [
   {
     path: "/introduction",
     title: {
-      ja: `グループ紹介・メンバー | ${SITE_NAME.ja}`,
-      en: `About & Members | ${SITE_NAME.en}`,
-      "zh-Hant": `團體介紹・成員 | ${SITE_NAME["zh-Hant"]}`,
-      "zh-Hans": `团体介绍・成员 | ${SITE_NAME["zh-Hans"]}`,
+      ja: `グループ紹介・メンバー | ${TITLE_SUFFIX.ja}`,
+      en: `About & Members | ${TITLE_SUFFIX.en}`,
+      "zh-Hant": `團體介紹與成員 | ${TITLE_SUFFIX["zh-Hant"]}`,
+      "zh-Hans": `团体介绍与成员 | ${TITLE_SUFFIX["zh-Hans"]}`,
     },
     description: {
       ja: "2021年結成、流派に属さない津軽三味線6人組「集-tsudoi-」の紹介。津軽三味線世界大会、津軽三味線コンクール全国大会など受賞歴多数。メンバーのプロフィールを掲載しています。",
@@ -63,10 +68,10 @@ const pages = [
   {
     path: "/contact",
     title: {
-      ja: `演奏のご依頼・お問い合わせ | ${SITE_NAME.ja}`,
-      en: `Book a Performance | ${SITE_NAME.en}`,
-      "zh-Hant": `演出邀約・聯絡我們 | ${SITE_NAME["zh-Hant"]}`,
-      "zh-Hans": `演出邀请・联系我们 | ${SITE_NAME["zh-Hans"]}`,
+      ja: `演奏のご依頼・お問い合わせ | ${TITLE_SUFFIX.ja}`,
+      en: `Book a Performance | ${TITLE_SUFFIX.en}`,
+      "zh-Hant": `演出邀約／聯絡我們 | ${TITLE_SUFFIX["zh-Hant"]}`,
+      "zh-Hans": `演出邀请／联系我们 | ${TITLE_SUFFIX["zh-Hans"]}`,
     },
     description: {
       ja: "パーティ・式典・お祭りなどでの津軽三味線の演奏を承ります。民謡から現代曲・カバーまで、2〜6人の編成でイベントに合わせてご相談可能です。料金・連絡先はこちら。",
@@ -77,4 +82,4 @@ const pages = [
   },
 ];
 
-module.exports = { SITE_URL, SITE_NAME, languages, pages };
+module.exports = { SITE_URL, SITE_NAME, TITLE_SUFFIX, languages, pages };
