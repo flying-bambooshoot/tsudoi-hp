@@ -5,11 +5,12 @@ import EmailIcon from '@mui/icons-material/Email';
 import Instagram from "../resources/img/Instagram_Glyph_White.png";
 import X from "../resources/img/logo-white.png";
 import YouTube from "../resources/img/youtube.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { trackEvent } from "../analytics";
 import { useI18n } from "../i18n";
 import { NewTabNote } from "./VisuallyHidden";
 import site from "../data/site.json";
+import { LANGUAGES, splitPath, localizePath } from "../i18n/languages";
 
 const footer = {
     width: "auto",
@@ -103,6 +104,46 @@ const link = {
 
 const blank = {}
 
+// 各言語版へのリンク（SITE_REVIEW_2026-10 の R-41）。今見ているページの別の言語版へ移る。
+// ヘッダーの言語切り替えはプルダウン（select）で、検索エンジンがリンクとしてたどれないため、
+// ふつうのリンク（a href・hreflang）も置いておく。今の言語は白い文字にし、リンクにはしない
+const languageLinks = {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "0 14px",
+    marginTop: "6px",
+    fontSize: "12px",
+    fontWeight: "normal",
+    letterSpacing: "0.04em",
+}
+
+const languageLink = {
+    color: "#aaaaaa",
+    textDecoration: "none",
+}
+
+const currentLanguage = {
+    color: "white",
+}
+
+const LanguageLinks = () => {
+    const { language, t } = useI18n();
+    const { path } = splitPath(useLocation().pathname);
+    return (
+        <nav style={languageLinks} aria-label={t("common.languageMenu")}>
+            {LANGUAGES.map((lang) =>
+                lang.code === language.code ? (
+                    <span key={lang.code} lang={lang.code} style={currentLanguage} aria-current="true">{lang.label}</span>
+                ) : (
+                    <Link key={lang.code} to={localizePath(lang, path)} hrefLang={lang.code} lang={lang.code} style={languageLink}>
+                        {lang.label}
+                    </Link>
+                )
+            )}
+        </nav>
+    );
+};
+
 const Footer = () => {
     const isMobile = useMedia('(max-width: 1000px)');
     const { t, path } = useI18n();
@@ -139,6 +180,7 @@ const Footer = () => {
                         </div>
                         <button type="button" style={emailButton} onClick={handleCopyClick}>{site.email}</button>
                     </div>
+                    <LanguageLinks />
                 </div>
                 <div style={isMobile ? phoneIcons : icons}>
                     <a href={site.sns.x} target='_blank' rel="noopener noreferrer" style={snsLink}>
