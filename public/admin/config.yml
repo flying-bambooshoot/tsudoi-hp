@@ -87,13 +87,13 @@ collections:
         i18n: false
       - name: category
         label: 記事の種類
-        hint: 「出演」にすると、INTRODUCTION の「出演実績」に載ります（出演の予告の記事も「出演」）
+        hint: 毎回選んでください（初期値はありません）。「出演」にすると、INTRODUCTION の「出演実績」に載ります（出演の予告の記事も「出演」）。「出演」のときは、下の「出演の場面」と「出演実績に載せる名前」も必ず入れてください
         widget: select
         options:
           - { label: 出演, value: performance }
           - { label: 受賞, value: award }
           - { label: お知らせ, value: info }
-        default: performance
+        # 以前は「出演」が初期値で、受賞やお知らせの記事で変え忘れやすかった（SITE_REVIEW_2026-10 の R-59）
         i18n: false
       - name: scene
         label: 出演の場面

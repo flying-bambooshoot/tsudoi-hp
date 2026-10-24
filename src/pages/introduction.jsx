@@ -167,21 +167,6 @@ const Intro = () => {
                         <div className='fadeUp'>
                             <div style={{display: "flex"}}>
                                 <div style={{margin: "10px 0 10px 0", paddingRight: "4px"}}>
-                                    <p style={{margin: 0}}>{t("introduction.members.suga")}</p>
-                                </div>
-                                <div style={{margin: "12px 0 0 6px"}}>
-                                    <a href="https://x.com/Shamisen_SugA" target='_blank' rel="noopener noreferrer">
-                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.suga") })} style={snsIcon} /><NewTabNote />
-                                    </a>
-                                </div>
-                            </div>
-                            <img src={suga} {...responsive("member/member_suga.webp", suga, PHOTO_SIZES)} alt={t("introduction.members.suga")} style={img} loading="lazy" decoding="async" />
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
-                        <div className='fadeUp'>
-                            <div style={{display: "flex"}}>
-                                <div style={{margin: "10px 0 10px 0", paddingRight: "4px"}}>
                                     <p style={{margin: 0}}>{t("introduction.members.matsubara")}</p>
                                 </div>
                                 {/* <div style={{margin: "12px 0 0 6px"}}>
@@ -191,6 +176,21 @@ const Intro = () => {
                                 </div> */}
                             </div>
                             <img src={matsubara} {...responsive("member/member_matsubara.webp", matsubara, PHOTO_SIZES)} alt={t("introduction.members.matsubara")} style={img} loading="lazy" decoding="async" />
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>
+                        <div className='fadeUp'>
+                            <div style={{display: "flex"}}>
+                                <div style={{margin: "10px 0 10px 0", paddingRight: "4px"}}>
+                                    <p style={{margin: 0}}>{t("introduction.members.suga")}</p>
+                                </div>
+                                <div style={{margin: "12px 0 0 6px"}}>
+                                    <a href="https://x.com/Shamisen_SugA" target='_blank' rel="noopener noreferrer">
+                                        <img src={X} alt={t("introduction.xAccountAlt", { name: t("introduction.members.suga") })} style={snsIcon} /><NewTabNote />
+                                    </a>
+                                </div>
+                            </div>
+                            <img src={suga} {...responsive("member/member_suga.webp", suga, PHOTO_SIZES)} alt={t("introduction.members.suga")} style={img} loading="lazy" decoding="async" />
                         </div>
                     </Grid>
                 </Grid>

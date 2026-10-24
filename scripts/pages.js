@@ -24,7 +24,7 @@ const pages = [
     path: "/",
     title: SITE_NAME,
     description: {
-      ja: "パーティ・式典・お祭りなど、さまざまなイベントでの津軽三味線の演奏を承ります。編成や曲目は、イベントに合わせてご相談ください。中原正人、川﨑愛実、藤﨑健太、野口新、枩原茜、須賀行亮の 6 名で 2021 年に結成。",
+      ja: "パーティー・式典・お祭りなど、さまざまなイベントでの津軽三味線の演奏を承ります。編成や曲目は、イベントに合わせてご相談ください。中原正人、川﨑愛実、藤﨑健太、野口新、枩原茜、須賀行亮の 6 名で 2021 年に結成。",
       en: "We perform Tsugaru shamisen at parties, ceremonies, festivals, and other events. Ensemble size and repertoire can be tailored to your event. Formed in 2021 by six members: Masato Nakahara, Manami Kawasaki, Kenta Fujisaki, Arata Noguchi, Akane Matsubara, and Kosuke Suga.",
       "zh-Hant": "承接派對、典禮、祭典等各類活動的津輕三味線演出。演出編制與曲目可配合活動需求調整。由中原正人、川﨑愛實、藤﨑健太、野口新、枩原茜、須賀行亮 6 人於 2021 年組成。",
       "zh-Hans": "承接派对、典礼、祭典等各类活动的津轻三味线演出。演出编制与曲目可根据活动需求调整。由中原正人、川﨑爱实、藤﨑健太、野口新、枩原茜、须贺行亮 6 人于 2021 年组成。",
