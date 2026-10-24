@@ -111,18 +111,23 @@ const languageLinks = {
     display: "flex",
     flexWrap: "wrap",
     gap: "0 14px",
-    marginTop: "6px",
+    // 文字の上下に押せる範囲を 6px ずつ取る（R-48 と同じ考え方）。その分だけ上の余白を詰める
+    marginTop: "0px",
     fontSize: "12px",
     fontWeight: "normal",
     letterSpacing: "0.04em",
 }
 
 const languageLink = {
+    display: "inline-block",
+    padding: "6px 0",
     color: "#aaaaaa",
     textDecoration: "none",
 }
 
 const currentLanguage = {
+    display: "inline-block",
+    padding: "6px 0",
     color: "white",
 }
 
