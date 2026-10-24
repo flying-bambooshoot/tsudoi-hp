@@ -1,4 +1,7 @@
 {
+  "bookingCta": {
+    "lead": "We perform at parties, ceremonies, festivals, and other events. Feel free to contact us."
+  },
   "common": {
     "siteName": "Tsugaru Shamisen \"Tsudoi\"",
     "titleSuffix": "Tsudoi",
@@ -224,6 +227,7 @@
       "subject": "[Tsudoi website] Inquiry"
     },
     "contactHeading": "Contact",
+    "toForm": "Go to the contact form",
     "languageNote": "We can respond in English or Japanese.",
     "emailLabel": "Email: ",
     "analyticsHeading": "About Analytics",

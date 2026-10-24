@@ -10,6 +10,7 @@ import "../css/introduction.css"
 import { useI18n } from "../i18n";
 import Lines from "../components/Lines";
 import Works from "../components/Works";
+import BookingCta from "../components/BookingCta";
 import Subheading from "../components/Subheading";
 import { responsive } from "../responsiveImage";
 import { NewTabNote } from "../components/VisuallyHidden";
@@ -196,6 +197,7 @@ const Intro = () => {
                     </Grid>
                 </Grid>
                 </div>
+                <BookingCta location="introduction" />
             </main>
             </div>
             </div>
