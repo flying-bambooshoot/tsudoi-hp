@@ -125,6 +125,16 @@ const languageLink = {
     textDecoration: "none",
 }
 
+// プライバシーポリシーへのリンク（R-67）。言語のリンクと同じく小さく控えめにする
+const privacyLink = {
+    display: "inline-block",
+    padding: "6px 0",
+    fontSize: "12px",
+    fontWeight: "normal",
+    letterSpacing: "0.04em",
+    color: "#aaaaaa",
+}
+
 const currentLanguage = {
     display: "inline-block",
     padding: "6px 0",
@@ -186,6 +196,7 @@ const Footer = () => {
                         <button type="button" style={emailButton} onClick={handleCopyClick}>{site.email}</button>
                     </div>
                     <LanguageLinks />
+                    <Link to={path("/privacy")} style={privacyLink}>{t("privacy.link")}</Link>
                 </div>
                 <div style={isMobile ? phoneIcons : icons}>
                     <a href={site.sns.x} target='_blank' rel="noopener noreferrer" style={snsLink}>

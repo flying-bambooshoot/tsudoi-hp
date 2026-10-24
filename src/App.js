@@ -5,6 +5,7 @@ import News from "./pages/news.jsx";
 import NewsArticle from "./pages/newsArticle.jsx";
 import Intro from "./pages/introduction.jsx";
 import Contact from "./pages/contact.jsx";
+import Privacy from "./pages/privacy.jsx";
 import NotFound from "./pages/notFound.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import { LANGUAGES, splitPath } from "./i18n/languages";
@@ -18,6 +19,7 @@ const pages = [
   { path: "/news/:slug", element: <NewsArticle /> },
   { path: "/introduction", element: <Intro /> },
   { path: "/contact", element: <Contact /> },
+  { path: "/privacy", element: <Privacy /> },
 ];
 
 // どのページにも当てはまらない URL（例: /abc、/en/abc）。URL の先頭（/en など）から言語を決めて表示する

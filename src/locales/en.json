@@ -237,5 +237,72 @@
     "analyticsLinkText": "Google's Privacy & Terms",
     "analyticsLinkUrl": "https://policies.google.com/technologies/partner-sites?hl=en",
     "analyticsAfterLink": "."
+  },
+  "privacy": {
+    "heading": "Privacy Policy",
+    "intro": "Tsugaru Shamisen Tsudoi (\"we\" or \"us\") handles personal information received through this website (tsudoi-shamisen.com) as follows. This English version is provided for reference; if there is any difference, the Japanese version prevails.",
+    "sections": [
+      {
+        "title": "1. Operator",
+        "body": "Tsugaru Shamisen Tsudoi\nRepresentative: Nakahara Masato\nContact: tsudoi.shamisen@gmail.com\nWe will provide our address without delay upon request."
+      },
+      {
+        "title": "2. Information We Collect",
+        "items": [
+          "Information entered in the contact form (name, company or organization, email address, phone number, event date and venue, details of your request, etc.)",
+          "Your email address and message when you contact us by email",
+          "Website usage data for analytics (pages viewed, type of device and browser, etc.), collected using cookies"
+        ]
+      },
+      {
+        "title": "3. Purposes of Use",
+        "items": [
+          "To answer inquiries and to contact you and provide quotes regarding performance requests",
+          "To understand and improve how the website is used"
+        ]
+      },
+      {
+        "title": "4. Disclosure to Third Parties",
+        "body": "Except as permitted by law, such as when required by laws and regulations, we do not provide personal data to third parties without your consent. For providers located outside Japan, see \"5. External Services\" below."
+      },
+      {
+        "title": "5. External Services",
+        "body": "This website uses the following external services. All are provided by companies in the United States, and information is stored and processed outside Japan, including in the United States.",
+        "items": [
+          "Formspree (Formspree, Inc., United States): used to send the contact form. Your entries reach our email address via Formspree's servers. We ask for your consent to this when you submit the form. Formspree's privacy policy: https://formspree.io/legal/privacy-policy/",
+          "Google Analytics (Google LLC, United States): used to understand how the website is used. It collects browsing data using cookies, but this does not include information that directly identifies you, such as your name, and we do not link it with your inquiries. For how Google uses this data, see \"How Google uses information from sites or apps that use our services\" (https://policies.google.com/technologies/partner-sites?hl=en ). To opt out, use the Google Analytics Opt-out Browser Add-on (https://tools.google.com/dlpage/gaoptout?hl=en ).",
+          "YouTube (Google LLC, United States): used to play videos on the home page. Videos are loaded only when you press the play button.",
+          "For the personal information protection system of the United States, see the page of Japan's Personal Information Protection Commission (https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/ , in Japanese)."
+        ]
+      },
+      {
+        "title": "6. Retention and Deletion",
+        "body": "We keep the contents of inquiries for three years from our last exchange and then delete them."
+      },
+      {
+        "title": "7. Security Measures",
+        "body": "To prevent the leakage of personal information, we take the following measures.",
+        "items": [
+          "Devices used to handle personal information have antivirus software installed.",
+          "Understanding the external environment: inquiries are stored in an email service provided by a U.S. company (Google LLC). We take security measures based on an understanding of the personal information protection system of the United States."
+        ]
+      },
+      {
+        "title": "8. Requests for Disclosure, Correction, Deletion, etc.",
+        "body": "If you wish us to notify you of the purposes of use, disclose, correct, add to, or delete your personal information, stop using or erase it, or stop providing it to third parties, please email us at the contact address above. After confirming your identity, we will respond without delay. No fee is charged."
+      },
+      {
+        "title": "9. Inquiries and Complaints",
+        "body": "Please send any inquiries or complaints regarding the handling of personal information to the contact address above."
+      },
+      {
+        "title": "10. Revisions",
+        "body": "We may revise this policy in response to changes in laws and regulations or for other reasons. Any revisions will be announced on this page."
+      }
+    ],
+    "established": "Established: October 2026",
+    "link": "Privacy Policy",
+    "consentBefore": "I agree to the ",
+    "consentAfter": ""
   }
 }
