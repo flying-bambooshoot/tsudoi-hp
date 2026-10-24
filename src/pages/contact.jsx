@@ -53,6 +53,19 @@ const jumpButton = {
     cursor: "pointer",
 }
 
+// 返信の目安（SITE_REVIEW_2026-10 の R-08）。フォームの見出しのすぐ下に置く
+const replyNote = {
+    margin: "0 0 16px",
+}
+
+// 代表者と活動拠点（R-15）。目立ちすぎないよう、連絡先の下に小さめの文字で置く
+const organizer = {
+    margin: "8px 0 0",
+    fontSize: "13px",
+    fontWeight: "normal",
+    color: "#555555",
+}
+
 const imgContainer = {
     aspectRatio: "16 / 9",
 }
@@ -146,6 +159,7 @@ const Contact = () => {
                         <div style={section}>
                             <h2 style={sectionHeading} id="contact-form" tabIndex={-1}>{t("contact.formHeading")}</h2>
                         </div>
+                        <p style={replyNote}>{t("contact.replyNote")}</p>
                         <ContactForm />
                     </div>
                     <div>
@@ -154,6 +168,7 @@ const Contact = () => {
                         </div>
                         {languageNote && <p>{languageNote}</p>}
                         <p>{t("contact.emailLabel")}<a href={`mailto:${site.email}`} onClick={() => trackEvent("contact_email_click", { location: "contact_page" })}>{site.email}</a></p>
+                        <p style={organizer}>{t("contact.organizer")}</p>
                     </div>
                     {/* アクセス解析の表記は注記として小さく表示する */}
                     <div style={note}>
