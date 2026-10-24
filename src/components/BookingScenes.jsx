@@ -62,7 +62,8 @@ const name = {
 
 const text = {
     margin: 0,
-    fontSize: "13px",
+    // 本文は 14px 以上にする（SITE_REVIEW_2026-10 の R-51。以前は 13px）
+    fontSize: "14px",
     lineHeight: 1.7,
 }
 

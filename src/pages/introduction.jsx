@@ -10,6 +10,7 @@ import "../css/introduction.css"
 import { useI18n } from "../i18n";
 import Lines from "../components/Lines";
 import Works from "../components/Works";
+import Subheading from "../components/Subheading";
 import { responsive } from "../responsiveImage";
 import { NewTabNote } from "../components/VisuallyHidden";
 import {
@@ -66,7 +67,7 @@ const Intro = () => {
             <div className="pageContent">
             <main className={isMobile ? "phMain" : "main"}>
                 <section className="title">
-                    <h1 className="h2">INTRODUCTION/MEMBER</h1>
+                    <h1 className="h2">INTRODUCTION/MEMBER<Subheading name="introduction" /></h1>
                 </section>
                 <div style={{padding: "20px 0"}}>
                 <Grid container spacing={2} style={{margin: "auto"}}>
@@ -103,7 +104,7 @@ const Intro = () => {
                 </Grid>
                 <Works />
                 <div style={{padding: "42px 8px 0 8px"}}>
-                    <h2 style={{borderBottom: "solid #cccccc 1px", fontSize: "18px", margin: "1em 0 0"}}>MEMBER</h2>
+                    <h2 style={{borderBottom: "solid #cccccc 1px", fontSize: "18px", margin: "1em 0 0"}}>MEMBER<Subheading name="member" /></h2>
                 </div>
                 <Grid container spacing={2} style={{margin: "auto"}}>
                     <Grid item xs={12} md={6} style={{display: "flex", alignItems: "flex-end"}}>

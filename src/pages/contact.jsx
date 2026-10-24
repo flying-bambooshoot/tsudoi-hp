@@ -9,6 +9,7 @@ import ContactForm from "../components/ContactForm";
 import Faq from "../components/Faq";
 import { useI18n } from "../i18n";
 import Lines from "../components/Lines";
+import Subheading from "../components/Subheading";
 import { responsive } from "../responsiveImage";
 import { NewTabNote } from "../components/VisuallyHidden";
 import site from "../data/site.json";
@@ -63,7 +64,7 @@ const Contact = () => {
             <div className="pageContent">
             <main className={isMobile ? "phMain" : "main"}>
                 <section className="title">
-                    <h1 className="h2">CONTACT US</h1>
+                    <h1 className="h2">CONTACT US<Subheading name="contact" /></h1>
                 </section>
                 <div style={{padding: "12px 8px"}}>
                     <div style={{margin: "12px 0"}}>

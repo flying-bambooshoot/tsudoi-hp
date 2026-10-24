@@ -1,4 +1,12 @@
 {
+  "headings": {
+    "home": "ホーム",
+    "news": "お知らせ",
+    "gallery": "ギャラリー",
+    "introduction": "グループ紹介・メンバー",
+    "member": "メンバー",
+    "contact": "演奏のご依頼・お問い合わせ"
+  },
   "common": {
     "siteName": "津軽三味線 集-tsudoi-",
     "titleSuffix": "津軽三味線 集-tsudoi-",

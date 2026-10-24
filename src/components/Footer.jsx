@@ -59,8 +59,17 @@ const emailButton = {
     cursor: "pointer",
 }
 const snsIcon = {
-    margin: "0 24px 0 0",
+    display: "block",
     height: "26px",
+}
+
+// SNS のアイコンのリンク。押せる範囲を周りに 9px 広げ（約 44px 角）、その分だけ外側を詰めて、
+// アイコンの位置と間隔（24px）は以前と同じにする（SITE_REVIEW_2026-10 の R-48）
+const snsLink = {
+    display: "inline-block",
+    verticalAlign: "middle",
+    padding: "9px",
+    margin: "-9px 15px -9px -9px",
 }
 const icons = {
     textAlign: "right",
@@ -77,6 +86,8 @@ const contactInfo = {
 }
 
 const linkWord = {
+    display: "inline-block",
+    padding: "8px 0",
     color: "white",
     fontSize: "14px",
     letterSpacing: "0.06em",
@@ -84,8 +95,10 @@ const linkWord = {
     fontFamily: "'Helvetica', 'Helvetica Neue', 'YakuHanJP', '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic ProN', 'Osaka', 'ＭＳ Ｐゴシック', sans-serif",
 }
 
+// スマホのページへのリンク。押せる範囲を上下に 8px 広げ（高さ約 36px）、その分だけ間隔を詰めて、
+// 見た目の位置は以前と同じにする（SITE_REVIEW_2026-10 の R-48）
 const link = {
-    paddingBottom: "18px",
+    paddingBottom: "2px",
 }
 
 const blank = {}
@@ -105,7 +118,7 @@ const Footer = () => {
     return (
         <footer style={isMobile ? phoneFooter : footer}>
                 {/* スマホだけに出すページへのリンク。読み上げソフトにメニューと伝わるよう nav にする */}
-                <nav className={Com.sp} style={{padding: "24px 0 24px 0"}} aria-label={t("footer.pages")}>
+                <nav className={Com.sp} style={{padding: "16px 0 16px 0"}} aria-label={t("footer.pages")}>
                     <div style={link}>
                         <Link style={linkWord} key='HOME' to={path("/")}>HOME</Link>
                     </div>
@@ -128,13 +141,13 @@ const Footer = () => {
                     </div>
                 </div>
                 <div style={isMobile ? phoneIcons : icons}>
-                    <a href={site.sns.x} target='_blank' rel="noopener noreferrer">
+                    <a href={site.sns.x} target='_blank' rel="noopener noreferrer" style={snsLink}>
                         <img src={X} alt="X" style={snsIcon} loading="lazy" decoding="async" /><NewTabNote />
                     </a>
-                    <a href={site.sns.instagram} target='_blank' rel="noopener noreferrer">
+                    <a href={site.sns.instagram} target='_blank' rel="noopener noreferrer" style={snsLink}>
                         <img src={Instagram} alt="Instagram" style={snsIcon} loading="lazy" decoding="async" /><NewTabNote />
                     </a>
-                    <a href={site.sns.youtube} target='_blank' rel="noopener noreferrer">
+                    <a href={site.sns.youtube} target='_blank' rel="noopener noreferrer" style={snsLink}>
                         <img src={YouTube} alt="YouTube" style={snsIcon} loading="lazy" decoding="async" /><NewTabNote />
                     </a>
                 </div>
