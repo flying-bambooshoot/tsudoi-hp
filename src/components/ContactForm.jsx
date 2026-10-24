@@ -95,7 +95,8 @@ const message = {
 
 const ContactForm = () => {
     const isMobile = useMedia('(max-width: 1000px)');
-    const { t, language, path } = useI18n();
+    // 同意の文の前後（consentBefore・consentAfter）は言語によって空なので、日本語で補わない tOptional で読む
+    const { t, tOptional, language, path } = useI18n();
     // idle: 入力中 / sending: 送信中 / success: 送信完了 / error: 送信失敗
     const [status, setStatus] = useState("idle");
     // 完了メッセージに表示する、入力されたメールアドレス（打ち間違いに気づいてもらうため）
@@ -214,9 +215,9 @@ const ContactForm = () => {
             <div style={consentField}>
                 <input type="checkbox" id="contact-consent" name="privacy_consent" value="agreed" required style={consentBox} />
                 <label htmlFor="contact-consent">
-                    {t("privacy.consentBefore")}
+                    {tOptional("privacy.consentBefore")}
                     <Link to={path("/privacy")} target="_blank" rel="noopener">{t("privacy.link")}<NewTabNote /></Link>
-                    {t("privacy.consentAfter")}
+                    {tOptional("privacy.consentAfter")}
                 </label>
                 {required}
             </div>
