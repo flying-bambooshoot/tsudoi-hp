@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import NewsItem from "../components/NewsItem";
 import NotFound from "./notFound";
 import { useI18n, useNews } from "../i18n";
+import BookingCta from "../components/BookingCta";
 
 // NEWS の記事 1 件のページ（/news/<slug>、例: /news/2026-10-06）。
 // SNS で共有したときのカードや検索結果のタイトルは、scripts/postbuild.js が記事ごとに HTML に書き込む
@@ -52,6 +53,7 @@ const NewsArticle = () => {
                         <article>
                             <NewsItem item={item} />
                         </article>
+                        <BookingCta location="news_article" />
                         <Link to={path("/news")} style={backLink}>{t("news.backToList")}</Link>
                     </main>
                 </div>

@@ -9,6 +9,7 @@ import ContactForm from "../components/ContactForm";
 import Faq from "../components/Faq";
 import { useI18n } from "../i18n";
 import Lines from "../components/Lines";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Subheading from "../components/Subheading";
 import { responsive } from "../responsiveImage";
 import { NewTabNote } from "../components/VisuallyHidden";
@@ -28,6 +29,29 @@ const img = {
 
 // 上の写真 4 枚の表示の幅（2 列。PC は本文の幅が決まっているので約 505px）
 const PHOTO_SIZES = "(min-width: 1100px) 520px, 50vw";
+
+// ページの上の方に置く「お問い合わせフォームへ」のボタン（SITE_REVIEW_2026-10 の R-16）。
+// フォームはページの下の方（スマホで上から約 2,850px）にあるため。
+// URL の # は使わずにスクロールする（# を付けると、ページ移動として扱われて先頭に戻ってしまうため）
+const jumpArea = {
+    display: "flex",
+    justifyContent: "flex-end",
+    margin: "4px 0 0",
+}
+
+const jumpButton = {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "6px",
+    padding: "10px 16px",
+    border: "solid rgb(22,22,22) 1px",
+    backgroundColor: "white",
+    color: "rgb(22,22,22)",
+    font: "inherit",
+    fontSize: "14px",
+    letterSpacing: "0.04em",
+    cursor: "pointer",
+}
 
 const imgContainer = {
     aspectRatio: "16 / 9",
@@ -67,6 +91,20 @@ const Contact = () => {
                     <h1 className="h2">CONTACT US<Subheading name="contact" /></h1>
                 </section>
                 <div style={{padding: "12px 8px"}}>
+                    <div style={jumpArea}>
+                        <button
+                            type="button"
+                            style={jumpButton}
+                            onClick={() => {
+                                const form = document.getElementById("contact-form");
+                                form.scrollIntoView({ behavior: "smooth", block: "start" });
+                                form.focus({ preventScroll: true });
+                            }}
+                        >
+                            {t("contact.toForm")}
+                            <ArrowDownwardIcon style={{ fontSize: 16 }} aria-hidden="true" />
+                        </button>
+                    </div>
                     <div style={{margin: "12px 0"}}>
                     <Grid container spacing={isMobile ? 1 : 2}>
                         <Grid item xs={6} style={imgContainer}><img src={school} {...responsive("homeGallery/school.webp", school, PHOTO_SIZES)} alt={t("photos.school")} style={img} /></Grid>
@@ -106,7 +144,7 @@ const Contact = () => {
                     </div>
                     <div>
                         <div style={section}>
-                            <h2 style={sectionHeading}>{t("contact.formHeading")}</h2>
+                            <h2 style={sectionHeading} id="contact-form" tabIndex={-1}>{t("contact.formHeading")}</h2>
                         </div>
                         <ContactForm />
                     </div>
