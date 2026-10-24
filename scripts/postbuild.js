@@ -88,10 +88,18 @@ const hreflangLinks = (page) =>
 // ロゴは中央の 600×360 に収めてあり、正方形に切り抜かれる表示でも欠けない。
 const OGP_IMAGE = { url: `${SITE_URL}/ogp.png`, width: 1200, height: 630 };
 const OGP_LOCALES = { ja: "ja_JP", en: "en_US", "zh-Hant": "zh_TW", "zh-Hans": "zh_CN" };
-// NEWS の記事のページは、記事の写真があればそれをカードの画像にする（大きさは記事ごとに違うので書かない）
+// NEWS の記事のページは、記事の写真から作ったカード用の画像（1200×630。下の処理でビルドのときに作る）を使う。
+// 以前は元の写真をそのまま使っていたため、縦長の写真（900×1275 など）は SNS のカードで大きく切り取られていた
+// （SITE_REVIEW_2026-10 の R-38）。写真のない記事は共通の画像
+const OGP_SIZE = { width: 1200, height: 630 };
+const ogpArticleImagePath = (img) => img.replace(/^\/img\//, "/img/ogp/").replace(/\.[^.]+$/, ".jpg");
 const ogpImageTags = (page) =>
   page.image
-    ? [["og:image", `${SITE_URL}${page.image}`]]
+    ? [
+        ["og:image", `${SITE_URL}${ogpArticleImagePath(page.image)}`],
+        ["og:image:width", OGP_SIZE.width],
+        ["og:image:height", OGP_SIZE.height],
+      ]
     : [
         ["og:image", OGP_IMAGE.url],
         ["og:image:width", OGP_IMAGE.width],
@@ -236,8 +244,24 @@ const thumbnailPath = (img) => img.replace(/^\/img\//, "/img/thumb/").replace(/\
     await sharp(source).resize(THUMB.width, THUMB.height, { fit: "cover" }).webp({ quality: THUMB.quality }).toFile(target);
   }
   console.log(`generated: NEWS の一覧のサムネイル ${images.length} 枚（build/img/thumb/）`);
+
+  // 記事の SNS 用の画像（1200×630）。写真全体を中央に収め（縦長の写真も切れない）、
+  // 余白には同じ写真を拡大してぼかし、暗くしたものを敷く
+  for (const img of images) {
+    const source = path.join(buildDir, img);
+    const target = path.join(buildDir, ogpArticleImagePath(img));
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    const background = await sharp(source)
+      .resize(OGP_SIZE.width, OGP_SIZE.height, { fit: "cover" })
+      .blur(40)
+      .modulate({ brightness: 0.45 })
+      .toBuffer();
+    const photo = await sharp(source).resize(OGP_SIZE.width, OGP_SIZE.height, { fit: "inside" }).toBuffer();
+    await sharp(background).composite([{ input: photo, gravity: "center" }]).jpeg({ quality: 82, mozjpeg: true }).toFile(target);
+  }
+  console.log(`generated: NEWS の記事の SNS 用の画像 ${images.length} 枚（build/img/ogp/）`);
 })().catch((error) => {
-  // サムネイルが作れないまま公開しないよう、ビルドを失敗させる
-  console.error("NEWS のサムネイルの作成に失敗しました:", error.message);
+  // サムネイルや SNS 用の画像が作れないまま公開しないよう、ビルドを失敗させる
+  console.error("NEWS のサムネイル・SNS 用の画像の作成に失敗しました:", error.message);
   process.exit(1);
 });
