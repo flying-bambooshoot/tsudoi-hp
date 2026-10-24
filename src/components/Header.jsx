@@ -64,7 +64,7 @@ const Header = () => {
                         </NavLink>
                     ))}
                 </nav>
-                <LanguageSwitcher style={{marginLeft: "16px", paddingRight: "12px"}} />
+                <LanguageSwitcher style={{marginLeft: "12px", marginRight: "8px"}} />
                 <div>
                     <TemporaryDrawer />
                 </div>
