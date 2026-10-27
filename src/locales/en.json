@@ -244,7 +244,7 @@
     "sections": [
       {
         "title": "1. Operator",
-        "body": "Tsugaru Shamisen Tsudoi\nRepresentative: Nakahara Masato\nContact: tsudoi.shamisen@gmail.com\nWe will provide our address without delay upon request."
+        "body": "Tsugaru Shamisen Tsudoi\nContact: tsudoi.shamisen@gmail.com\nWe will provide the name of our representative and our address without delay upon request."
       },
       {
         "title": "2. Information We Collect",
@@ -283,6 +283,7 @@
         "title": "7. Security Measures",
         "body": "To prevent the leakage of personal information, we take the following measures.",
         "items": [
+          "We have appointed a person responsible for the handling of personal data.",
           "Devices used to handle personal information have antivirus software installed.",
           "Understanding the external environment: inquiries are stored in an email service provided by a U.S. company (Google LLC). We take security measures based on an understanding of the personal information protection system of the United States."
         ]
