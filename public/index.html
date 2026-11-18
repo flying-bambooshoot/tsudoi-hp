@@ -12,9 +12,29 @@
     <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="theme-color" content="#161616">
-    <!-- Google アナリティクス（本番ドメインでのみ計測。ローカル開発時のアクセスは送信しない） -->
+    <!-- Google アナリティクス（本番ドメインでのみ計測。ローカル開発時のアクセスは送信しない）。
+         メンバーなど関係者の閲覧は数えない: https://tsudoi-shamisen.com/?tsudoi_internal=on を一度開くと、
+         そのブラウザに印が残り、以後は計測しない（?tsudoi_internal=off で元に戻る）。
+         印はブラウザごとなので、LINE や Instagram の中で開くブラウザは別に開く必要がある -->
     <script>
-      if (location.hostname === "tsudoi-shamisen.com") {
+      var excludedFromAnalytics = false;
+      try {
+        var internalParam = new URLSearchParams(location.search).get("tsudoi_internal");
+        if (internalParam === "on") localStorage.setItem("tsudoi_internal", "1");
+        if (internalParam === "off") localStorage.removeItem("tsudoi_internal");
+        if (internalParam !== null) {
+          // 印を付けたあとは URL から外す（そのまま共有されて、ほかの人まで数えなくならないように）
+          var cleanParams = new URLSearchParams(location.search);
+          cleanParams.delete("tsudoi_internal");
+          var cleanQuery = cleanParams.toString();
+          history.replaceState(null, "", location.pathname + (cleanQuery ? "?" + cleanQuery : "") + location.hash);
+          console.info(internalParam === "on" ? "このブラウザの閲覧は計測しません" : "このブラウザの閲覧を計測します");
+        }
+        excludedFromAnalytics = localStorage.getItem("tsudoi_internal") === "1";
+      } catch (e) {
+        // 保存できないブラウザ（プライベートモードの一部など）では、今までどおり計測する
+      }
+      if (location.hostname === "tsudoi-shamisen.com" && !excludedFromAnalytics) {
         var gaScript = document.createElement("script");
         gaScript.async = true;
         gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-RZGVEQ3RJN";
