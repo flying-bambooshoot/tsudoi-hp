@@ -1,0 +1,26 @@
+{
+  "/news": {
+    "ja": "NEWS",
+    "en": "News",
+    "zh-Hant": "最新消息",
+    "zh-Hans": "最新消息"
+  },
+  "/introduction": {
+    "ja": "グループ紹介・メンバー",
+    "en": "About & Members",
+    "zh-Hant": "團體介紹與成員",
+    "zh-Hans": "团体介绍与成员"
+  },
+  "/contact": {
+    "ja": "演奏のご依頼・お問い合わせ",
+    "en": "Book a Performance",
+    "zh-Hant": "演出邀約／聯絡我們",
+    "zh-Hans": "演出邀请／联系我们"
+  },
+  "/privacy": {
+    "ja": "プライバシーポリシー",
+    "en": "Privacy Policy",
+    "zh-Hant": "隱私權政策",
+    "zh-Hans": "隐私政策"
+  }
+}

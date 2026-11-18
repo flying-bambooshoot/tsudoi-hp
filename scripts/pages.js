@@ -1,5 +1,5 @@
 // サイトのページ一覧と、検索結果に表示されるタイトル・説明文の定義（言語別）。
-// ページを追加したら、src/App.js の pages と合わせてここにも追記する。
+// ページを追加したら、src/App.js の pages と合わせてここにも追記し、ページ名を src/data/pageTitles.json に足す。
 // （scripts/postbuild.js が、この一覧から言語別・ページ別の HTML と sitemap.xml を生成する）
 
 const SITE_URL = "https://tsudoi-shamisen.com";
@@ -24,6 +24,12 @@ const SITE_NAME = {
 // 画面側（記事・404 のページ）で付けるタイトルは src/locales の common.titleSuffix で、同じ値にする
 const TITLE_SUFFIX = { ...SITE_NAME, en: "Tsudoi" };
 
+// TOP 以外のページのタイトル（「NEWS | 津軽三味線 集-tsudoi-」）。ページ名は src/data/pageTitles.json にあり、
+// 画面側（src/components/PageTitle.jsx）も同じファイルを読んで、サイト内でページを移ったときにタブのタイトルを変える
+const pageTitles = require("../src/data/pageTitles.json");
+const titleOf = (pagePath) =>
+  Object.fromEntries(languages.map(({ code }) => [code, `${pageTitles[pagePath][code]} | ${TITLE_SUFFIX[code]}`]));
+
 const pages = [
   {
     path: "/",
@@ -37,12 +43,7 @@ const pages = [
   },
   {
     path: "/news",
-    title: {
-      ja: `NEWS | ${TITLE_SUFFIX.ja}`,
-      en: `News | ${TITLE_SUFFIX.en}`,
-      "zh-Hant": `最新消息 | ${TITLE_SUFFIX["zh-Hant"]}`,
-      "zh-Hans": `最新消息 | ${TITLE_SUFFIX["zh-Hans"]}`,
-    },
+    title: titleOf("/news"),
     description: {
       ja: "津軽三味線 集-tsudoi- の最新情報。大会での受賞結果や、イベント・ステージへの出演情報をお知らせします。",
       en: 'Latest news from Tsugaru Shamisen "Tsudoi": competition results and upcoming performances at events and stages.',
@@ -52,12 +53,7 @@ const pages = [
   },
   {
     path: "/introduction",
-    title: {
-      ja: `グループ紹介・メンバー | ${TITLE_SUFFIX.ja}`,
-      en: `About & Members | ${TITLE_SUFFIX.en}`,
-      "zh-Hant": `團體介紹與成員 | ${TITLE_SUFFIX["zh-Hant"]}`,
-      "zh-Hans": `团体介绍与成员 | ${TITLE_SUFFIX["zh-Hans"]}`,
-    },
+    title: titleOf("/introduction"),
     description: {
       ja: "2021年結成、流派に属さない津軽三味線6人組「集-tsudoi-」の紹介。津軽三味線世界大会、津軽三味線コンクール全国大会など受賞歴多数。メンバーのプロフィールを掲載しています。",
       en: 'About Tsugaru Shamisen "Tsudoi", a six-member ensemble formed in 2021. Winners of the Tsugaru Shamisen World Competition and the National Tsugaru Shamisen Concours. Meet the members.',
@@ -67,12 +63,7 @@ const pages = [
   },
   {
     path: "/contact",
-    title: {
-      ja: `演奏のご依頼・お問い合わせ | ${TITLE_SUFFIX.ja}`,
-      en: `Book a Performance | ${TITLE_SUFFIX.en}`,
-      "zh-Hant": `演出邀約／聯絡我們 | ${TITLE_SUFFIX["zh-Hant"]}`,
-      "zh-Hans": `演出邀请／联系我们 | ${TITLE_SUFFIX["zh-Hans"]}`,
-    },
+    title: titleOf("/contact"),
     description: {
       ja: "パーティー・式典・お祭りなどでの津軽三味線の演奏を承ります。民謡から現代曲・カバーまで、2〜6名の編成でイベントに合わせてご相談可能です。料金・連絡先はこちら。",
       en: "Book a live Tsugaru shamisen performance in Japan for parties, ceremonies, festivals, and corporate events. Folk songs, contemporary pieces, and covers with 2 to 6 players. Fees and contact details.",
@@ -82,12 +73,7 @@ const pages = [
   },
   {
     path: "/privacy",
-    title: {
-      ja: `プライバシーポリシー | ${TITLE_SUFFIX.ja}`,
-      en: `Privacy Policy | ${TITLE_SUFFIX.en}`,
-      "zh-Hant": `隱私權政策 | ${TITLE_SUFFIX["zh-Hant"]}`,
-      "zh-Hans": `隐私政策 | ${TITLE_SUFFIX["zh-Hans"]}`,
-    },
+    title: titleOf("/privacy"),
     description: {
       ja: "津軽三味線 集-tsudoi- のプライバシーポリシー。お問い合わせフォームで預かる情報の取り扱い、利用している外部サービス（Formspree・Google アナリティクス・YouTube）について。",
       en: "Privacy policy of Tsugaru Shamisen Tsudoi: how we handle information from the contact form and the external services we use (Formspree, Google Analytics, YouTube).",

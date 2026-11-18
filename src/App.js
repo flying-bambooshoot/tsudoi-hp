@@ -8,6 +8,7 @@ import Contact from "./pages/contact.jsx";
 import Privacy from "./pages/privacy.jsx";
 import NotFound from "./pages/notFound.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import PageTitle from "./components/PageTitle.jsx";
 import { LANGUAGES, splitPath } from "./i18n/languages";
 import { LanguageProvider } from "./i18n";
 
@@ -42,7 +43,13 @@ const App = () => {
           <Route
             key={language.code + page.path}
             path={page.path === "/" ? language.prefix || "/" : language.prefix + page.path}
-            element={<LanguageProvider language={language}>{page.element}</LanguageProvider>}
+            element={
+              <LanguageProvider language={language}>
+                {/* サイト内でページを移ったときに、タブのタイトル（GA4 の page_title）を変える */}
+                <PageTitle path={page.path} />
+                {page.element}
+              </LanguageProvider>
+            }
           />
         ))
       )}
